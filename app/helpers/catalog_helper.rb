@@ -20,7 +20,7 @@ module CatalogHelper
     truncate(
         options[:value].join(I18n.t('support.array.two_words_connector')),
         length: INDEX_TRUNCATION_VALUE,
-        omission: I18n.t('meta.search.index.truncated_field')
+        omission: I18n.t('search.index.truncated_field')
     )
   end
 
