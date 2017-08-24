@@ -3,8 +3,9 @@ module CatalogHelper
   include Blacklight::CatalogHelperBehavior
 
   INDEX_TRUNCATION_VALUE = 2500
-  NO_THUMB_ICON = 'no_thumb.gif' # todo replace with no thumb placeholder
+  NO_THUMB_ICON = 'no_thumb.gif'
 
+  # show friendly values for boolean fields
   def boolean_facet_labels(value)
     value == 'true' ? 'Yes' : 'No'
   end
@@ -15,7 +16,7 @@ module CatalogHelper
     link_to url, url
   end
 
-  # truncate when displaying search results
+  # truncate fields when displaying search results
   def truncate_index(options = {})
     truncate(
         options[:value].join(I18n.t('support.array.two_words_connector')),
@@ -24,6 +25,7 @@ module CatalogHelper
     )
   end
 
+  # show rightsstatements.org or cc label corresponding to rights uri value
   def rights_icon_label(uri)
     I18n.t(:rights).each do |r|
       return r[1][:label] if r[1][:uri] == uri
@@ -31,6 +33,7 @@ module CatalogHelper
     uri # return uri if no match found
   end
 
+  # show thumbnail for item, or placeholder if none found
   def record_thumbnail(document, options)
     url = case document['sunspot_id_ss'].split(' ')[0]
             when 'Item'
