@@ -10,7 +10,7 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   def show_only_public_records(solr_parameters)
     solr_parameters[:fq] ||= []
-    solr_parameters[:fq] << 'public_b:1' # TODO: this should utilize the new value 'display(_ss)'
+    solr_parameters[:fq] << 'display_b:1'
   end
 
   def show_only_dlg_records(solr_parameters)
