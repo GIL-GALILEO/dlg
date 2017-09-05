@@ -37,6 +37,10 @@ class BothController < CatalogController
     config.add_index_field 'dcterms_creator_display',     label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
     config.add_index_field 'dc_format_display',           label: I18n.t('search.labels.dc_format'), link_to_search: :format_facet
 
+    # conditional fields
+    config.add_index_field 'subjects_sms',      label: 'Subject',       if: :collection?
+    config.add_index_field 'time_periods_sms',  label: 'Time Periods',  if: :collection?
+
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
@@ -49,6 +53,10 @@ class BothController < CatalogController
     config.add_sort_field 'created_at_dts desc', label: 'Latest Created'
     config.add_sort_field 'updated_at_dts desc', label: 'Latest Updated'
 
+  end
+
+  def collection?(_, doc)
+    doc['class_name_ss'] == 'Collection'
   end
 
 end
