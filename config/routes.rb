@@ -1,10 +1,27 @@
 Rails.application.routes.draw do
-  
+
   mount Blacklight::Engine => '/'
-  root to: "catalog#index"
+  root to: "both#index"
     concern :searchable, Blacklight::Routes::Searchable.new
 
+  # TODO: work to remove this
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+    concerns :searchable
+  end
+
+  resource :both, only: [:index], as: 'both', path: '/records', controller: 'both' do
+    concerns :searchable
+  end
+
+  resources :item, only: [:show], as: 'item', path: '/collection', controller: 'item' do
+    concerns :searchable
+  end
+
+  resource :item, only: [:index], as: 'item', path: '/items', controller: 'item' do
+    concerns :searchable
+  end
+
+  resource :collection, only: [:index], as: 'collection', path: '/collections', controller: 'collection' do
     concerns :searchable
   end
 
@@ -21,6 +38,4 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
