@@ -1,0 +1,19 @@
+<h1>Item Search</h1>
+
+<% if params['item_id'] %>
+  <h3>...within <%= @document_list[0]['collection_name_sms'].first %></h3>
+<% end %>
+
+<div id="sidebar" class="<%= sidebar_classes %>">
+  <%= render 'search_sidebar' %>
+</div>
+
+<div id="content" class="<%= main_content_classes %>">
+  <% unless has_search_parameters? %>
+      <%# if there are no input/search related params, display the "home" partial -%>
+      <%# render 'home' %>
+      <%= render 'shared/sitelinks_search_box' %>
+  <% else %>
+      <%= render 'search_results' %>
+  <% end %>
+</div>
