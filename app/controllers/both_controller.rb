@@ -34,12 +34,9 @@ class BothController < CatalogController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, title_sort asc', label: 'Relevance'
-    config.add_sort_field 'year asc', label: 'Year'
-    config.add_sort_field 'title_sort asc', label: 'Title'
-    config.add_sort_field 'creator_sort asc', label: 'Creator'
-    config.add_sort_field 'created_at_dts desc', label: 'Latest Created'
-    config.add_sort_field 'updated_at_dts desc', label: 'Latest Updated'
+    config.add_sort_field 'title_sort asc', label: I18n.t('search.sort.title')
+    config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
+    config.add_sort_field 'score title_sort asc', label: I18n.t('search.sort.relevance')
 
   end
 

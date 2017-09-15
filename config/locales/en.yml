@@ -150,6 +150,12 @@ en:
       dlg_subject_personal: 'Subject Personal'
       created_at: 'Created'
       updated_at: 'Updated'
+    sort:
+      relevance: 'Relevance'
+      collection: 'Collection'
+      collection_title: 'Collection Name'
+      title: 'Title'
+      newest: 'Date Added'
   footer:
     left: '© 2016 Digital Library of Georgia'
     to_top: 'Return to Top'

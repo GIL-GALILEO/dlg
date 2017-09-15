@@ -31,6 +31,12 @@ class ItemController < CatalogController
     config.add_index_field 'dc_format_display',           label: I18n.t('search.labels.dc_format'), link_to_search: :format_facet
     config.add_index_field 'dcterms_spatial_display',     label: I18n.t('search.labels.dcterms_spatial'), link_to_search: :location_facet
 
+    # Sort Options
+    config.add_sort_field 'title_sort asc', label: I18n.t('search.sort.title')
+    config.add_sort_field 'collection_sort asc', label: I18n.t('search.sort.collection')
+    config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
+    config.add_sort_field 'score title_sort asc', label: I18n.t('search.sort.relevance')
+
   end
 
   def show

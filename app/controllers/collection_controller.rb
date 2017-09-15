@@ -16,7 +16,8 @@ class CollectionController < CatalogController
     config.add_facet_field 'type_facet',              label: I18n.t('search.facets.type'), limit: true
     config.add_facet_field 'medium_facet',            label: I18n.t('search.facets.medium'), limit: true
     config.add_facet_field 'language_facet',          label: I18n.t('search.facets.language'), limit: true
-    config.add_facet_field 'collection_name_sms',     label: I18n.t('search.facets.collection'), limit: true
+    config.add_facet_field 'time_periods_sms',        label: I18n.t('search.facets.time_periods'), limit: true
+    config.add_facet_field 'subjects_sms',            label: I18n.t('search.facets.subjects'), limit: true
 
     # Results Fields
     config.add_index_field 'dcterms_title_display',       label: I18n.t('search.labels.dcterms_title')
@@ -27,6 +28,9 @@ class CollectionController < CatalogController
     config.add_index_field 'dc_format_display',           label: I18n.t('search.labels.dc_format'), link_to_search: :format_facet
 
     config.show.html_title = 'title_display'
+
+    config.add_sort_field 'title_sort asc', label: I18n.t('search.sort.collection_title')
+    config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
 
   end
 
