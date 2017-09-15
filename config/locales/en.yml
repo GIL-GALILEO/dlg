@@ -83,6 +83,11 @@ en:
   search:
     index:
       truncated_field: '..(more)'
+    facet-groups:
+      item:
+        title: 'Item Facets'
+      collection:
+        title: 'Collection Facets'
     facets:
       public: 'Public'
       dpla: 'DPLA'
@@ -107,6 +112,8 @@ en:
       collection: 'Collection'
       class: 'Class'
       portals: 'Portals'
+      time_periods: 'Time Periods'
+      subjects: 'Topics'
     labels:
       item_id: 'Item ID'
       record_id: 'Record ID'

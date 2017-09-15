@@ -1,0 +1,8 @@
+<% # main container for facets/limits menu -%>
+  <h2 class="facets-heading">
+    <%= groupname.blank? ? t('blacklight.search.facets.title') : t("search.facet-groups.#{groupname}.title") %>
+  </h2>
+
+  <div class="facets panel-group">
+    <%= groupname.blank? ? render_facet_partials : render_facet_partials(facet_field_names groupname) %>
+  </div>
