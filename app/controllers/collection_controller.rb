@@ -10,7 +10,7 @@ class CollectionController < CatalogController
     config.add_facet_field 'contributor_facet',       label: I18n.t('search.facets.contributor'), limit: true
     config.add_facet_field 'subject_facet',           label: I18n.t('search.facets.subject'), limit: true
     config.add_facet_field 'year_facet',              label: I18n.t('search.facets.year'), limit: true
-    config.add_facet_field 'location_facet',          label: I18n.t('search.facets.location'), limit: true
+    config.add_facet_field 'location_facet',          label: I18n.t('search.facets.location'), limit: true, helper_method: :spatial_cleaner
     config.add_facet_field 'format_facet',            label: I18n.t('search.facets.format'), limit: true
     config.add_facet_field 'rights_facet',            label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label
     config.add_facet_field 'type_facet',              label: I18n.t('search.facets.type'), limit: true

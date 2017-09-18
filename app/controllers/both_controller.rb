@@ -7,7 +7,7 @@ class BothController < CatalogController
     config.add_facet_field 'provenance_facet',        label: I18n.t('search.facets.provenance'), limit: true, group: 'item'
     config.add_facet_field 'subject_facet',           label: I18n.t('search.facets.subject'), limit: true, group: 'item'
     config.add_facet_field 'year_facet',              label: I18n.t('search.facets.year'), limit: true, group: 'item'
-    config.add_facet_field 'location_facet',          label: I18n.t('search.facets.location'), limit: true, group: 'item'
+    config.add_facet_field 'location_facet',          label: I18n.t('search.facets.location'), limit: true, group: 'item', helper_method: :spatial_cleaner
     config.add_facet_field 'rights_facet',            label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label, group: 'item'
     config.add_facet_field 'medium_facet',            label: I18n.t('search.facets.medium'), limit: true, group: 'item'
     config.add_facet_field 'collection_name_sms',     label: I18n.t('search.facets.collection'), limit: true, group: 'item'

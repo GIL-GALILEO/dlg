@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
+# helper methods for Blacklight catalog pages
 module CatalogHelper
 
   include Blacklight::CatalogHelperBehavior
 
+  COORDINATES_REGEXP = /(-?\d+\.\d+), (-?\d+\.\d+)/
   INDEX_TRUNCATION_VALUE = 2500
   NO_THUMB_ICON = 'no_thumb.gif'
 
@@ -19,9 +23,9 @@ module CatalogHelper
   # truncate fields when displaying search results
   def truncate_index(options = {})
     truncate(
-        options[:value].join(I18n.t('support.array.two_words_connector')),
-        length: INDEX_TRUNCATION_VALUE,
-        omission: I18n.t('search.index.truncated_field')
+      options[:value].join(I18n.t('support.array.two_words_connector')),
+      length: INDEX_TRUNCATION_VALUE,
+      omission: I18n.t('search.index.truncated_field')
     )
   end
 
@@ -34,22 +38,31 @@ module CatalogHelper
   end
 
   # show thumbnail for item, or placeholder if none found
-  def record_thumbnail(document, options)
+  def record_thumbnail(document, _options)
     url = case document['sunspot_id_ss'].split(' ')[0]
-            when 'Item'
-              if document.has_key?('slug_ss') &&
-                  document.has_key?('collection_slug_ss') &&
-                  document.has_key?('repository_slug_ss')
-                "http://dlg.galileo.usg.edu/#{document['repository_slug_ss']}/#{document['collection_slug_ss']}/do-th:#{document['slug_ss']}"
-              else
-                NO_THUMB_ICON
-              end
-            when 'Collection'
-              document['thumbnail_ss']
+          when 'Item'
+            if document.key?('slug_ss') &&
+               document.key?('collection_slug_ss') &&
+               document.key?('repository_slug_ss')
+              "http://dlg.galileo.usg.edu/#{document['repository_slug_ss']}/#{document['collection_slug_ss']}/do-th:#{document['slug_ss']}"
             else
               NO_THUMB_ICON
+            end
+          when 'Collection'
+            document['thumbnail_ss']
+          else
+            NO_THUMB_ICON
           end
     image_tag(url, class: 'thumbnail')
+  end
+
+  def spatial_cleaner(value)
+    if value =~ COORDINATES_REGEXP
+      value.sub(COORDINATES_REGEXP, '')[0...-2]
+    else
+      # value contains no coordinates
+      value
+    end
   end
 
 end
