@@ -153,6 +153,7 @@ en:
     sort:
       relevance: 'Relevance'
       collection: 'Collection'
+      collections_first: 'Collections First'
       collection_title: 'Collection Name'
       title: 'Title'
       newest: 'Date Added'

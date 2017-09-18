@@ -37,6 +37,7 @@ class BothController < CatalogController
     config.add_sort_field 'title_sort asc', label: I18n.t('search.sort.title')
     config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
     config.add_sort_field 'score title_sort asc', label: I18n.t('search.sort.relevance')
+    config.add_sort_field 'class_name_ss score title_sort asc', label: I18n.t('search.sort.collections_first')
 
   end
 
