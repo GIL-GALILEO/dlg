@@ -71,4 +71,17 @@ module CatalogHelper
     link_to collection_title, collection_home_path(collection_slug)
   end
 
+  # When displaying a Collection in the search results, use this to determine
+  # the displayed title
+  def collection_title_display(document)
+    link_title = if document.key? 'dcterms_title_display'
+                   document['dcterms_title_display'].first
+                 else
+                   'Search Collection Items'
+                 end
+    blacklight_show_link = link_to 'Collection Metadata', solr_document_path(document['record_id_ss'])
+    collection_home_link = link_to link_title, collection_home_path(document['slug_ss'])
+    "#{collection_home_link} [#{blacklight_show_link}]".html_safe
+  end
+
 end

@@ -16,7 +16,7 @@ class ItemSearch < SearchBuilder
   private
 
   def collection_specified
-    blacklight_params[:item_id]
+    blacklight_params[:collection_home_id]
   end
 
 end
