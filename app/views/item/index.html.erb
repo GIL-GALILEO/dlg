@@ -1,7 +1,7 @@
-<h1>Item Search</h1>
-
-<% if params['item_id'] %>
-  <h3>...within <%= @document_list[0]['collection_name_sms'].first %></h3>
+<% if params['collection_home_id'] %>
+  <h1><%= @document_list[0]['collection_name_sms'].first %> Item Search</h1>
+<% else %>
+  <h1>Item Search</h1>
 <% end %>
 
 <div id="sidebar" class="<%= sidebar_classes %>">
