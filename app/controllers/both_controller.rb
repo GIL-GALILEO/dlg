@@ -27,8 +27,8 @@ class BothController < CatalogController
     config.add_index_field 'dcterms_creator_display',     label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
 
     # conditional fields
-    config.add_index_field 'subjects_sms',      label: 'Subject',       if: :collection?
-    config.add_index_field 'time_periods_sms',  label: 'Time Periods',  if: :collection?
+    config.add_index_field 'subjects_sms',      label: 'Subject',       if: :collection?, link_to_search: true
+    config.add_index_field 'time_periods_sms',  label: 'Time Periods',  if: :collection?, link_to_search: true
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
