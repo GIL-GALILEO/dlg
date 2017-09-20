@@ -65,4 +65,10 @@ module CatalogHelper
     end
   end
 
+  def link_to_collection_page(options)
+    collection_title = options[:document][:collection_name_sms].first
+    collection_slug = options[:document][:slug_ss]
+    link_to collection_title, collection_home_path(collection_slug)
+  end
+
 end

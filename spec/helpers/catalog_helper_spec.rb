@@ -78,4 +78,18 @@ RSpec.describe CatalogHelper do
       expect(spatial_cleaner(value)).to eq 'United States, Georgia, Clarke County, Athens'
     end
   end
+
+  describe '#link_to_collection_page' do
+    it 'shows a link to the collection with the collection name' do
+      opt = {
+        document: {
+          slug_ss: 'test',
+          collection_name_sms: ['Test Name']
+        }
+      }
+      expect(link_to_collection_page(opt)).to(
+        eq link_to 'Test Name', collection_home_path('test')
+      )
+    end
+  end
 end

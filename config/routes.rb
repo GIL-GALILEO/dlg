@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   mount Blacklight::Engine => '/'
-  root to: "both#index"
-    concern :searchable, Blacklight::Routes::Searchable.new
+  root to: 'both#index'
+
+  concern :searchable, Blacklight::Routes::Searchable.new
 
   # TODO: work to remove this
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
     concerns :searchable
   end
 
-  resources :item, only: [:show], as: 'item', path: '/collection', controller: 'item' do
+  resources :item, only: [:show], as: 'collection_home', path: '/collection', controller: 'item' do
     concerns :searchable
   end
 
