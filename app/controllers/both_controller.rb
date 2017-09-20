@@ -20,7 +20,7 @@ class BothController < CatalogController
     # config.add_index_field 'record_id_ss',                label: I18n.t('search.labels.record_id')
     # config.add_index_field 'dcterms_title_display',       label: I18n.t('search.labels.dcterms_title')
     config.add_index_field 'dcterms_description_display', label: I18n.t('search.labels.dcterms_description'), helper_method: :truncate_index
-    config.add_index_field 'collection_name_sms',         label: I18n.t('search.labels.collection'), link_to_search: true
+    config.add_index_field 'collection_name_sms',         label: I18n.t('search.labels.collection'), helper_method: :link_to_collection_page
     config.add_index_field 'repository_name_sms',         label: I18n.t('search.labels.repository'), link_to_search: true, if: :collection?
     config.add_index_field 'edm_is_shown_at_display',     label: I18n.t('search.labels.edm_is_shown_at'), helper_method: :linkify
     config.add_index_field 'edm_is_shown_by_display',     label: I18n.t('search.labels.edm_is_shown_by'), helper_method: :linkify, unless: :collection?
@@ -37,7 +37,7 @@ class BothController < CatalogController
     config.add_sort_field 'title_sort asc', label: I18n.t('search.sort.title')
     config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
     config.add_sort_field 'score title_sort asc', label: I18n.t('search.sort.relevance')
-    config.add_sort_field 'class_name_ss score title_sort asc', label: I18n.t('search.sort.collections_first')
+    config.add_sort_field 'class_name_ss asc, title_sort asc', label: I18n.t('search.sort.collections_first')
 
   end
 
