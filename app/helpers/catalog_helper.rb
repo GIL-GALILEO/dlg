@@ -67,7 +67,7 @@ module CatalogHelper
 
   def link_to_collection_page(options)
     collection_title = options[:document][:collection_name_sms].first
-    collection_slug = options[:document][:slug_ss]
+    collection_slug = options[:document][:collection_slug_ss]
     link_to collection_title, collection_home_path(collection_slug)
   end
 
@@ -82,6 +82,18 @@ module CatalogHelper
     blacklight_show_link = link_to 'Collection Metadata', solr_document_path(document['record_id_ss'])
     collection_home_link = link_to link_title, collection_home_path(document['slug_ss'])
     "#{collection_home_link} [#{blacklight_show_link}]".html_safe
+  end
+
+  # When displaying an Item in the search results, use this to determine
+  # the displayed title
+  def item_title_display(document)
+    default_link = link_to document['dcterms_title_display'].first, solr_document_path(document['slug_ss'])
+    title = if document.key? 'edm_is_shown_at_display'
+              "#{default_link} [#{link_to('Open Item in New Window', document['edm_is_shown_at_display'].first, target: '_blank')}]"
+            else
+              default_link
+            end
+    title.html_safe
   end
 
 end

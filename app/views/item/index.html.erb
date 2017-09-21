@@ -1,4 +1,4 @@
-<% if params['collection_home_id'] %>
+<% if params['collection_home_id'] && @document_list.any? %>
   <h1><%= @document_list[0]['collection_name_sms'].first %> Item Search</h1>
 <% else %>
   <h1>Item Search</h1>
