@@ -1,4 +1,4 @@
-class BothController < CatalogController
+class RecordsController < CatalogController
 
   configure_blacklight do |config|
     config.search_builder_class = SearchBuilder

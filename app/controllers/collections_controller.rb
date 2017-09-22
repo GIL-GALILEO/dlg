@@ -1,4 +1,4 @@
-class CollectionController < CatalogController
+class CollectionsController < CatalogController
 
   configure_blacklight do |config|
     config.search_builder_class = CollectionSearch

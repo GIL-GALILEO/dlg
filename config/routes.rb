@@ -1,34 +1,24 @@
 Rails.application.routes.draw do
 
   mount Blacklight::Engine => '/'
-  root to: 'both#index'
+  root to: 'records#index'
 
   concern :searchable, Blacklight::Routes::Searchable.new
-
-  # TODO: work to remove this
-  resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
-    concerns :searchable
-  end
-
-  resource :both, only: [:index], as: 'both', path: '/records', controller: 'both' do
-    concerns :searchable
-  end
-
-  resources :item, only: [:show], as: 'collection_home', path: '/collection', controller: 'item' do
-    concerns :searchable
-  end
-
-  resource :item, only: [:index], as: 'item', path: '/items', controller: 'item' do
-    concerns :searchable
-  end
-
-  resource :collection, only: [:index], as: 'collection', path: '/collections', controller: 'collection' do
-    concerns :searchable
-  end
-
   concern :exportable, Blacklight::Routes::Exportable.new
 
-  resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
+  resource :records, only: [:index] do
+    concerns :searchable
+  end
+
+  resource :collections, only: [:index] do
+    concerns :searchable
+  end
+
+  resources :items, only: [:show], as: 'collection_home', path: '/collection' do
+    concerns :searchable
+  end
+
+  resources :solr_document, only: [:show], path: '/record', controller: 'records' do
     concerns :exportable
   end
 
