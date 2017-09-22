@@ -7,7 +7,7 @@ module CatalogHelper
 
   COORDINATES_REGEXP = /(-?\d+\.\d+), (-?\d+\.\d+)/
   INDEX_TRUNCATION_VALUE = 2500
-  NO_THUMB_ICON = 'no_thumb.gif'
+  NO_THUMB_ICON = '' # TODO
 
   # show friendly values for boolean fields
   def boolean_facet_labels(value)
@@ -87,7 +87,7 @@ module CatalogHelper
   # When displaying an Item in the search results, use this to determine
   # the displayed title
   def item_title_display(document)
-    default_link = link_to document['dcterms_title_display'].first, solr_document_path(document['slug_ss'])
+    default_link = link_to document['dcterms_title_display'].first, solr_document_path(document['record_id_ss'])
     title = if document.key? 'edm_is_shown_at_display'
               "#{default_link} [#{link_to('Open Item in New Window', document['edm_is_shown_at_display'].first, target: '_blank')}]"
             else
