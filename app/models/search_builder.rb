@@ -15,11 +15,11 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   def show_only_dlg_records(solr_parameters)
     solr_parameters[:fq] ||= []
-    solr_parameters[:fq] << 'portal_names_sms:"The Digital Library of Georgia"'
+    solr_parameters[:fq] << 'portals_sms:"georgia"'
   end
 
   def show_only_desired_classes(solr_parameters)
     solr_parameters[:fq] ||= []
-    solr_parameters[:fq] << '-class_name:Repository'
+    solr_parameters[:fq] << ''
   end
 end
