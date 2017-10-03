@@ -6,17 +6,14 @@ Rails.application.routes.draw do
   concern :searchable, Blacklight::Routes::Searchable.new
   concern :exportable, Blacklight::Routes::Exportable.new
 
-  resource :records, only: [:index] do
-    concerns :searchable
-  end
-
-  resource :collections, only: [:index] do
-    concerns :searchable
-  end
+  resource :records, only: [:index] { concerns :searchable }
+  resource :collections, only: [:index] { concerns :searchable }
 
   resources :items, only: [:show], as: 'collection_home', path: '/collection' do
     concerns :searchable
   end
+
+  resources :counties, only: [:index]
 
   resources :solr_document, only: [:show], path: '/record', controller: 'records' do
     concerns :exportable
@@ -24,7 +21,6 @@ Rails.application.routes.draw do
 
   resources :bookmarks do
     concerns :exportable
-
     collection do
       delete 'clear'
     end

@@ -4,6 +4,7 @@ class RecordsController < CatalogController
     config.search_builder_class = SearchBuilder
 
     # FACETS
+    config.add_facet_field 'counties_facet',          label: 'County', limit: true, display: false, more_limit: 200, group: 'item'
     config.add_facet_field 'provenance_facet',        label: I18n.t('search.facets.provenance'), limit: true, group: 'item'
     config.add_facet_field 'subject_facet',           label: I18n.t('search.facets.subject'), limit: true, group: 'item'
     config.add_facet_field 'year_facet',              label: I18n.t('search.facets.year'), limit: true, group: 'item'
@@ -43,6 +44,19 @@ class RecordsController < CatalogController
 
   def collection?(_, doc)
     doc['class_name_ss'] == 'Collection'
+  end
+
+  def index
+
+    if params[:county]
+      params[:f] ||= {}
+      params[:f]['counties_facet'] ||= []
+      params[:f]['counties_facet'] << params[:county]
+    end
+
+    params.delete :county
+
+    super
   end
 
 end
