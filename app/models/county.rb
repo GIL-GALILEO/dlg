@@ -174,8 +174,8 @@ class County < ActiveHash::Base
         },
       properties:
         { name: name,
-          record_count: count,
-          facet_link: href }
+          count: count,
+          href: href }
     }
   end
 end
