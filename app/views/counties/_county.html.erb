@@ -1,6 +1,7 @@
 <li>
-  <div class="county-pane">
+  <div class="county-pane pane-<%= county.name.downcase.gsub(' ', '-') %>">
     <h3><%= link_to county.name, county.href %></h3>
+    <a href="http://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/<%= county.name.downcase.gsub(' ', '-') %>-county" target="_blank">County Info in NGE</a><br>
     <span class="badge"><%= county.count %></span>
   </div>
 </li>

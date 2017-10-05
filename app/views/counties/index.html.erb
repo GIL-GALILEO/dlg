@@ -11,6 +11,17 @@
     margin: 0 0 5px;
     color: #777;
   }
+  .legend {
+    line-height: 19px;
+    color: #555;
+  }
+  .legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+  }
 </style>
 
 <div class="col-md-8">
@@ -26,7 +37,21 @@
 
 <script type="text/javascript">
 
-    var map, geojson, tiles, labelsLayer, mapLbels;
+    var layer_map = {};
+    var map, geojson, tiles, labelsLayer, mapLabels;
+
+    var $countyListDivs = $('.county-pane');
+
+    $countyListDivs.mouseover(function() {
+        var highlightLayer = geojson._layers[layer_map[this.className.replace('county-pane pane-', '')]];
+        highlightFeature({target: highlightLayer})
+    });
+
+    $countyListDivs.mouseout(function() {
+        var highlightLayer = geojson._layers[layer_map[this.className.replace('county-pane pane-', '')]];
+        resetHighlight({target: highlightLayer})
+    });
+
 
     var counties = <%= raw @counties.map { |c| c.geo_hash.to_json } %>;
     var counties_geojson = counties.map(JSON.parse);
@@ -41,11 +66,23 @@
     labelsLayer.style.pointerEvents = 'none';
 
     var info = L.control();
+    var legend = L.control({position: 'bottomright'});
 
     info.onAdd = function (map) {
         this._div = L.DomUtil.create('div', 'info');
         this.update();
         return this._div
+    };
+
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 1000, 10000];
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+        return div
     };
 
     info.update = function (props) {
@@ -55,13 +92,12 @@
     };
 
     info.addTo(map);
+    legend.addTo(map);
 
     tiles = L.tileLayer(
-//        'http://{s}.tile.openstreetmap.org/',
         'http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
         {
             id: 'osm.default',
-//            attribution: '© OpenStreetMap <a href="www.openstreetmap.org/copyright">License</a>'
             attribution: '©OpenStreetMap, ©CartoDB'
         }
     ).addTo(map);
@@ -79,18 +115,19 @@
     function getColor(d) {
         return  d > 10000 ? '#238b45' :
                 d > 1000  ? '#74c476' :
-                d > 100   ? '#bae4b3' :
-                            '#edf8e9';
+                            '#bae4b3';
     }
 
     function style(feature) {
+        var countyPolyClass = feature.properties.name.toLowerCase().replace(' ', '-');
         return {
             fillColor: getColor(feature.properties.count),
             weight: 2,
             opacity: 1,
             color: 'white',
             dashArray: '3',
-            fillOpacity: 0.5
+            fillOpacity: 0.8,
+            className: 'county-' + countyPolyClass
         }
     }
 
@@ -101,7 +138,7 @@
             weight: 5,
             color: '#666',
             dasharray: '',
-            fillOpacity: 0.9
+            fillOpacity: 0.5
         });
 
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -121,10 +158,12 @@
     }
 
     function onEachFeature(feature, layer) {
+        var countyPolyClass = feature.properties.name.toLowerCase().replace(' ', '-');
+        layer_map[countyPolyClass] = L.stamp(layer);
         layer.on({
             mouseover: highlightFeature,
             mouseout: resetHighlight,
-            click: whenClicked,
+            click: whenClicked
         });
     }
 
