@@ -26,7 +26,7 @@
 
 <script type="text/javascript">
 
-    var map, geojson, tiles;
+    var map, geojson, tiles, labelsLayer, mapLbels;
 
     var counties = <%= raw @counties.map { |c| c.geo_hash.to_json } %>;
     var counties_geojson = counties.map(JSON.parse);
@@ -35,6 +35,10 @@
         center: [32.9866, -83.6487],
         zoom: 7
     });
+
+    labelsLayer = map.createPane('labels');
+    labelsLayer.style.zIndex = 650;
+    labelsLayer.style.pointerEvents = 'none';
 
     var info = L.control();
 
@@ -54,13 +58,18 @@
 
     tiles = L.tileLayer(
 //        'http://{s}.tile.openstreetmap.org/',
-        'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+        'http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
         {
             id: 'osm.default',
 //            attribution: '© OpenStreetMap <a href="www.openstreetmap.org/copyright">License</a>'
-            attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL'
+            attribution: '©OpenStreetMap, ©CartoDB'
         }
     ).addTo(map);
+
+    mapLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+        attribution: '©OpenStreetMap, ©CartoDB',
+        pane: 'labels'
+    }).addTo(map);
 
     geojson = L.geoJSON(counties_geojson, {
         style: style,
@@ -69,9 +78,9 @@
 
     function getColor(d) {
         return  d > 10000 ? '#238b45' :
-            d > 1000  ? '#74c476' :
+                d > 1000  ? '#74c476' :
                 d > 100   ? '#bae4b3' :
-                    '#edf8e9';
+                            '#edf8e9';
     }
 
     function style(feature) {
