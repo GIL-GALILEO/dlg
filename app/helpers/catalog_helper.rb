@@ -67,8 +67,8 @@ module CatalogHelper
 
   def link_to_collection_page(options)
     collection_title = options[:document][:collection_name_sms].first
-    collection_slug = options[:document][:collection_slug_ss]
-    link_to collection_title, collection_home_path(collection_slug)
+    collection_record_id = options[:document][:id]
+    link_to collection_title, collection_home_path(collection_record_id)
   end
 
   # When displaying a Collection in the search results, use this to determine
@@ -80,7 +80,7 @@ module CatalogHelper
                    'Search Collection Items'
                  end
     blacklight_show_link = link_to 'Collection Metadata', solr_document_path(document['record_id_ss'])
-    collection_home_link = link_to link_title, collection_home_path(document['slug_ss'])
+    collection_home_link = link_to link_title, collection_home_path(document['id'])
     "#{collection_home_link} [#{blacklight_show_link}]".html_safe
   end
 

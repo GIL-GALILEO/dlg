@@ -20,7 +20,12 @@ class CountiesController < RecordsController
       county = County.find_by_name c
       next unless county
       county.count = counties_with_counts[i + 1]
-      county.href = search_action_path(search_state.add_facet_params_and_redirect(COUNTIES_FACET_FIELD, c))
+      county.href = search_action_path(
+        search_state.add_facet_params_and_redirect(
+          COUNTIES_FACET_FIELD,
+          c
+        )
+      )
       counties << county
     end
     counties

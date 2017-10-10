@@ -59,17 +59,6 @@ RSpec.describe CatalogHelper do
         )
       end
     end
-    context 'for anything else' do
-      it 'returns a thumbnail value from the document' do
-        item_doc = {
-          'sunspot_id_ss' => 'Repository 1'
-        }
-        expect(record_thumbnail(item_doc, {})).to(
-          include 'no_thumb.gif'
-        )
-      end
-    end
-
   end
 
   describe '#spatial_cleaner' do
@@ -83,12 +72,12 @@ RSpec.describe CatalogHelper do
     it 'shows a link to the collection with the collection name' do
       opt = {
         document: {
-          slug_ss: 'test',
+          id: 'test_collection',
           collection_name_sms: ['Test Name']
         }
       }
       expect(link_to_collection_page(opt)).to(
-        eq link_to 'Test Name', collection_home_path('test')
+        eq link_to 'Test Name', collection_home_path('test_collection')
       )
     end
   end

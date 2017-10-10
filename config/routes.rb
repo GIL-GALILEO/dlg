@@ -1,7 +1,7 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   mount Blacklight::Engine => '/'
-  root to: 'records#index'
 
   concern :searchable, Blacklight::Routes::Searchable.new
   concern :exportable, Blacklight::Routes::Exportable.new
@@ -9,12 +9,9 @@ Rails.application.routes.draw do
   resource :records, only: [:index] { concerns :searchable }
   resource :collections, only: [:index] { concerns :searchable }
 
-  resources :items, only: [:show], as: 'collection_home', path: '/collection' do
-    concerns :searchable
-  end
-
-  resources :counties, only: [:index]
-  resources :provenances, only: [:index]
+  get '/collection/:collection_record_id', to: 'records#index', as: 'collection_home'
+  get '/counties', to: 'counties#index', as: 'counties'
+  get '/institutions', to: 'provenances#index', as: 'institutions'
 
   resources :solr_document, only: [:show], path: '/record', controller: 'records' do
     concerns :exportable
@@ -26,4 +23,6 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+  root to: 'records#index'
 end

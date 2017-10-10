@@ -6,7 +6,14 @@ class SearchBuilder < Blacklight::SearchBuilder
     show_only_public_records
     show_only_dlg_records
     show_only_desired_classes
+    limit_by_collection
   ]
+
+  def limit_by_collection(solr_parameters)
+    return unless collection_specified
+    solr_parameters[:fq] << "collection_record_id_ss:#{collection_specified}"
+    solr_parameters['facet.field'].delete('collection_record_id_sms')
+  end
 
   def show_only_public_records(solr_parameters)
     solr_parameters[:fq] ||= []
@@ -21,5 +28,11 @@ class SearchBuilder < Blacklight::SearchBuilder
   def show_only_desired_classes(solr_parameters)
     solr_parameters[:fq] ||= []
     solr_parameters[:fq] << ''
+  end
+
+  private
+
+  def collection_specified
+    blacklight_params[:collection_record_id]
   end
 end
