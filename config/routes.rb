@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :counties, only: [:index]
+  resources :provenances, only: [:index]
 
   resources :solr_document, only: [:show], path: '/record', controller: 'records' do
     concerns :exportable

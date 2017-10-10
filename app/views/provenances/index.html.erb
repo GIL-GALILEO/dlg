@@ -1,0 +1,6 @@
+<h1>Holding Institutions Browse</h1>
+<ul>
+  <% @holding_institutions.each do |holding_inst| %>
+    <li><span class="badge"><%= holding_inst.count %></span> <%= link_to holding_inst.name, holding_inst.href %></li>
+  <% end %>
+</ul>

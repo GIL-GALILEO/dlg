@@ -5,7 +5,7 @@ class RecordsController < CatalogController
 
     # FACETS
     config.add_facet_field 'counties_facet',          label: 'County', limit: true, display: false, more_limit: 200, group: 'item'
-    config.add_facet_field 'provenance_facet',        label: I18n.t('search.facets.provenance'), limit: true, group: 'item'
+    config.add_facet_field 'provenance_facet',        label: I18n.t('search.facets.provenance'), limit: true, more_limit: 200, group: 'item'
     config.add_facet_field 'subject_facet',           label: I18n.t('search.facets.subject'), limit: true, group: 'item'
     config.add_facet_field 'year_facet',              label: I18n.t('search.facets.year'), limit: true, group: 'item'
     config.add_facet_field 'location_facet',          label: I18n.t('search.facets.location'), limit: true, group: 'item', helper_method: :spatial_cleaner

@@ -77,5 +77,6 @@ class CatalogController < ApplicationController
 
   add_nav_action :collections
   add_nav_action :counties
+  add_nav_action :institutions
 
 end
