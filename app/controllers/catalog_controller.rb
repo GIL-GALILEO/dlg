@@ -3,10 +3,18 @@
 # Main Blacklight controller housing common configuration shared with other
 # child Controllers
 class CatalogController < ApplicationController
+  include BlacklightAdvancedSearch::Controller
 
   include Blacklight::Catalog
 
   configure_blacklight do |config|
+    # default advanced config values
+    config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
+    # config.advanced_search[:qt] ||= 'advanced'
+    config.advanced_search[:url_key] ||= 'advanced'
+    config.advanced_search[:query_parser] ||= 'dismax'
+    config.advanced_search[:form_solr_parameters] ||= {}
+
 
     # Default parameters to send to solr for all search-like requests.
     # See also SearchBuilder#processed_parameters

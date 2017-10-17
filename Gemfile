@@ -6,7 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'active_hash'
-gem 'blacklight', '~> 6.10.1'
+gem 'blacklight', '~> 6.10'
+gem 'blacklight_advanced_search', '~> 6.3'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -20,6 +21,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'capybara'
   gem 'rspec-rails', '~> 3.5'
 end
 
