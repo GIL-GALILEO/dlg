@@ -4,32 +4,35 @@ class RecordsController < CatalogController
     config.search_builder_class = SearchBuilder
 
     # FACETS
-    config.add_facet_field 'counties_facet',              label: 'County', limit: true, display: false, more_limit: 200, group: 'item'
-    config.add_facet_field 'provenance_facet',            label: I18n.t('search.facets.provenance'), limit: true, more_limit: 200, group: 'item'
-    config.add_facet_field 'subject_facet',               label: I18n.t('search.facets.subject'), limit: true, group: 'item'
-    config.add_facet_field 'year_facet',                  label: I18n.t('search.facets.year'), limit: true, group: 'item'
-    config.add_facet_field 'location_facet',              label: I18n.t('search.facets.location'), limit: true, group: 'item', helper_method: :spatial_cleaner
-    config.add_facet_field 'rights_facet',                label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label, group: 'item'
-    config.add_facet_field 'type_pivot_facet',            label: I18n.t('search.facets.medium'), limit: true, group: 'item', pivot: ['type_facet', 'medium_facet']
-    config.add_facet_field 'collection_record_id_sms',    label: I18n.t('search.facets.collection'), limit: true, group: 'item'
+    config.add_facet_field :counties_facet,              label: 'County', limit: true, display: false, more_limit: 200, group: 'item'
+    config.add_facet_field :provenance_facet,            label: I18n.t('search.facets.provenance'), limit: 200, more_limit: 200, group: 'item' # why specify both limits? figure out this behavior
+    config.add_facet_field :subject_facet,               label: I18n.t('search.facets.subject'), limit: true, group: 'item'
+    config.add_facet_field :year_facet,                  label: I18n.t('search.facets.year'), limit: true, group: 'item'
+    config.add_facet_field :location_facet,              label: I18n.t('search.facets.location'), limit: true, group: 'item', helper_method: :spatial_cleaner
+    config.add_facet_field :rights_facet,                label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label, group: 'item'
+    config.add_facet_field :type_pivot_facet,            label: I18n.t('search.facets.medium'), limit: true, group: 'item', pivot: ['type_facet', 'medium_facet']
+    config.add_facet_field :collection_name_sms,         label: I18n.t('search.facets.collection_name'), limit: 50, group: 'item' # limit here also limits pivot results
+    config.add_facet_field :time_periods_sms,            label: I18n.t('search.facets.time_periods'), limit: true, group: 'collection'
+    config.add_facet_field :subjects_sms,                label: I18n.t('search.facets.subjects'), limit: true, group: 'collection'
 
-    config.add_facet_field 'time_periods_sms',        label: I18n.t('search.facets.time_periods'), limit: true, group: 'collection'
-    config.add_facet_field 'subjects_sms',            label: I18n.t('search.facets.subjects'), limit: true, group: 'collection'
+    # hidden facet fields
+    config.add_facet_field :provenance_collection_facet, label: '_', limit: 50, more_limit: 50, show: false, group: 'item', pivot: ['provenance_facet', 'collection_name_sms']
+    config.add_facet_field :medium_facet,                label: '_', limit: true, group: 'item', show: false
+
+
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    # config.add_index_field 'record_id_ss',                label: I18n.t('search.labels.record_id')
-    # config.add_index_field 'dcterms_title_display',       label: I18n.t('search.labels.dcterms_title')
-    config.add_index_field 'dcterms_description_display', label: I18n.t('search.labels.dcterms_description'), helper_method: :truncate_index
-    config.add_index_field 'collection_name_sms',         label: I18n.t('search.labels.collection'), helper_method: :link_to_collection_page
-    config.add_index_field 'repository_name_sms',         label: I18n.t('search.labels.repository'), link_to_search: true, if: :collection?
-    config.add_index_field 'edm_is_shown_at_display',     label: I18n.t('search.labels.edm_is_shown_at'), helper_method: :linkify
-    config.add_index_field 'edm_is_shown_by_display',     label: I18n.t('search.labels.edm_is_shown_by'), helper_method: :linkify, unless: :collection?
-    config.add_index_field 'dcterms_creator_display',     label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
+    config.add_index_field :dcterms_description_display, label: I18n.t('search.labels.dcterms_description'), helper_method: :truncate_index
+    config.add_index_field :collection_name_sms,         label: I18n.t('search.labels.collection'), helper_method: :link_to_collection_page
+    config.add_index_field :repository_name_sms,         label: I18n.t('search.labels.repository'), link_to_search: true, if: :collection?
+    config.add_index_field :edm_is_shown_at_display,     label: I18n.t('search.labels.edm_is_shown_at'), helper_method: :linkify
+    config.add_index_field :edm_is_shown_by_display,     label: I18n.t('search.labels.edm_is_shown_by'), helper_method: :linkify, unless: :collection?
+    config.add_index_field :dcterms_creator_display,     label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
 
     # conditional fields
-    config.add_index_field 'subjects_sms',      label: 'Subject',       if: :collection?, link_to_search: true
-    config.add_index_field 'time_periods_sms',  label: 'Time Periods',  if: :collection?, link_to_search: true
+    config.add_index_field :subjects_sms,      label: 'Subject',       if: :collection?, link_to_search: true
+    config.add_index_field :time_periods_sms,  label: 'Time Periods',  if: :collection?, link_to_search: true
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and

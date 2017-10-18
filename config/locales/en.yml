@@ -110,6 +110,7 @@ en:
       language: 'Language'
       repository: 'Repo'
       collection: 'Collection'
+      collection_name: 'Collection Name'
       class: 'Class'
       portals: 'Portals'
       time_periods: 'Time Periods'

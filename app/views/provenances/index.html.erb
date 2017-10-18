@@ -1,6 +1,18 @@
 <h1>Holding Institutions Browse</h1>
 <ul>
   <% @holding_institutions.each do |holding_inst| %>
-    <li><span class="badge"><%= holding_inst.count %></span> <%= link_to holding_inst.name, holding_inst.href %></li>
+    <li>
+      <span class="badge"><%= holding_inst.count %></span> <%= link_to holding_inst.name, holding_inst.href %>
+      <% if holding_inst.collections.any? %>
+      <p>Collections</p>
+          <ul>
+            <% holding_inst.collections.each do |collection| %>
+              <li>
+                <span class="badge"><%= collection.count %></span> <%= link_to collection.name, collection.href %>
+              </li>
+            <% end %>
+          </ul>
+      <% end %>
+    </li>
   <% end %>
 </ul>
