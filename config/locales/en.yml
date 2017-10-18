@@ -133,7 +133,7 @@ en:
       dcterms_publisher: 'Pub. of Orig.'
       dcterms_contributor: 'Contrib. to Resource'
       dcterms_temporal: 'Coverage Temporal'
-      dcterms_spatial: 'Coverage Spatial'
+      dcterms_spatial: 'Spatial Coverage'
       dcterms_provenance: 'Holding Institution'
       dcterms_identifier: 'Identifier'
       dcterms_subject: 'Subject'

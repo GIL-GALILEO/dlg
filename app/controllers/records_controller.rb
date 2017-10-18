@@ -40,6 +40,64 @@ class RecordsController < CatalogController
     config.add_sort_field 'score desc, title_sort asc', label: I18n.t('search.sort.relevance')
     config.add_sort_field 'class_name_ss asc, title_sort asc', label: I18n.t('search.sort.collections_first')
 
+    # define search fields
+    # title
+    config.add_search_field('title') do |field|
+      field.label = I18n.t('search.labels.dcterms_title')
+      field.solr_local_parameters = {
+        qf: 'title_unstem_search^1000 dcterms_title_text^50',
+        pf: 'title_unstem_search^1000 dcterms_title_text^50'
+      }
+    end
+    # description
+    config.add_search_field('description') do |field|
+      field.label = I18n.t('search.labels.dcterms_description')
+      field.solr_local_parameters = {
+        qf: 'description_unstem_search^1000 dcterms_description_text^50',
+        pf: 'description_unstem_search^1000 dcterms_description_text^50'
+      }
+    end
+    # collection name
+    config.add_search_field('collection_name') do |field|
+      field.label = I18n.t('search.labels.collection')
+      field.solr_local_parameters = {
+        qf: 'collection_name_sms',
+        pf: 'collection_name_sms'
+      }
+    end
+    # creator
+    config.add_search_field('creator') do |field|
+      field.label = I18n.t('search.labels.dcterms_creator')
+      field.solr_local_parameters = {
+        qf: 'dcterms_creator_text^500',
+        pf: 'dcterms_creator_text^500'
+      }
+    end
+    # subject
+    config.add_search_field('subject') do |field|
+      field.label = I18n.t('search.labels.dcterms_subject')
+      field.solr_local_parameters = {
+        qf: 'subject_unstem_search^1000 dcterms_subject_text^50',
+        pf: 'subject_unstem_search^1000 dcterms_subject_text^50'
+      }
+    end
+    # provenance
+    config.add_search_field('provenance') do |field|
+      field.label = I18n.t('search.labels.dcterms_provenance')
+      field.solr_local_parameters = {
+        qf: 'dcterms_provenance_text^500',
+        pf: 'dcterms_provenance_text^500'
+      }
+    end
+    # place
+    config.add_search_field('spatial') do |field|
+      field.label = I18n.t('search.labels.dcterms_spatial')
+      field.solr_local_parameters = {
+        qf: 'spatial_unstem_search^1000 dcterms_spatial_text^50',
+        pf: 'spatial_unstem_search^1000 dcterms_spatial_text^50'
+      }
+    end
+
   end
 
   def collection?(_, doc)
