@@ -115,6 +115,10 @@ en:
       portals: 'Portals'
       time_periods: 'Time Periods'
       subjects: 'Topics'
+      county: 'County'
+      sort:
+        az: 'Sort A-Z'
+        count: 'Sort by Count'
     labels:
       item_id: 'Item ID'
       record_id: 'Record ID'

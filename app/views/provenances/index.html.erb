@@ -1,4 +1,17 @@
 <h1>Holding Institutions Browse</h1>
+<div class="row">
+  <div class="col-md-6">
+    <h5>Sort Holding Institutions</h5>
+    <%= render partial: 'shared/facet_sort_group', locals: { p: primary_sort_param} %>
+  </div>
+  <div class="col-md-6">
+    <h5>Sort Collections</h5>
+    <%= render partial: 'shared/facet_sort_group', locals: { p: secondary_sort_param} %>
+  </div>
+</div>
+
+
+<%=  %>
 <ul>
   <% @holding_institutions.each do |holding_inst| %>
     <li>
