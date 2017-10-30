@@ -18,3 +18,11 @@
 */
 
 #mapid { height: 600px; }
+
+.rights-statement-icon {
+    width: 200px
+}
+
+.rights-statement-link:hover {
+    background: none;
+}

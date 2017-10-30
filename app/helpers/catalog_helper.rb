@@ -96,4 +96,30 @@ module CatalogHelper
     title.html_safe
   end
 
+  # Render icon for RS.org value
+  # TODO: refactor/reconider use of I18n file for this purpose
+  def rights_icon_tag(obj)
+    I18n.t([:rights])[0].each do |r|
+      if r[1][:uri] == obj[:value].first
+        return link_to(
+          image_tag(
+            r[1][:icon_url],
+            class: 'rights-statement-icon'
+          ),
+          r[1][:uri],
+          class: 'rights-statement-link'
+        )
+      end
+    end
+    link_to obj[:value].first, obj[:value].first
+  end
+
+  # Render human-readable label for RS.org value, if available and URI otherwise
+  def rights_icon_label(uri)
+    I18n.t([:rights], scope: :meta)[0].each do |r|
+      return r[1][:label] if r[1][:uri] == uri
+    end
+    uri
+  end
+
 end

@@ -43,32 +43,32 @@ class CatalogController < ApplicationController
     config.index.thumbnail_method = :record_thumbnail
 
     # Show Page Fields
-    config.add_show_field 'record_id_ss',                           label: I18n.t('search.labels.record_id')
     config.add_show_field 'dcterms_title_display',                  label: I18n.t('search.labels.dcterms_title')
+    config.add_show_field 'dcterms_description_display',            label: I18n.t('search.labels.dcterms_description')
+    config.add_show_field 'record_id_ss',                           label: I18n.t('search.labels.record_id')
+    config.add_show_field 'edm_is_shown_at_display',                label: I18n.t('search.labels.edm_is_shown_at'), helper_method: 'linkify'
+    config.add_show_field 'edm_is_shown_by_display',                label: I18n.t('search.labels.edm_is_shown_by'), helper_method: 'linkify'
     config.add_show_field 'collection_name_sms',                    label: I18n.t('search.labels.collection'), link_to_search: true
     config.add_show_field 'repository_name_sms',                    label: I18n.t('search.labels.repository'), link_to_search: true
-    config.add_show_field 'dcterms_is_part_of_display',             label: I18n.t('search.labels.dcterms_is_part_of')
-    config.add_show_field 'dcterms_description_display',            label: I18n.t('search.labels.dcterms_description')
+    config.add_show_field 'dcterms_provenance_display',             label: I18n.t('search.labels.dcterms_provenance')
+    config.add_show_field 'dc_right_display',                       label: I18n.t('search.labels.dc_right'), helper_method: :rights_icon_tag
     config.add_show_field 'dc_format_display',                      label: I18n.t('search.labels.dc_format')
+    config.add_show_field 'dcterms_publisher_display',              label: I18n.t('search.labels.dcterms_publisher')
+    config.add_show_field 'dcterms_medium_display',                 label: I18n.t('search.labels.dcterms_medium')
+    config.add_show_field 'dcterms_type_display',                   label: I18n.t('search.labels.dcterms_type')
+    config.add_show_field 'dcterms_extent_display',                 label: I18n.t('search.labels.dcterms_extent')
+    config.add_show_field 'dcterms_is_part_of_display',             label: I18n.t('search.labels.dcterms_is_part_of')
     config.add_show_field 'dcterms_identifier_display',             label: I18n.t('search.labels.dcterms_identifier')
-    config.add_show_field 'dc_right_display',                       label: I18n.t('search.labels.dc_right')
     config.add_show_field 'dc_date_display',                        label: I18n.t('search.labels.dc_date')
     config.add_show_field 'dc_relation_display',                    label: I18n.t('search.labels.dc_relation')
-    config.add_show_field 'dcterms_publisher_display',              label: I18n.t('search.labels.dcterms_publisher')
     config.add_show_field 'dcterms_contributor_display',            label: I18n.t('search.labels.dcterms_contributor')
     config.add_show_field 'dcterms_temporal_display',               label: I18n.t('search.labels.dcterms_temporal')
     config.add_show_field 'dcterms_spatial_display',                label: I18n.t('search.labels.dcterms_spatial'), link_to_search: :location_facet
-    config.add_show_field 'dcterms_provenance_display',             label: I18n.t('search.labels.dcterms_provenance')
     config.add_show_field 'dcterms_subject_display',                label: I18n.t('search.labels.dcterms_subject'), link_to_search: :subject_facet
-    config.add_show_field 'dcterms_type_display',                   label: I18n.t('search.labels.dcterms_type')
     config.add_show_field 'dcterms_creator_display',                label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
     config.add_show_field 'dcterms_language_display',               label: I18n.t('search.labels.dcterms_language')
-    config.add_show_field 'edm_is_shown_at_display',                label: I18n.t('search.labels.edm_is_shown_at'), helper_method: 'linkify'
-    config.add_show_field 'edm_is_shown_by_display',                label: I18n.t('search.labels.edm_is_shown_by'), helper_method: 'linkify'
     config.add_show_field 'dcterms_rights_holder_display',          label: I18n.t('search.labels.dcterms_rights_holder')
     config.add_show_field 'dcterms_bibliographic_citation_display', label: I18n.t('search.labels.dcterms_bibliographic_citation')
-    config.add_show_field 'dcterms_extent_display',                 label: I18n.t('search.labels.dcterms_extent')
-    config.add_show_field 'dcterms_medium_display',                 label: I18n.t('search.labels.dcterms_medium')
 
     config.add_search_field('all_fields') do |field|
       # field.include_in_advanced_search = false # no results returned in advanced search
