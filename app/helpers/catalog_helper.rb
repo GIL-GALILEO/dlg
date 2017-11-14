@@ -116,7 +116,7 @@ module CatalogHelper
 
   # Render human-readable label for RS.org value, if available and URI otherwise
   def rights_icon_label(uri)
-    I18n.t([:rights], scope: :meta)[0].each do |r|
+    I18n.t([:rights])[0].each do |r|
       return r[1][:label] if r[1][:uri] == uri
     end
     uri
