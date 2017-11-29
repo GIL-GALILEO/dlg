@@ -20,12 +20,12 @@ class CollectionsController < CatalogController
     config.add_facet_field 'subjects_sms',            label: I18n.t('search.facets.subjects'), limit: true
 
     # Results Fields
-    config.add_index_field 'dcterms_title_display',       label: I18n.t('search.labels.dcterms_title')
-    config.add_index_field 'dcterms_description_display', label: I18n.t('search.labels.dcterms_description'), helper_method: :truncate_index
-    config.add_index_field 'edm_is_shown_at_display',     label: I18n.t('search.labels.edm_is_shown_at'), helper_method: :linkify
-    config.add_index_field 'edm_is_shown_by_display',     label: I18n.t('search.labels.edm_is_shown_by'), helper_method: :linkify
-    config.add_index_field 'dcterms_creator_display',     label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
-    config.add_index_field 'dc_format_display',           label: I18n.t('search.labels.dc_format'), link_to_search: :format_facet
+    config.add_index_field :dcterms_provenance,           label: I18n.t('search.labels.dcterms_provenance'), link_to_search: true
+    config.add_index_field :dcterms_description_display,  label: I18n.t('search.labels.dcterms_description'), helper_method: :truncate_index
+    config.add_index_field :dc_date,                      label: I18n.t('search.labels.dc_date')
+    config.add_index_field :edm_is_shown_at_display,      label: I18n.t('search.labels.edm_is_shown_at'), helper_method: :linkify
+
+    # Show page fields are defined in RecordController
 
     config.show.html_title = 'title_display'
 
