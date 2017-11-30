@@ -1,4 +1,5 @@
 class RecordsController < CatalogController
+  include BlacklightMaps::ControllerOverride
 
   configure_blacklight do |config|
     config.search_builder_class = SearchBuilder
@@ -120,6 +121,18 @@ class RecordsController < CatalogController
         pf: 'spatial_unstem_search^1000 dcterms_spatial_text^50'
       }
     end
+
+    # maps config values from meta
+    config.add_facet_field 'geojson', label: '_', limit: -2, show: false
+    config.view.maps.geojson_field = 'geojson'
+    config.view.maps.placename_field = 'placename'
+    config.view.maps.coordinates_field = 'coordinates'
+    config.view.maps.search_mode = 'placename'
+    config.view.maps.facet_mode = 'geojson'
+    config.view.maps.initialview = '[[27.741885,-96.987305],[37.874853,-71.279297]]'
+    config.view.maps.maxzoom = 12
+    config.view.maps.show_initial_zoom = 9
+    config.show.partials << :show_maplet
 
   end
 

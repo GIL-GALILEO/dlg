@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   mount Blacklight::Engine => '/'
   mount BlacklightAdvancedSearch::Engine => '/'
 
-
   concern :searchable, Blacklight::Routes::Searchable.new
   concern :exportable, Blacklight::Routes::Exportable.new
 
-  resource :records, only: [:index] { concerns :searchable }
+  resource :records, only: [:index] do
+    get 'map', to: 'map', as: 'map'
+    concerns :searchable
+  end
   resource :collections, only: [:index] { concerns :searchable }
 
   get '/collection/:collection_record_id', to: 'records#index', as: 'collection_home'
