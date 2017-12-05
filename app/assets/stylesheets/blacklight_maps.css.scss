@@ -1,3 +1,52 @@
 /*
 *= require blacklight_maps/blacklight-maps
 */
+
+.marker-cluster-small {
+  background-color: rgba(237,248,233, 0.6);
+}
+
+.marker-cluster-small div {
+  background-color: rgba(199,233,192, 0.6);
+}
+
+.marker-cluster-medium {
+  background-color: rgba(161,217,155, 0.6);
+}
+
+.marker-cluster-medium div {
+  background-color: rgba(116,196,118, 0.6);
+}
+
+.marker-cluster-large {
+  background-color: rgba(49,163,84, 0.6);
+}
+
+.marker-cluster-large div {
+  background-color: rgba(0,109,44, 0.6);
+}
+
+/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+  background-color: #edf8e9;
+}
+
+.leaflet-oldie .marker-cluster-small div {
+  background-color: #c7e9c0;
+}
+
+.leaflet-oldie .marker-cluster-medium {
+  background-color: #a1d99b;
+}
+
+.leaflet-oldie .marker-cluster-medium div {
+  background-color: #74c476;
+}
+
+.leaflet-oldie .marker-cluster-large {
+  background-color: #31a354;
+}
+
+.leaflet-oldie .marker-cluster-large div {
+  background-color: #006d2c;
+}

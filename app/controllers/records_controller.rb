@@ -129,7 +129,8 @@ class RecordsController < CatalogController
     config.view.maps.coordinates_field = 'coordinates'
     config.view.maps.search_mode = 'placename'
     config.view.maps.facet_mode = 'geojson'
-    config.view.maps.initialview = '[[27.741885,-96.987305],[37.874853,-71.279297]]'
+    config.view.maps.initialview = '[[30.164126,-88.516846],[35.245619,-78.189697]]'
+    config.view.maps.tileurl = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
     config.view.maps.maxzoom = 12
     config.view.maps.show_initial_zoom = 9
     config.show.partials << :show_maplet
