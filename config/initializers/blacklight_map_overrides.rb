@@ -20,7 +20,16 @@ Rails.application.config.to_prepare do
       end
       new_params[:view] = default_document_index_view_type
       link_to(displayvalue.presence || field_value,
-              search_records_path(new_params.except(:id, :spatial_search_type, :coordinates)))
+              search_location_path(new_params.except(:id, :spatial_search_type, :coordinates)))
     end
+
+    def search_location_path(params = nil)
+      if controller.class.name.downcase.include? 'collections'
+        search_collections_path(params)
+      else
+        search_records_path(params)
+      end
+    end
+
   end
 end

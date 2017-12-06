@@ -132,7 +132,7 @@ class RecordsController < CatalogController
     config.view.maps.initialview = '[[30.164126,-88.516846],[35.245619,-78.189697]]'
     config.view.maps.tileurl = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
     config.view.maps.maxzoom = 12
-    config.view.maps.show_initial_zoom = 9
+    config.view.maps.show_initial_zoom = 10
     config.show.partials << :show_maplet
 
   end

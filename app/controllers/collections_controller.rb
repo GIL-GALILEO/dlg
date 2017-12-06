@@ -1,4 +1,5 @@
 class CollectionsController < CatalogController
+  include BlacklightMaps::ControllerOverride
 
   configure_blacklight do |config|
     config.search_builder_class = CollectionSearch
@@ -31,6 +32,18 @@ class CollectionsController < CatalogController
 
     config.add_sort_field 'title_sort asc', label: I18n.t('search.sort.collection_title')
     config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
+
+    config.add_facet_field 'geojson', label: '_', limit: -2, show: false
+    config.view.maps.geojson_field = 'geojson'
+    config.view.maps.placename_field = 'placename'
+    config.view.maps.coordinates_field = 'coordinates'
+    config.view.maps.search_mode = 'placename'
+    config.view.maps.facet_mode = 'geojson'
+    config.view.maps.initialview = '[[30.164126,-88.516846],[35.245619,-78.189697]]'
+    config.view.maps.tileurl = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+    config.view.maps.maxzoom = 12
+    config.view.maps.show_initial_zoom = 10
+    config.show.partials << :show_maplet
 
   end
 

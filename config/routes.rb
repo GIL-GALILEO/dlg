@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
   end
-  resource :collections, only: [:index] { concerns :searchable }
+  resource :collections, only: [:index] do
+    get 'map', to: 'map', as: 'map'
+    concerns :searchable
+  end
 
   get '/collection/:collection_record_id', to: 'records#index', as: 'collection_home'
   get '/counties', to: 'counties#index', as: 'counties'
