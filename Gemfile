@@ -9,7 +9,6 @@ gem 'active_hash'
 gem 'blacklight', '~> 6.10'
 gem 'blacklight-maps', '~> 0.5.0'
 gem 'blacklight_advanced_search', '~> 6.3'
-gem 'blacklight_range_limit'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -24,6 +23,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'rspec-rails', '~> 3.5'
 end
 

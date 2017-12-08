@@ -3,8 +3,6 @@
 # Main Blacklight controller housing common configuration shared with other
 # child Controllers
 class CatalogController < ApplicationController
-
-  include BlacklightRangeLimit::ControllerOverride
   include BlacklightAdvancedSearch::Controller
   include Blacklight::Catalog
 

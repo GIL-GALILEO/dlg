@@ -65,10 +65,6 @@ GEM
     blacklight_advanced_search (6.3.1)
       blacklight (~> 6.0, >= 6.0.1)
       parslet
-    blacklight_range_limit (6.2.1)
-      blacklight (>= 6.0.2)
-      jquery-rails
-      rails (>= 3.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -80,6 +76,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-screenshot (1.0.18)
+      capybara (>= 1.0, < 3)
+      launchy
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -120,6 +119,8 @@ GEM
       activerecord
       kaminari-core (= 1.1.0)
     kaminari-core (1.1.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     leaflet-markercluster-rails (0.7.0)
       railties (>= 3.1)
     leaflet-rails (1.0.0)
@@ -254,8 +255,8 @@ DEPENDENCIES
   blacklight (~> 6.10)
   blacklight-maps (~> 0.5.0)
   blacklight_advanced_search (~> 6.3)
-  blacklight_range_limit
   capybara
+  capybara-screenshot
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
