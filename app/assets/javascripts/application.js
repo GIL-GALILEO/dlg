@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require blacklight-maps
 //= require leaflet
 //= require rails-ujs
 //= require turbolinks
