@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Blacklight search controller for Collections
 class CollectionsController < CatalogController
   include BlacklightMaps::ControllerOverride
 

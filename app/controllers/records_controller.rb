@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Main Blacklight search controller
 class RecordsController < CatalogController
   include BlacklightMaps::ControllerOverride
 
@@ -122,7 +125,7 @@ class RecordsController < CatalogController
       }
     end
 
-    # maps config values from meta
+    # maps config values
     config.add_facet_field 'geojson', label: '_', limit: -2, show: false
     config.view.maps.geojson_field = 'geojson'
     config.view.maps.placename_field = 'placename'

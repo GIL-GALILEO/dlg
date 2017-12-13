@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # handle actions for Counties browse page
 class CountiesController < CatalogController
   include FacetBrowseBehavior

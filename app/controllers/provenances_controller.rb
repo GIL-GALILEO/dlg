@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # handle actions for Holding Institution browse page
 class ProvenancesController < CatalogController
   include FacetBrowseBehavior
