@@ -1,5 +1,8 @@
 <% if params['collection_record_id'] && @document_list.any? %>
   <h1><%= @document_list[0]['collection_name_sms'].first %> Item Search</h1>
+  <% if @document_list[0]['dcterms_provenance_display'].first %>
+    <h4>Provided by <%= @document_list[0]['dcterms_provenance_display'].first %></h4>
+  <% end %>
 <% else %>
   <h1>Collection & Item Search</h1>
 <% end %>
