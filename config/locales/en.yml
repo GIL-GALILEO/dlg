@@ -113,7 +113,6 @@ en:
       type: 'Type'
       medium: 'Medium'
       language: 'Language'
-      repository: 'Repository'
       collection: 'Collection'
       collection_name: 'Collection Name'
       class: 'Class'
@@ -127,7 +126,6 @@ en:
     labels:
       record_id: 'Record ID'
       collection: 'Collection'
-      repository: 'Repository'
       dcterms_provenance: 'Holding Institution'
       dcterms_title: 'Title'
       dcterms_creator: 'Creator'

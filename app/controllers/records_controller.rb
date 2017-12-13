@@ -24,7 +24,7 @@ class RecordsController < CatalogController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field :dcterms_provenance,           label: I18n.t('search.labels.dcterms_provenance'), link_to_search: true
+    config.add_index_field :dcterms_provenance,           label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
     config.add_index_field :dcterms_subject,              label: I18n.t('search.labels.dcterms_subject'), link_to_search: true
     config.add_index_field :dcterms_description_display,  label: I18n.t('search.labels.dcterms_description'), helper_method: :truncate_index
     config.add_index_field :edm_is_shown_at_display,      label: I18n.t('search.labels.edm_is_shown_at'), helper_method: :linkify
@@ -37,8 +37,7 @@ class RecordsController < CatalogController
     config.add_show_field 'edm_is_shown_at_display',                label: I18n.t('search.labels.edm_is_shown_at'), helper_method: 'linkify'
     config.add_show_field 'edm_is_shown_by_display',                label: I18n.t('search.labels.edm_is_shown_by'), helper_method: 'linkify'
     config.add_show_field 'collection_name_sms',                    label: I18n.t('search.labels.collection'), link_to_search: true
-    config.add_show_field 'repository_name_sms',                    label: I18n.t('search.labels.repository'), link_to_search: true
-    config.add_show_field 'dcterms_provenance_display',             label: I18n.t('search.labels.dcterms_provenance')
+    config.add_show_field 'dcterms_provenance_display',             label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
     config.add_show_field 'dc_right_display',                       label: I18n.t('search.labels.dc_right'), helper_method: :rights_icon_tag
     config.add_show_field 'dc_format_display',                      label: I18n.t('search.labels.dc_format')
     config.add_show_field 'dcterms_publisher_display',              label: I18n.t('search.labels.dcterms_publisher')
