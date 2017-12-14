@@ -2,7 +2,7 @@
 
 # Main App controller
 class ApplicationController < ActionController::Base
-  # Adds a few additional behaviors into the application controller
+  helper Openseadragon::OpenseadragonHelper
   include Blacklight::Controller
   layout 'blacklight'
   protect_from_forgery with: :exception

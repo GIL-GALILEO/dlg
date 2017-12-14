@@ -7,6 +7,7 @@ end
 
 gem 'active_hash'
 gem 'blacklight', '~> 6.10'
+gem 'blacklight-gallery', '~> 0.9.0'
 gem 'blacklight-maps', '~> 0.5.0'
 gem 'blacklight_advanced_search', '~> 6.3'
 gem 'coffee-rails', '~> 4.2'

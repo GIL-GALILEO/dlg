@@ -136,6 +136,13 @@ class RecordsController < CatalogController
     config.view.maps.maxzoom = 12
     config.view.maps.show_initial_zoom = 10
     config.show.partials << :show_maplet
+
+    # gallery config
+    config.view.gallery.partials = [:index_header, :index]
+    config.view.masonry.partials = [:index]
+    # config.view.slideshow.partials = [:index]
+    # config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
+    # config.show.partials.insert(1, :openseadragon)
   end
 
   def collection?(_, doc)
