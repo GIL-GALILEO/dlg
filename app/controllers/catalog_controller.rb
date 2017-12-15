@@ -3,7 +3,6 @@
 # Main Blacklight controller housing common configuration shared with other
 # child Controllers
 class CatalogController < ApplicationController
-  include BlacklightAdvancedSearch::Controller
   include Blacklight::Catalog
 
   configure_blacklight do |config|
