@@ -36,7 +36,6 @@
       var result_count = page_links.find('.page_entries').find('strong').last().html();
       page_links.html('<span class="page_entries"><strong>' + result_count + '</strong> items found</span> ' + mapped_items + mapped_caveat);
       sortAndPerPage.find('.dropdown-toggle').hide();
-      sortAndPerPage.find('.search-widgets').hide();
     } else { // catalog#show view
       $(this.selector).before(mapped_items);
     }
