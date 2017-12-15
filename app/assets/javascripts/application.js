@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require chosen-jquery
 //= require leaflet
 //= require rails-ujs
 //= require turbolinks
@@ -18,3 +19,11 @@
 //= require blacklight/blacklight
 
 //= require_tree .
+
+Blacklight.onLoad(function() {
+
+    $('select.advanced-search-facet-select').chosen({
+        search_contains: true
+    });
+
+});

@@ -143,6 +143,26 @@ class RecordsController < CatalogController
     # config.view.slideshow.partials = [:index]
     # config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     # config.show.partials.insert(1, :openseadragon)
+
+    # default advanced config values
+    config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
+    # config.advanced_search[:qt] ||= 'advanced'
+    config.advanced_search[:url_key] ||= 'advanced'
+    config.advanced_search[:query_parser] ||= 'dismax'
+    config.advanced_search[:form_facet_partial]   ||= 'advanced_search_facets_as_select'
+    config.advanced_search[:form_solr_parameters] ||= {
+        'f.county_facet.facet.limit' => -1,
+        'f.provenance_facet.facet.limit' => 250,
+        'f.subject_facet.facet.limit' => 250,
+        'f.year_facet.facet.limit' => 250,
+        'f.location_facet.facet.limit' => 250,
+        'f.rights_facet.facet.limit' => 250,
+        'f.type_facet.facet.limit' => 250,
+        'f.medium_facet.facet.limit' => 250,
+        'f.time_periods_sms.facet.limit' => -1,
+        'f.subjects_sms.facet.limit' => -1,
+        'f.collection_name_sms.facet.limit' => -1
+    }
   end
 
   def collection?(_, doc)
