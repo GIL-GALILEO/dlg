@@ -9,7 +9,8 @@ class CatalogController < ApplicationController
 
     # Default parameters to send to solr for all search-like requests.
     # See also SearchBuilder#processed_parameters
-    config.default_solr_params = { qt: 'public' }
+    # config.default_solr_params = { qt: 'public' }
+    config.default_solr_params = { qt: 'search' }
 
     # facets are defined in query handler so this is not needed
     # makes debugging solr calls easier
