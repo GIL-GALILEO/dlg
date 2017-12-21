@@ -1,9 +1,9 @@
 development:
   adapter: solr
-  url: <%= "http://127.0.0.1:8983/solr/blacklight-core" %>
+  url: <%= "http://127.0.0.1:8983/solr/meta" %>
 test: &test
   adapter: solr
-  url: <%= "http://127.0.0.1:8983/solr/blacklight-core" %>
+  url: <%= "http://127.0.0.1:8983/solr/meta" %>
 staging:
   adapter: solr
   url: <%= "http://solrcloud.galib.uga.edu:8983/solr/meta-prod" %>
