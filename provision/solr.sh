@@ -26,3 +26,6 @@ sudo cp solr-6.5.1/server/solr/configsets/basic_configs/conf/protwords.txt solr-
 # start solr, creating collection
 sudo bash solr-6.5.1/bin/solr start -c -force
 sudo bash solr-6.5.1/bin/solr create -c meta -d meta -force
+
+# load sample data
+curl 'http://localhost:8983/solr/meta/update?commit=true' --data-binary '@/opt/dlg/provision/data.json' -H 'Content-type:application/json'

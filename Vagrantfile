@@ -1,6 +1,4 @@
 Vagrant.configure('2') do |config|
-  # config.vm.box = 'comiq/rubybox'
-  # config.vm.box_version = '2.3.1'
   config.vm.box = 'ubuntu/xenial64'
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   config.vm.network :forwarded_port, guest: 8983, host: 3983

@@ -3,9 +3,9 @@ class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
   include BlacklightMaps::MapsSearchBuilderBehavior
   include BlacklightAdvancedSearch::AdvancedSearchBuilder
-  self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr]
-
   self.default_processor_chain += %i[
+    add_advanced_parse_q_to_solr
+    add_advanced_search_to_solr
     show_only_public_records
     show_only_dlg_records
     show_only_desired_classes
@@ -30,7 +30,7 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   def show_only_desired_classes(solr_parameters)
     solr_parameters[:fq] ||= []
-    solr_parameters[:fq] << ''
+    # solr_parameters[:fq] << ''
   end
 
   private
