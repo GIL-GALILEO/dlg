@@ -20,5 +20,3 @@ solr-6.5.1/bin/solr start -c -force
 solr-6.5.1/bin/solr create -c meta-dev -d meta -force
 solr-6.5.1/bin/solr create -c meta-test -d meta -force
 
-# load sample data
-curl 'http://localhost:8983/solr/meta-dev/update?commit=true' --data-binary '@/opt/dlg/provision/data.json' -H 'Content-type:application/json'
