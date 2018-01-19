@@ -7,11 +7,11 @@
 #   and modified to be more friendly with vagrant and rails.
 
 # Edit the following to change the name of the database user that will be created:
-APP_DB_USER=ubuntu
-APP_DB_PASS=ubuntu
+APP_DB_USER=vagrant
+APP_DB_PASS=vagrant
 
 # Edit the following to change the name of the database that is created (defaults to the user name)
-APP_DB_NAME=dlg
+APP_DB_NAME=meta
 
 # Edit the following to change the version of PostgreSQL that is installed
 PG_VERSION=9.4
@@ -87,7 +87,7 @@ echo "client_encoding = utf8" >> "$PG_CONF"
 # Restart so that all new config is loaded:
 service postgresql restart
 
-echo "Creating DLG user and development database"
+echo "Creating META user and development database"
 
 cat << EOF | su - postgres -c psql
 -- Create the database user:

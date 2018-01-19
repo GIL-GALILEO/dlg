@@ -1,7 +1,7 @@
 [
   {
     "id":"gaarchives_cmf",
-    "class_name_ss":"Collection",
+    "class_name_ss":"Collection", "class_name":"Collection",
     "slug_ss":"cmf",
     "record_id_ss":"gaarchives_cmf",
     "sunspot_id_ss":"Collection 1",
@@ -32,7 +32,7 @@
   },
   {
     "id":"gaarchives_hdg",
-    "class_name_ss":"Collection",
+    "class_name_ss":"Collection", "class_name":"Collection",
     "slug_ss":"hdg",
     "record_id_ss":"gaarchives_hdg",
     "sunspot_id_ss":"Collection 2",
@@ -90,7 +90,7 @@
   },
   {
     "id":"dlg_children",
-    "class_name_ss":"Collection",
+    "class_name_ss":"Collection", "class_name":"Collection",
     "slug_ss":"children",
     "record_id_ss":"dlg_children",
     "sunspot_id_ss":"Collection 3",
@@ -117,7 +117,7 @@
   },
   {
     "id":"dlg_vsbg",
-    "class_name_ss":"Collection",
+    "class_name_ss":"Collection", "class_name":"Collection",
     "slug_ss":"vsbg",
     "record_id_ss":"dlg_vsbg",
     "sunspot_id_ss":"Collection 4",
@@ -159,7 +159,7 @@
   },
   {
     "id":"tws_oid15",
-    "class_name_ss":"Collection",
+    "class_name_ss":"Collection", "class_name":"Collection",
     "slug_ss":"oid15",
     "record_id_ss":"tws_oid15",
     "sunspot_id_ss":"Collection 5",
@@ -213,7 +213,7 @@
   },
   {
     "id":"tws_oid23",
-    "class_name_ss":"Collection",
+    "class_name_ss":"Collection", "class_name":"Collection",
     "slug_ss":"oid23",
     "record_id_ss":"tws_oid23",
     "sunspot_id_ss":"Collection 6",
@@ -264,7 +264,7 @@
   },
   {
     "id":"msu_integration",
-    "class_name_ss":"Collection",
+    "class_name_ss":"Collection", "class_name":"Collection",
     "slug_ss":"integration",
     "record_id_ss":"msu_integration",
     "sunspot_id_ss":"Collection 7",
@@ -306,7 +306,7 @@
   },
   {
     "id":"msu_cwar",
-    "class_name_ss":"Collection",
+    "class_name_ss":"Collection", "class_name":"Collection",
     "slug_ss":"cwar",
     "record_id_ss":"msu_cwar",
     "sunspot_id_ss":"Collection 8",
@@ -341,7 +341,7 @@
   },
   {
     "id":"gaarchives_cmf_24",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"24",
     "record_id_ss":"gaarchives_cmf_24",
@@ -382,7 +382,7 @@
   },
   {
     "id":"gaarchives_cmf_51",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"51",
     "record_id_ss":"gaarchives_cmf_51",
@@ -423,7 +423,7 @@
   },
   {
     "id":"gaarchives_cmf_70",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"70",
     "record_id_ss":"gaarchives_cmf_70",
@@ -465,7 +465,7 @@
   },
   {
     "id":"gaarchives_hdg_vandiveradd",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"vandiveradd",
     "record_id_ss":"gaarchives_hdg_vandiveradd",
@@ -507,7 +507,7 @@
   },
   {
     "id":"gaarchives_hdg_1877con",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"1877con",
     "record_id_ss":"gaarchives_hdg_1877con",
@@ -520,7 +520,7 @@
     "portals_sms":["georgia"],
     "portal_names_sms":["The Digital Library of Georgia"],
     "valid_item_ss":"Yes",
-    "display_ss":"No", display_b:false,
+    "display_ss":"No", "display_b":false,
     "dpla_ss":"No",
     "public_ss":"No",
     "dcterms_provenance_display":["Georgia Archives"],
@@ -547,7 +547,7 @@
   },
   {
     "id":"gaarchives_hdg_1983con",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"1983con",
     "record_id_ss":"gaarchives_hdg_1983con",
@@ -588,7 +588,7 @@
   },
   {
     "id":"dlg_children_acl2048",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"1",
     "slug_ss":"acl2048",
     "record_id_ss":"dlg_children_acl2048",
@@ -636,7 +636,7 @@
   },
   {
     "id":"dlg_children_acl051",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"1",
     "slug_ss":"acl051",
     "record_id_ss":"dlg_children_acl051",
@@ -680,7 +680,7 @@
   },
   {
     "id":"dlg_children_bhtc5313",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"1",
     "slug_ss":"bhtc5313",
     "record_id_ss":"dlg_children_bhtc5313",
@@ -726,7 +726,7 @@
   },
   {
     "id":"dlg_vsbg_jaj053",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"1",
     "slug_ss":"jaj053",
     "record_id_ss":"dlg_vsbg_jaj053",
@@ -780,7 +780,7 @@
   },
   {
     "id":"dlg_vsbg_jaj111",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"1",
     "slug_ss":"jaj111",
     "record_id_ss":"dlg_vsbg_jaj111",
@@ -837,7 +837,7 @@
   },
   {
     "id":"dlg_vsbg_jaj022",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"1",
     "slug_ss":"jaj022",
     "record_id_ss":"dlg_vsbg_jaj022",
@@ -899,7 +899,7 @@
   },
   {
     "id":"msu_integration_548",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"548",
     "record_id_ss":"msu_integration_548",
@@ -957,7 +957,7 @@
   },
   {
     "id":"msu_integration_543",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"543",
     "record_id_ss":"msu_integration_543",
@@ -1015,7 +1015,7 @@
   },
   {
     "id":"msu_integration_60",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"60",
     "record_id_ss":"msu_integration_60",
@@ -1070,7 +1070,7 @@
   },
   {
     "id":"msu_cwar_579",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"579",
     "record_id_ss":"msu_cwar_579",
@@ -1126,7 +1126,7 @@
   },
   {
     "id":"msu_cwar_3467",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"3467",
     "record_id_ss":"msu_cwar_3467",
@@ -1177,7 +1177,7 @@
   },
   {
     "id":"msu_cwar_3176",
-    "class_name_ss":"Item",
+    "class_name_ss":"Item", "class_name":"Item",
     "local_ss":"0",
     "slug_ss":"3176",
     "record_id_ss":"msu_cwar_3176",
