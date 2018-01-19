@@ -169,13 +169,9 @@ class County < ActiveHash::Base
   def geo_hash
     { type: 'Feature',
       geometry:
-        { type: 'Polygon',
-          coordinates: poly
-        },
+        { type: 'Polygon', coordinates: poly },
       properties:
-        { name: name,
-          count: count,
-          href: href }
+        { name: name, count: count, href: href }
     }
   end
 end
