@@ -2,7 +2,7 @@ class CollectionSearch < SearchBuilder
 
   def show_only_desired_classes(solr_parameters)
     solr_parameters[:fq] ||= []
-    solr_parameters[:fq] << 'class_name:Collection'
+    solr_parameters[:fq] << 'class_name_ss:Collection'
   end
 
 end
