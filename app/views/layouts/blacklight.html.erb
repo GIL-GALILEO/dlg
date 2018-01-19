@@ -25,20 +25,21 @@
   <%= content_for(:head) %>
 </head>
 <body class="<%= render_body_class %>">
-<%= render :partial => 'shared/header_navbar' %>
+  <section role="main" <% if Rails.application.secrets.ga_tracking_id %>data-analytics-id="<%= Rails.application.secrets.ga_tracking_id %>"<% end %>>
+    <%= render :partial => 'shared/header_navbar' %>
 
-<%= render partial: 'shared/ajax_modal' %>
+    <%= render partial: 'shared/ajax_modal' %>
 
-<div id="main-container" class="<%= container_classes %>">
-  <%= content_tag :h1, application_name, class: 'sr-only application-heading' %>
+    <div id="main-container" class="<%= container_classes %>">
+      <%= content_tag :h1, application_name, class: 'sr-only application-heading' %>
 
-  <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
+      <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
 
-  <div class="row">
-    <%= yield %>
-  </div>
-</div>
-
-<%= render :partial => 'shared/footer' %>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render :partial => 'shared/footer' %>
+  </section>
 </body>
 </html>

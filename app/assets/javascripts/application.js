@@ -17,7 +17,6 @@
 //= require turbolinks
 //= require 'blacklight_advanced_search'
 //= require blacklight/blacklight
-
 //= require_tree .
 
 Blacklight.onLoad(function() {
