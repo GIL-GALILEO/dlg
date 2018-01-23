@@ -259,8 +259,7 @@
     "created_at_dts":"2018-01-04T21:42:19Z",
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["35.1495343, -90.0489801"],
-    "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-90.0489801, 35.1495343]},\"properties\":{\"placename\":\"United States, Tennessee, Shelby County, Memphis\"}}"],
-    "placename":["United States, Tennessee, Shelby County, Memphis"]
+    "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-90.0489801, 35.1495343]},\"properties\":{\"placename\":\"United States, Tennessee, Shelby County, Memphis\"}}"]
   },
   {
     "id":"msu_integration",
@@ -378,7 +377,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["34.8545207, -85.5045272"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-85.5045272, 34.8545207]},\"properties\":{\"placename\":\"United States, Georgia, Dade County\"}}"],
-    "placename":["United States, Georgia, Dade County"]
+    "placename":["United States, Georgia, Dade County"],
+    "counties_facet":["Fannin","Fayette","Floyd","Forsyth","Fulton","Gilmer","Bacon","Baker","Banks","Barrow","Bartow","Ben Hill","Bibb","Bleckley","Brantley","Towns","Stephens","McDuffie","Taliaferro","Newton","Spalding","Lamar","Meriwether","Talbot","Taylor","Macon","Telfair","Toombs","Tattnall","Stewart","Lee","Irwin"]
   },
   {
     "id":"gaarchives_cmf_51",
@@ -419,7 +419,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["32.8064982, -83.69742"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-83.69742, 32.8064982]},\"properties\":{\"placename\":\"United States, Georgia, Bibb County\"}}"],
-    "placename":["United States, Georgia, Bibb County"]
+    "placename":["United States, Georgia, Bibb County"],
+    "counties_facet":["Brooks","Bryan","Bulloch","Burke","Calhoun","Camden","Carroll","Charlton","Chatham","Chattahoochee","Cherokee","Clay","Clayton","Clinch","Cobb","Gordon","Greene","Thomas","Jefferson"]
   },
   {
     "id":"gaarchives_cmf_70",
@@ -461,7 +462,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["30.8783441, -84.5790702"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-84.5790702, 30.8783441]},\"properties\":{\"placename\":\"United States, Georgia, Decatur County\"}}"],
-    "placename":["United States, Georgia, Decatur County"]
+    "placename":["United States, Georgia, Decatur County"],
+    "counties_facet":["Gwinnett","Habersham","Hall","Hancock","Harris","Hart","Henry","Houston","Jackson","Jasper","Jeff Davis","Jenkins","Johnson","Jones","Lanier"]
   },
   {
     "id":"gaarchives_hdg_vandiveradd",
@@ -503,7 +505,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["33.960948, -83.3779358"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-83.3779358, 33.960948]},\"properties\":{\"placename\":\"United States, Georgia, Clarke County, Athens\"}}"],
-    "placename":["United States, Georgia, Clarke County, Athens"]
+    "placename":["United States, Georgia, Clarke County, Athens"],
+    "counties_facet":["Laurens","Liberty","Lincoln","Long","Lowndes","Lumpkin","McIntosh","Macon","Madison","Marion","Miller","Mitchell","Monroe","Montgomery"]
   },
   {
     "id":"gaarchives_hdg_1877con",
@@ -584,7 +587,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["32.165622, -82.900075"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-82.900075, 32.165622]},\"properties\":{\"placename\":\"United States, Georgia\"}}"],
-    "placename":["United States, Georgia"]
+    "placename":["United States, Georgia"],
+    "counties_facet":["Treutlen","Turner","Twiggs","Union","Upson","Walton","Ware","Warren","Washington","Wayne","Wheeler","Whitfield","Wilkes","Wilkinson","Worth"]
   },
   {
     "id":"dlg_children_acl2048",
@@ -632,7 +636,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["33.960948, -83.3779358"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-83.3779358, 33.960948]},\"properties\":{\"placename\":\"United States, Georgia, Clarke County, Athens\"}}"],
-    "placename":["United States, Georgia, Clarke County, Athens"]
+    "placename":["United States, Georgia, Clarke County, Athens"],
+    "counties_facet":["Treutlen","Turner","Twiggs","Union","Upson","Walton","Ware","Warren","Washington","Wayne","Wheeler","Whitfield","Wilkes","Wilkinson","Worth"]
   },
   {
     "id":"dlg_children_acl051",
@@ -676,7 +681,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["33.960948, -83.3779358"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-83.3779358, 33.960948]},\"properties\":{\"placename\":\"United States, Georgia, Clarke County, Athens\"}}"],
-    "placename":["United States, Georgia, Clarke County, Athens"]
+    "placename":["United States, Georgia, Clarke County, Athens"],
+    "counties_facet":["Paulding","Pickens","Polk","Randolph","Schley","Sumter","Terrell","Tift"]
   },
   {
     "id":"dlg_children_bhtc5313",
@@ -722,7 +728,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["32.8598538, -84.6199251"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-84.6199251, 32.8598538]},\"properties\":{\"placename\":\"United States, Georgia, Meriwether County, Manchester\"}}"],
-    "placename":["United States, Georgia, Meriwether County, Manchester"]
+    "placename":["United States, Georgia, Meriwether County, Manchester"],
+    "counties_facet":["Decatur","DeKalb","Dodge","Dougherty","Douglas","Early","Effingham","Elbert","Emanuel"]
   },
   {
     "id":"dlg_vsbg_jaj053",
@@ -776,7 +783,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["31.1499528, -81.4914894"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-81.4914894, 31.1499528]},\"properties\":{\"placename\":\"United States, Georgia, Glynn County, Brunswick\"}}"],
-    "placename":["United States, Georgia, Glynn County, Brunswick"]
+    "placename":["United States, Georgia, Glynn County, Brunswick"],
+    "counties_facet":["Morgan","Murray","Muscogee","Oconee","Oglethorpe","Peach","Pierce","Pike","Pulaski","Putnam","Quitman","Rabun","Richmond","Rockdale","Screven","Seminole"]
   },
   {
     "id":"dlg_vsbg_jaj111",
@@ -833,7 +841,8 @@
     "updated_at_dts":"2018-01-04T21:42:20Z",
     "coordinates":["31.1499528, -81.4914894"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-81.4914894, 31.1499528]},\"properties\":{\"placename\":\"United States, Georgia, Glynn County, Brunswick\"}}"],
-    "placename":["United States, Georgia, Glynn County, Brunswick"]
+    "placename":["United States, Georgia, Glynn County, Brunswick"],
+    "counties_facet":["Atkinson","Coffee","Columbia","Coweta","Crawford","Dade","Dawson","Chattooga","Clarke","Colquitt","Cook","Crisp","Dooly","Echols"]
   },
   {
     "id":"dlg_vsbg_jaj022",
@@ -895,7 +904,8 @@
     "updated_at_dts":"2018-01-04T21:42:20Z",
     "coordinates":["31.1499528, -81.4914894"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-81.4914894, 31.1499528]},\"properties\":{\"placename\":\"United States, Georgia, Glynn County, Brunswick\"}}"],
-    "placename":["United States, Georgia, Glynn County, Brunswick"]
+    "placename":["United States, Georgia, Glynn County, Brunswick"],
+    "counties_facet":["Evans","Franklin","Glascock","Glynn","Grady","Haralson","Heard","Baldwin","Berrien","Butts","Candler","Catoosa","Tift","Troup","Walker","Webster","White","Wilcox","Appling"]
   },
   {
     "id":"msu_integration_548",
