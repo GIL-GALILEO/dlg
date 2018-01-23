@@ -5,7 +5,7 @@ class RecordsController < CatalogController
   include BlacklightMaps::ControllerOverride
 
   configure_blacklight do |config|
-    config.search_builder_class = SearchBuilder
+    config.search_builder_class = RecordsSearch
 
     # FACETS
     config.add_facet_field :counties_facet,              label: I18n.t('search.facets.county'), limit: true, display: false, group: 'item'
@@ -151,17 +151,17 @@ class RecordsController < CatalogController
     config.advanced_search[:query_parser] ||= 'dismax'
     config.advanced_search[:form_facet_partial]   ||= 'advanced_search_facets_as_select'
     config.advanced_search[:form_solr_parameters] ||= {
-        'f.county_facet.facet.limit' => -1,
-        'f.provenance_facet.facet.limit' => 250,
-        'f.subject_facet.facet.limit' => 250,
-        'f.year_facet.facet.limit' => 250,
-        'f.location_facet.facet.limit' => 250,
-        'f.rights_facet.facet.limit' => 250,
-        'f.type_facet.facet.limit' => 250,
-        'f.medium_facet.facet.limit' => 250,
-        'f.time_periods_sms.facet.limit' => -1,
-        'f.subjects_sms.facet.limit' => -1,
-        'f.collection_name_sms.facet.limit' => -1
+      'f.county_facet.facet.limit' => -1,
+      'f.provenance_facet.facet.limit' => 250,
+      'f.subject_facet.facet.limit' => 250,
+      'f.year_facet.facet.limit' => 250,
+      'f.location_facet.facet.limit' => 250,
+      'f.rights_facet.facet.limit' => 250,
+      'f.type_facet.facet.limit' => 250,
+      'f.medium_facet.facet.limit' => 250,
+      'f.time_periods_sms.facet.limit' => -1,
+      'f.subjects_sms.facet.limit' => -1,
+      'f.collection_name_sms.facet.limit' => -1
     }
   end
 
