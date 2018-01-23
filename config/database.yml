@@ -25,6 +25,10 @@ test:
 
 staging:
   <<: *default
+  host: pg.galib.uga.edu
+  port: 5432
+  username: <%= Rails.application.secrets.db_user %>
+  password: <%= Rails.application.secrets.db_password %>
   database: dlg_staging
 
 production:
