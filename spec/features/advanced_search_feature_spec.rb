@@ -12,5 +12,10 @@ feature 'Advanced Searching' do
       find('#advanced-search-submit').click
       expect(page).to have_css('.document')
     end
+    scenario 'entering a query and clicking search returns results' do
+      fill_in 'all_fields', with: 'map'
+      find('#advanced-search-submit').click
+      expect(page).to have_css('.document')
+    end
   end
 end
