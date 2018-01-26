@@ -1,0 +1,12 @@
+<h3>Features for Carousel</h3>
+<ul>
+  <% @carousel_features['records'].each do |f| %>
+    <li><%= link_to f['title'], f['title_url']  %> from <%= link_to f['institution'], f['institution_url'] %></li>
+  <% end %>
+</ul>
+<h3>Features for Tabs</h3>
+<ul>
+  <% @tabs_features['records'].each do |f| %>
+    <li><%= link_to f['title'], f['title_url']  %> from <%= link_to f['institution'], f['institution_url'] %></li>
+  <% end %>
+</ul>
