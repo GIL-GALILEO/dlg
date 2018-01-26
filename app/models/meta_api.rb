@@ -18,7 +18,13 @@ class MetaApi
     r = HTTParty.get(
       url, headers: { 'X-User-Token': Rails.application.secrets.meta_api_key }
     )
-    r.response.code == '200' ? r.parsed_response : {}
+    if r.response.code == '200'
+      obj = r.parsed_response
+      obj['records'] = JSON.parse obj['records']
+      obj
+    else
+      {}
+    end
   rescue JSON::JSONError
     # TODO: log error
     {}
