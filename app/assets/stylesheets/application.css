@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require chosen
  *= require leaflet
  *= require 'blacklight_advanced_search'
@@ -26,4 +27,531 @@
 
 .rights-statement-link:hover {
     background: none;
+}
+
+/* for sticky footer */
+html {
+    min-height: 100%;
+    position: relative; }
+html body {
+    margin-bottom: 300px; }
+html main h2 {
+    font-size: 44px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center; }
+html main ul li {
+    margin-bottom: 1rem; }
+html section {
+    margin: 40px 0; }
+
+.hero {
+    height: 500px;
+    /*background-image: url(/img/hero-img.jpg);*/
+    background-size: cover;
+    background-position: 50%;
+    position: relative; }
+.hero .hero-content {
+    margin: auto;
+    height: auto;
+    top: 160px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    color: #fff;
+    z-index: 2; }
+.hero .hero-content h2 {
+    text-align: center;
+    font-size: 50px; }
+
+.hero:before {
+    content: " ";
+    z-index: 1;
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); }
+
+.navbar {
+    margin-bottom: 0; }
+
+.navbar-default {
+    border: none;
+    border-top: 3px solid #ab7c5b;
+    border-radius: 0;
+    background: none; }
+.navbar-default .navbar-nav > li > a {
+    color: #333;
+    text-transform: uppercase; }
+.navbar-default .navbar-nav > .active > a {
+    background: #93450E;
+    color: #fff; }
+.navbar-default .nav-center {
+    display: inline-block; }
+
+.search {
+    padding: 10px 0;
+    background-color: #1B8892; }
+.search .input-group-lg > .input-group-btn > .btn {
+    padding: 10px 20px; }
+.search .form-control, .search .btn {
+    border: none; }
+
+.header {
+    padding: 0 0;
+    background-color: #F7F6F1; }
+.header h1 {
+    text-align: center;
+    margin: 0; }
+.header h1 img {
+    width: 200px; }
+.header .logo-galileo {
+    margin-top: 5px;
+    width: 150px; }
+.header ul.social-icons {
+    margin-top: 1rem; }
+
+.partners {
+    background: #0E8893;
+    text-align: center;
+    padding: 30px 0; }
+.partners h2 {
+    color: #fff; }
+.partners img {
+    padding: 0 20px; }
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    height: 300px;
+    background: #F4F3E8;
+    border-top: 5px solid #E8E5D4;
+    color: #ab7c5b;
+    padding: 40px 0 20px 0; }
+.footer .row {
+    text-align: center; }
+.footer .img-responsive {
+    display: inline; }
+.footer p {
+    font-size: 12px; }
+.footer ul.footer-nav {
+    list-style: none;
+    padding-left: 0; }
+.footer ul.footer-nav li {
+    margin-left: 10px; }
+.footer ul.footer-nav li a {
+    margin-right: 10px;
+    color: #ab7c5b; }
+
+ul.social-icons {
+    list-style: none;
+    padding-left: 0; }
+ul.social-icons li {
+    display: inline;
+    margin-right: 5px; }
+
+.nav-tabs {
+    border-width: 2px !important; }
+.nav-tabs a {
+    color: #333; }
+
+.nav-tabs > li:first-child {
+    margin-left: 25px; }
+
+.nav-tabs > li > a {
+    border-width: 2px !important; }
+
+.nav-tabs > li.active > a {
+    border-width: 2px !important; }
+
+.nav-tabs > li.active > a:hover {
+    border-color: #0E8893 #0E8893 transparent #0E8893 !important; }
+
+.nav-tabs > li > a:hover {
+    border-color: transparent !important;
+    background: none; }
+
+.nav-tabs > li {
+    margin-bottom: -2px !important; }
+
+.tab-content {
+    margin-top: 20px; }
+.tab-content h3 {
+    font-size: 29px;
+    margin-top: 5px;
+    margin-bottom: 0; }
+.tab-content h4 {
+    margin-top: 0; }
+.tab-content p {
+    color: #777777; }
+.tab-content .right-col .row {
+    margin-bottom: 15px; }
+.tab-content .right-col .no-gutter-left {
+    padding-left: 0; }
+
+section#counties .sort-buttons {
+    margin-bottom: 10px;
+    margin-top: 10px; }
+
+section#counties ul.counties-list {
+    -moz-column-count: 1;
+    -moz-column-gap: 5px;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 5px;
+    column-count: 1;
+    column-gap: 5px; }
+
+section#institutions .sort-buttons {
+    text-align: center;
+    margin-bottom: 20px; }
+
+section#institutions .panel {
+    border: none;
+    box-shadow: none;
+    border-bottom: 2px solid #AA7B5D;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+
+section#institutions .panel-body {
+    text-align: center;
+    background-color: #AA7B5D;
+    color: #fff;
+    padding: 0 10px; }
+section#institutions .panel-body h4 {
+    font-size: 14px; }
+
+section#institutions .panel > .list-group:last-child .list-group-item:last-child, section#institutions .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+    border-radius: 0; }
+
+section#institutions .panel-heading {
+    padding: 10px 10px; }
+section#institutions .panel-heading h3 {
+    margin: 0;
+    display: inline;
+    font-size: 17px; }
+
+section#institutions .panel-heading > .badge {
+    float: right;
+    margin-top: 2px; }
+
+section#institutions ul.list-group {
+    -moz-column-count: 1;
+    -moz-column-gap: 5px;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 5px;
+    column-count: 1;
+    column-gap: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px; }
+section#institutions ul.list-group li.list-group-item {
+    border: none;
+    padding: 5px; }
+section#institutions ul.list-group li.list-group-item:nth-child(even) {
+    background: #e9e9e9; }
+
+.blog-post .row {
+    margin-bottom: 3rem; }
+
+.blog-post h3 {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /*override default behavior on extra margin given to navbar*/
+    .container > .navbar-collapse {
+        margin-right: -15px;
+        margin-left: -15px; }
+    body {
+        margin-bottom: 260px; }
+    .footer {
+        height: 260px; }
+    .footer .row {
+        text-align: left; }
+    .footer .img-responsive {
+        display: block; }
+    .footer p {
+        font-size: 14px; }
+    .footer ul.footer-nav {
+        list-style: circle; }
+    .header {
+        padding: 10px 0; }
+    .header h1 {
+        text-align: left; }
+    .header h1 img {
+        margin-top: 10px;
+        width: 250px; }
+    .header .logo-galileo {
+        width: 150px;
+        float: right; } }
+
+@media (min-width: 768px) {
+    section#counties ul.counties-list {
+        -moz-column-count: 3;
+        -moz-column-gap: 5px;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 5px;
+        column-count: 3;
+        column-gap: 5px; }
+    section#institutions ul.list-group {
+        -moz-column-count: 2;
+        -moz-column-gap: 5px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 5px;
+        column-count: 2;
+        column-gap: 5px; }
+    section#institutions .panel-heading {
+        padding: 10px 10px; }
+    section#institutions .panel-heading h3 {
+        margin: 0;
+        display: inline;
+        font-size: 21px; }
+    section#institutions .panel-heading > .badge {
+        float: right;
+        margin-top: 8px; }
+    section#institutions .panel-body h4 {
+        font-size: 18px; } }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .header {
+        padding: 10px 0; }
+    .header h1 img {
+        margin-top: 15px;
+        width: 300px; }
+    .header .logo-galileo {
+        width: auto; }
+    .header .header-right {
+        margin-top: 12px; }
+    .footer ul.social-icons {
+        float: right; }
+    section#institutions ul.list-group {
+        -moz-column-count: 3;
+        -moz-column-gap: 5px;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 5px;
+        column-count: 3;
+        column-gap: 10px; } }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    section#counties .sort-buttons {
+        margin-top: 0; }
+    section#counties ul.counties-list {
+        -moz-column-count: 4;
+        -moz-column-gap: 5px;
+        -webkit-column-count: 4;
+        -webkit-column-gap: 5px;
+        column-count: 4;
+        column-gap: 5px; } }
+
+/* TODO: Still have issues here...*/
+/* Fix for Typeahead.js and Bootstrap input-groups */
+/*
+ * typehead.js-bootstrap3.less
+ * @version 0.2.3
+ * https://github.com/hyspace/typeahead.js-bootstrap3.less
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+.has-warning .twitter-typeahead .tt-input,
+.has-warning .twitter-typeahead .tt-hint {
+    border-color: #8a6d3b;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-warning .twitter-typeahead .tt-input:focus,
+.has-warning .twitter-typeahead .tt-hint:focus {
+    border-color: #66512c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+}
+.has-error .twitter-typeahead .tt-input,
+.has-error .twitter-typeahead .tt-hint {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-error .twitter-typeahead .tt-input:focus,
+.has-error .twitter-typeahead .tt-hint:focus {
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+.has-success .twitter-typeahead .tt-input,
+.has-success .twitter-typeahead .tt-hint {
+    border-color: #3c763d;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-success .twitter-typeahead .tt-input:focus,
+.has-success .twitter-typeahead .tt-hint:focus {
+    border-color: #2b542c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+}
+.input-group .twitter-typeahead:first-child .tt-input,
+.input-group .twitter-typeahead:first-child .tt-hint {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    width: 100%;
+}
+.input-group .twitter-typeahead:last-child .tt-input,
+.input-group .twitter-typeahead:last-child .tt-hint {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 100%;
+}
+.input-group.input-group-sm .twitter-typeahead .tt-input,
+.input-group.input-group-sm .twitter-typeahead .tt-hint {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+select.input-group.input-group-sm .twitter-typeahead .tt-input,
+select.input-group.input-group-sm .twitter-typeahead .tt-hint {
+    height: 30px;
+    line-height: 30px;
+}
+textarea.input-group.input-group-sm .twitter-typeahead .tt-input,
+textarea.input-group.input-group-sm .twitter-typeahead .tt-hint,
+select[multiple].input-group.input-group-sm .twitter-typeahead .tt-input,
+select[multiple].input-group.input-group-sm .twitter-typeahead .tt-hint {
+    height: auto;
+}
+.input-group.input-group-sm .twitter-typeahead:not(:first-child):not(:last-child) .tt-input,
+.input-group.input-group-sm .twitter-typeahead:not(:first-child):not(:last-child) .tt-hint {
+    border-radius: 0;
+}
+.input-group.input-group-sm .twitter-typeahead:first-child .tt-input,
+.input-group.input-group-sm .twitter-typeahead:first-child .tt-hint {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.input-group.input-group-sm .twitter-typeahead:last-child .tt-input,
+.input-group.input-group-sm .twitter-typeahead:last-child .tt-hint {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.input-group.input-group-lg .twitter-typeahead .tt-input,
+.input-group.input-group-lg .twitter-typeahead .tt-hint {
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+select.input-group.input-group-lg .twitter-typeahead .tt-input,
+select.input-group.input-group-lg .twitter-typeahead .tt-hint {
+    height: 46px;
+    line-height: 46px;
+}
+textarea.input-group.input-group-lg .twitter-typeahead .tt-input,
+textarea.input-group.input-group-lg .twitter-typeahead .tt-hint,
+select[multiple].input-group.input-group-lg .twitter-typeahead .tt-input,
+select[multiple].input-group.input-group-lg .twitter-typeahead .tt-hint {
+    height: auto;
+}
+.input-group.input-group-lg .twitter-typeahead:not(:first-child):not(:last-child) .tt-input,
+.input-group.input-group-lg .twitter-typeahead:not(:first-child):not(:last-child) .tt-hint {
+    border-radius: 0;
+}
+.input-group.input-group-lg .twitter-typeahead:first-child .tt-input,
+.input-group.input-group-lg .twitter-typeahead:first-child .tt-hint {
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.input-group.input-group-lg .twitter-typeahead:last-child .tt-input,
+.input-group.input-group-lg .twitter-typeahead:last-child .tt-hint {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.twitter-typeahead {
+    width: 100%;
+    float: left;
+}
+.input-group .twitter-typeahead {
+    display: table-cell !important;
+}
+.twitter-typeahead .tt-hint {
+    color: #999999;
+}
+.twitter-typeahead .tt-input {
+    z-index: 2;
+}
+.twitter-typeahead .tt-input[disabled],
+.twitter-typeahead .tt-input[readonly],
+fieldset[disabled] .twitter-typeahead .tt-input {
+    cursor: not-allowed;
+    background-color: #eeeeee !important;
+}
+.tt-dropdown-menu,
+.tt-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 160px;
+    width: 100%;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+}
+.tt-dropdown-menu .tt-suggestion,
+.tt-menu .tt-suggestion {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333333;
+}
+.tt-dropdown-menu .tt-suggestion.tt-cursor,
+.tt-menu .tt-suggestion.tt-cursor,
+.tt-dropdown-menu .tt-suggestion:hover,
+.tt-menu .tt-suggestion:hover {
+    cursor: pointer;
+    text-decoration: none;
+    outline: 0;
+    background-color: #f5f5f5;
+    color: #262626;
+}
+.tt-dropdown-menu .tt-suggestion.tt-cursor a,
+.tt-menu .tt-suggestion.tt-cursor a,
+.tt-dropdown-menu .tt-suggestion:hover a,
+.tt-menu .tt-suggestion:hover a {
+    color: #262626;
+}
+.tt-dropdown-menu .tt-suggestion p,
+.tt-menu .tt-suggestion p {
+    margin: 0;
 }

@@ -1,0 +1,102 @@
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <h1><img src="<%= asset_path 'logo-dlg.svg' %>" alt="DLG Logo"></h1>
+      </div>
+      <div class="col-xs-12 col-sm-6 header-right">
+        <div class="row">
+          <div class="col-xs-6 col-sm-12">
+            <img class="logo-galileo" src="<%= asset_path 'logo-galileo.svg' %>" alt="GALILEO Logo">
+          </div>
+          <div class="col-xs-6 col-sm-12">
+            <ul class="social-icons pull-right">
+              <li><a href=""><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a></li>
+              <li><a href=""><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a></li>
+              <li><a href=""><i class="fa fa-rss-square fa-2x" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default">
+  <div class="container <%= container_classes %>">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- TODO: Adjust z-index of menu dropdowns or typeahead search element -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explore <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<%= blacklight_advanced_search_engine.advanced_search_path(search_state.to_h) %>">Advanced Search</a></li>
+            <li><a href="https://dlg2.galib.uga.edu/collections">Browse Collections</a></li>
+            <li><a href="browse-by-location.html">Browse Items</a></li>
+            <li><a href="browse-by-location.html">Browse Map</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Help</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teach <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="">Educator Resources</a></li>
+            <li><a href="">National History Day GALILEO page</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Participate <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="">Contribute your collections</a></li>
+            <li><a href="">Nominate collections</a></li>
+            <li><a href="">Subgranting Program</a></li>
+            <li><a href="">Services for Partners</a></li>
+            <li><a href="">Georgia HomePLACE</a></li>
+            <li><a href="">Documentation and reports</a></li>
+            <li><a href="">Presentations and Workshops</a></li>
+            <li><a href="">Promotional Materials</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connect <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Listserv</a></li>
+            <li><a href="">Newsletter</a></li>
+            <li><a href="">Facebook</a></li>
+            <li><a href="">Twitter</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="">Mission, Guiding Principles, and Goals</a></li>
+            <li><a href="">Collection Development Policy</a></li>
+            <li><a href="">DLG Partners and Sponsors</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<div class="search">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= render_search_bar %>
+      </div>
+    </div>
+  </div>
+</div>

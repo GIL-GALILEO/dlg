@@ -1,3 +1,7 @@
 en:
   blacklight:
     application_name: 'Digital Library of Georgia'
+    search:
+      form:
+        search:
+          sr_label: 'Search Box'

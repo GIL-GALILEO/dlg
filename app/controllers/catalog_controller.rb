@@ -46,10 +46,4 @@ class CatalogController < ApplicationController
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
   end
-
-  add_nav_action :collections
-  add_nav_action :counties
-  add_nav_action :institutions
-  add_nav_action :map
-
 end
