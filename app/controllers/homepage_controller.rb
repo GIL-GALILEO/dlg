@@ -6,6 +6,5 @@ class HomepageController < RecordsController
   def index
     @carousel_features = MetaApi.carousel_items 5
     @tabs_features = MetaApi.tabs_items 5
-    a
   end
 end

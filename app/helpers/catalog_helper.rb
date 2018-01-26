@@ -2,9 +2,7 @@
 
 # helper methods for Blacklight catalog pages
 module CatalogHelper
-
   include Blacklight::CatalogHelperBehavior
-
   COORDINATES_REGEXP = /(-?\d+\.\d+), (-?\d+\.\d+)/
   INDEX_TRUNCATION_VALUE = 2500
   NO_THUMB_ICON = '' # TODO
@@ -29,25 +27,11 @@ module CatalogHelper
     )
   end
 
-  # show rightsstatements.org or cc label corresponding to rights uri value
-  def rights_icon_label(uri)
-    I18n.t(:rights).each do |r|
-      return r[1][:label] if r[1][:uri] == uri
-    end
-    uri # return uri if no match found
-  end
-
   # show thumbnail for item, or placeholder if none found
   def record_thumbnail(document, _options)
-    url = case document['sunspot_id_ss'].split(' ')[0]
+    url = case document['class_name_ss']
           when 'Item'
-            if document.key?('slug_ss') &&
-               document.key?('collection_slug_ss') &&
-               document.key?('repository_slug_ss')
-              "http://dlg.galileo.usg.edu/#{document['repository_slug_ss']}/#{document['collection_slug_ss']}/do-th:#{document['slug_ss']}"
-            else
-              NO_THUMB_ICON
-            end
+            "http://dlg.galileo.usg.edu/#{document['record_id_ss'].split('_')[0]}/#{document['record_id_ss'].split('_')[1]}/do-th:#{document['record_id_ss'].split('_')[2]}"
           when 'Collection'
             document['thumbnail_ss']
           else
