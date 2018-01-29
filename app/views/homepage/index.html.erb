@@ -1,12 +1,152 @@
-<h3>Features for Carousel</h3>
-<ul>
-  <% @carousel_features['records'].each do |f| %>
-    <li><%= link_to f['title'], f['title_url']  %> from <%= link_to f['institution'], f['institution_url'] %></li>
-  <% end %>
-</ul>
-<h3>Features for Tabs</h3>
-<ul>
-  <% @tabs_features['records'].each do |f| %>
-    <li><%= link_to f['title'], f['title_url']  %> from <%= link_to f['institution'], f['institution_url'] %></li>
-  <% end %>
-</ul>
+<% content_for :header do %>
+<div class="hero">
+  <div class="hero-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2>A Gateway to Georgia's History and Culture</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Discover</h2>
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a data-toggle="tab" href="#new">New</a></li>
+          <li role="presentation"><a data-toggle="tab" href="#civil-rights">Civil Rights</a></li>
+          <li role="presentation"><a data-toggle="tab" href="#newspapers">Newspapers</a></li>
+          <li role="presentation"><a data-toggle="tab" href="#civil-war">Civil War</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="new" class="tab-pane fade in active">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="http://placehold.it/600x410" class="img-responsive">
+                <h3>Title of new item being shown here</h3>
+                <p>January 5, 2018<br>Some more text</p>
+              </div>
+              <div class="col-md-6 col-lg-6 right-col">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <img src="http://placehold.it/200x200" class="img-responsive">
+                  </div>
+                  <div class="col-xs-9 no-gutter-left">
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
+                    <p>officia deserunt mollit anim id est laborum.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <img src="http://placehold.it/200x200" class="img-responsive">
+                  </div>
+                  <div class="col-xs-9 no-gutter-left">
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
+                    <p>officia deserunt mollit anim id est laborum.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <img src="http://placehold.it/200x200" class="img-responsive">
+                  </div>
+                  <div class="col-xs-9 no-gutter-left">
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
+                    <p>officia deserunt mollit anim id est laborum.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="civil-rights" class="tab-pane fade">
+            <h3>Civil Rights</h3>
+            <p>Some content in Civil Rights</p>
+          </div>
+          <div id="newspapers" class="tab-pane fade">
+            <h3>Newspapers</h3>
+            <p>Some content in Newspapers.</p>
+          </div>
+          <div id="civil-war" class="tab-pane fade">
+            <h3>Civil War</h3>
+            <p>Some content in Civil.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="partners">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Our Partners & Sponsors</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <img class="img-responsive" src="<%= asset_path 'partners/dpla-01.png' %>">
+        </div>
+        <div class="col-md-3">
+          <img class="img-responsive" src="<%= asset_path 'partners/gca-01.png' %>">
+        </div>
+        <div class="col-md-3">
+          <img class="img-responsive" src="<%= asset_path 'partners/gpls-01.png' %>">
+        </div>
+        <div class="col-md-3">
+          <img class="img-responsive" src="<%= asset_path 'partners/humanities-01.png' %>">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>DLG and Me</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 blog-post">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="http://placehold.it/500x325" class="img-responsive">
+            <h3><a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h3>
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+          <div class="col-md-6">
+            <img src="http://placehold.it/500x325" class="img-responsive">
+            <h3><a href="">Ut enim ad minim veniam, quis nostrud exercitation</a></h3>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="http://placehold.it/500x325" class="img-responsive">
+            <h3><a href="">Ut enim ad minim veniam, quis nostrud exercitation</a></h3>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </div>
+          <div class="col-md-6">
+            <img src="http://placehold.it/500x325" class="img-responsive">
+            <h3><a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h3>
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <a class="twitter-timeline"
+           href="https://twitter.com/DigLibGA?ref_src=twsrc%5Etfw"
+           data-tweet-limit="3"
+           data-link-color="#93450E">
+          Tweets by DigLibGA
+        </a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+  </div>
+</section>
+

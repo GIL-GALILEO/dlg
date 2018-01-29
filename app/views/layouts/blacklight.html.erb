@@ -15,22 +15,15 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <%= content_for(:head) %>
+  <%= content_for :head %>
 </head>
-<body class="<%= render_body_class %>">
-  <section role="main" <% if Rails.application.secrets.ga_tracking_id %>data-analytics-id="<%= Rails.application.secrets.ga_tracking_id %>"<% end %>>
-    <%= render partial: 'shared/header_navbar' %>
-    <%= render partial: 'shared/ajax_modal' %>
-    <div id="main-container" class="<%= container_classes %>">
-      <%= content_tag :h1, application_name, class: 'sr-only application-heading' %>
-
-      <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
-
-      <div class="row">
-        <%= yield %>
-      </div>
-    </div>
-    <%= render :partial => 'shared/footer' %>
-  </section>
+<body class="<%= render_body_class %>" <% if Rails.application.secrets.ga_tracking_id %>data-analytics-id="<%= Rails.application.secrets.ga_tracking_id %>"<% end %>>
+  <%= render partial: 'shared/header_navbar' %>
+  <%= render partial: 'shared/ajax_modal' %>
+  <%= content_tag :h1, application_name, class: 'sr-only application-heading' %>
+  <%= render partial: '/flash_msg', layout: 'shared/flash_messages' %>
+  <%= content_for :header %>
+  <%= yield %>
+  <%= render partial: 'shared/footer' %>
 </body>
 </html>
