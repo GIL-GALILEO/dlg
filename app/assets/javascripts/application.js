@@ -15,6 +15,7 @@
 //= require leaflet
 //= require rails-ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require 'blacklight_advanced_search'
 //= require blacklight/blacklight
 //= require_tree .

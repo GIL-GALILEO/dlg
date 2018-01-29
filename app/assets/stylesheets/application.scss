@@ -1,0 +1,475 @@
+@import "_bootstrap_variables";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "chosen";
+@import "leaflet";
+@import 'blacklight/blacklight';
+@import "blacklight_advanced_search";
+@import "blacklight_gallery/default";
+@import "blacklight_maps";
+@import "openseadragon/openseadragon";
+@import "typeahead_fix";
+
+#mapid { height: 600px; }
+
+.rights-statement-icon {
+    width: 200px
+}
+
+.rights-statement-link:hover {
+    background: none;
+}
+
+/* for sticky footer */
+$height-footer: 260px;
+$height-footer-sm: 300px;
+
+html {
+  min-height: 100%;
+  position: relative;
+  body {
+    margin-bottom: $height-footer-sm;
+  }
+  main {
+    h2 {
+      font-size: floor(($font-size-base * 3.2));
+      margin-top: 0;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    ul li {
+      margin-bottom: 1rem;
+    }
+  }
+  section {
+    margin: 40px 0;
+  }
+}
+
+.hero {
+  height: 500px;
+  //background-image: url(/img/hero-img.jpg);
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
+  .hero-content {
+    margin: auto;
+    height: auto;
+    top: 160px; left: 0; bottom: 0; right: 0;
+    position:absolute;
+    color: #fff;
+    z-index: 2;
+    h2 {
+      text-align: center;
+      font-size: floor(($font-size-base * 3.6));
+    }
+  }
+}
+.hero:before {
+  content: " ";
+  z-index: 1;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-default {
+  border: none;
+  border-top: 3px solid #ab7c5b;
+  //border-bottom: 1px solid #ab7c5b;
+  border-radius: 0;
+  background: none;
+
+  .navbar-nav > {
+
+    li > a {
+      color: #333;
+      text-transform: uppercase;
+    }
+
+    .active > a {
+      background: #93450E;
+      color: #fff;
+    }
+  }
+  .nav-center {
+    display: inline-block;
+  }
+}
+
+.search {
+  padding: 10px 0;
+  //background-color: #F7F6F1;
+  background-color: #1B8892;
+  //border-bottom: 1px solid #E8E5D4;
+  //margin-bottom: 10px;
+  .input-group-lg>.input-group-btn>.btn {
+    padding: 10px 20px;
+  }
+  .form-control, .btn {
+    border: none;
+  }
+}
+
+
+
+
+.header {
+  padding: 0 0;
+  background-color: #F7F6F1;
+  h1 {
+    text-align: center;
+    margin: 0;
+    img {
+      width: 200px;
+    }
+  }
+  .logo-galileo {
+    margin-top: 5px;
+    width: 150px;
+  }
+  ul.social-icons {
+    margin-top: 1rem;
+  }
+}
+
+
+
+
+
+.partners {
+  background: $dlg-blue;
+  text-align: center;
+  padding: 30px 0;
+  h2 {
+    color: #fff;
+  }
+  img {
+    padding: 0 20px;
+  }
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  height: $height-footer-sm;
+  background: #F4F3E8;
+  border-top: 5px solid #E8E5D4;
+  color: #ab7c5b;
+  padding: 40px 0 20px 0;
+
+  .row {
+    text-align: center;
+  }
+  .img-responsive {
+    display: inline;
+  }
+  p {
+    font-size: 12px;
+  }
+
+  ul.footer-nav {
+    list-style: none;
+    padding-left: 0;
+    li {
+      margin-left: 10px;
+      a {
+        margin-right: 10px;
+        color: #ab7c5b;
+      }
+    }
+
+  }
+}
+ul.social-icons {
+  list-style: none;
+  padding-left: 0;
+  li {
+    display: inline;
+    margin-right: 5px;
+  }
+}
+
+.nav-tabs {
+  border-width: 2px!important;
+  a {
+    color: #333;
+  }
+}
+
+.nav-tabs > li:first-child  {
+  margin-left: 25px;
+}
+
+.nav-tabs > li > a {
+  border-width: 2px!important;
+}
+
+.nav-tabs > li.active > a {
+  border-width: 2px!important;
+}
+.nav-tabs > li.active > a:hover {
+  border-color: $dlg-blue $dlg-blue transparent $dlg-blue!important;
+}
+.nav-tabs > li > a:hover {
+  border-color: transparent!important;
+  background: none;
+}
+.nav-tabs > li {
+  margin-bottom: -2px!important;
+}
+
+.tab-content {
+  margin-top: 20px;
+  h3 {
+    font-size: floor(($font-size-base * 2.1));
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  h4 {
+    margin-top: 0;
+    //margin-bottom:0;
+  }
+  p {
+    color: $gray-light;
+  }
+  .right-col {
+    .row {
+      margin-bottom: 15px;
+    }
+    .no-gutter-left {
+      padding-left: 0;
+    }
+  }
+}
+
+section#counties {
+  .sort-buttons {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  ul.counties-list {
+    -moz-column-count: 1;
+    -moz-column-gap: 5px;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 5px;
+    column-count: 1;
+    column-gap: 5px;
+  }
+}
+
+section#institutions {
+  .sort-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .panel {
+    border: none;
+    box-shadow: none;
+    border-bottom: 2px solid #AA7B5D;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .panel-body {
+    text-align: center;
+    background-color: #AA7B5D;
+    color: #fff;
+    padding: 0 10px;
+    h4 {
+      font-size: ceil(($font-size-base * 1.0));
+    }
+  }
+  .panel > .list-group:last-child .list-group-item:last-child, .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+    border-radius: 0;
+  }
+  .panel-heading {
+    padding: 10px 10px;
+    h3 {
+      margin: 0;
+      display: inline;
+      font-size: ceil(($font-size-base * 1.2));
+    }
+  }
+  .panel-heading > .badge {
+    float: right;
+    margin-top: 2px;
+  }
+  ul.list-group {
+    -moz-column-count: 1;
+    -moz-column-gap: 5px;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 5px;
+    column-count: 1;
+    column-gap: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    li.list-group-item {
+      border: none;
+      padding: 5px;
+    }
+    li.list-group-item:nth-child(even) {
+      background: #e9e9e9;
+    }
+  }
+}
+
+.blog-post {
+  .row {
+    margin-bottom: 3rem;
+  }
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min) {
+  /*override default behavior on extra margin given to navbar*/
+  .container > .navbar-collapse {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  body {
+    margin-bottom: $height-footer;
+  }
+  .footer {
+    height: $height-footer;
+    .row {
+      text-align: left;
+    }
+    .img-responsive {
+      display: block;
+    }
+    p {
+      font-size: 14px;
+    }
+    ul.footer-nav {
+      list-style: circle;
+    }
+  }
+  .header {
+    padding: 10px 0;
+    h1 {
+      text-align: left;
+      img {
+        margin-top: 10px;
+        width: 250px;
+      }
+    }
+    .logo-galileo {
+      width: 150px;
+      float: right;
+    }
+  }
+}
+
+
+// >= 768px (small tablet)
+@media (min-width: $screen-sm-min) {
+  section#counties {
+    ul.counties-list {
+      -moz-column-count: 3;
+      -moz-column-gap: 5px;
+      -webkit-column-count: 3;
+      -webkit-column-gap: 5px;
+      column-count: 3;
+      column-gap: 5px;
+    }
+  }
+  section#institutions {
+    ul.list-group {
+      -moz-column-count: 2;
+      -moz-column-gap: 5px;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 5px;
+      column-count: 2;
+      column-gap: 5px;
+    }
+    .panel-heading {
+      padding: 10px 10px;
+      h3 {
+        margin: 0;
+        display: inline;
+        font-size: ceil(($font-size-base * 1.5));
+      }
+    }
+    .panel-heading > .badge {
+      float: right;
+      margin-top: 8px;
+    }
+    .panel-body {
+      h4 {
+        font-size: $font-size-h4;
+      }
+    }
+
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min) {
+  .header {
+    padding: 10px 0;
+    h1 img {
+      margin-top: 15px;
+      width: 300px;
+    }
+    .logo-galileo {
+      width: auto;
+    }
+    .header-right {
+      margin-top: 12px;
+    }
+  }
+  .footer {
+    ul.social-icons {
+      float: right;
+    }
+  }
+  section#institutions {
+    ul.list-group {
+      -moz-column-count: 3;
+      -moz-column-gap: 5px;
+      -webkit-column-count: 3;
+      -webkit-column-gap: 5px;
+      column-count: 3;
+      column-gap: 10px;
+    }
+  }
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min) {
+  section#counties {
+    .sort-buttons {
+      margin-top: 0;
+    }
+    ul.counties-list {
+      -moz-column-count: 4;
+      -moz-column-gap: 5px;
+      -webkit-column-count: 4;
+      -webkit-column-gap: 5px;
+      column-count: 4;
+      column-gap: 5px;
+    }
+  }
+}
