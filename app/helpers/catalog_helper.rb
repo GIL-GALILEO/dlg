@@ -7,6 +7,11 @@ module CatalogHelper
   INDEX_TRUNCATION_VALUE = 2500
   NO_THUMB_ICON = '' # TODO
 
+  def search_bar_placeholder
+    context = controller.class.name.gsub('Controller', '').downcase
+    I18n.t(context.to_sym, scope: [:search, :bar, :placeholder])
+  end
+
   # show friendly values for boolean fields
   def boolean_facet_labels(value)
     value == 'true' ? 'Yes' : 'No'
