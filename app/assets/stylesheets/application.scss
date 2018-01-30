@@ -6,7 +6,8 @@
 @import 'blacklight/blacklight';
 @import "blacklight_advanced_search";
 @import "blacklight_gallery/default";
-@import "blacklight_maps";
+@import "blacklight_maps/blacklight-maps";
+@import "blacklight_maps_customizations";
 @import "openseadragon/openseadragon";
 
 #mapid { height: 600px; }
