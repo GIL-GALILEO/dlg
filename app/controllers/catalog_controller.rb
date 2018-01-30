@@ -45,5 +45,10 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = false
     config.autocomplete_path = 'suggest'
+
+    # config.view.list.icon_class = 'fa-list-ol'
+    # config.view.maps.icon_class = 'fa-map'
+    # config.view.gallery.icon_class = 'fa-columns'
+    # config.view.masonry.icon_class = 'fa-picture-o'
   end
 end
