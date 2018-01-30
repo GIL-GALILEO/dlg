@@ -1,6 +1,6 @@
 <% content_for :header do %>
 <div class="hero">
-  <div class="hero-content">
+  <div class="hero-text-overlay">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -8,6 +8,26 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="hero-content container">
+    <div class="row">
+      <div id="home-carousel" class="carousel slide col-md-12" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% @carousel_features['records'].each_with_index do |_, i| %>
+            <li data-target="#home-carousel" data-slide-to="<%= i %>"<% if i == 0 %> class="active"><% end %></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <% @carousel_features['records'].each_with_index do |c, i| %>
+            <div class="item<% if i == 0 %> active<% end %>">
+              <img src="<%= "https://dlgadmin.galileo.usg.edu#{c['image']['url']}" %>" alt="<%= c['title'] %>">
+              <div class="carousel-caption"><%= "#{c['title']} | #{link_to(c['institution'], c['institution_link'])}".html_safe %></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 <% end %>

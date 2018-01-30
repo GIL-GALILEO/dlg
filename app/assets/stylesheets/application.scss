@@ -49,11 +49,10 @@ html {
 
 .hero {
   height: 500px;
-  //background-image: url(/img/hero-img.jpg);
   background-size: cover;
   background-position: 50%;
   position: relative;
-  .hero-content {
+  .hero-text-overlay {
     margin: auto;
     height: auto;
     top: 160px; left: 0; bottom: 0; right: 0;
@@ -62,13 +61,13 @@ html {
     z-index: 2;
     h2 {
       text-align: center;
-      font-size: floor(($font-size-base * 3.6));
+      font-size: 50px;
     }
   }
 }
 .hero:before {
   content: " ";
-  z-index: 1;
+  z-index: 2;
   display: block;
   position: absolute;
   height: 100%;
@@ -78,7 +77,12 @@ html {
   background: rgba(0, 0, 0, 0.5);
 }
 
-
+.hero .carousel img {
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
+  object-fit: contain;
+}
 
 .navbar {
   margin-bottom: 0;
