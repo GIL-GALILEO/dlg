@@ -46,41 +46,46 @@ html {
   }
 }
 
-.hero {
-  height: 500px;
-  background-size: cover;
-  background-position: 50%;
-  position: relative;
-  .hero-text-overlay {
-    margin: auto;
-    height: auto;
-    top: 160px; left: 0; bottom: 0; right: 0;
-    position:absolute;
-    color: #fff;
-    z-index: 2;
-    h2 {
-      text-align: center;
-      font-size: 50px;
+.carousel {
+  .carousel-indicators {
+    bottom: 0;
+  }
+  .carousel-inner {
+    height: 500px;
+    .item {
+      height: 500px;
+    }
+    .active {
+      height: 500px;
+    }
+    .fill {
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      -o-background-size: cover;
+    }
+    .carousel-caption {
+      background-color: rgba(25,29,34,.7);
+      padding: 20px 5px;
+      bottom: 50px;
+      font-size: 14px;
+      h2 {
+        font-size: floor(($font-size-base * 1.4));
+        margin-top: 0;
+        line-height: 1.3
+      }
+      a {
+        color: #fff;
+        text-decoration: underline;
+      }
+      a:hover {
+        text-decoration: none;
+      }
     }
   }
-}
-.hero:before {
-  content: " ";
-  z-index: 2;
-  display: block;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.hero .carousel img {
-  margin-left: auto;
-  margin-right: auto;
-  height: 500px;
-  object-fit: contain;
 }
 
 .navbar {
@@ -338,10 +343,22 @@ section#institutions {
   }
 }
 
-
-
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
+
+@media (min-width: $screen-xs-min) {
+  .carousel {
+    .item {
+      .carousel-caption {
+        padding: 20px!important;
+        font-size: 18px;
+        h2 {
+          font-size: floor(($font-size-base * 2.6));
+        }
+      }
+    }
+  }
+}
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) {
@@ -352,6 +369,72 @@ section#institutions {
   }
   body {
     margin-bottom: $height-footer;
+  }
+  section#counties {
+    ul.counties-list {
+      -moz-column-count: 3;
+      -moz-column-gap: 5px;
+      -webkit-column-count: 3;
+      -webkit-column-gap: 5px;
+      column-count: 3;
+      column-gap: 5px;
+    }
+  }
+  section#institutions {
+    #accordion {
+      ul.list-group {
+        -moz-column-count: 2;
+        -moz-column-gap: 5px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 5px;
+        column-count: 2;
+        column-gap: 5px;
+      }
+      .panel-heading {
+        text-align: left;
+        padding: 10px 10px;
+        h3 {
+          margin: 0;
+          display: inline;
+          font-size: ceil(($font-size-base * 1.2));
+        }
+      }
+      .panel-heading > .badge {
+        float: right;
+        margin-top: 1px;
+      }
+      .panel-body {
+        h4 {
+          font-size: $font-size-h4;
+        }
+      }
+    }
+    .az_nav {
+      ul li a {
+        padding: 0 10px;
+      }
+    }
+    .sort-pagination {
+      margin-bottom: 5px;
+      text-align: left;
+      nav {
+        text-align: right;
+        .pagination {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .carousel {
+    .item {
+      .carousel-caption {
+        padding: 20px!important;
+        font-size: 18px;
+        h2 {
+          font-size: floor(($font-size-base * 3.4));
+        }
+      }
+    }
   }
   .footer {
     height: $height-footer;
@@ -384,49 +467,6 @@ section#institutions {
   }
 }
 
-
-// >= 768px (small tablet)
-@media (min-width: $screen-sm-min) {
-  section#counties {
-    ul.counties-list {
-      -moz-column-count: 3;
-      -moz-column-gap: 5px;
-      -webkit-column-count: 3;
-      -webkit-column-gap: 5px;
-      column-count: 3;
-      column-gap: 5px;
-    }
-  }
-  section#institutions {
-    ul.list-group {
-      -moz-column-count: 2;
-      -moz-column-gap: 5px;
-      -webkit-column-count: 2;
-      -webkit-column-gap: 5px;
-      column-count: 2;
-      column-gap: 5px;
-    }
-    .panel-heading {
-      padding: 10px 10px;
-      h3 {
-        margin: 0;
-        display: inline;
-        font-size: ceil(($font-size-base * 1.5));
-      }
-    }
-    .panel-heading > .badge {
-      float: right;
-      margin-top: 8px;
-    }
-    .panel-body {
-      h4 {
-        font-size: $font-size-h4;
-      }
-    }
-
-  }
-}
-
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min) {
   .header {
@@ -442,23 +482,37 @@ section#institutions {
       margin-top: 12px;
     }
   }
+  html {
+    main {
+      h2 {
+        font-size: floor(($font-size-base * 3.2));
+        margin-top: 0;
+        margin-bottom: 40px;
+      }
+      section {
+        margin: 40px 0;
+      }
+    }
+  }
   .footer {
     ul.social-icons {
       float: right;
     }
   }
   section#institutions {
-    ul.list-group {
-      -moz-column-count: 3;
-      -moz-column-gap: 5px;
-      -webkit-column-count: 3;
-      -webkit-column-gap: 5px;
-      column-count: 3;
-      column-gap: 10px;
+    #accordion {
+      ul.list-group {
+        -moz-column-count: 3;
+        -moz-column-gap: 5px;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 5px;
+        column-count: 3;
+        column-gap: 10px;
+      }
     }
+
   }
 }
-
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: $screen-lg-min) {
