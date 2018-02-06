@@ -31,8 +31,6 @@
         <span class="icon-bar"></span>
       </button>
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- TODO: Adjust z-index of menu dropdowns or typeahead search element -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
@@ -42,6 +40,7 @@
             <li><%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path(search_state.to_h) %></li>
             <li><%= link_to 'Browse Collections', search_collections_path %></li>
             <li><%= link_to 'Browse Items', search_records_path %></li>
+            <li><%= link_to 'Browse Counties', counties_path %></li>
             <li><%= link_to 'Browse Map', map_records_path %></li>
           </ul>
         </li>
@@ -88,7 +87,7 @@
           </ul>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
   </div>
 </nav>
 <div class="search">

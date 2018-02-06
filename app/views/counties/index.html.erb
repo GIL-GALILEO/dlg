@@ -1,3 +1,4 @@
+<% content_for :head do %>
 <style type="text/css">
   .info {
     padding: 6px 8px;
@@ -23,23 +24,34 @@
     opacity: 0.7;
   }
 </style>
+<% end %>
 
-<h1>Counties Browse</h1>
-
-<div class="col-md-8">
-  <div id="mapid"></div>
-</div>
-<div class="col-md-4">
-  <%= render partial: 'shared/facet_sort_group', locals: { p: primary_sort_param } %>
-  <ul class="counties-list">
-    <% @counties.each do |county| %>
-        <%= render 'county', county: county %>
-    <% end %>
-  </ul>
-</div>
+<section id="counties">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Counties Browse</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5">
+        <div id="mapid"></div>
+      </div>
+      <div class="col-lg-7">
+        <div class="text-center sort-buttons">
+          <%= render partial: 'shared/facet_sort_group', locals: { p: primary_sort_param } %>
+        </div>
+        <ul class="counties-list list-group">
+          <% @counties.each do |county| %>
+            <%= render 'county', county: county %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script type="text/javascript">
-
     var layer_map = {};
     var map, geojson, tiles, labelsLayer, mapLabels;
 
@@ -60,7 +72,7 @@
     var counties_geojson = counties.map(JSON.parse);
 
     map = L.map('mapid', {
-        center: [32.9866, -83.6487],
+        center: [32.26, -83.19],
         zoom: 7
     });
 
@@ -118,8 +130,8 @@
 
     function getColor(d) {
         return  d > 10000 ? '#238b45' :
-                d > 1000  ? '#74c476' :
-                            '#bae4b3';
+            d > 1000  ? '#74c476' :
+                '#bae4b3';
     }
 
     function style(feature) {
@@ -170,5 +182,4 @@
             click: whenClicked
         });
     }
-
 </script>
