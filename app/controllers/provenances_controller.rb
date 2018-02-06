@@ -14,14 +14,12 @@ class ProvenancesController < CatalogController
                            label: '_',
                            limit: 200,
                            more_limit: 200,
-                           show: false,
-                           sort: 'count'
+                           show: false
     config.add_facet_field :collection_name_sms,
                            label: '_',
                            limit: 200,
                            more_limit: 200,
-                           show: false,
-                           sort: 'count'
+                           show: false
     config.add_facet_field :provenance_collection_facet,
                            label: '_',
                            limit: 200,
@@ -32,6 +30,7 @@ class ProvenancesController < CatalogController
   end
 
   def index
+    @letters = letters_hash
     @holding_institutions = holding_institutions
     respond_to do |format|
       format.html
@@ -46,6 +45,8 @@ class ProvenancesController < CatalogController
   end
 
   def build_holding_institution(prov)
+    letter = prov['value'][0]
+    @letters[letter] = true
     OpenStruct.new(
       name: prov['value'],
       count: prov['count'],
@@ -75,7 +76,7 @@ class ProvenancesController < CatalogController
   end
 
   def primary_facet_sort
-    valid_sorts.include?(params[sort_params[0]]) ? params[sort_params[0]] : 'count'
+    valid_sorts.include?(params[sort_params[0]]) ? params[sort_params[0]] : 'index'
   end
 
   def primary_facet_field
@@ -92,5 +93,13 @@ class ProvenancesController < CatalogController
 
   def sort_params
     SORT_PARAMS
+  end
+
+  def letters_hash
+    hash = {}
+    ('A'..'Z').each do |l|
+      hash[l] = false
+    end
+    hash
   end
 end
