@@ -1,16 +1,12 @@
-<h1>Collection Search (<%= link_to 'Map', map_collections_path %>)</h1>
-
-<div id="sidebar" class="<%= sidebar_classes %>">
-  <%= render 'search_sidebar' %>
-</div>
-
-<div id="content" class="<%= main_content_classes %>">
-  <% unless has_search_parameters? %>
-      <%# if there are no input/search related params, display the "home" partial -%>
-      <%# render 'home' %>
-      <%# render 'shared/sitelinks_search_box' %>
+<section id="collection-results">
+  <div class="container">
+    <h2>Collection Search (<%= link_to 'Map', map_collections_path %>)</h2>
+    <div id="sidebar" class="<%= sidebar_classes %>">
+      <%= render 'search_sidebar' %>
+    </div>
+    <div id="content" class="<%= main_content_classes %>">
       <%= render 'search_results' %>
-  <% else %>
-      <%= render 'search_results' %>
-  <% end %>
-</div>
+    </div>
+  </div>
+</section>
+

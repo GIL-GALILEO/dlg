@@ -1,23 +1,18 @@
-<% if params['collection_record_id'] && @document_list.any? %>
-  <h1><%= @document_list[0]['collection_name_sms'].first %> Item Search</h1>
-  <% if @document_list[0]['dcterms_provenance_display'].first %>
-    <h4>Provided by <%= @document_list[0]['dcterms_provenance_display'].first %></h4>
-  <% end %>
-<% else %>
-  <h1>Collection & Item Search</h1>
-<% end %>
-
-<div id="sidebar" class="<%= sidebar_classes %>">
-  <%= render 'search_sidebar' %>
-</div>
-
-<div id="content" class="<%= main_content_classes %>">
-  <% unless has_search_parameters? %>
-      <%# if there are no input/search related params, display the "home" partial -%>
-      <%# render 'home' %>
-      <%# render 'shared/sitelinks_search_box' %>
+<section id="record-results">
+  <div class="container">
+    <% if params['collection_record_id'] && @document_list.any? %>
+      <h2><%= @document_list[0]['collection_name_sms'].first %> Item Search</h2>
+      <% if @document_list[0]['dcterms_provenance_display'].first %>
+        <h4>Provided by <%= @document_list[0]['dcterms_provenance_display'].first %></h4>
+      <% end %>
+    <% else %>
+      <h2>Record Search</h2>
+    <% end %>
+    <div id="sidebar" class="<%= sidebar_classes %>">
+      <%= render 'search_sidebar' %>
+    </div>
+    <div id="content" class="<%= main_content_classes %>">
       <%= render 'search_results' %>
-  <% else %>
-      <%= render 'search_results' %>
-  <% end %>
-</div>
+    </div>
+  </div>
+</section>
