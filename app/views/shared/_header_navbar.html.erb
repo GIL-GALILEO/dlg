@@ -38,10 +38,11 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explore <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path(search_state.to_h) %></li>
-            <li><%= link_to 'Browse Collections', search_collections_path %></li>
-            <li><%= link_to 'Browse Items', search_records_path %></li>
-            <li><%= link_to 'Browse Counties', counties_path %></li>
-            <li><%= link_to 'Browse Map', map_records_path %></li>
+            <li><%= link_to 'Collections', search_collections_path %></li>
+            <li><%= link_to 'Items', search_records_path %></li>
+            <li><%= link_to 'Counties', counties_path %></li>
+            <li><%= link_to 'Institutions', institutions_path %></li>
+            <li><%= link_to 'Map', map_records_path %></li>
           </ul>
         </li>
         <li><a href="#">Help</a></li>
