@@ -1,31 +1,71 @@
-<h1>Holding Institutions Browse</h1>
-<div class="row">
-  <div class="col-md-6">
-    <h5>Sort Holding Institutions</h5>
-    <%= render partial: 'shared/facet_sort_group', locals: { p: primary_sort_param} %>
+<section id="institutions">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Institutions</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="panel panel-default az_nav">
+          <div class="panel-body">
+            <span>Browse by Name:</span>
+            <ul>
+              <li><a href="#letterAll">All</a></li>
+              <li><a href="#letterA">A</a></li>
+              <li><a href="#letterB">B</a></li>
+              <li><a href="#letterC">C</a></li>
+              <li><a href="#letterD">D</a></li>
+              <li><a href="#letterE">E</a></li>
+              <li><a href="#letterF">F</a></li>
+              <li><a href="#letterG">G</a></li>
+              <li><a href="#letterH">H</a></li>
+              <li><a href="#letterI">I</a></li>
+              <li><a href="#letterJ">J</a></li>
+              <li><a href="#letterK">K</a></li>
+              <li><a href="#letterL">L</a></li>
+              <li><a href="#letterM">M</a></li>
+              <li><a href="#letterN">N</a></li>
+              <li><a href="#letterO">O</a></li>
+              <li><a href="#letterP">P</a></li>
+              <li><a href="#letterQ">Q</a></li>
+              <li><a href="#letterR">R</a></li>
+              <li><a href="#letterS">S</a></li>
+              <li><a href="#letterT">T</a></li>
+              <li><a href="#letterU">U</a></li>
+              <li><a href="#letterV">V</a></li>
+              <li><a href="#letterW">W</a></li>
+              <li><a href="#letterX">X</a></li>
+              <li><a href="#letterY">Y</a></li>
+              <li><a href="#letterZ">Z</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+          <% @holding_institutions.each_with_index do |holding_inst, i| %>
+          <div class="panel panel-default">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" aria-expanded="true" aria-controls="collapse<%= i %>">
+              <div class="panel-heading" role="tab" id="heading<%= i %>">
+                <h3 class="panel-title"><%= holding_inst.name %></h3> <span class="badge"><%= "#{number_to_human(holding_inst.count)} #{'Item'.pluralize(holding_inst.count)}" %></span>
+              </div>
+            </a>
+            <div id="collapse<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= i %>">
+              <ul class="list-group">
+                <% holding_inst.collections.each do |collection| %>
+                <li class="list-group-item">
+                  <span class="badge"><%= number_with_delimiter collection.count %></span> <a href=""></a><%= link_to collection.name, collection.href %>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <h5>Sort Collections</h5>
-    <%= render partial: 'shared/facet_sort_group', locals: { p: secondary_sort_param} %>
-  </div>
-</div>
-
-
-<%=  %>
-<ul>
-  <% @holding_institutions.each do |holding_inst| %>
-    <li>
-      <span class="badge"><%= holding_inst.count %></span> <%= link_to holding_inst.name, holding_inst.href %>
-      <% if holding_inst.collections.any? %>
-      <p>Collections</p>
-          <ul>
-            <% holding_inst.collections.each do |collection| %>
-              <li>
-                <span class="badge"><%= collection.count %></span> <%= link_to collection.name, collection.href %>
-              </li>
-            <% end %>
-          </ul>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+</section>
