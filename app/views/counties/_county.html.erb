@@ -1,5 +1,5 @@
 <li class="list-group-item county-pane pane-<%= county.name.downcase.gsub(' ', '-') %>">
-  <span class="badge"><%= county.count %></span>
+  <span class="badge"><%= "#{number_with_delimiter county.count} #{'Item'.pluralize(county.count)}" %></span>
   <%= link_to(content_tag('span', county.name) , county.href) %><br />
-  <a class="small" href="https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/<%= county.name.downcase.gsub(' ', '-') %>-county" target="_blank">County Info in NGE</a>
+  <a class="small" href="https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/<%= county.name.downcase.gsub(' ', '-') %>-county" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
 </li>
