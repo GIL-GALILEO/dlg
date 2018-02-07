@@ -8,10 +8,10 @@
   <div class="carousel-inner" role="listbox">
     <% @carousel_features['records'].each_with_index do |c, i| %>
     <div class="item<% if i == 0 %> active<% end %>">
-      <div class="fill" style="background-image:url(<%= "https://dlgadmin.galileo.usg.edu#{c['image']['url']}" %>);">
+      <div class="fill" style="background-image:url(<%= feature_image_link c['image']['url'] %>);">
         <div class="carousel-caption">
           <h2><%= link_to c['title'], c['title_link'] %></h2>
-          <%= link_to(c['institution'], c['institution_link']).html_safe %>
+          <%= link_to c['institution'], c['institution_link'], target: '_blank' %>
         </div>
       </div>
     </div>
@@ -34,38 +34,18 @@
           <div id="new" class="tab-pane fade in active">
             <div class="row">
               <div class="col-md-6">
-                <img src="http://placehold.it/600x410" class="img-responsive">
-                <h3>Title of new item being shown here</h3>
-                <p>January 5, 2018<br>Some more text</p>
+                <% @tabs_features['records'].each do |tf| %>
+                  <% if tf['primary'] %>
+                    <%= render 'primary_tab_feature', feature: tf  %>
+                  <% end %>
+                <% end %>
               </div>
               <div class="col-md-6 col-lg-6 right-col">
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="http://placehold.it/200x200" class="img-responsive">
-                  </div>
-                  <div class="col-xs-9 no-gutter-left">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
-                    <p>officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="http://placehold.it/200x200" class="img-responsive">
-                  </div>
-                  <div class="col-xs-9 no-gutter-left">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
-                    <p>officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-3">
-                    <img src="http://placehold.it/200x200" class="img-responsive">
-                  </div>
-                  <div class="col-xs-9 no-gutter-left">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
-                    <p>officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div>
+              <% @tabs_features['records'].each do |tf| %>
+                <% unless tf['primary'] %>
+                  <%= render 'regular_tab_feature', feature: tf %>
+                <% end %>
+              <% end %>
               </div>
             </div>
           </div>
