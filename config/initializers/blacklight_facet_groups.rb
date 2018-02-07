@@ -12,7 +12,7 @@ Rails.application.config.to_prepare do
     end
 
     def facet_group_names
-      blacklight_config.facet_fields.map { |_, opts| opts[:group] }.uniq
+      blacklight_config.facet_fields.map { |_, opts| opts[:group] }.uniq.compact
     end
   end
 end
