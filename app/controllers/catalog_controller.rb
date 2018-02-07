@@ -12,7 +12,7 @@ class CatalogController < ApplicationController
     # config.default_solr_params = { qt: 'public' }
     config.default_solr_params = { qt: 'search' }
 
-    # facets are defined in query handler so this is not needed
+    # TODO: facets are defined in query handler so this should not be needed
     # makes debugging solr calls easier
     config.add_facet_fields_to_solr_request!
 
@@ -45,10 +45,5 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = false
     config.autocomplete_path = 'suggest'
-
-    # config.view.list.icon_class = 'fa-list-ol'
-    # config.view.maps.icon_class = 'fa-map'
-    # config.view.gallery.icon_class = 'fa-columns'
-    # config.view.masonry.icon_class = 'fa-picture-o'
   end
 end
