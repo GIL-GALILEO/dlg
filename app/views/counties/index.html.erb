@@ -58,12 +58,12 @@
     var $countyListDivs = $('.county-pane');
 
     $countyListDivs.mouseover(function() {
-        var highlightLayer = geojson._layers[layer_map[this.className.replace('county-pane pane-', '')]];
+        var highlightLayer = geojson._layers[layer_map[this.className.replace('list-group-item county-pane pane-', '')]];
         highlightFeature({target: highlightLayer})
     });
 
     $countyListDivs.mouseout(function() {
-        var highlightLayer = geojson._layers[layer_map[this.className.replace('county-pane pane-', '')]];
+        var highlightLayer = geojson._layers[layer_map[this.className.replace('list-group-item county-pane pane-', '')]];
         resetHighlight({target: highlightLayer})
     });
 
