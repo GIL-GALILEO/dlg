@@ -171,6 +171,27 @@ en:
   footer:
     left: '© 2017 Digital Library of Georgia'
     to_top: 'Return to Top'
+  menu:
+    home: 'Home'
+    explore: 'Explore'
+    help: 'Help'
+    teach: 'Teach'
+    participate: 'Participate'
+    connect: 'Connect'
+    about: 'About'
+    explore_sub:
+      items: 'Items'
+      collections: 'Collections'
+      counties: 'Counties'
+      institutions: 'Institutions'
+      map: 'Map'
+      advanced_search: 'Advanced Search'
+  external_links:
+    dlg:
+      facebook: 'https://www.facebook.com/DigitalLibraryofGeorgia/'
+      blog: 'https://blog.dlg.galileo.usg.edu/'
+      twitter: 'https://twitter.com/DigLibGA'
+
 
 
 
