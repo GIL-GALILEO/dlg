@@ -21,7 +21,7 @@
   <%= render partial: 'shared/header_navbar' %>
   <%= content_tag :h1, application_name, class: 'sr-only application-heading' %>
   <%= content_for :header %>
-  <%= yield %>
+  <main><%= yield %></main>
   <%= render partial: 'shared/footer' %>
 </body>
 </html>

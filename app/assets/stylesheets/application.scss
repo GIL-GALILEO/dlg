@@ -15,11 +15,11 @@
 #mapid { height: 750px; }
 
 .rights-statement-icon {
-    width: 200px
+  width: 200px;
 }
 
 .rights-statement-link:hover {
-    background: none;
+  background: none;
 }
 
 /* for sticky footer */
@@ -160,9 +160,10 @@ html {
 .partners {
   background: $dlg-blue;
   text-align: center;
-  padding: 30px 0;
+  padding: 30px 0 50px 0;
   h2 {
     color: #fff;
+    margin-bottom: 10px;
   }
   img {
     padding: 0 20px;
@@ -319,13 +320,16 @@ section#institutions {
 
 
   #accordion {
+    .panel-default {
+      border-color: $dlg-mediumbrown;
+    }
     a {
       .panel-heading {
-        color: #fff;
-        background: $dlg-blue;
+        color: $dlg-blue;
+        background: #fff;
         .badge {
-          background: #fff;
-          color: $dlg-blue;
+          background: $dlg-blue;
+          color: #fff;
         }
       }
     }
@@ -343,6 +347,7 @@ section#institutions {
       padding: 10px;
       li.list-group-item {
         border: none;
+        /*causing issues on live app */
         //padding: 5px;
         padding: 0;
       }
@@ -475,7 +480,10 @@ section#institutions {
       font-size: 14px;
     }
     ul.footer-nav {
-      list-style: circle;
+      list-style: none;
+      li {
+        margin-left: 0;
+      }
     }
   }
   .header {
@@ -491,6 +499,43 @@ section#institutions {
       width: 150px;
       float: right;
     }
+  }
+  /* this is in the app itself.. adding for local development */
+  .facets-toggle {
+    display: none;
+  }
+  .panel-heading.collapse-toggle.collapsed .panel-title:after {
+    content: "\e080";
+  }
+  .panel-heading.collapse-toggle .panel-title:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: right;
+    color: #fff;
+    font-size: 0.8em;
+    line-height: normal;
+  }
+  .facet-values {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  .facet-values .facet-label {
+    display: table-cell;
+    padding-right: 1em;
+    text-indent: -15px;
+    padding-left: 15px;
+    padding-bottom: 6px;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+  }
+  .facet-values .facet-count {
+    display: table-cell;
+    vertical-align: top;
+    text-align: right;
+    width: 5em;
   }
 }
 
