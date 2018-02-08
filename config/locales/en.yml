@@ -105,7 +105,7 @@ en:
       public: 'Public'
       dpla: 'DPLA'
       valid_item: 'Valid'
-      provenance: 'Holding Inst'
+      provenance: 'Holding Institution'
       publisher: 'Publisher'
       creator: 'Creator'
       contributor: 'Contributor'
