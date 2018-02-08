@@ -191,6 +191,13 @@ en:
       facebook: 'https://www.facebook.com/DigitalLibraryofGeorgia/'
       blog: 'https://blog.dlg.galileo.usg.edu/'
       twitter: 'https://twitter.com/DigLibGA'
+      crdl: 'http://crdl.usg.edu/'
+      amso: 'http://american-south.org'
+      ghnp: 'https://gahistoricnewspapers.galileo.usg.edu/'
+    labels:
+      crdl: 'Civil Rights Digital Library'
+      amso: 'Civil War in the American South'
+      ghnp: 'Georgia Historic Newspapers'
 
 
 
