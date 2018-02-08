@@ -55,7 +55,7 @@ class RecordsController < CatalogController
     config.add_show_field 'dcterms_language_display',               label: I18n.t('search.labels.dcterms_language')
     config.add_show_field 'dcterms_bibliographic_citation_display', label: I18n.t('search.labels.dcterms_bibliographic_citation')
     config.add_show_field 'dlg_local_right',                        label: I18n.t('search.labels.dlg_local_right')
-    config.add_show_field 'collection_name_sms',                    label: I18n.t('search.labels.collection'), link_to_search: true
+    # config.add_show_field 'collection_name_sms',                    label: I18n.t('search.labels.collection'), link_to_search: true
     # config.add_show_field 'dc_relation_display',                    label: I18n.t('search.labels.dc_relation')
     # config.add_show_field 'dcterms_title_display',                  label: I18n.t('search.labels.dcterms_title')
     # config.add_show_field 'record_id_ss',                           label: I18n.t('search.labels.record_id')
