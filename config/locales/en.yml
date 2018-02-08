@@ -135,7 +135,7 @@ en:
       record_id: 'Record ID'
       collection: 'Collection'
       dcterms_provenance: 'Holding Institution'
-      dcterms_title: 'Title'
+      dcterms_title: 'Full Title'
       dcterms_creator: 'Creator'
       dcterms_contributor: 'Contributor to Resource'
       dcterms_subject: 'Subject'
