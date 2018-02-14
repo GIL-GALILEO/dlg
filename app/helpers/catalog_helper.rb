@@ -9,7 +9,11 @@ module CatalogHelper
 
   def search_bar_placeholder
     context = controller.class.name.gsub('Controller', '').downcase
-    I18n.t(context.to_sym, scope: [:search, :bar, :placeholder])
+    I18n.t(
+      context.to_sym,
+      scope: [:search, :bar, :placeholder],
+      default: I18n.t('search.bar.placeholder.default')
+    )
   end
 
   # show friendly values for boolean fields

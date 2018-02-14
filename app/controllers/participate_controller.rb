@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # "Participate" menu item static page controller
-class ParticipateController < ApplicationController
+class ParticipateController < HomepageController
   def contribute; end
 
   def nominate; end

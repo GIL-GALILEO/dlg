@@ -88,12 +88,8 @@ en:
   search:
     bar:
       placeholder:
-        homepage: 'Search All Items'
-        records: 'Search All Items'
+        default: 'Search All Items'
         collections: 'Search for Collections'
-        counties: 'Search All Records'
-        provenances: 'Search All Records'
-        advanced: 'Search All Records'
     index:
       truncated_field: '..(more)'
     facet-groups:

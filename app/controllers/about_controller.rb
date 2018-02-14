@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # "About" menu items static content controller
-class AboutController < ApplicationController
+class AboutController < HomepageController
   def mission; end
 
   def policy; end
