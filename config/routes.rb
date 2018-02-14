@@ -40,7 +40,6 @@ Rails.application.routes.draw do
     get 'contribute'
     get 'nominate'
     get 'partner-services'
-    get 'promotional-materials'
   end
 
   namespace :about do
