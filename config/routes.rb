@@ -31,5 +31,23 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :teach do
+    get 'educator-resources'
+    get 'using-materials'
+  end
+
+  namespace :participate do
+    get 'contribute'
+    get 'nominate'
+    get 'partner-services'
+    get 'promotional-materials'
+  end
+
+  namespace :about do
+    get 'mission'
+    get 'policy'
+    get 'partners-sponsors'
+  end
+
   root to: 'homepage#index'
 end

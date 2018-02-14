@@ -51,40 +51,42 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('menu.teach') %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="">Educator Resources</a></li>
+            <li><%= link_to 'Educator Resources', teach_educator_resources_path %></li>
             <li><a href="">National History Day GALILEO page</a></li>
+            <li><a href="<%= t('external_links.dlg.nge') %>"><%= t('external_links.labels.nge') %></a></li>
+            <li><%= link_to 'Using DLG Materials', teach_using_materials_path %></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('menu.participate') %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="">Contribute your collections</a></li>
-            <li><a href="">Nominate collections</a></li>
-            <li><a href="">Subgranting Program</a></li>
-            <li><a href="">Services for Partners</a></li>
-            <li><a href="">Georgia HomePLACE</a></li>
-            <li><a href="">Documentation and reports</a></li>
+            <li><%= link_to 'Contribute Your Collections', participate_contribute_path %></li>
+            <li><%= link_to 'Nominate Collections', participate_nominate_path %></li>
+            <li><a href="https://sites.google.com/view/dlg-docs/dlg-documentation/dlg-subgranting-program">Subgranting Program</a></li>
+            <li><%= link_to 'Services for Partners', participate_partner_services_path %></li>
+            <li><a href="http://www.georgialibraries.org/homeplace/">Georgia HomePLACE</a></li>
+            <li><a href="https://sites.google.com/view/dlg-docs/dlg-documentation/presentations-and-workshops">Documentation and reports</a></li>
             <li><a href="">Presentations and Workshops</a></li>
-            <li><a href="">Promotional Materials</a></li>
+            <li><%= link_to 'Promotional Materials', participate_promotional_materials_path %></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('menu.connect') %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="">Contact Us</a></li>
+            <li><a href="https://www.galileo.usg.edu/contact/">Contact Us</a></li>
             <li><%= link_to 'Blog', t('external_links.dlg.blog') %></li>
-            <li><a href="">Listserv</a></li>
-            <li><a href="">Newsletter</a></li>
+            <li><a href="https://bitly.com/DLGnews">Listserv</a></li>
+            <li><a href="https://goo.gl/A9Kekv">Newsletter</a></li>
             <li><%= link_to 'Facebook', t('external_links.dlg.facebook') %></li>
             <li><%= link_to 'Twitter', t('external_links.dlg.twitter') %></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('menu.help') %> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= t('menu.about') %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="">Mission, Guiding Principles, and Goals</a></li>
-            <li><a href="">Collection Development Policy</a></li>
-            <li><a href="">DLG Partners and Sponsors</a></li>
+            <li><%= link_to 'Mission, Guiding Principles, and Goals', about_mission_path %></li>
+            <li><%= link_to 'Collection Development Policy', about_policy_path %></li>
+            <li><%= link_to 'DLG Partners and Sponsors', about_partners_sponsors_path %></li>
           </ul>
         </li>
       </ul>

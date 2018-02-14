@@ -194,10 +194,12 @@ en:
       crdl: 'http://crdl.usg.edu/'
       amso: 'http://american-south.org'
       ghnp: 'https://gahistoricnewspapers.galileo.usg.edu/'
+      nge: 'https://www.georgiaencyclopedia.org/'
     labels:
       crdl: 'Civil Rights Digital Library'
       amso: 'Civil War in the American South'
       ghnp: 'Georgia Historic Newspapers'
+      nge: 'New Georgia Encyclopedia'
 
 
 
