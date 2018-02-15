@@ -199,9 +199,9 @@ en:
       nge: 'New Georgia Encyclopedia'
   titles:
     counties: 'Georgia Counties'
-    records: 'All Results'
+    records: 'All Results - %{application_name}'
     institutions: 'Institutions'
-    collections: 'All Collections'
+    collections: 'All Collections - %{application_name}'
     map: "Map - %{application_name}"
 
 
