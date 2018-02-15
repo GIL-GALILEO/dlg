@@ -1,24 +1,20 @@
-# README
+# Digital Library of Georgia
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Blacklight-powered frontend for the DLG's Georgia content.
 
-Things you may want to cover:
+Queries and displays data from the DLG's `meta` database and search index, which is managed by the [Meta administrative app](https://github.com/GIL-GALILEO/meta).
 
-* Ruby version
+ 
 
-* System dependencies
+### Requirements
 
-* Configuration
+- Ruby 2.3.4
+- Vagrant
 
-* Database creation
+### Development Setup
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Install Ruby and Vagrant
+2. Clone repo
+3. Get or create a `secrets.yml` file
+4. `vagrant up` - includes database and solr index
+5. `rails s`
