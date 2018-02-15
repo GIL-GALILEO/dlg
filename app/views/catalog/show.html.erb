@@ -1,0 +1,17 @@
+<section id="record-show">
+  <div class="container">
+    <div class="row">
+      <div id="content" class="<%= show_content_classes %>">
+        <%= render_document_main_content_partial %>
+      </div>
+      <div id="sidebar" class="<%= show_sidebar_classes %>">
+        <%= render_document_sidebar_partial %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'show_maplet_default' %>
+      </div>
+    </div>
+  </div>
+</section>
