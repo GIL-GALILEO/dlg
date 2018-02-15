@@ -164,9 +164,6 @@ en:
       collection_title: 'Collection Name'
       title: 'Title'
       newest: 'Date Added'
-  footer:
-    left: '© 2017 Digital Library of Georgia'
-    to_top: 'Return to Top'
   menu:
     home: 'Home'
     explore: 'Explore'
@@ -196,6 +193,12 @@ en:
       amso: 'Civil War in the American South'
       ghnp: 'Georgia Historic Newspapers'
       nge: 'New Georgia Encyclopedia'
+  titles:
+    counties: 'Georgia Counties'
+    records: 'All Results'
+    institutions: 'Institutions'
+    collections: 'All Collections'
+    map: "Map - %{application_name}"
 
 
 
