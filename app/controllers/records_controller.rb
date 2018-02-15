@@ -8,17 +8,15 @@ class RecordsController < CatalogController
     config.search_builder_class = RecordsSearch
 
     # FACETS
-    config.add_facet_field :counties_facet,              label: I18n.t('search.facets.county'), limit: true, display: false, group: 'item'
-    config.add_facet_field :provenance_facet,            label: I18n.t('search.facets.provenance'), limit: true, group: 'item'
-    config.add_facet_field :subject_facet,               label: I18n.t('search.facets.subject'), limit: true, group: 'item'
-    config.add_facet_field :year_facet,                  label: I18n.t('search.facets.year'), limit: true, group: 'item'
+    config.add_facet_field :counties_facet,              label: I18n.t('search.facets.county'), limit: true, display: false
+    config.add_facet_field :provenance_facet,            label: I18n.t('search.facets.provenance'), limit: true
+    config.add_facet_field :subject_facet,               label: I18n.t('search.facets.subject'), limit: true
+    config.add_facet_field :year_facet,                  label: I18n.t('search.facets.year'), limit: true
     config.add_facet_field :location_facet,              label: I18n.t('search.facets.location'), limit: true, group: 'item', helper_method: :spatial_cleaner
-    config.add_facet_field :rights_facet,                label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label, group: 'item'
-    config.add_facet_field :medium_facet,                label: I18n.t('search.facets.medium'), limit: true, group: 'item'
-    config.add_facet_field :type_facet,                  label: I18n.t('search.facets.type'), limit: true, group: 'item'
-    config.add_facet_field :collection_name_sms,         label: I18n.t('search.facets.collection_name'), limit: true, group: 'item'
-    config.add_facet_field :time_periods_sms,            label: I18n.t('search.facets.time_periods'), limit: true, group: 'collection'
-    config.add_facet_field :subjects_sms,                label: I18n.t('search.facets.subjects'), limit: true, group: 'collection'
+    config.add_facet_field :rights_facet,                label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label
+    config.add_facet_field :medium_facet,                label: I18n.t('search.facets.medium'), limit: true
+    config.add_facet_field :type_facet,                  label: I18n.t('search.facets.type'), limit: true
+    config.add_facet_field :collection_name_sms,         label: I18n.t('search.facets.collection_name'), limit: true
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
