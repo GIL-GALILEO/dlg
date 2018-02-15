@@ -1,4 +1,8 @@
 en:
+  blacklight:
+    maps:
+      title: 'Map'
+      leader: 'Click on a marker to see items from that location.'
   support:
     array:
       words_connector: "<br> "

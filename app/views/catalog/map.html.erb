@@ -1,0 +1,24 @@
+<section id="full_map">
+  <div class="container">
+    <div id="content" class="col-md-12 col-sm-12">
+      <h2><%= t('blacklight.maps.title') %></h2>
+      <div id="map_leader_text"><%= t('blacklight.maps.leader') %></div>
+      <h3 class="sr-only top-content-title"><%= t('blacklight.search.search_results_header') %></h3>
+      <% @page_title = t('titles.map', application_name: application_name) %>
+      <% content_for(:head) do -%>
+        <%= render_opensearch_response_metadata %>
+        <%= rss_feed_link_tag %>
+        <%= atom_feed_link_tag %>
+        <%= json_api_link_tag %>
+      <% end %>
+      <h4 class="sr-only"><%= t('blacklight.search.search_results') %></h4>
+      <%- if @response.empty? %>
+        <%= render 'zero_results' %>
+      <%- elsif render_grouped_response? %>
+        <%= render_grouped_document_index %>
+      <%- else %>
+        <%= render_document_index %>
+      <%- end %>
+    </div>
+  </div>
+</section>
