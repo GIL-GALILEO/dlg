@@ -8,20 +8,17 @@ class CollectionsController < CatalogController
     config.search_builder_class = CollectionSearch
 
     # Facets
-    config.add_facet_field 'provenance_facet',        label: I18n.t('search.facets.provenance'), limit: true
-    config.add_facet_field 'publisher_facet',         label: I18n.t('search.facets.publisher'), limit: true
-    config.add_facet_field 'creator_facet',           label: I18n.t('search.facets.creator'), limit: true
-    config.add_facet_field 'contributor_facet',       label: I18n.t('search.facets.contributor'), limit: true
-    config.add_facet_field 'subject_facet',           label: I18n.t('search.facets.subject'), limit: true
-    config.add_facet_field 'year_facet',              label: I18n.t('search.facets.year'), limit: true
-    config.add_facet_field 'location_facet',          label: I18n.t('search.facets.location'), limit: true, helper_method: :spatial_cleaner
-    config.add_facet_field 'format_facet',            label: I18n.t('search.facets.format'), limit: true
-    config.add_facet_field 'rights_facet',            label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label
-    config.add_facet_field 'type_facet',              label: I18n.t('search.facets.type'), limit: true
-    config.add_facet_field 'medium_facet',            label: I18n.t('search.facets.medium'), limit: true
-    config.add_facet_field 'language_facet',          label: I18n.t('search.facets.language'), limit: true
-    config.add_facet_field 'time_periods_sms',        label: I18n.t('search.facets.time_periods'), limit: true
-    config.add_facet_field 'subjects_sms',            label: I18n.t('search.facets.subjects'), limit: true
+    config.add_facet_field :creator_facet,           label: I18n.t('search.facets.creator'), limit: true
+    config.add_facet_field :subject_facet,           label: I18n.t('search.facets.subject'), limit: true
+    config.add_facet_field :location_facet,          label: I18n.t('search.facets.location'), limit: true, helper_method: :spatial_cleaner
+    config.add_facet_field :counties_facet,          label: I18n.t('search.facets.county'), limit: true
+    config.add_facet_field :year_facet,              label: I18n.t('search.facets.year'), limit: true
+    config.add_facet_field :type_facet,              label: I18n.t('search.facets.type'), limit: true
+    config.add_facet_field :medium_facet,            label: I18n.t('search.facets.medium'), limit: true
+    config.add_facet_field :rights_facet,            label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label
+    config.add_facet_field :provenance_facet,        label: I18n.t('search.facets.provenance'), limit: true
+    config.add_facet_field :subjects_sms,            label: I18n.t('search.facets.subjects'), limit: true
+    config.add_facet_field :time_periods_sms,        label: I18n.t('search.facets.time_periods'), limit: true
 
     # Results Fields
     config.add_index_field :dcterms_provenance,           label: I18n.t('search.labels.dcterms_provenance'), link_to_search: true
