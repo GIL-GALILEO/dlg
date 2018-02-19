@@ -149,6 +149,9 @@ en:
       dcterms_language: 'Language'
       dlg_subject_personal: 'People'
       dc_relation: 'Intermediate Contributor'
+      short_description: 'Description'
+      time_periods: 'Time Periods'
+      subjects: 'Topics'
       created_at: 'Created'
       updated_at: 'Updated'
     sort:
