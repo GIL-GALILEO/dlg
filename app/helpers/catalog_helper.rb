@@ -50,11 +50,12 @@ module CatalogHelper
   end
 
   def spatial_cleaner(value)
+    clean_value = value.gsub('United States, ', '')
     if value =~ COORDINATES_REGEXP
-      value.sub(COORDINATES_REGEXP, '')[0...-2]
+      clean_value.sub(COORDINATES_REGEXP, '')[0...-2]
     else
       # value contains no coordinates
-      value
+      clean_value
     end
   end
 
