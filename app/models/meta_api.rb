@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+require 'ostruct'
+
 # Class to wrap Meta API
 class MetaApi
   URI = 'https://dlgadmin.galileo.usg.edu'
@@ -20,8 +23,12 @@ class MetaApi
     )
     if r.response.code == '200'
       obj = r.parsed_response
-      obj['records'] = JSON.parse obj['records']
-      obj
+      if obj.key? 'records'
+        obj['records'] = JSON.parse obj['records']
+        obj
+      else
+        OpenStruct.new(obj)
+      end
     else
       {}
     end

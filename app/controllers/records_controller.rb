@@ -4,6 +4,8 @@
 class RecordsController < CatalogController
   include BlacklightMaps::ControllerOverride
 
+  before_action :set_collection, only: :index, if: :collection_limit_set?
+
   configure_blacklight do |config|
     config.search_builder_class = RecordsSearch
 
@@ -168,4 +170,11 @@ class RecordsController < CatalogController
     doc['class_name_ss'] == 'Collection'
   end
 
+  def set_collection
+    @collection = MetaApi.record_info params['collection_record_id']
+  end
+
+  def collection_limit_set?
+    params.key? 'collection_record_id'
+  end
 end

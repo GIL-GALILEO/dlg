@@ -1,9 +1,32 @@
 <section id="record-results">
   <div class="container">
-    <% if params['collection_record_id'] && @document_list.any? %>
-      <h2><%= @document_list[0]['collection_name_sms'].first %> Item Search</h2>
-      <% if @document_list[0]['dcterms_provenance_display'].first %>
-        <h4>Provided by <%= @document_list[0]['dcterms_provenance_display'].first %></h4>
+    <% if @collection && @document_list.any? %>
+      <h2><%= @collection.title %> Item Search</h2>
+      <% unless @collection.institution.blank? %>
+      <dl>
+          <dt><%= t('search.labels.dcterms_provenance') %></dt>
+          <dd><%= @collection.institution %></dd>
+          <dt><%= t('search.labels.dcterms_creator') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.dcterms_subject') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.dcterms_description') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.edm_is_shown_at') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.dc_date') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.dcterms_spatial') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.dc_format') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.dcterms_is_part_of') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.dc_right') %></dt>
+          <dd><%= 'Coming!' %></dd>
+          <dt><%= t('search.labels.dcterms_type') %></dt>
+          <dd><%= 'Coming!' %></dd>
+        </dl>
       <% end %>
     <% else %>
       <h2>Record Search</h2>
@@ -16,3 +39,9 @@
     </div>
   </div>
 </section>
+<%# TODO: move to helper when finalized %>
+<% if @collection && !has_search_parameters? %>
+  <% @page_title = "#{@collection.title} Collection Items - #{application_name}"  %>
+<% elsif @collection && has_search_parameters? %>
+  <% @page_title = "#{render_search_to_page_title(params)} - #{@collection.title} Collection Items - #{application_name}" %>
+<% end %>
