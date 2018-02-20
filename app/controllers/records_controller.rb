@@ -37,7 +37,7 @@ class RecordsController < CatalogController
     config.add_show_field 'dc_date_display',                        label: I18n.t('search.labels.dc_date')
     config.add_show_field 'dcterms_subject_display',                label: I18n.t('search.labels.dcterms_subject'), link_to_search: :subject_facet
     config.add_show_field 'dcterms_spatial_display',                label: I18n.t('search.labels.dcterms_spatial'), link_to_search: :location_facet
-    config.add_show_field 'dcterms_medium_display',                 label: I18n.t('search.labels.dcterms_medium')
+    config.add_show_field 'dcterms_medium_display',                 label: I18n.t('search.labels.dcterms_medium'), link_to_search: :medium_facet
     config.add_show_field 'dcterms_type_display',                   label: I18n.t('search.labels.dcterms_type')
     config.add_show_field 'dc_format_display',                      label: I18n.t('search.labels.dc_format')
     config.add_show_field 'dcterms_description_display',            label: I18n.t('search.labels.dcterms_description')
