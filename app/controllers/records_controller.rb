@@ -23,10 +23,10 @@ class RecordsController < CatalogController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field :dcterms_creator_display,    label: I18n.t('search.labels.dcterms_creator')
-    config.add_index_field :dc_date,                      label: I18n.t('search.labels.dc_date')
-    config.add_index_field :conllection_name_sms,         label: I18n.t('search.labels.collection')
-    config.add_index_field :dcterms_provenance,           label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
+    config.add_index_field :dcterms_creator_display,      label: I18n.t('search.labels.dcterms_creator')
+    config.add_index_field :dc_date_display,              label: I18n.t('search.labels.dc_date')
+    config.add_index_field :collection_name_sms,          label: I18n.t('search.labels.collection')
+    config.add_index_field :dcterms_provenance_display,   label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
 
     # Show Page Fields
     config.add_show_field 'collection_name_sms',                    label: I18n.t('search.labels.collection'), link_to_search: true
