@@ -1,30 +1,30 @@
 <% content_for(:page_title) { t('titles.counties') } %>
 <% content_for :head do %>
-<style type="text/css">
-  .info {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-  }
-  .info h4 {
-    margin: 0 0 5px;
-    color: #777;
-  }
-  .legend {
-    line-height: 19px;
-    color: #555;
-  }
-  .legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: 0.7;
-  }
-</style>
+  <style type="text/css">
+    .info {
+      padding: 6px 8px;
+      font: 14px/16px Arial, Helvetica, sans-serif;
+      background: white;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 5px;
+    }
+    .info h4 {
+      margin: 0 0 5px;
+      color: #777;
+    }
+    .legend {
+      line-height: 19px;
+      color: #555;
+    }
+    .legend i {
+      width: 18px;
+      height: 18px;
+      float: left;
+      margin-right: 8px;
+      opacity: 0.7;
+    }
+  </style>
 <% end %>
 
 <section id="counties">
@@ -35,40 +35,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-lg-5">
         <div id="mapid"></div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            All Georgia Counties
-          </div>
-          <table id="#counties-table2" class="table table-condensed table-hover">
-            <thead>
-            <tr>
-              <th>Name</th>
-              <th>Region</th>
-              <th>County Seat</th>
-              <th>Item Count</th>
-              <th>&nbsp;</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @counties.each do |county| %>
-              <tr>
-                <td><%= link_to county.name, county.href %></td>
-                <td>Georgia</td>
-                <td>Georgiaville</td>
-                <td><span class="badge"><%= number_with_delimiter county.count %></span></td>
-                <td><a class="small" href="https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/<%= county.name.downcase.gsub(' ', '-') %>-county" target="_blank">County Info <i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-              </tr>
-            <% end %>
-            </tbody>
-          </table>
+      <div class="col-lg-7">
+        <div class="text-center sort-buttons">
+          <%= render partial: 'shared/facet_sort_group', locals: { p: primary_sort_param } %>
         </div>
-
         <ul class="counties-list list-group">
           <% @counties.each do |county| %>
             <%= render 'county', county: county %>
@@ -158,8 +131,8 @@
 
     function getColor(d) {
         return  d > 10000 ? '#93450E' :
-                d > 1000  ? '#a86a3e' :
-                            '#be8f6e';
+            d > 1000  ? '#a86a3e' :
+                '#be8f6e';
     }
 
     function style(feature) {

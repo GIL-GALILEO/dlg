@@ -12,7 +12,7 @@
 @import "blacklight_maps_customizations";
 @import "openseadragon/openseadragon";
 
-#mapid { height: 650px; }
+#mapid { height: 750px; }
 
 #blacklight-show-map { height: 300px; }
 
@@ -288,20 +288,20 @@ ul.social-icons {
   }
 }
 
-//section#counties {
-//  .sort-buttons {
-//    margin-bottom: 10px;
-//    margin-top: 10px;
-//  }
-//  ul.counties-list {
-//    -moz-column-count: 1;
-//    -moz-column-gap: 5px;
-//    -webkit-column-count: 1;
-//    -webkit-column-gap: 5px;
-//    column-count: 1;
-//    column-gap: 5px;
-//  }
-//}
+section#counties {
+  .sort-buttons {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  ul.counties-list {
+    -moz-column-count: 1;
+    -moz-column-gap: 5px;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 5px;
+    column-count: 1;
+    column-gap: 5px;
+  }
+}
 
 section#institutions {
   .az_nav {
