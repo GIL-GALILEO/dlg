@@ -6,8 +6,11 @@
     <% end %>
   </ol>
   <div class="carousel-inner" role="listbox">
-    <% @carousel_features['records'].each_with_index do |c, i| %>
-    <div class="item<% if i == 0 %> active<% end %>">
+    <div class="item active">
+      <div class="fill" style="background-image:url(<%= asset_path 'default_feature' %>);"></div>
+    </div>
+    <% @carousel_features['records'].each do |c| %>
+    <div class="item">
       <div class="fill" style="background-image:url(<%= feature_image_link c['image']['url'] %>);">
         <div class="carousel-caption">
           <h2><%= link_to c['title'], c['title_link'] %></h2>
