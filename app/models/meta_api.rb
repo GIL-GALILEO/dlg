@@ -24,7 +24,7 @@ class MetaApi
     if r.response.code == '200'
       obj = r.parsed_response
       if obj.key? 'records'
-        obj['records'] = JSON.parse obj['records']
+        obj['records'] = obj['records']
         obj
       else
         OpenStruct.new(obj)
