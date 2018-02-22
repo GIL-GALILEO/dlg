@@ -26,13 +26,13 @@
   </p>
   <p>
     <strong>
-      Visit the <a href="http://crdl.usg.edu" target="_blank">Civil Rights Digital Library</a>
+      Visit the <a href="<%= t('external_links.dlg.crdl') %>" target="_blank"><%= t('external_links.labels.crdl') %></a>
     </strong>
   </p>
 </div>
 <div class="col-md-6 col-lg-6 right-col">
   <video width="600" height="410" controls="">
-    <source src="http://crdl.usg.edu/news/mp4/wsbn41630.mp4" type="video/mp4">
+    <source src="<%= Rails.application.secrets.cache_server %>/uploads/media/wsbn41630.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </div>
