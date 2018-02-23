@@ -15,7 +15,7 @@
               <li><a href="#all">All</a></li>
               <% @letters.each do |l, v| %>
                 <% if v %>
-                  <li><a href="#<%= l %>" data-no-turbolink><%= l %></a></li>
+                  <li><a href="#<%= l %>" data-turbolinks="false"><%= l %></a></li>
                 <% else %>
                   <li><span><%= l %></span></li>
                 <% end %>
