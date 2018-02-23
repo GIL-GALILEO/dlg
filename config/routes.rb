@@ -48,5 +48,11 @@ Rails.application.routes.draw do
     get 'partners-sponsors'
   end
 
+  namespace :help do
+    # get 'a'
+    # get 'b'
+    # get 'c'
+  end
+
   root to: 'homepage#index'
 end
