@@ -101,11 +101,34 @@ module CatalogHelper
             class: 'rights-statement-icon'
           ),
           r[1][:uri],
-          class: 'rights-statement-link'
+          class: 'rights-statement-link',
+          target: '_blank'
         )
       end
     end
     link_to obj[:value].first, obj[:value].first
+  end
+
+  def collection_rights_icons(rights_array)
+    image_tags = []
+    I18n.t([:rights])[0].each do |r|
+      set = false
+      rights_array.each do |rights|
+        next unless r[1][:uri] == rights
+        image_tags << link_to(
+          image_tag(
+            r[1][:icon_url],
+            class: 'rights-statement-icon'
+          ),
+          r[1][:uri],
+          class: 'rights-statement-link',
+          target: '_blank'
+        )
+        set = true
+      end
+      next unless set
+    end
+    image_tags.join('').html_safe
   end
 
   # Render human-readable label for RS.org value, if available and URI otherwise
@@ -114,6 +137,11 @@ module CatalogHelper
       return r[1][:label] if r[1][:uri] == uri
     end
     uri
+  end
+
+  def render_array_field(array_of_text)
+    return 'Not Provided' unless array_of_text.any?
+    array_of_text.join('<br />').html_safe
   end
 
 end

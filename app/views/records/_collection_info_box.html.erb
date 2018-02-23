@@ -1,0 +1,44 @@
+<h2><%= @collection.display_title %> Item Search</h2>
+<div class="panel panel-default">
+  <div class="panel-heading collapse-toggle" data-toggle="collapse" data-target="#collection-info">
+    <h3 class="panel-title">Collection Information</h3>
+  </div>
+  <div id="collection-info" class="panel-collapse collapse in">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <%= @collection.short_description %>
+        </div>
+      </div>
+      <div>
+        <div class="col-md-12">
+          <%= image_tag 'https://via.placeholder.com/500x250' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <dl>
+            <dt><%= t('search.labels.dcterms_provenance') %></dt>
+            <dd><%= render_array_field @collection.institution %></dd>
+            <dt><%= t('search.labels.dcterms_subject') %></dt>
+            <dd><%= render_array_field @collection.subject %></dd>
+            <dt><%= t('search.labels.dcterms_description') %></dt>
+            <dd><%= render_array_field @collection.description %></dd>
+            <dt><%= t('search.labels.dc_date') %></dt>
+            <dd><%= render_array_field @collection.date %></dd>
+            <dt><%= t('search.labels.dcterms_spatial') %></dt>
+            <dd><%= render_array_field @collection.location %></dd>
+            <dt><%= t('search.labels.dc_format') %></dt>
+            <dd><%= render_array_field @collection.format %></dd>
+            <dt><%= t('search.labels.dcterms_is_part_of') %></dt>
+            <dd><%= render_array_field @collection.orig_coll %></dd>
+            <dt><%= t('search.labels.dc_right') %></dt>
+            <dd><%= collection_rights_icons @collection.rights %></dd>
+            <dt><%= t('search.labels.dcterms_type') %></dt>
+            <dd><%= render_array_field @collection.type %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
