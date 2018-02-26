@@ -65,17 +65,14 @@ module CatalogHelper
     link_to collection_title, collection_home_path(collection_record_id)
   end
 
-  # When displaying a Collection in the search results, use this to determine
-  # the displayed title
-  def collection_title_display(document)
+  # overrides function in BL configuration_helper_behavior
+  def collection_index_link_to(document)
     link_title = if document.key? 'dcterms_title_display'
                    document['dcterms_title_display'].first
                  else
-                   'Search Collection Items'
+                   I18n.t('collection.homepage_link')
                  end
-    blacklight_show_link = link_to 'Collection Metadata', solr_document_path(document['record_id_ss'])
-    collection_home_link = link_to link_title, collection_home_path(document['id'])
-    "#{collection_home_link} [#{blacklight_show_link}]".html_safe
+    link_to link_title, collection_home_path(document['id'])
   end
 
   # When displaying an Item in the search results, use this to determine
@@ -142,6 +139,10 @@ module CatalogHelper
   def render_array_field(array_of_text)
     return 'Not Provided' unless array_of_text.any?
     array_of_text.join('<br />').html_safe
+  end
+
+  def collection_external_homepage_link
+    link_to I18n.t('collection.homepage_link'), @collection.is_shown_at.first
   end
 
 end

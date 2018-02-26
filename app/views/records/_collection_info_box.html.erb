@@ -7,7 +7,10 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-md-12">
-          <%= @collection.short_description %>
+          <p><%= @collection.short_description %></p>
+          <% if @collection.is_shown_at.any? %>
+            <p><%= collection_external_homepage_link %></p>
+          <% end %>
         </div>
       </div>
       <div>

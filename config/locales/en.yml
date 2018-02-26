@@ -196,6 +196,8 @@ en:
     institutions: 'Institutions'
     collections: 'All Collections - %{application_name}'
     map: "Map - %{application_name}"
+  collection:
+    homepage_link: 'Visit Collection Homepage'
 
 
 
