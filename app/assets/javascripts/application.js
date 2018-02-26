@@ -23,7 +23,8 @@
 Blacklight.onLoad(function() {
 
     $('select.advanced-search-facet-select').chosen({
-        search_contains: true
+        search_contains: true,
+        width: '100%'
     });
 
 });
