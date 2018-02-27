@@ -21,7 +21,16 @@
         <%= render('collection_info_box_field', label: t('search.labels.dc_date'), value: @collection.date) if @collection.date.any? %>
         <%= render('collection_info_box_field', label: t('search.labels.dcterms_spatial') , value: @collection.location) if @collection.location.any? %>
         <%= render('collection_info_box_field', label: t('search.labels.dc_format'), value: @collection.format) if @collection.format.any? %>
-        <%= render('collection_info_box_field', label: t('search.labels.dc_right'), value: @collection.rights) if @collection.rights.any? %>
+        <% if @collection.rights.any? %>
+        <div class="row">
+          <div class="col-md-2">
+            <strong><%= t('search.labels.dc_right') %></strong>
+          </div>
+          <div class="col-md-10">
+            <%= collection_rights_icons @collection.rights  %>
+          </div>
+        </div>
+        <% end %>
         <%= render('collection_info_box_field', label: t('search.labels.dcterms_type'), value: @collection.type) if @collection.type.any? %>
     </div>
   </div>
