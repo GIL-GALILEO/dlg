@@ -128,6 +128,7 @@ html {
 .navbar-default {
   border: none;
   border-top: 3px solid #ab7c5b;
+  //border-bottom: 1px solid #ab7c5b;
   border-radius: 0;
   background: none;
 
@@ -150,7 +151,10 @@ html {
 
 .search {
   padding: 10px 0;
+  //background-color: #F7F6F1;
   background-color: #1B8892;
+  //border-bottom: 1px solid #E8E5D4;
+  //margin-bottom: 10px;
   .input-group-lg>.input-group-btn>.btn {
     padding: 10px 20px;
   }
@@ -237,11 +241,14 @@ ul.social-icons {
 }
 
 .nav-tabs {
+  min-width: 500px;
   border-width: 2px!important;
   a {
     color: #333;
   }
 }
+
+.nav-tabs-responsive { overflow: auto; }
 
 .nav-tabs > li:first-child  {
   margin-left: 25px;
@@ -423,6 +430,7 @@ section#institutions {
     .facet-label {
       display: inline;
       text-indent: 0;
+      padding-right: 20px;
       padding: 0 20px 0 0;
     }
   }
