@@ -1,4 +1,3 @@
-<h2><%= @collection.display_title %> Item Search</h2>
 <div class="panel panel-default">
   <div class="panel-heading collapse-toggle" data-toggle="collapse" data-target="#collection-info">
     <h3 class="panel-title">Collection Information</h3>
@@ -6,42 +5,24 @@
   <div id="collection-info" class="panel-collapse collapse in">
     <div class="panel-body">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-sm-12">
           <p><%= @collection.short_description %></p>
           <% if @collection.is_shown_at.any? %>
             <p><%= collection_external_homepage_link %></p>
           <% end %>
         </div>
-      </div>
-      <div>
-        <div class="col-md-12">
-          <%= image_tag 'https://via.placeholder.com/500x250' %>
+        <div class="col-md-4 col-sm-12">
+          <%= image_tag 'https://via.placeholder.com/267x150', class: 'img-thumbnail pull-right' %>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <dl>
-            <dt><%= t('search.labels.dcterms_provenance') %></dt>
-            <dd><%= render_array_field @collection.institution %></dd>
-            <dt><%= t('search.labels.dcterms_subject') %></dt>
-            <dd><%= render_array_field @collection.subject %></dd>
-            <dt><%= t('search.labels.dcterms_description') %></dt>
-            <dd><%= render_array_field @collection.description %></dd>
-            <dt><%= t('search.labels.dc_date') %></dt>
-            <dd><%= render_array_field @collection.date %></dd>
-            <dt><%= t('search.labels.dcterms_spatial') %></dt>
-            <dd><%= render_array_field @collection.location %></dd>
-            <dt><%= t('search.labels.dc_format') %></dt>
-            <dd><%= render_array_field @collection.format %></dd>
-            <dt><%= t('search.labels.dcterms_is_part_of') %></dt>
-            <dd><%= render_array_field @collection.orig_coll %></dd>
-            <dt><%= t('search.labels.dc_right') %></dt>
-            <dd><%= collection_rights_icons @collection.rights %></dd>
-            <dt><%= t('search.labels.dcterms_type') %></dt>
-            <dd><%= render_array_field @collection.type %></dd>
-          </dl>
-        </div>
-      </div>
+        <%= render('collection_info_box_field', label: t('search.labels.dcterms_provenance'), value: @collection.institution) if @collection.institution.any? %>
+        <%= render('collection_info_box_field', label: t('search.labels.dcterms_subject'), value: @collection.subject) if @collection.subject.any? %>
+        <%= render('collection_info_box_field', label: t('search.labels.dcterms_description'), value: @collection.description) if @collection.description.any? %>
+        <%= render('collection_info_box_field', label: t('search.labels.dc_date'), value: @collection.date) if @collection.date.any? %>
+        <%= render('collection_info_box_field', label: t('search.labels.dcterms_spatial') , value: @collection.location) if @collection.location.any? %>
+        <%= render('collection_info_box_field', label: t('search.labels.dc_format'), value: @collection.format) if @collection.format.any? %>
+        <%= render('collection_info_box_field', label: t('search.labels.dc_right'), value: @collection.rights) if @collection.rights.any? %>
+        <%= render('collection_info_box_field', label: t('search.labels.dcterms_type'), value: @collection.type) if @collection.type.any? %>
     </div>
   </div>
 </div>

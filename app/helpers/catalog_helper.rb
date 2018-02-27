@@ -142,7 +142,7 @@ module CatalogHelper
   end
 
   def collection_external_homepage_link
-    link_to I18n.t('collection.homepage_link'), @collection.is_shown_at.first
+    link_to I18n.t('collection.homepage_link'), @collection.is_shown_at.first, class: 'btn btn-primary'
   end
 
 end
