@@ -1,8 +1,9 @@
 <% content_for :header do %>
 <div id="home-carousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
+    <li data-target="#home-carousel" data-slide-to="1" class="active"></li>
     <% @carousel_features['records'].each_with_index do |_, i| %>
-      <li data-target="#home-carousel" data-slide-to="<%= i %>"<% if i == 0 %> class="active"><% end %></li>
+      <li data-target="#home-carousel" data-slide-to="<%= i + 1 %>"></li>
     <% end %>
   </ol>
   <div class="carousel-inner" role="listbox">
