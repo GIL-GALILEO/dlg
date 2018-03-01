@@ -2,6 +2,8 @@ en:
   blacklight:
     application_name: 'Digital Library of Georgia'
     search:
+      facets:
+        title: 'Refine'
       form:
         search:
           sr_label: 'Search Box'
