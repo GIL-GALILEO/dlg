@@ -1,10 +1,7 @@
 <section id="record-results">
   <div class="container">
     <% if @collection && @document_list.any? %>
-      <h2><%= @collection.display_title %> Item Search</h2>
-
-    <% else %>
-      <h2>Record Search</h2>
+      <h2><%= @collection.display_title %> Items</h2>
     <% end %>
     <div id="sidebar" class="<%= sidebar_classes %>">
       <%= render 'search_sidebar' %>
