@@ -129,7 +129,7 @@
             this._div.innerHTML = '<div class="county-name">' +
                 props.name + ' <%= t('counties.map.county') %></div><br /><span class="badge">' + props.count +
                 '</span> <%= t('counties.map.unit') %><br /><br /><a href="' + props.href +
-                '" class="btn btn-default"><%= t('counties.map.bl_link') %>' + props.name + ' <%= t('counties.map.county') %></a>'
+                '" class="btn btn-default" data-turbolinks="false"><%= t('counties.map.bl_link') %>' + props.name + ' <%= t('counties.map.county') %></a>'
         } else {
             this._div.innerHTML = '<%= t('counties.map.info_default') %>'
         }
