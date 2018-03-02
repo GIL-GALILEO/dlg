@@ -7,20 +7,24 @@
       <div class="row">
         <div class="col-md-8 col-sm-12">
           <p><%= @collection.short_description %></p>
+          <p>
           <% if @collection.is_shown_at.any? %>
-            <p><%= collection_external_homepage_link %></p>
+            <%= collection_external_homepage_link %>
           <% end %>
+            <%= link_to t('collection.more_info'), solr_document_path(@collection.id), class: 'btn btn-primary' %>
+          </p>
         </div>
         <div class="col-md-4 col-sm-12">
-          <%= image_tag 'https://via.placeholder.com/650x300', class: 'img-thumbnail img-responsive pull-right' %>
+          <%= image_tag 'https://via.placeholder.com/320x170', class: 'img-thumbnail img-responsive pull-right' %>
         </div>
       </div>
-        <%= render('collection_info_box_field', label: t('search.labels.dcterms_provenance'), value: @collection.institution) if @collection.institution.any? %>
-        <%= render('collection_info_box_field', label: t('search.labels.dcterms_subject'), value: @collection.subject) if @collection.subject.any? %>
-        <%= render('collection_info_box_field', label: t('search.labels.dcterms_description'), value: @collection.description) if @collection.description.any? %>
-        <%= render('collection_info_box_field', label: t('search.labels.dc_date'), value: @collection.date) if @collection.date.any? %>
-        <%= render('collection_info_box_field', label: t('search.labels.dcterms_spatial') , value: @collection.location) if @collection.location.any? %>
-        <%= render('collection_info_box_field', label: t('search.labels.dc_format'), value: @collection.format) if @collection.format.any? %>
+        <%= render('collection_info_box_field', id: @collection.id, num: 3, label: t('search.labels.dcterms_provenance'), value: @collection.institution) if @collection.institution.any? %>
+        <%= render('collection_info_box_field', id: @collection.id, num: 5, label: t('search.labels.dcterms_subject'), value: @collection.subject) if @collection.subject.any? %>
+        <%= render('collection_info_box_field', id: @collection.id, num: 2, label: t('search.labels.dcterms_description'), value: @collection.description) if @collection.description.any? %>
+        <%= render('collection_info_box_field', id: @collection.id, num: 4, label: t('search.labels.dc_date'), value: @collection.date) if @collection.date.any? %>
+        <%= render('collection_info_box_field', id: @collection.id, num: 5, label: t('search.labels.dcterms_spatial') , value: @collection.location) if @collection.location.any? %>
+        <%= render('collection_info_box_field', id: @collection.id, num: 3, label: t('search.labels.dc_format'), value: @collection.format) if @collection.format.any? %>
+        <%= render('collection_info_box_field', id: @collection.id, num: 3, label: t('search.labels.dcterms_type'), value: @collection.type) if @collection.type.any? %>
         <% if @collection.rights.any? %>
         <div class="row">
           <div class="col-md-2">
@@ -31,7 +35,6 @@
           </div>
         </div>
         <% end %>
-        <%= render('collection_info_box_field', label: t('search.labels.dcterms_type'), value: @collection.type) if @collection.type.any? %>
     </div>
   </div>
 </div>

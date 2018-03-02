@@ -136,9 +136,16 @@ module CatalogHelper
     uri
   end
 
-  def render_array_field(array_of_text)
-    return 'Not Provided' unless array_of_text.any?
-    array_of_text.join('<br />').html_safe
+  def render_array_field(array_of_text, num, id)
+    str = ''
+    array_of_text.each_with_index do |v, i|
+      if num == i
+        str += link_to(I18n.t('collection.see_more'), solr_document_path(id))
+        return str.html_safe
+      end
+      str += "#{v}<br />"
+    end
+    str.html_safe
   end
 
   def collection_external_homepage_link

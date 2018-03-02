@@ -198,6 +198,8 @@ en:
     map: "Map - %{application_name}"
   collection:
     homepage_link: 'Visit Collection Homepage'
+    see_more: 'See More'
+    more_info: 'More About this Collection'
 
 
 
