@@ -197,6 +197,7 @@ en:
     collections: 'All Collections - %{application_name}'
     map: "Map - %{application_name}"
   collection:
+    header: 'Collections'
     homepage_link: 'Visit Collection Homepage'
     see_more: 'See More'
     more_info: 'More About this Collection'
