@@ -9,6 +9,10 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
       border-radius: 5px;
     }
+    .county-name {
+      font: 22px Arial, Helvetica, sans-serif;
+      padding-bottom: 10px;
+    }
     .info h4 {
       margin: 0 0 5px;
       color: #777;
@@ -31,17 +35,28 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2>Counties</h2>
+        <h2><%= t('counties.heading') %></h2>
+        <div class="text-center">
+          <a href="#counties-list" data-turbolinks="false"><%= t('counties.go_to_list') %></a>
+        </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-5">
-        <div id="mapid"></div>
+      <div class="col-md-12">
+        <div id="counties-map"></div>
       </div>
-      <div class="col-lg-7">
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <a name="counties-list"></a>
         <div class="text-center sort-buttons">
           <%= render partial: 'shared/facet_sort_group', locals: { p: primary_sort_param } %>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
         <ul class="counties-list list-group">
           <% @counties.each do |county| %>
             <%= render 'county', county: county %>
@@ -60,20 +75,21 @@
 
     $countyListDivs.mouseover(function() {
         var highlightLayer = geojson._layers[layer_map[this.className.replace('list-group-item county-pane pane-', '')]];
-        highlightFeature({target: highlightLayer})
+        highlightFeature({target: highlightLayer});
+        selectFeature({target: highlightLayer})
     });
 
     $countyListDivs.mouseout(function() {
         var highlightLayer = geojson._layers[layer_map[this.className.replace('list-group-item county-pane pane-', '')]];
-        resetHighlight({target: highlightLayer})
+        resetHighlight({target: highlightLayer});
+        resetInfo();
     });
-
 
     var counties = <%= raw @counties.map { |c| c.geo_hash.to_json } %>;
     var counties_geojson = counties.map(JSON.parse);
 
-    map = L.map('mapid', {
-        center: [32.26, -83.19],
+    map = L.map('counties-map', {
+        center: [32.46, -83.19],
         zoom: 7
     });
 
@@ -81,7 +97,7 @@
     labelsLayer.style.zIndex = 650;
     labelsLayer.style.pointerEvents = 'none';
 
-    var info = L.control();
+    var info = L.control({position: 'bottomleft'});
     var legend = L.control({position: 'bottomright'});
 
     info.onAdd = function (map) {
@@ -93,7 +109,7 @@
     legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend'),
             grades = [0, 1000, 10000];
-        div.innerHTML += '<p id="legend-label">Number of Records</p>';
+        div.innerHTML += '<p id="legend-label"><%= t('counties.map.legend') %></p>';
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
                 '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
@@ -103,9 +119,14 @@
     };
 
     info.update = function (props) {
-        this._div.innerHTML = (props ?
-            '<b>' + props.name + '</b><br />' + props.count + ' records'
-            : 'Georgia Counties');
+        if (props) {
+            this._div.innerHTML = '<div class="county-name">' +
+                props.name + ' <%= t('counties.map.county') %></div><br /><span class="badge">' + props.count +
+                '</span> <%= t('counties.map.unit') %><br /><br /><a href="' + props.href +
+                '" class="btn btn-default"><%= t('counties.map.bl_link') %>' + props.name + ' <%= t('counties.map.county') %></a>'
+        } else {
+            this._div.innerHTML = '<%= t('counties.map.info_default') %>'
+        }
     };
 
     info.addTo(map);
@@ -148,7 +169,7 @@
         }
     }
 
-    function highlightFeature(e) {
+    function selectFeature(e) {
         var layer = e.target;
 
         layer.setStyle({
@@ -165,8 +186,29 @@
         info.update(layer.feature.properties);
     }
 
+    function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dasharray: '',
+            fillOpacity: 0.5
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+
+        // info.update(layer.feature.properties);
+    }
+
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
+        // info.update();
+    }
+
+    function resetInfo() {
         info.update();
     }
 
@@ -180,7 +222,8 @@
         layer.on({
             mouseover: highlightFeature,
             mouseout: resetHighlight,
-            click: whenClicked
+            click: selectFeature
+            // click: whenClicked
         });
     }
 </script>

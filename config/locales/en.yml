@@ -204,6 +204,15 @@ en:
     more_info: 'More About this Collection'
   homepage:
     advanced_search: 'More Options'
+  counties:
+    heading: 'Counties'
+    go_to_list: 'Jump to Counties List'
+    map:
+      legend: 'Number of Records'
+      unit: 'records'
+      county: 'County'
+      info_default: 'Select a County for More Info'
+      bl_link: 'View All Records from '
 
 
 
