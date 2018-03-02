@@ -8,12 +8,14 @@ module CatalogHelper
   NO_THUMB_ICON = '' # TODO
 
   def search_bar_placeholder
-    context = controller.class.name.gsub('Controller', '').downcase
-    I18n.t(
-      context.to_sym,
-      scope: [:search, :bar, :placeholder],
-      default: I18n.t('search.bar.placeholder.default')
-    )
+    if @collection
+      I18n.t 'search.bar.placeholder.collection', collection: @collection.display_title
+    elsif controller.class.name.downcase =~ /collections/
+      I18n.t 'search.bar.placeholder.collections'
+    else
+      I18n.t('search.bar.placeholder.default')
+    end
+
   end
 
   # show friendly values for boolean fields

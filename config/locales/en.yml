@@ -94,6 +94,7 @@ en:
       placeholder:
         default: 'Search All Items'
         collections: 'Search for Collections'
+        collection: 'Search Items in %{collection}'
     index:
       truncated_field: '..(more)'
     facets:
@@ -201,6 +202,8 @@ en:
     homepage_link: 'Visit Collection Homepage'
     see_more: 'See More'
     more_info: 'More About this Collection'
+  homepage:
+    advanced_search: 'More Options'
 
 
 
