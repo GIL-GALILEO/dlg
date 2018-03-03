@@ -177,7 +177,7 @@
 
     function selectFeature(e) {
         if (lastClickedLayer === null) {
-            resetHighlight(lastClickedLayer);
+            geojson.resetStyle(lastClickedLayer);
         }
 
         var layer = e.target;
