@@ -70,7 +70,7 @@
 
 <script type="text/javascript">
     var layer_map = {};
-    var map, geojson, tiles, labelsLayer, mapLabels;
+    var map, geojson, tiles, labelsLayer, mapLabels, lastClickedLayer;
 
     var $countyListDivs = $('.county-pane');
 
@@ -176,8 +176,12 @@
     }
 
     function selectFeature(e) {
-        resetHighlight(e);
+        if (lastClickedLayer === null) {
+            resetHighlight(lastClickedLayer);
+        }
+
         var layer = e.target;
+        lastClickedLayer = layer;
 
         layer.setStyle({
             weight: 5,
