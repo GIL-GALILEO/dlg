@@ -139,14 +139,14 @@
     legend.addTo(map);
 
     tiles = L.tileLayer(
-        'http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+        'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
         {
             id: 'osm.default',
             attribution: '©OpenStreetMap, ©CartoDB'
         }
     ).addTo(map);
 
-    mapLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+    mapLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
         attribution: '©OpenStreetMap, ©CartoDB',
         pane: 'labels'
     }).addTo(map);
@@ -176,6 +176,7 @@
     }
 
     function selectFeature(e) {
+        resetHighlight(e);
         var layer = e.target;
 
         layer.setStyle({
