@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'ostruct'
-
 # Class to wrap Meta API
 class MetaApi
   URI = 'https://dlgadmin.galileo.usg.edu'
