@@ -103,7 +103,7 @@
     labelsLayer.style.zIndex = 650;
     labelsLayer.style.pointerEvents = 'none';
 
-    var info = L.control({position: 'bottomleft'});
+    var info = L.control({position: 'topright'});
     var legend = L.control({position: 'bottomright'});
 
     info.onAdd = function (map) {
@@ -115,7 +115,7 @@
     legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend'),
             grades = [0, 1000, 10000];
-        div.innerHTML += '<p id="legend-label"><%= t('counties.map.legend') %></p>';
+        div.innerHTML += '<p><strong><%= t('counties.map.legend') %></strong></p>';
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
                 '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
@@ -127,7 +127,7 @@
     info.update = function (props) {
         if (props) {
             this._div.innerHTML = '<div class="county-name">' +
-                props.name + ' <%= t('counties.map.county') %></div><br /><span class="badge">' + props.count +
+                props.name + ' <%= t('counties.map.county') %></div><span class="badge">' + props.count +
                 '</span> <%= t('counties.map.unit') %><br /><br /><a href="' + props.href +
                 '" class="btn btn-default" data-turbolinks="false"><%= t('counties.map.bl_link') %>' + props.name + ' <%= t('counties.map.county') %></a>'
         } else {
