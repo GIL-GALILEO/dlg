@@ -31,8 +31,9 @@ class CatalogController < ApplicationController
     config.show.display_type_field = 'class_name_ss'
 
     # show thumbnails on search results for most view types
+    # now handled in templates, see _show_item, _thumbnail_item, etc.
     # config.index.thumbnail_field = :thumbnail_url
-    config.index.thumbnail_method = :record_thumbnail
+    # config.index.thumbnail_method = :record_thumbnail
 
     config.add_search_field('all_fields') do |field|
       # field.include_in_advanced_search = false # no results returned in advanced search

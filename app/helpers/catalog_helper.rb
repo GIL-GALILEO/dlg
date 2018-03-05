@@ -38,19 +38,6 @@ module CatalogHelper
     )
   end
 
-  # show thumbnail for item, or placeholder if none found
-  def record_thumbnail(document, _options)
-    url = case document['class_name_ss']
-          when 'Item'
-            "http://dlg.galileo.usg.edu/#{document['record_id_ss'].split('_')[0]}/#{document['record_id_ss'].split('_')[1]}/do-th:#{document['record_id_ss'].split('_')[2]}"
-          when 'Collection'
-            document['thumbnail_ss']
-          else
-            NO_THUMB_ICON
-          end
-    image_tag(url, class: 'thumbnail')
-  end
-
   def spatial_cleaner(value)
     clean_value = value.gsub('United States, ', '')
     if value =~ COORDINATES_REGEXP
@@ -150,8 +137,72 @@ module CatalogHelper
     str.html_safe
   end
 
+  # show thumbnail for item, or placeholder if none found
+  def thumbnail_image_tag(document)
+    url = case document['class_name_ss']
+          when 'Item'
+            "http://dlg.galileo.usg.edu/#{document['record_id_ss'].split('_')[0]}/#{document['record_id_ss'].split('_')[1]}/do-th:#{document['record_id_ss'].split('_')[2]}"
+          when 'Collection'
+            document['thumbnail_ss']
+          else
+            NO_THUMB_ICON
+          end
+    image_tag(url, class: 'thumbnail')
+  end
+
+  def index_collection_thumb(document)
+    link_to thumbnail_image_tag(document), collection_home_path(identifier_for(document))
+  end
+
+  def index_item_thumb(document)
+    # go to DO in new window if present, show page otherwise
+    if do_url? document
+      link_to thumbnail_image_tag(document), do_url_for(document), target: '_blank'
+    else
+      link_to thumbnail_image_tag(document), solr_document_path(identifier_for(document))
+    end
+  end
+
+  def show_collection_thumb(document)
+    # link to partner site, if available, collection homepage otherwise
+    if md_url? document
+      link_to thumbnail_image_tag(document), md_url_for(document), target: '_blank'
+    else
+      index_collection_thumb(document)
+    end
+  end
+
+  def show_item_thumb(document)
+    # link to DO if available, no link otherwise
+    if do_url? document
+      link_to thumbnail_image_tag(document), do_url_for(document), target: '_blank'
+    else
+      thumbnail_image_tag(document)
+    end
+  end
+
   def collection_external_homepage_link
     link_to I18n.t('collection.homepage_link'), @collection.is_shown_at.first, class: 'btn btn-primary'
+  end
+
+  def do_url?(document)
+    document.key?('edm_is_shown_by') && document['edm_is_shown_by'].first =~ URI_REGEXP
+  end
+
+  def md_url?(document)
+    document.key?('edm_is_shown_at') && document['edm_is_shown_at'].first =~ URI_REGEXP
+  end
+
+  def do_url_for(document)
+    document['edm_is_shown_by'].first
+  end
+
+  def md_url_for(document)
+    document['edm_is_shown_at'].first
+  end
+
+  def identifier_for(document)
+    document['record_id_ss']
   end
 
 end
