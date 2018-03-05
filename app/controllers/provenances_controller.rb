@@ -19,6 +19,7 @@ class ProvenancesController < CatalogController
                            label: '_',
                            limit: 200,
                            more_limit: 200,
+                           sort: 'index',
                            show: false
     config.add_facet_field :provenance_collection_facet,
                            label: '_',
@@ -52,7 +53,7 @@ class ProvenancesController < CatalogController
       count: prov['count'],
       collections: collections_from_inst(prov),
       href: search_action_path(
-        search_state.add_facet_params_and_redirect(FACET_FIELD,prov)
+        search_state.add_facet_params_and_redirect(FACET_FIELD, prov)
       )
     )
   end
