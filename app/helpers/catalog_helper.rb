@@ -64,18 +64,6 @@ module CatalogHelper
     link_to link_title, collection_home_path(document['id'])
   end
 
-  # When displaying an Item in the search results, use this to determine
-  # the displayed title
-  def item_title_display(document)
-    default_link = link_to document['dcterms_title_display'].first, solr_document_path(document['record_id_ss'])
-    title = if document.key? 'edm_is_shown_at_display'
-              "#{default_link} [#{link_to('Open Item in New Window', document['edm_is_shown_at_display'].first, target: '_blank')}]"
-            else
-              default_link
-            end
-    title.html_safe
-  end
-
   # Render icon for RS.org value
   # TODO: refactor/reconider use of I18n file for this purpose
   def rights_icon_tag(obj)

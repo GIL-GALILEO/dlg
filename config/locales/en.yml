@@ -97,6 +97,7 @@ en:
         collection: 'Search Items in %{collection}'
     index:
       truncated_field: '..(more)'
+      collection_label: 'Collection'
     facets:
       provenance: 'Holding Institution'
       publisher: 'Publisher'
