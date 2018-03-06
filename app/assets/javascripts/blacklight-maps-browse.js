@@ -1,12 +1,12 @@
 ;(function( $ ) {
 
   $.fn.blacklight_leaflet_map = function(geojson_docs, arg_opts) {
-    var map, sidebar, markers, geoJsonLayer, currentLayer;
+    var map, sidebar, markers, geoJsonLayer, currentLayer, leader_html;
 
     // Configure default options and those passed via the constructor options
     var options = $.extend({
-      tileurl : 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      mapattribution : 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      tileurl : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      mapattribution : 'Map data &copy; <a href="https://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
       initialZoom: 2,
       singlemarkermode: true,
       searchcontrol: false,
@@ -21,24 +21,23 @@
     // Extend options from data-attributes
     $.extend(options, this.data());
 
-    var mapped_items = 'from <strong>' + geojson_docs.features.length + '</strong> distinct location' + (geojson_docs.features.length !== 1 ? 's' : '') + '.</span>';
+    var mapped_items = 'from <span class="badge badge-primary">' + geojson_docs.features.length + '</span> distinct location' + (geojson_docs.features.length !== 1 ? 's' : '') + '.</span>';
+    var mapped_caveat = ' Only items with location metadata are shown below!';
 
-    var mapped_caveat = '<span class="mapped-caveat">Only items with location metadata are shown below!</span>';
+    var $leaderHtmlDiv = $('#map-leader');
+    var $indexMapContainer = $('#index-map-container');
 
-    var sortAndPerPage = $('#sortAndPerPage');
-
-    var markers;
 
     // Update page links with number of mapped items, disable sort, per_page, pagination
     // Customized for DLG use to hide view widgets and change language for item/location counts
-    if (sortAndPerPage.length) { // catalog#index and #map view
-      var page_links = sortAndPerPage.find('.page_links');
-      var result_count = page_links.find('.page_entries').find('strong').last().html();
-      page_links.html('<span class="page_entries"><strong>' + result_count + '</strong> items found</span> ' + mapped_items + mapped_caveat);
-      sortAndPerPage.find('.dropdown-toggle').hide();
+    if ($indexMapContainer.length) { // catalog#index and #map view
+      var result_count = $('#mapped-record-count').text();
+      leader_html = '<span class="badge badge-default">' + result_count + '</span> items found ' + mapped_items + mapped_caveat;
     } else { // catalog#show view
-      $(this.selector).before(mapped_items);
+      leader_html = '<span class="badge badge-default">' + geojson_docs.features.length + '</span> locations associated with this record';
     }
+
+    $leaderHtmlDiv.html(leader_html);
 
     // determine whether to use item location or result count in cluster icon display
     if (options.clustercount == 'hits') {
@@ -69,8 +68,13 @@
       // Setup Leaflet map
       map = L.map(this.id, {
         center: [0, 0],
-        zoom: options.initialZoom
+        zoom: options.initialZoom,
+        scrollWheelZoom: false
       });
+
+      // intuitive handling of mousewheel zooming
+      map.on('focus', function() { map.scrollWheelZoom.enable(); });
+      map.on('blur', function() { map.scrollWheelZoom.disable(); });
 
       L.tileLayer(options.tileurl, {
         attribution: options.mapattribution,

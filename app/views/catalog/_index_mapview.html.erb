@@ -1,9 +1,15 @@
-<%= blacklight_map_tag('blacklight-index-map',
-                       {data:{searchcontrol: true,
-                              catalogpath: search_location_path,
-                              placenamefield: blacklight_config.view.maps.placename_field,
-                              clustercount:'hits',
-                              searchresultsview: default_document_index_view_type,
-                              initialview: blacklight_config.view.maps.initialview
-                       }}) %>
-<%= javascript_tag "$('#blacklight-index-map').blacklight_leaflet_map(#{geojson_features});" %>
+<div id="index-map-container">
+  <div class="sr-only">
+    <span id="mapped-record-count"><%= @document_list.length %></span> records displayed on map
+  </div>
+  <div id="map-leader"></div>
+  <%= blacklight_map_tag('blacklight-index-map',
+                         {data:{searchcontrol: true,
+                                catalogpath: search_location_path,
+                                placenamefield: blacklight_config.view.maps.placename_field,
+                                clustercount:'hits',
+                                searchresultsview: default_document_index_view_type,
+                                initialview: blacklight_config.view.maps.initialview
+                         }}) %>
+  <%= javascript_tag "$('#blacklight-index-map').blacklight_leaflet_map(#{geojson_features});" %>
+</div>
