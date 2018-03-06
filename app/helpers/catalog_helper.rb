@@ -165,7 +165,16 @@ module CatalogHelper
     if do_url? document
       link_to thumbnail_image_tag(document), do_url_for(document), target: '_blank'
     else
-      thumbnail_image_tag(document)
+      # TODO: consider locating this partner link button elsewhere
+      thumbnail_image_tag(document) + visit_partner_button(document)
+    end
+  end
+
+  def visit_partner_button(document)
+    if md_url?(document)
+      link_to I18n.t('show.external_link'), md_url_for(document), class: 'btn btn-primary', target: '_blank'
+    else
+      ''
     end
   end
 

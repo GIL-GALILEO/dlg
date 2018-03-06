@@ -217,6 +217,7 @@ en:
       bl_link: 'View All Records from '
   show:
     map: 'Locations'
+    external_link: 'View at Partner Site'
 
 
 
