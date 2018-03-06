@@ -215,6 +215,8 @@ en:
       county: 'County'
       info_default: 'Select a County for More Info'
       bl_link: 'View All Records from '
+  show:
+    map: 'Locations'
 
 
 
