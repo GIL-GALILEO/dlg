@@ -174,19 +174,19 @@ module CatalogHelper
   end
 
   def do_url?(document)
-    document.key?('edm_is_shown_by') && document['edm_is_shown_by'].first =~ URI_REGEXP
+    document.key?('edm_is_shown_by_display') && document['edm_is_shown_by_display'].first =~ URI.regexp
   end
 
   def md_url?(document)
-    document.key?('edm_is_shown_at') && document['edm_is_shown_at'].first =~ URI_REGEXP
+    document.key?('edm_is_shown_at_display') && document['edm_is_shown_at_display'].first =~ URI.regexp
   end
 
   def do_url_for(document)
-    document['edm_is_shown_by'].first
+    document['edm_is_shown_by_display'].first
   end
 
   def md_url_for(document)
-    document['edm_is_shown_at'].first
+    document['edm_is_shown_at_display'].first
   end
 
   def identifier_for(document)
