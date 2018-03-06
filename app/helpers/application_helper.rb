@@ -5,4 +5,8 @@ module ApplicationHelper
   def feature_image_link(v)
     "#{Rails.application.secrets.cache_server}#{v}"
   end
+
+  def strip_html(options = {})
+    strip_tags(options[:value].first)
+  end
 end
