@@ -1,6 +1,6 @@
 <div id="index-map-container">
   <div class="sr-only">
-    <span id="mapped-record-count"><%= @document_list.length %></span> records displayed on map
+    <span id="mapped-record-count"><%= @response['response']['numFound'] %></span> records displayed on map
   </div>
   <div id="map-leader"></div>
   <%= blacklight_map_tag('blacklight-index-map',
