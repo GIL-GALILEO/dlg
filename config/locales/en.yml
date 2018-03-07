@@ -218,6 +218,11 @@ en:
   show:
     map: 'Locations'
     external_link: 'View at Partner Site'
+    tools:
+      citation:
+        title: 'Citations'
+        field_value_unavailable: 'Not Available'
+        date_value_unavailable: 'Date Not Provided'
 
 
 

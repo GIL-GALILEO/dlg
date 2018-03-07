@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <button type="button" class="ajax-modal-close close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h1 class="modal-title"><%= t('show.tools.citation.title') %></h1>
+</div>
+<div class="modal-body">
+  <% @documents.each do |document| %>
+    <h3 class="modal-title"><%= document_heading(document) %></h3>
+    <% if document.respond_to?(:export_as_mla_citation_txt) %>
+      <h4><%= t('blacklight.citation.mla') %></h4>
+      <div class="well"><%= document.send(:export_as_mla_citation_txt).html_safe %></div>
+    <% end %>
+    <% if document.respond_to?(:export_as_apa_citation_txt) %>
+      <h4><%= t('blacklight.citation.apa') %></h4>
+      <div class="well"><%= document.send(:export_as_apa_citation_txt).html_safe %></div>
+    <% end %>
+    <% if document.respond_to?(:export_as_chicago_citation_txt) %>
+      <h4><%= t('blacklight.citation.chicago') %></h4>
+      <div class="well"><%= document.send(:export_as_chicago_citation_txt).html_safe %></div>
+    <% end %>
+  <% end %>
+</div>
+
