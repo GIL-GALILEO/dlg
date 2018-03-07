@@ -12,7 +12,7 @@
     </div>
     <% @carousel_features['records'].each do |c| %>
     <div class="item">
-      <div class="fill" style="background-image:url(<%= feature_image_link c['image']['url'] %>);">
+      <div class="fill" style="background-image:url(<%= cache_server_image_link c['image']['url'] %>);">
         <div class="carousel-caption">
           <h2><%= link_to c['title'], c['title_link'] %></h2>
           <%= link_to c['institution'], c['institution_link'], target: '_blank' %>

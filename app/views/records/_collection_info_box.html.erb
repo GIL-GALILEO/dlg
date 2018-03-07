@@ -14,9 +14,11 @@
             <%= link_to t('collection.more_info'), solr_document_path(@collection.id), class: 'btn btn-primary' %>
           </p>
         </div>
+        <% if @collection.image %>
         <div class="col-md-4 col-sm-12">
-          <%= image_tag 'https://via.placeholder.com/320x170', class: 'img-thumbnail img-responsive pull-right' %>
+          <%= image_tag cache_server_image_link(@collection.image), class: 'img-thumbnail img-responsive pull-right' %>
         </div>
+        <% end %>
       </div>
         <%= render('collection_info_box_field', id: @collection.id, num: 3, label: t('search.labels.dcterms_provenance'), value: @collection.institution) if @collection.institution.any? %>
         <%= render('collection_info_box_field', id: @collection.id, num: 5, label: t('search.labels.dcterms_subject'), value: @collection.subject) if @collection.subject.any? %>
