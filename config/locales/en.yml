@@ -181,6 +181,7 @@ en:
       advanced_search: 'Advanced Search'
       search_history: 'Search History'
   external_links:
+    galileo: 'https://www.galileo.usg.edu'
     dlg:
       facebook: 'https://www.facebook.com/DigitalLibraryofGeorgia/'
       blog: 'https://blog.dlg.galileo.usg.edu/'
