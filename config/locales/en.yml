@@ -159,6 +159,7 @@ en:
     sort:
       relevance: 'Relevance'
       collection: 'Collection'
+      date: 'Date'
       collections_first: 'Collections First'
       collection_title: 'Collection Name'
       title: 'Title'

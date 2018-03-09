@@ -51,9 +51,10 @@ class CollectionsController < CatalogController
 
     config.show.html_title = 'title_display'
 
-    config.add_sort_field 'score desc, title_sort asc', label: I18n.t('search.sort.relevance')
+    config.add_sort_field 'score desc, date asc', label: I18n.t('search.sort.relevance')
     config.add_sort_field 'title_sort asc', label: I18n.t('search.sort.collection_title')
-    config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
+    config.add_sort_field 'date asc', label: I18n.t('search.sort.date')
+    # config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
 
     config.add_facet_field 'geojson', label: '_', limit: -2, show: false
     config.view.maps.geojson_field = 'geojson'
