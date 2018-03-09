@@ -223,6 +223,9 @@ en:
         title: 'Citations'
         field_value_unavailable: 'Not Available'
         date_value_unavailable: 'Date Not Provided'
+  footer:
+    galileo: 'The Digital Library of Georgia is part of the GALILEO Initiative'
+    copyright: '© %{year} Digital Library of Georgia'
 
 
 

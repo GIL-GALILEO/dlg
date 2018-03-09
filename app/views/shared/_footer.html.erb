@@ -4,7 +4,7 @@
       <div class="col-xs-12 col-sm-3 pull-left">
         <ul class="footer-nav">
           <li><%= link_to 'Home', root_path %></li>
-          <li><a href="">About</a></li>
+          <li><%= link_to t('menu.about'), about_mission_path  %></li>
           <li><a href="https://dp.la" target="_blank">Digital Public Library of America</a></li>
           <li><%= link_to t('external_links.labels.ghnp'), t('external_links.dlg.ghnp'), target: '_blank' %></li>
           <li><%= link_to t('external_links.labels.crdl'), t('external_links.dlg.crdl'), target: '_blank' %></li>
@@ -12,14 +12,14 @@
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6 ">
-        <p class="text-center">The Digital Library of Georgia is part of the GALILEO Initiative<br>
-          &copy; 2018 Digital Library of Georgia</p>
+        <p class="text-center"><%= t('footer.galileo') %><br>
+          <%= t('footer.copyright', year: DateTime.now.year) %></p>
       </div>
       <div class="col-xs-12 col-sm-3 pull-right">
         <ul class="social-icons">
-          <li><%= link_to '<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.facebook') %></li>
-          <li><%= link_to '<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.twitter') %></li>
-          <li><%= link_to '<i class="fa fa-rss-square fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.blog') %></li>
+          <li><%= link_to '<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.facebook'), target: '_blank' %></li>
+          <li><%= link_to '<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.twitter'), target: '_blank' %></li>
+          <li><%= link_to '<i class="fa fa-rss-square fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.blog'), target: '_blank' %></li>
         </ul>
       </div>
     </div>
