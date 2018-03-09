@@ -179,7 +179,6 @@ en:
       counties: 'Counties'
       institutions: 'Institutions'
       map: 'Map'
-      search_history: 'Search History'
   external_links:
     galileo: 'https://www.galileo.usg.edu'
     dlg:
@@ -206,8 +205,6 @@ en:
     homepage_link: 'Visit Collection Homepage'
     see_more: 'See More'
     more_info: 'More About this Collection'
-  homepage:
-    advanced_search: 'More Options'
   counties:
     heading: 'Counties'
     go_to_list: 'Jump to Counties List'
@@ -228,6 +225,8 @@ en:
   footer:
     galileo: 'The Digital Library of Georgia is part of the GALILEO Initiative'
     copyright: '© %{year} Digital Library of Georgia'
+  advanced:
+    search_history: 'Search History'
 
 
 
