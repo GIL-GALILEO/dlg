@@ -4,7 +4,7 @@
     <%= search_context_str %>
   </div>
 <% end %>
-<%= form_tag search_action_url, :class => 'advanced form-horizontal', :method => :get do  %>
+<%= form_tag search_action_path, class: 'advanced form-horizontal', method: :get do  %>
   <%= render_hash_as_hidden_fields(search_state.params_for_search(advanced_search_context)) %>
   <div class="input-criteria">
     <div class="query-criteria">
