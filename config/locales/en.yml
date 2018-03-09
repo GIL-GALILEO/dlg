@@ -66,27 +66,27 @@ en:
         uri: 'https://creativecommons.org/publicdomain/mark/1.0/'
         icon_url: 'http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/publicdomain.svg'
       by-nc-sa:
-        label: 'Attribution-NonCommercial-ShareAlike 4.0 International'
+        label: 'Attribution-NonCommercial-ShareAlike'
         uri: 'https://creativecommons.org/licenses/by-nc-sa/4.0/'
         icon_url: 'http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg'
       by-nc:
-        label: 'Attribution-NonCommercial 4.0 International'
+        label: 'Attribution-NonCommercial'
         uri: 'https://creativecommons.org/licenses/by-nc/4.0/'
         icon_url: 'http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc.svg'
       by-nd:
-        label: 'Attribution-NoDerivatives 4.0 International'
+        label: 'Attribution-NoDerivatives'
         uri: 'https://creativecommons.org/licenses/by-nd/4.0/'
         icon_url: 'http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nd.svg'
       by-sa:
-        label: 'Attribution-ShareAlike 4.0 International'
+        label: 'Attribution-ShareAlike'
         uri: 'https://creativecommons.org/licenses/by-sa/4.0/'
         icon_url: 'http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg'
       by:
-        label: 'Attribution 4.0 International'
+        label: 'Attribution'
         uri: 'https://creativecommons.org/licenses/by/4.0/'
         icon_url: 'http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg'
       by-nc-nd:
-        label: 'Attribution-NonCommercial-NoDerivatives 4.0 International'
+        label: 'Attribution-NonCommercial-NoDerivatives'
         uri: 'https://creativecommons.org/licenses/by-nc-nd/4.0/'
         icon_url: 'http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-nd.svg'
   search:
