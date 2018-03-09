@@ -130,7 +130,7 @@ module CatalogHelper
     url = case document['class_name_ss']
           when 'Item'
             if sound_type_item?(document)
-              asset_path 'file-audio.svg'
+              asset_path 'file-audio.png'
             else
               "http://dlg.galileo.usg.edu/#{document['record_id_ss'].split('_')[0]}/#{document['record_id_ss'].split('_')[1]}/do-th:#{document['record_id_ss'].split('_')[2]}"
             end
