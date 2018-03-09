@@ -54,6 +54,12 @@ module CatalogHelper
     link_to collection_title, collection_home_path(collection_record_id)
   end
 
+  def item_link_to_collection_page(options)
+    collection_title = options[:document][:collection_name_sms].first
+    collection_record_id = options[:document][:collection_record_id_ss]
+    link_to collection_title, collection_home_path(collection_record_id)
+  end
+
   # overrides function in BL configuration_helper_behavior
   def collection_index_link_to(document)
     link_title = if document.key? 'dcterms_title_display'

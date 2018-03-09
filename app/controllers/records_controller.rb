@@ -29,7 +29,7 @@ class RecordsController < CatalogController
     config.add_index_field :dcterms_provenance_display,   label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
 
     # Show Page Fields
-    config.add_show_field 'collection_name_sms',                    label: I18n.t('search.labels.collection'), link_to_search: true
+    config.add_show_field 'collection_name_sms',                    label: I18n.t('search.labels.collection'), helper_method: :item_link_to_collection_page
     config.add_show_field 'dcterms_title_display',                  label: I18n.t('search.labels.dcterms_title')
     config.add_show_field 'dcterms_creator_display',                label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
     config.add_show_field 'dcterms_contributor_display',            label: I18n.t('search.labels.dcterms_contributor')
