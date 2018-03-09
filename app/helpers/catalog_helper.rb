@@ -26,7 +26,7 @@ module CatalogHelper
   # handle linking in catalog results
   def linkify(options = {})
     url = options[:value].first
-    link_to url, url
+    link_to url, url, target: '_blank'
   end
 
   # truncate fields when displaying search results
