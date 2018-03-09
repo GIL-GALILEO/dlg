@@ -127,7 +127,7 @@ module CatalogHelper
 
   # show thumbnail for item, or placeholder if none found
   def thumbnail_image_tag(document)
-    return '<i class="far fa-file-audio"></i>' if document['dcterms_type_display'] == ['Sound'] && document['class_name_ss'] == ['Item']
+    return '<i class="far fa-file-audio"></i>' if document['dcterms_type_display'] == ['Sound'] && document['class_name_ss'] == 'Item'
     url = case document['class_name_ss']
           when 'Item'
             "http://dlg.galileo.usg.edu/#{document['record_id_ss'].split('_')[0]}/#{document['record_id_ss'].split('_')[1]}/do-th:#{document['record_id_ss'].split('_')[2]}"
