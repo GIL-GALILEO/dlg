@@ -166,6 +166,7 @@ en:
       newest: 'Date Added'
   menu:
     home: 'Home'
+    search: 'Search'
     explore: 'Explore'
     help: 'Help'
     teach: 'Teach'
@@ -178,7 +179,6 @@ en:
       counties: 'Counties'
       institutions: 'Institutions'
       map: 'Map'
-      advanced_search: 'Advanced Search'
       search_history: 'Search History'
   external_links:
     galileo: 'https://www.galileo.usg.edu'

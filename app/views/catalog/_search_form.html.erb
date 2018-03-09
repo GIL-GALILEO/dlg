@@ -7,7 +7,7 @@
           <div class="input-group input-group-lg full-width">
             <input name="q" type="text" id="q" class="form-control" placeholder="<%= search_bar_placeholder %>">
             <input type="hidden" name="search_field" value="all_fields">
-            <span class="input-group-btn" style="width: auto">
+            <span class="input-group-btn">
               <button class="btn btn-default" type="submit">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="sr-only"><%= t('blacklight.search.form.search.sr_label') %></span>
               </button>
@@ -15,7 +15,6 @@
           </div>
         </div>
       </div>
-      <%= link_to t('homepage.advanced_search'), blacklight_advanced_search_engine.advanced_search_path, class: 'btn btn-lg btn-link advanced-link-button' %>
     </div>
   <% end %>
 </div>
