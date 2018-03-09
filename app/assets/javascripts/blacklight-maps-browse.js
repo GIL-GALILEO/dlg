@@ -27,10 +27,19 @@
     var $leaderHtmlDiv = $('#map-leader');
     var $indexMapContainer = $('#index-map-container');
 
+    // elements to hide when using map view on search results
+    var $pagination = $('.pagination');
+    var $page_links = $('.page_links');
+    var $sort = $('#sort-dropdown');
+    var $per_page = $('#per_page-dropdown');
 
     // Update page links with number of mapped items, disable sort, per_page, pagination
     // Customized for DLG use to hide view widgets and change language for item/location counts
     if ($indexMapContainer.length) { // catalog#index and #map view
+      $pagination.hide();
+      $page_links.hide();
+      $sort.hide();
+      $per_page.hide();
       var result_count = $('#mapped-record-count').text();
       leader_html = '<span class="badge badge-default">' + result_count + '</span> items found ' + mapped_items + mapped_caveat;
     } else { // catalog#show view
