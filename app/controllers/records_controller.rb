@@ -141,6 +141,7 @@ class RecordsController < CatalogController
 
     # gallery config
     config.view.gallery.partials = %i[index_header index]
+    config.view.gallery.default = true
     # config.view.masonry.partials = [:index]
     # config.view.slideshow.partials = [:index]
     # config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
