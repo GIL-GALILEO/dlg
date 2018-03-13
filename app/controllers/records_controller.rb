@@ -3,6 +3,9 @@
 # Main Blacklight search controller
 class RecordsController < CatalogController
   include BlacklightMaps::ControllerOverride
+  include BlacklightAdvancedSearch::Controller
+  include BlacklightAdvancedSearch::RenderConstraintsOverride
+  helper BlacklightAdvancedSearch::RenderConstraintsOverride
 
   before_action :set_collection, only: :index, if: :collection_limit_set?
 
