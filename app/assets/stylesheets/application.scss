@@ -338,13 +338,12 @@ section#institutions {
       li {
         margin-bottom: 0;
         display: inline;
-        padding: 5px;
         a {
-          padding-left: 15px;
+          padding-left: 10px;
           font-weight: 400;
         }
         span {
-          padding-left: 15px;
+          padding-left: 10px;
           font-weight: 400;
         }
       }
@@ -395,8 +394,8 @@ section#institutions {
       li.list-group-item {
         border: none;
         /*causing issues on live app */
-        //padding: 5px;
-        padding: 0;
+        padding: 10px 15px !important;
+        //padding: 0;
       }
       li.list-group-item:nth-child(even) {
         background: #f3f3f3;
