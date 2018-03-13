@@ -22,6 +22,12 @@
 
 Blacklight.onLoad(function() {
 
+    var $auxAdvSubmit = $('button.auxiliary-advanced-search-submit');
+    $auxAdvSubmit.click(function() {
+        $('form.advanced').submit()
+    });
+    $auxAdvSubmit.removeClass('hide');
+
     $('select.advanced-search-facet-select').chosen({
         search_contains: true,
         width: '100%'

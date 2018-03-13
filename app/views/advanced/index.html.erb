@@ -2,13 +2,12 @@
 <section id="advanced-search">
   <div class="container">
     <div class="advanced-search-form col-sm-12">
-      <h1 class="advanced page-header">
-        <%= t('blacklight_advanced_search.form.title') %>
-        <div class="advanced-search-buttons pull-right">
-          <%= link_to t('advanced.search_history'), blacklight.search_history_path, class:'btn btn-default' %>
-          <%= link_to t('blacklight_advanced_search.form.start_over'), blacklight_advanced_search_engine.advanced_search_path, class:'btn btn-default advanced-search-start-over' %>
-        </div>
-      </h1>
+      <h2><%= t('blacklight_advanced_search.form.title') %></h2>
+      <div class="advanced-search-buttons pull-right">
+        <%= link_to t('advanced.search_history'), blacklight.search_history_path, class:'btn btn-default' %>
+        <%= link_to t('blacklight_advanced_search.form.start_over'), blacklight_advanced_search_engine.advanced_search_path, class:'btn btn-default advanced-search-start-over' %>
+        <%= button_tag t('blacklight_advanced_search.form.search_btn'), class: 'btn btn-primary auxiliary-advanced-search-submit hide' %>
+      </div>
       <div class="row">
         <div class="col-md-8">
           <%= render 'advanced_search_form' %>
