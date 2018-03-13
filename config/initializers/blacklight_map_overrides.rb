@@ -20,7 +20,11 @@ Rails.application.config.to_prepare do
         new_params = search_state.add_facet_params(field, field_value)
       end
       new_params[:view] = default_document_index_view_type
-      permitted_params = new_params.permit(:q, :search_field, :view, f: :placename)
+      permitted_params = if new_params.is_a? ActionController::Parameters
+                           new_params.permit(:q, :search_field, :view, f: :placename)
+                         else
+                           new_params
+                         end
       link_to(displayvalue.presence || field_value,
               search_location_path(permitted_params.except(:id, :spatial_search_type, :coordinates)))
     end
