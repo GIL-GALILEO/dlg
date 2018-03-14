@@ -47,4 +47,24 @@ class CatalogController < ApplicationController
     config.autocomplete_enabled = false
     config.autocomplete_path = 'suggest'
   end
+
+  def sms_mappings
+    {
+      'Virgin' => 'vmobl.com',
+      'AT&T' => 'txt.att.net',
+      'Verizon' => 'vtext.com',
+      'Nextel' => 'messaging.nextel.com',
+      'Sprint' => 'messaging.sprintpcs.com',
+      'T Mobile' => 'tmomail.net',
+      'Alltel' => 'message.alltel.com',
+      'Cricket' => 'mms.mycricket.com',
+      'Project Fi' => 'msg.fi.google.com',
+      'Boost Mobile' => 'myboostmobile.com',
+      'Comcast' => 'comcastpcs.textmsg.com',
+      'Metro PCS' => 'mymetropcs.com',
+      'Tracfone' => 'txt.att.net',
+      'US Cellular' => 'email.uscc.net',
+      'Consumer Cellular' => 'txt.att.net'
+    }
+  end
 end
