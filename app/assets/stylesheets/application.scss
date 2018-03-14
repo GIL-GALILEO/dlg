@@ -394,7 +394,8 @@ section#institutions {
       li.list-group-item {
         border: none;
         width: 100%;
-        display: inline-block;
+        display: block;
+        break-inside: avoid-column;
         /*causing issues on live app */
         padding: 10px !important;
         //padding: 0;
