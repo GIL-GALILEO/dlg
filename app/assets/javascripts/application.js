@@ -22,6 +22,15 @@
 
 Blacklight.onLoad(function() {
 
+    // var $collectionInfoSeeMoreArea = $('div.collection-info-see-more-btn-area');
+    // var $collectionInfoFold = $('div.collection-info-fold');
+    // $collectionInfoFold.hide();
+    // $collectionInfoSeeMoreArea.removeClass('hide');
+    // $('button.collection-info-see-more').click(function() {
+    //    $collectionInfoFold.show();
+    //    $('.collection-info-see-more-btn-area').hide();
+    // });
+
     var $auxAdvSubmit = $('button.auxiliary-advanced-search-submit');
     $auxAdvSubmit.click(function() {
         $('form.advanced').submit()

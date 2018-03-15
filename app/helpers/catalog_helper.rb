@@ -123,7 +123,7 @@ module CatalogHelper
     str = ''
     array_of_text.each_with_index do |v, i|
       if num == i
-        str += link_to(I18n.t('collection.see_more'), solr_document_path(id))
+        str += link_to(I18n.t('collection.see_more'), solr_document_path(id), data: { turbolinks: false })
         return str.html_safe
       end
       str += "#{v}<br />"
@@ -190,7 +190,7 @@ module CatalogHelper
   end
 
   def collection_external_homepage_link
-    link_to I18n.t('collection.homepage_link'), @collection.is_shown_at.first, class: 'btn btn-primary'
+    link_to I18n.t('collection.homepage_link'), @collection.is_shown_at.first, class: 'btn btn-primary', target: '_blank'
   end
 
   def do_url?(document)
