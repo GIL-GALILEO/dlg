@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading collapse-toggle" data-toggle="collapse" data-target="#collection-info">
-    <h3 class="panel-title">Collection Information</h3>
+    <h3 class="panel-title"><%= t('collection.info_box_title') %></h3>
   </div>
   <div id="collection-info" class="panel-collapse collapse in">
     <div class="panel-body">
@@ -8,7 +8,7 @@
         <div class="col-md-12 col-sm-12">
           <%= image_tag(cache_server_image_link(@collection.image), class: 'collection-info-image img-thumbnail img-responsive pull-right') if @collection.image %>
           <p><%= strip_tags(@collection.short_description) %></p>
-          <p>Brought to you by: <%= @collection.institution.first %></p>
+          <p><%= t('collection.from_institutions') %> <%= @collection.institution.to_sentence %></p>
         </div>
       </div>
       <div class="row">

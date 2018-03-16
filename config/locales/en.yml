@@ -202,8 +202,9 @@ en:
     map: "Map - %{application_name}"
   collection:
     header: 'Collections'
+    info_box_title: 'Collection Information'
     homepage_link: 'Visit Collection Homepage'
-    see_more: 'See More'
+    from_institutions: 'Brought to you by:'
     more_info: 'More About this Collection'
   counties:
     heading: 'Counties'
