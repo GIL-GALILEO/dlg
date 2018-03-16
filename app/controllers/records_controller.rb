@@ -15,6 +15,7 @@ class RecordsController < CatalogController
     # FACETS
     config.add_facet_field :creator_facet,               label: I18n.t('search.facets.creator'), limit: true
     config.add_facet_field :subject_facet,               label: I18n.t('search.facets.subject'), limit: true
+    config.add_facet_field :subject_personal_facet,      label: I18n.t('search.facets.subject_personal'), limit: true
     config.add_facet_field :location_facet,              label: I18n.t('search.facets.location'), limit: true, group: 'item', helper_method: :spatial_cleaner
     config.add_facet_field :counties_facet,              label: I18n.t('search.facets.county'), limit: true
     config.add_facet_field :year_facet,                  label: I18n.t('search.facets.year'), limit: true
@@ -39,6 +40,7 @@ class RecordsController < CatalogController
     config.add_show_field 'dcterms_publisher_display',              label: I18n.t('search.labels.dcterms_publisher')
     config.add_show_field 'dc_date_display',                        label: I18n.t('search.labels.dc_date')
     config.add_show_field 'dcterms_subject_display',                label: I18n.t('search.labels.dcterms_subject'), link_to_search: :subject_facet
+    config.add_show_field 'dlg_subject_personal_display',           label: I18n.t('search.labels.dlg_subject_personal'), link_to_search: :subject_personal_facet
     config.add_show_field 'dcterms_spatial_display',                label: I18n.t('search.labels.dcterms_spatial'), link_to_search: :location_facet
     config.add_show_field 'dcterms_medium_display',                 label: I18n.t('search.labels.dcterms_medium'), link_to_search: :medium_facet
     config.add_show_field 'dcterms_type_display',                   label: I18n.t('search.labels.dcterms_type')
@@ -108,16 +110,16 @@ class RecordsController < CatalogController
     config.add_search_field('subject') do |field|
       field.label = I18n.t('search.labels.dcterms_subject')
       field.solr_local_parameters = {
-        qf: 'subject_unstem_search^1000 dcterms_subject_text^50',
-        pf: 'subject_unstem_search^1000 dcterms_subject_text^50'
+        qf: 'subject_unstem_search^1000 subject_personal_unstem_search^1000 dcterms_subject_text^50 dlg_subject_personal_text^50',
+        pf: 'subject_unstem_search^1000 subject_personal_unstem_search^1000 dcterms_subject_text^50 dlg_subject_personal_text^50'
       }
     end
     # provenance
     config.add_search_field('provenance') do |field|
       field.label = I18n.t('search.labels.dcterms_provenance')
       field.solr_local_parameters = {
-        qf: 'dcterms_provenance_text^500',
-        pf: 'dcterms_provenance_text^500'
+        qf: 'dcterms_provenance_unstem_search^1000 dcterms_provenance_text^50',
+        pf: 'dcterms_provenance_unstem_search^1000 dcterms_provenance_text^50'
       }
     end
     # place
