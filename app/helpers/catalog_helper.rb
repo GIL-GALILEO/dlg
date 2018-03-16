@@ -224,6 +224,7 @@ module CatalogHelper
   end
 
   def sound_type_item?(document)
-    document['dcterms_type_display'] == ['Sound'] && document['class_name_ss'] == 'Item'
+    document['dcterms_type_display'].include?('Sound') &&
+      document['class_name_ss'] == 'Item'
   end
 end
