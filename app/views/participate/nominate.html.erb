@@ -1,4 +1,98 @@
+<%= render partial: '/flash_msg', layout: 'shared/flash_messages' %>
 <div class="container">
-  <h2>Nominate Collections</h2>
-  <p>Content</p>
+  <h2><%= t('mail.nomination.title') %></h2>
+  <p><%= t('mail.nomination.intro') %></p>
+  <%= form_tag participate_nomination_path, method: :post %>
+  <div class="form-group">
+    <%= label_tag :collection_name, t('mail.nomination.questions.collection_name') %>
+    <%= text_area_tag :collection_name, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :repository_name, t('mail.nomination.questions.repository_name') %>
+    <%= text_area_tag :repository_name, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :repository_contact, t('mail.nomination.questions.repository_contact') %>
+    <%= text_area_tag :repository_contact, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :collection_types, t('mail.nomination.questions.collection_types') %>
+    <%= select_tag :collection_types, options_for_select(@form_options[:types]), multiple: true, class: 'form-control nomination-select' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :collection_type_details, t('mail.nomination.questions.collection_type_details') %>
+    <%= text_area_tag :collection_type_details, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :collection_information, t('mail.nomination.questions.collection_info') %>
+    <%= text_area_tag :collection_information, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :collection_metadata, t('mail.nomination.questions.collection_metadata.label') %>
+    <p><%= t('mail.nomination.questions.collection_metadata.question') %></p>
+    <%= check_box_tag :md_gil, 'gil record' %>
+    <%= label_tag :md_gil, t('mail.nomination.questions.collection_metadata.gil') %><br />
+    <%= check_box_tag :md_finding_aid, 'finding aid' %>
+    <%= label_tag :md_finding_aid, t('mail.nomination.questions.collection_metadata.finding_aid') %><br />
+    <%= check_box_tag :md_other, 'other' %>
+    <%= label_tag :md_other, t('mail.nomination.questions.collection_metadata.other') %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :collection_metadata_other, t('mail.nomination.questions.collection_metadata_other') %>
+    <%= text_area_tag :collection_metadata_other, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :publication_status, t('mail.nomination.questions.publication_status.label') %>
+    <p><%= t('mail.nomination.questions.publication_status.question') %></p>
+    <%= radio_button_tag :publication_status, 'published' %>
+    <%= label_tag :publication_status, t('mail.nomination.questions.publication_status.published') %>
+    <%= radio_button_tag :publication_status, 'unpublished' %>
+    <%= label_tag :publication_status, t('mail.nomination.questions.publication_status.unpublished') %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :publication_status_details, t('mail.nomination.questions.publication_status_details') %>
+    <%= text_area_tag :publication_status_details, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :transcription_information, t('mail.nomination.questions.transcription_information') %>
+    <%= text_area_tag :transcription_information, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :nomination_reason, t('mail.nomination.questions.nomination_reason') %>
+    <%= text_area_tag :nomination_reason, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :restrictions, t('mail.nomination.questions.restrictions') %>
+    <%= text_area_tag :restrictions, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :preservation_concerns, t('mail.nomination.questions.preservation_concerns') %>
+    <%= text_area_tag :preservation_concerns, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :skills, t('mail.nomination.questions.skills') %>
+    <%= text_area_tag :skills, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <p><%= t('mail.nomination.questions.homeplace') %></p>
+    <%= check_box_tag :homeplace %>
+    <%= label_tag :homeplace, 'Yes' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :name, t('mail.nomination.questions.name') %>
+    <%= text_field_tag :name, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :address, t('mail.nomination.questions.address') %>
+    <%= text_area_tag :address, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :phone, t('mail.nomination.questions.phone') %>
+    <%= phone_field_tag :phone, '', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :email, t('mail.nomination.questions.email') %>
+    <%= email_field_tag :email, '', class: 'form-control' %>
+  </div>
+  <%= submit_tag t('mail.nomination.questions.submit'), class: 'btn btn-primary' %>
 </div>

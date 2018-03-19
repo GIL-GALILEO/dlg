@@ -42,4 +42,6 @@ Blacklight.onLoad(function() {
         width: '100%'
     });
 
+    $('select.nomination-select').chosen();
+
 });

@@ -1,0 +1,49 @@
+<h3><%= t('mail.nomination.title') %></h3>
+<h4>Received: <%= @nomination.submitted_at %></h4>
+<hr>
+<dl>
+  <dt><%= t('mail.nomination.questions.collection_name') %></dt>
+  <dd><%= @nomination.collection_name %></dd>
+  <dt><%= t('mail.nomination.questions.repository_name') %></dt>
+  <dd><%= @nomination.repository_name %></dd>
+  <dt><%= t('mail.nomination.questions.repository_contact') %></dt>
+  <dd><%= @nomination.repository_contact %></dd>
+  <dt><%= t('mail.nomination.questions.collection_types') %></dt>
+  <dd><%= @nomination.collection_types.join('<br>').html_safe if @nomination.collection_types %></dd>
+  <dt><%= t('mail.nomination.questions.collection_type_details') %></dt>
+  <dd><%= @nomination.collection_type_details %></dd>
+  <dt><%= t('mail.nomination.questions.collection_info') %></dt>
+  <dd><%= @nomination.collection_info %></dd>
+  <dt><%= t('mail.nomination.questions.collection_metadata.label') %></dt>
+  <dd>
+    <%= "#{t('mail.nomination.questions.collection_metadata.gil')}<br>".html_safe if @nomination.md_gil %>
+    <%= "#{t('mail.nomination.questions.collection_metadata.finding_aid')}<br>".html_safe if @nomination.md_finding_aid %>
+    <%= t('mail.nomination.questions.collection_metadata.other') if @nomination.md_other %>
+  </dd>
+  <dt><%= t('mail.nomination.questions.collection_metadata_other') %></dt>
+  <dd><%= @nomination.collection_metadata_other %></dd>
+  <dt><%= t('mail.nomination.questions.publication_status.label') %></dt>
+  <dd><%= @nomination.publication_status %></dd>
+  <dt><%= t('mail.nomination.questions.publication_status_details') %></dt>
+  <dd><%= @nomination.publication_status_details %></dd>
+  <dt><%= t('mail.nomination.questions.transcription_information') %></dt>
+  <dd><%= @nomination.transcription_information %></dd>
+  <dt><%= t('mail.nomination.questions.nomination_reason') %></dt>
+  <dd><%= @nomination.nomination_reason %></dd>
+  <dt><%= t('mail.nomination.questions.restrictions') %></dt>
+  <dd><%= @nomination.restrictions %></dd>
+  <dt><%= t('mail.nomination.questions.preservation_concerns') %></dt>
+  <dd><%= @nomination.preservation_concerns %></dd>
+  <dt><%= t('mail.nomination.questions.skills') %></dt>
+  <dd><%= @nomination.skills %></dd>
+  <dt><%= t('mail.nomination.questions.homeplace') %></dt>
+  <dd><%= @nomination.homeplace %></dd>
+  <dt><%= t('mail.nomination.questions.name') %></dt>
+  <dd><%= @nomination.name %></dd>
+  <dt><%= t('mail.nomination.questions.address') %></dt>
+  <dd><%= @nomination.address %></dd>
+  <dt><%= t('mail.nomination.questions.phone') %></dt>
+  <dd><%= @nomination.phone %></dd>
+  <dt><%= t('mail.nomination.questions.email') %></dt>
+  <dd><%= @nomination.email %></dd>
+</dl>

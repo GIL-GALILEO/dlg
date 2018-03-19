@@ -1,0 +1,39 @@
+en:
+  mail:
+    nomination:
+      status:
+        sent: 'Nomination submitted'
+        failed: 'Nomination could not be submitted at this time.'
+      title: 'Nominate Collections'
+      intro: "The Digital Library of Georgia is currently building a list of potential materials or collections that may be digitized in the future. All suggestions are welcomed via this form. Selections of materials or collections to digitize will be made in accordance with the Digital Library of Georgia's Collection Development Policy and will depend on the availability of resources and funding."
+      questions:
+        collection_name: 'Collection Name'
+        repository_name: 'Repository Name'
+        repository_contact: 'Repository Contact'
+        collection_types: 'Collection Type (select all that apply)'
+        collection_type_details: 'Collection Type Details'
+        collection_info: 'Collection Information'
+        collection_metadata:
+          label: 'Collection Metadata'
+          question: 'Is the collection, materials, or items(s) described by:'
+          gil: 'A catalog record in GIL or another system?'
+          finding_aid: 'A finding aid?'
+          other: 'Another descriptive format or record(s)? Please describe:'
+        collection_metadata_other: 'Collection Metadata Description (if selected "Other" above)'
+        publication_status:
+          label: 'Publication Status'
+          question: 'What is the publication status of the materials?'
+          published: 'Published'
+          unpublished: 'Unpublished'
+        publication_status_details: 'Date(s) of publication'
+        transcription_information: 'Does a transcription of the materials exist in paper or electronic form? If in electronic form, please list the format.'
+        nomination_reason: 'Describe why the materials are important, who might want to use them in a digital form, and what usages are likely if they are digitized.'
+        restrictions: 'Indicate if you are aware of any reason that the materials should not be digitized, such as copyright or other legal restrictions, contractual, or ethical reasons, or issues of cultural sensitivity.'
+        preservation_concerns: 'Are there any preservation concerns associated with the collection? (Rapidly deteriorating materials or formats, materials that require special handling, etc.)'
+        skills: 'Please indicate if you have any special knowledge or skills that might be shared during the selection process - can you provide descriptive information, historical background, or are you aware of potential funding sources or other digital projects working with similar materials?'
+        homeplace: 'Are you representing a Georgia Public Library and nominating this collection for a HomePLACE project?'
+        name: 'Your Name'
+        address: 'Address'
+        phone: 'Phone Number'
+        email: 'Email'
+        submit: 'Submit Nomination'
