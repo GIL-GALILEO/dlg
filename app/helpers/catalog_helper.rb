@@ -39,13 +39,13 @@ module CatalogHelper
   end
 
   def spatial_cleaner(value)
-    clean_value = value.gsub('United States, ', '')
-    value = clean_value if clean_value.empty?
-    if value =~ COORDINATES_REGEXP
-      value.sub(COORDINATES_REGEXP, '')[0...-2]
-    else
-      value
-    end
+    no_coordinates = if value =~ COORDINATES_REGEXP
+                       value.sub(COORDINATES_REGEXP, '')[0...-2]
+                     else
+                       value
+                     end
+    clean_value = no_coordinates.gsub('United States, ', '').gsub('United States', '')
+    clean_value.empty? ? no_coordinates : clean_value
   end
 
   def link_to_collection_page(options)
