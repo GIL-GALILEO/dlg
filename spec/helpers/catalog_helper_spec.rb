@@ -47,6 +47,10 @@ RSpec.describe CatalogHelper do
       value = 'United States, Georgia, Clarke County, Athens, 33.960948, -83.3779358'
       expect(spatial_cleaner(value)).to eq 'Georgia, Clarke County, Athens'
     end
+    it 'does not return a blank string for "United States, 37.09024, -95.712891"' do
+      value = 'United States, 37.09024, -95.712891'
+      expect(spatial_cleaner(value)).to eq 'United States'
+    end
   end
 
   describe '#link_to_collection_page' do
