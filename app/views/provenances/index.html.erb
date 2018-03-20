@@ -45,7 +45,7 @@
               <ul class="list-group">
                 <% holding_inst.collections.each do |collection| %>
                 <li class="list-group-item">
-                  <span class="badge"><%= number_with_delimiter collection.count %></span> <a href=""></a><%= link_to collection.name, collection.href %>
+                  <span class="badge"><%= number_with_delimiter collection.count %></span> <%= link_to collection.name, collection.href %>
                 </li>
                 <% end %>
               </ul>

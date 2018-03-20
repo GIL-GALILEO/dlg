@@ -401,11 +401,11 @@ section#institutions {
       li.list-group-item {
         border: none;
         width: 100%;
-        display: block;
+        display: inline-block;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
         break-inside: avoid-column;
-        /*causing issues on live app */
         padding: 10px !important;
-        //padding: 0;
       }
       li.list-group-item:nth-child(even) {
         background: #f3f3f3;
