@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe CatalogHelper do
+describe CatalogHelper do
   describe '#boolean_facet_labels' do
     it 'shows yes value for true' do
       expect(helper.boolean_facet_labels('true')).to match(/Yes/)
