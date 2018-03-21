@@ -1,24 +1,28 @@
 <% content_for :header do %>
 <div id="home-carousel" class="carousel slide" data-ride="carousel">
+  <% if @carousel_features %>
   <ol class="carousel-indicators">
     <li data-target="#home-carousel" data-slide-to="1" class="active"></li>
-    <% @carousel_features['records'].each_with_index do |_, i| %>
-      <li data-target="#home-carousel" data-slide-to="<%= i + 1 %>"></li>
-    <% end %>
+      <% @carousel_features.each_with_index do |_, i| %>
+        <li data-target="#home-carousel" data-slide-to="<%= i + 1 %>"></li>
+      <% end %>
   </ol>
+<% end %>
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <div class="fill" style="background-image:url(<%= asset_path 'default_feature.jpg' %>);"></div>
     </div>
-    <% @carousel_features['records'].each do |c| %>
-    <div class="item">
-      <div class="fill" style="background-image:url(<%= cache_server_image_link c['image']['url'] %>);">
-        <div class="carousel-caption">
-          <h2><%= link_to c['title'], c['title_link'] %></h2>
-          <%= link_to c['institution'], c['institution_link'], target: '_blank' %>
+    <% if @carousel_features %>
+      <% @carousel_features.each do |c| %>
+      <div class="item">
+        <div class="fill" style="background-image:url(<%= cache_server_image_link c['image']['url'] %>);">
+          <div class="carousel-caption">
+            <h2><%= link_to c['title'], c['title_link'] %></h2>
+            <%= link_to c['institution'], c['institution_link'], target: '_blank' %>
+          </div>
         </div>
       </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -37,25 +41,21 @@
           </ul>
         </div>
         <div class="tab-content">
-          <div id="new" class="tab-pane fade in active">
+          <div id="new" class="tab-pane fade in <%= 'active' if @tabs_features %>">
             <div class="row">
+              <% if @tabs_features %>
               <div class="col-md-6">
-                <% @tabs_features['records'].each do |tf| %>
-                  <% if tf['primary'] %>
-                    <%= render 'primary_tab_feature', feature: tf  %>
-                  <% end %>
-                <% end %>
+                <%= render 'primary_tab_feature', feature: @tabs_features.primary  %>
               </div>
               <div class="col-md-6 col-lg-6 right-col">
-              <% @tabs_features['records'].each do |tf| %>
-                <% unless tf['primary'] %>
-                  <%= render 'regular_tab_feature', feature: tf %>
-                <% end %>
+              <% @tabs_features.secondary.each do |tf| %>
+                <%= render 'regular_tab_feature', feature: tf %>
               <% end %>
               </div>
+              <% end %>
             </div>
           </div>
-          <div id="civil-rights" class="tab-pane fade">
+          <div id="civil-rights" class="tab-pane fade <%= 'active' unless @tabs_features  %>">
             <%= render 'crdl' %>
           </div>
           <div id="newspapers" class="tab-pane fade">

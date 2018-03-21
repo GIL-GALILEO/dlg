@@ -3,14 +3,18 @@
 require 'rails_helper'
 
 describe MetaApi do
-  it 'returns a hash for feature calls' do
-    tabs = MetaApi.tabs_items
-    expect(tabs).to be_a_kind_of Hash
-    expect(MetaApi.carousel_items).to be_a_kind_of Hash
+  it 'returns a tab features object with primary and secondary attributes' do
+    tab_features = MetaApi.tabs_items 4
+    required_keys = %w[large_image title title_link institution institution_link short_description]
+    expect(tab_features.primary).to be_a Hash
+    expect(tab_features.primary.keys).to include(*required_keys)
+    expect(tab_features.secondary).to be_an Array
+    expect(tab_features.secondary.first.keys).to include(*required_keys)
   end
-  it 'returns record info as a hash' do
-    info = MetaApi.record_info('dlg_vang_mor031-001')
-    expect(info).to be_a_kind_of OpenStruct
-    expect(info.keys).to include 'id', 'title', 'institution'
+  it 'returns a carousel features array' do
+    carousel_features= MetaApi.carousel_items 5
+    required_keys = %w[title title_link institution institution_link]
+    expect(carousel_features).to be_an Array
+    expect(carousel_features.first.keys).to include(*required_keys)
   end
 end
