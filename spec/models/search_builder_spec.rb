@@ -15,4 +15,7 @@ describe SearchBuilder do
     ]
     expect(subject.processor_chain).to include(*additions)
   end
+  it 'has blacklight maps additions' do
+    expect(subject.processor_chain).to include :add_spatial_search_to_solr
+  end
 end
