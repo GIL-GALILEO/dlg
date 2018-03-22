@@ -12,7 +12,7 @@ describe MetaApi do
     expect(tab_features.secondary.first.keys).to include(*required_keys)
   end
   it 'returns a carousel features array' do
-    carousel_features= MetaApi.carousel_items 5
+    carousel_features = MetaApi.carousel_items 5
     required_keys = %w[title title_link institution institution_link]
     expect(carousel_features).to be_an Array
     expect(carousel_features.first.keys).to include(*required_keys)
