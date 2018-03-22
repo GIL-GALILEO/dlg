@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Custom SearchBuilder for use in collection-only blacklight pages
 class CollectionSearch < SearchBuilder
 
   def show_only_desired_classes(solr_parameters)

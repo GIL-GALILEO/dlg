@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# abstract class for dlg search builder classes
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
   include BlacklightMaps::MapsSearchBuilderBehavior
@@ -21,7 +22,6 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   def show_only_desired_classes(solr_parameters)
     solr_parameters[:fq] ||= []
-    # solr_parameters[:fq] << ''
   end
 
 end
