@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+
+# Concern for glorified facet browse pages (e.g., counties, provenances)
 module FacetBrowseBehavior
   extend ActiveSupport::Concern
 
   included do
-    include FacetBrowseHelper
+    include DlgFacetsHelper
     before_action :sort_facets
     before_action :set_sort_params
   end
