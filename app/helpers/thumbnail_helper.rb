@@ -5,16 +5,15 @@ module ThumbnailHelper
 
   # Return img tag for thumbnail with link
   def thumbnail_image_tag(document)
-    url = case document['class_name_ss']
-          when 'Item'
-            item_thumb_url document
-          when 'Collection'
-            collection_thumb_url document
-          else
-            no_thumb_url
-          end
-    image_tag(url, class: 'thumbnail')
-  rescue StandardError
+    case document['class_name_ss']
+    when 'Item'
+      image_tag(item_thumb_url(document), class: 'thumbnail')
+    when 'Collection'
+      image_tag(collection_thumb_url(document), class: 'thumbnail collection-image')
+    else
+      image_tag(no_thumb_url, class: 'thumbnail')
+    end
+  rescue StandardError # TODO: ?
     image_tag(no_thumb_url, class: 'thumbnail')
   end
 

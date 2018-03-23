@@ -17,11 +17,17 @@
 
 #blacklight-show-map { height: 300px; }
 
-.collection-info-image {
-  max-width: 300px;
+.collection-image-area {
+  padding: 10px;
 }
-.collection-info-description {
-  padding-right: 10px;
+
+.collection-image {
+  max-width: 275px;
+  max-height: 215px;
+}
+
+.collection-info-text {
+  margin-right: 10px;
 }
 
 .advanced-search-help-panel {
