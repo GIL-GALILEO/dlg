@@ -6,9 +6,13 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-          <%= image_tag(cache_server_image_link(@collection.image), class: 'collection-info-image img-thumbnail img-responsive pull-right') if @collection.image %>
-          <p><%= strip_tags(@collection.short_description) %></p>
-          <p><%= t('collection.from_institutions') %> <%= @collection.institution.to_sentence %></p>
+          <div class="collection-image pull-right">
+            <%= image_tag(cache_server_image_link(@collection.image), class: 'img-thumbnail img-responsive') if @collection.image %>
+          </div>
+          <div class="collection-info-text">
+            <p><%= strip_tags(@collection.short_description) %></p>
+            <p><%= t('collection.from_institutions') %> <%= @collection.institution.to_sentence({words_connector: ', ', two_words_connector: ' and ', last_word_connector: ', and ' }) %>.</p>
+          </div>
         </div>
       </div>
       <div class="row">
