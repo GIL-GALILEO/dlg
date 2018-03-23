@@ -6,8 +6,8 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-          <div class="collection-image pull-right">
-            <%= image_tag(cache_server_image_link(@collection.image), class: 'img-thumbnail img-responsive') if @collection.image %>
+          <div class="collection-image-area pull-right">
+            <%= image_tag(cache_server_image_link(@collection.image), class: 'img-thumbnail img-responsive collection-image') if @collection.image %>
           </div>
           <div class="collection-info-text">
             <p><%= strip_tags(@collection.short_description) %></p>

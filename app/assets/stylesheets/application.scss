@@ -17,11 +17,15 @@
 
 #blacklight-show-map { height: 300px; }
 
+.collection-image-area {
+  padding: 10px;
+}
+
 .collection-image {
   max-width: 275px;
   max-height: 215px;
-  padding: 10px;
 }
+
 .collection-info-text {
   margin-right: 10px;
 }
