@@ -7,3 +7,5 @@ en:
       form:
         search:
           sr_label: 'Search Box'
+    tools:
+      sms: 'Text'
