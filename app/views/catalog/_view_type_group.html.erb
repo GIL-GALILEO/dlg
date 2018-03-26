@@ -1,0 +1,19 @@
+<% if show_sort_and_per_page? and has_alternative_views? -%>
+  <div class="view-type">
+    <span class="sr-only"><%= t('blacklight.search.view_title') %></span>
+    <div class="view-type-group btn-group">
+      <%= link_to url_for(search_state.to_h.merge(view: :gallery)), title: view_label(:gallery), class: "btn btn-default :gallery-type-#{ :gallery.to_s.parameterize } #{"active" if document_index_view_type == :gallery}" do %>
+        <%= render_view_type_group_icon :gallery %>
+        <span class="caption"><%= view_label(:gallery) %></span>
+      <% end %>
+      <%= link_to url_for(search_state.to_h.merge(view: :list)), title: view_label(:list), class: "btn btn-default :list-type-#{ :list.to_s.parameterize } #{"active" if document_index_view_type == :list}" do %>
+        <%= render_view_type_group_icon :list %>
+        <span class="caption"><%= view_label(:list) %></span>
+      <% end %>
+      <%= link_to url_for(search_state.to_h.merge(view: :maps)), title: view_label(:maps), class: "btn btn-default :maps-type-#{ :maps.to_s.parameterize } #{"active" if document_index_view_type == :maps}" do %>
+        Map
+        <span class="caption"><%= view_label(:maps) %></span>
+      <% end %>
+    </div>
+  </div>
+<% end -%>
