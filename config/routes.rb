@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   end
 
   namespace :teach do
-    get 'educator-resources'
     get 'using-materials'
   end
 
