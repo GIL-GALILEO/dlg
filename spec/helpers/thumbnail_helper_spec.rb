@@ -3,49 +3,25 @@
 require 'rails_helper'
 
 describe ThumbnailHelper do
-  include LinkingHelper
-  include CatalogHelper
-  let(:item_doc_with_do) do
-    { 'class_name_ss' => 'Item', 'record_id_ss' => 'a_b_c',
-      'edm_is_shown_by' => ['test_by_url'],
-      'edm_is_shown_at' => ['test_at_url'] }
-  end
-  let(:item_doc_with_no_do) do
-    { 'class_name_ss' => 'Item', 'record_id_ss' => 'a_b_c',
-      'edm_is_shown_by' => [], 'edm_is_shown_at' => ['test_at_url'] }
-  end
-  context 'for collections' do
-    let(:coll_doc_with_image) do
-      { 'class_name_ss' => 'Collection', 'record_id_ss' => 'a_b',
-        'image_ss' => 'image_url', 'edm_is_shown_at' => ['test_at_url'] }
+  describe '#thumbnail_image_tag' do
+    it 'handles documents with missing or unexpected data gracefully' do
+      no_thumb = '<img class="thumbnail" src="/no-thumb.png" alt="No thumb" />'
+      wrong_class_doc = { 'class_name_ss' => 'Fail' }
+      expect(thumbnail_image_tag(wrong_class_doc)).to eq no_thumb
+      error_doc = { 'class_name_ss' => 'Item' }
+      expect(thumbnail_image_tag(error_doc)).to eq no_thumb
     end
-    let(:coll_doc_with_no_image) do
-      { 'class_name_ss' => 'Collection', 'record_id_ss' => 'a_b',
-        'image_ss' => '/dlg_default_image.png', 'thumbnail_ss' => 'do-th:',
-        'edm_is_shown_at' => ['test_at_url'] }
-    end
-    context 'on index pages' do
-      it 'renders collection thumbs from image_ss when available' do
-        html = index_collection_thumb(coll_doc_with_image)
-        expect(html).to(
-          include('class="thumbnail"', collection_home_path('a_b'),
-            coll_doc_with_image['image_ss'])
-        )
-        expect(html).not_to(
-          include('_blank', coll_doc_with_image['edm_is_shown_at'].first,
-            'do-th:')
-        )
-      end
-      it 'uses old style collection thumbs when no image_ss available' do
-        html = index_collection_thumb(coll_doc_with_no_image)
-        expect(html).to(
-          include('class="thumbnail"', collection_home_path('a_b'), 'do-th:')
-        )
-        expect(html).not_to(
-          include('_blank', coll_doc_with_image['edm_is_shown_at'].first,
-                  coll_doc_with_image['image_ss'])
-        )
-      end
+  end
+  describe '#sound_type_item?' do
+    it 'shows sound icon if TYPE field includes SOUND' do
+      doc = { 'class_name_ss' => 'Item' }
+      sound_doc = doc.merge 'dcterms_type_display' => %w[Sound Text]
+      no_sound_doc = doc.merge 'dcterms_type_display' => %w[StillImage Text]
+      wrong_class_doc = { 'class_name_ss' => 'Collection' }
+      expect(sound_type_item?(sound_doc)).to be_truthy
+      expect(sound_type_item?(no_sound_doc)).to be_falsey
+      expect(sound_type_item?(doc)).to be_falsey
+      expect(sound_type_item?(wrong_class_doc)).to be_falsey
     end
   end
 end
