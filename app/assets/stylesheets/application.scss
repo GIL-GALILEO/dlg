@@ -13,6 +13,10 @@
 @import "blacklight_maps_customizations";
 @import "openseadragon/openseadragon";
 
+#participate, #teach, #about {
+  font-size: 1.2em;
+}
+
 #counties-map { height: 600px; }
 
 #blacklight-show-map { height: 300px; }
