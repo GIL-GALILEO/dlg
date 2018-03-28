@@ -31,6 +31,7 @@ group :development, :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'rspec-rails', '~> 3.5'
+  gem 'poltergeist'
 end
 
 group :development do
