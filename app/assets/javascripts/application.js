@@ -22,26 +22,25 @@
 
 Blacklight.onLoad(function() {
 
-    // var $collectionInfoSeeMoreArea = $('div.collection-info-see-more-btn-area');
-    // var $collectionInfoFold = $('div.collection-info-fold');
-    // $collectionInfoFold.hide();
-    // $collectionInfoSeeMoreArea.removeClass('hide');
-    // $('button.collection-info-see-more').click(function() {
-    //    $collectionInfoFold.show();
-    //    $('.collection-info-see-more-btn-area').hide();
-    // });
+    // Remove thumbnail img if thumbnail fails to load
+    $('img.thumbnail').on('error', function(){
+        this.remove();
+    });
 
+    // handling for secondary submit button to advanced search form
     var $auxAdvSubmit = $('button.auxiliary-advanced-search-submit');
     $auxAdvSubmit.click(function() {
         $('form.advanced').submit()
     });
     $auxAdvSubmit.removeClass('hide');
 
+    // chosenify advanced search facet selects
     $('select.advanced-search-facet-select').chosen({
         search_contains: true,
         width: '100%'
     });
 
+    // chosenify nimination form selects
     $('select.nomination-select').chosen();
 
 });
