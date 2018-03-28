@@ -6,20 +6,6 @@ module CatalogHelper
   COORDINATES_REGEXP = /(-?\d+\.\d+), (-?\d+\.\d+)/
   INDEX_TRUNCATION_VALUE = 2500
 
-  def identifier_for(document)
-    document['record_id_ss']
-  end
-
-  def do_url?(document)
-    document.key?('edm_is_shown_by_display') &&
-      document['edm_is_shown_by_display'].first =~ URI.regexp
-  end
-
-  def md_url?(document)
-    document.key?('edm_is_shown_at_display') &&
-      document['edm_is_shown_at_display'].first =~ URI.regexp
-  end
-
   def search_bar_placeholder
     if @collection
       I18n.t 'search.bar.placeholder.collection', collection: @collection.display_title
@@ -61,15 +47,17 @@ module CatalogHelper
     uri
   end
 
-  def render_array_field(array_of_text, num, id)
-    str = ''
-    array_of_text.each_with_index do |v, i|
-      if num == i
-        str += link_to(I18n.t('collection.see_more'), solr_document_path(id), data: { turbolinks: false })
-        return str.html_safe
-      end
-      str += "#{v}<br />"
-    end
-    str.html_safe
+  def identifier_for(document)
+    document['record_id_ss']
+  end
+
+  def do_url?(document)
+    document.key?('edm_is_shown_by_display') &&
+      document['edm_is_shown_by_display'].first =~ URI.regexp
+  end
+
+  def md_url?(document)
+    document.key?('edm_is_shown_at_display') &&
+      document['edm_is_shown_at_display'].first =~ URI.regexp
   end
 end

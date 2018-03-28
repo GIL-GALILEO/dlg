@@ -20,12 +20,14 @@ module LinkingHelper
     "#{Rails.application.secrets.cache_server}#{v}"
   end
 
+  # generate a link to a collection page using a collection document
   def link_to_collection_page(options)
     collection_title = options[:document][:collection_name_sms].first
     collection_record_id = options[:document][:id]
     link_to collection_title, collection_home_path(collection_record_id)
   end
 
+  # generate link to collection page from an item document
   def item_link_to_collection_page(options)
     collection_title = options[:document][:collection_name_sms].first
     collection_record_id = options[:document][:collection_record_id_ss]
@@ -42,18 +44,30 @@ module LinkingHelper
     link_to link_title, collection_home_path(document['id'])
   end
 
+  # link to external site from a collection homepage
   def collection_external_homepage_link
-    link_to I18n.t('collection.homepage_link'), @collection.is_shown_at.first, class: 'btn btn-primary', target: '_blank'
+    link_to(
+      I18n.t('collection.homepage_link'),
+      @collection.is_shown_at.first,
+      class: 'btn btn-primary', target: '_blank'
+    )
   end
 
+  # show button for link to external collection page
+  # TODO: check for local? value and display something else? not 'Partner'?
   def visit_partner_button(document)
     if md_url?(document)
-      link_to I18n.t('show.external_link'), md_url_for(document), class: 'btn btn-primary', target: '_blank'
+      link_to(
+        I18n.t('show.external_link'),
+        md_url_for(document),
+        class: 'btn btn-primary', target: '_blank'
+      )
     else
       ''
     end
   end
 
+  # render an individual RS link image
   def rights_statement_icon_link(rs_data)
     link_to(
       image_tag(rs_data[1][:icon_url], class: 'rights-statement-icon'),
@@ -61,21 +75,19 @@ module LinkingHelper
     )
   end
 
+  # render an icon for each RS associated with a collection
   def collection_rights_icons(rights_array)
     image_tags = []
     I18n.t([:rights])[0].each do |r|
-      set = false
       rights_array.each do |rights|
         next unless r[1][:uri] == rights
         image_tags << rights_statement_icon_link(r)
-        set = true
       end
-      next unless set
     end
     image_tags.join('').html_safe
   end
 
-  # Render icon for RS.org value
+  # render icon for RS value
   # TODO: refactor/reconider use of I18n file for this purpose
   def rights_icon_tag(obj)
     I18n.t([:rights])[0].each do |r|

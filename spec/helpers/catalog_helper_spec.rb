@@ -3,6 +3,16 @@
 require 'rails_helper'
 
 describe CatalogHelper do
+  describe '#rights_icon_label' do
+    it 'returns label corresponding to URI' do
+      uri = I18n.t('rights.by-nc-nd.uri')
+      expect(rights_icon_label(uri)).to eq I18n.t('rights.by-nc-nd.label')
+    end
+    it 'returns the URI if lookup fails to find a label value' do
+      uri = 'https://www.example.com'
+      expect(rights_icon_label(uri)).to eq uri
+    end
+  end
   describe '#truncate_index' do
     it 'truncates a value' do
       desc = ['A' * 5_000]
