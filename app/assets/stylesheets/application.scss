@@ -492,7 +492,6 @@ section#institutions {
       column-count: 3;
       column-gap: 5px;
       li.list-group-item {
-        display: inline-block;
         -webkit-column-break-inside: avoid;
         page-break-inside: avoid;
         break-inside: avoid-column;
