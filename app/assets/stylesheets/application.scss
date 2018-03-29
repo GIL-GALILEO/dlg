@@ -491,6 +491,7 @@ section#institutions {
       -webkit-column-gap: 5px;
       column-count: 3;
       column-gap: 5px;
+      break-inside: avoid-column;
     }
   }
   section#institutions {
