@@ -159,7 +159,7 @@ class RecordsController < CatalogController
     config.advanced_search[:query_parser] ||= 'dismax'
     config.advanced_search[:form_facet_partial]   ||= 'advanced_search_facets_as_select'
     config.advanced_search[:form_solr_parameters] ||= {
-      'f.county_facet.facet.limit' => -1,
+      'f.county_facet.facet.limit' => 500,
       'f.provenance_facet.facet.limit' => 250,
       'f.subject_facet.facet.limit' => 250,
       'f.year_facet.facet.limit' => 250,
