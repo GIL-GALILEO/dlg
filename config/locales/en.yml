@@ -3,6 +3,8 @@ en:
     maps:
       title: 'Map'
       leader: 'Click on a marker to see items from that location.'
+    search:
+      start_over: 'New Search'
   support:
     array:
       words_connector: "<br> "
@@ -127,7 +129,7 @@ en:
       record_id: 'Record ID'
       collection: 'Collection'
       dcterms_provenance: 'Holding Institution'
-      dcterms_title: 'Full Title'
+      dcterms_title: 'Title'
       dcterms_creator: 'Creator'
       dcterms_contributor: 'Contributor to Resource'
       dcterms_subject: 'Subject'
