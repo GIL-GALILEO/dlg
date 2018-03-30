@@ -94,8 +94,8 @@ class RecordsController < CatalogController
     config.add_search_field('collection_name') do |field|
       field.label = I18n.t('search.labels.collection')
       field.solr_local_parameters = {
-        qf: 'collection_name_unstem_search^1000 collection_name_sms',
-        pf: 'collection_name_unstem_search^1000 collection_name_sms'
+        qf: 'collection_names_unstem_search^1000 collection_names_text^50',
+        pf: 'collection_names_unstem_search^1000 collection_names_text^50'
       }
     end
     # creator
