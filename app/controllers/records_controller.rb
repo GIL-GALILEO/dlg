@@ -94,16 +94,16 @@ class RecordsController < CatalogController
     config.add_search_field('collection_name') do |field|
       field.label = I18n.t('search.labels.collection')
       field.solr_local_parameters = {
-        qf: 'collection_name_sms',
-        pf: 'collection_name_sms'
+        qf: 'collection_name_unstem_search^1000 collection_name_sms',
+        pf: 'collection_name_unstem_search^1000 collection_name_sms'
       }
     end
     # creator
     config.add_search_field('creator') do |field|
       field.label = I18n.t('search.labels.dcterms_creator')
       field.solr_local_parameters = {
-        qf: 'dcterms_creator_text^500',
-        pf: 'dcterms_creator_text^500'
+        qf: 'creator_unstem_search^1000 dcterms_creator_text^500',
+        pf: 'creator_unstem_search^1000 dcterms_creator_text^500'
       }
     end
     # subject
