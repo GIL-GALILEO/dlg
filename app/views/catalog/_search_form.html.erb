@@ -1,11 +1,11 @@
 <div class="container">
-  <%= form_tag search_action_url, method: :get, class: 'search-query-form form-inline', role: 'search' do %>
+  <%= form_tag search_action_url, method: :get, class: 'search-query-form form-inline', role: 'search', 'aria-label': 'Search Form' do %>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="form-group full-width">
           <label for="q" class="sr-only"><%= t('blacklight.search.form.search.sr_label') %></label>
           <div class="input-group input-group-lg full-width">
-            <input name="q" type="text" id="q" class="form-control" placeholder="<%= search_bar_placeholder %>">
+            <input name="q" type="text" id="q" class="form-control" placeholder="<%= search_bar_placeholder %>" aria-label="Input to <%= search_bar_placeholder %>">
             <input type="hidden" name="search_field" value="all_fields">
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">

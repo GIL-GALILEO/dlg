@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-3 pull-left">
@@ -6,9 +6,9 @@
           <li><%= link_to t('menu.home'), root_path %></li>
           <li><%= link_to t('menu.about'), about_mission_path  %></li>
           <li><a href="https://dp.la" target="_blank">Digital Public Library of America</a></li>
-          <li><%= link_to t('external_links.labels.ghnp'), t('external_links.dlg.ghnp'), target: '_blank' %></li>
-          <li><%= link_to t('external_links.labels.crdl'), t('external_links.dlg.crdl'), target: '_blank' %></li>
-          <li><%= link_to t('external_links.labels.amso'), t('external_links.dlg.amso'), target: '_blank' %></li>
+          <li><%= link_to t('external_links.labels.ghnp'), t('external_links.dlg.ghnp') %></li>
+          <li><%= link_to t('external_links.labels.crdl'), t('external_links.dlg.crdl') %></li>
+          <li><%= link_to t('external_links.labels.amso'), t('external_links.dlg.amso') %></li>
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6 ">
@@ -17,9 +17,9 @@
       </div>
       <div class="col-xs-12 col-sm-3 pull-right">
         <ul class="social-icons">
-          <li><%= link_to '<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.facebook'), target: '_blank' %></li>
-          <li><%= link_to '<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.twitter'), target: '_blank' %></li>
-          <li><%= link_to '<i class="fa fa-rss-square fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.blog'), target: '_blank' %></li>
+          <li><%= link_to '<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.facebook') %></li>
+          <li><%= link_to '<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.twitter') %></li>
+          <li><%= link_to '<i class="fa fa-rss-square fa-2x" aria-hidden="true"></i>'.html_safe, t('external_links.dlg.blog') %></li>
         </ul>
       </div>
     </div>

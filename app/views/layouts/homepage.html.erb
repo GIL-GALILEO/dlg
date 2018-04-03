@@ -19,9 +19,8 @@
 </head>
 <body class="<%= render_body_class %>" <% if Rails.application.secrets.ga_tracking_id %>data-analytics-id="<%= Rails.application.secrets.ga_tracking_id %>"<% end %>>
   <%= render partial: 'shared/header_navbar' %>
-  <%= content_tag :h1, application_name, class: 'sr-only application-heading' %>
   <%= content_for :header %>
-  <main><%= yield %></main>
+  <main role="main"><%= yield %></main>
   <%= render partial: 'shared/footer' %>
 </body>
 </html>

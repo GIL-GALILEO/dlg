@@ -1,4 +1,4 @@
-<img src="<%= cache_server_image_link feature['large_image']['url'] %>" class="img-responsive">
+<img src="<%= cache_server_image_link feature['large_image']['url'] %>" alt="<%= "Large image for feature: #{feature['title']}" %>" class="img-responsive">
 <h3><%= link_to feature['title'], feature['title_link'] %></h3>
-<span><%= link_to feature['institution'], feature['institution_link'], target: '_blank' %></span>
+<span><%= link_to feature['institution'], feature['institution_link'] %></span>
 <p><%= feature['short_description'] %></p>
