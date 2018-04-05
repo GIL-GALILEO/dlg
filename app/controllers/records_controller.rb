@@ -154,7 +154,7 @@ class RecordsController < CatalogController
 
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
-    # config.advanced_search[:qt] ||= 'advanced'
+    config.advanced_search[:qt] ||= 'advanced'
     config.advanced_search[:url_key] ||= 'advanced'
     config.advanced_search[:query_parser] ||= 'dismax'
     config.advanced_search[:form_facet_partial]   ||= 'advanced_search_facets_as_select'
