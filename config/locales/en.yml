@@ -2,7 +2,6 @@ en:
   blacklight:
     maps:
       title: 'Map'
-      leader: 'Click on a marker to see items from that location.'
     search:
       start_over: 'New Search'
   support:

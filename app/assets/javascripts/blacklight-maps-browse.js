@@ -10,19 +10,16 @@
       initialZoom: 2,
       singlemarkermode: true,
       searchcontrol: false,
-      catalogpath: 'catalog',
+      catalogpath: 'records',
       searchctrlcue: 'Search for all items within the current map window',
       placenamefield: 'placename_field',
       nodata: 'Sorry, there is no data for this location.',
       clustercount:'locations',
-      searchresultsview: 'list'
+      searchresultsview: 'gallery'
     }, arg_opts );
 
     // Extend options from data-attributes
     $.extend(options, this.data());
-
-    var mapped_items = 'from <span class="badge badge-primary">' + geojson_docs.features.length + '</span> distinct location' + (geojson_docs.features.length !== 1 ? 's' : '') + '.</span>';
-    var mapped_caveat = ' Only items with location metadata are shown below!';
 
     var $leaderHtmlDiv = $('#map-leader');
     var $indexMapContainer = $('#index-map-container');
@@ -41,7 +38,7 @@
       $sort.hide();
       $per_page.hide();
       var result_count = $('#mapped-record-count').text();
-      leader_html = '<span class="badge badge-default">' + result_count + '</span> items found ' + mapped_items + mapped_caveat;
+      leader_html = '<span class="badge badge-default">' + result_count + '</span> total items found.';
     } else { // catalog#show view
       leader_html = '<span class="badge badge-default">' + geojson_docs.features.length + '</span> locations associated with this record';
     }
@@ -117,45 +114,49 @@
 
       // create overlay for search control hover
       var searchHoverLayer = L.rectangle([[0,0], [0,0]], {
-        color: "#0033ff",
+        color: "#0E8893",
         weight: 5,
         opacity: 0.5,
         fill: true,
-        fillColor: "#0033ff",
+        fillColor: "#0E8893",
         fillOpacity: 0.2
       });
 
-      // create search control
-      var searchControl = L.Control.extend({
+      // create search control if full map view (no facets displayed TODO: improve)
+      if(!$('#facets').length) {
+          var searchControl = L.Control.extend({
 
-        options: { position: 'topleft' },
+              options: { position: 'topright' },
 
-        onAdd: function (map) {
-          var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
-          this.link = L.DomUtil.create('a', 'leaflet-bar-part search-control', container);
-          this.link.title = options.searchctrlcue;
-          this.icon = L.DomUtil.create('i', 'glyphicon glyphicon-search', this.link);
+              onAdd: function (map) {
+                  var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+                  this.link = L.DomUtil.create('a', 'search-control', container);
+                  // this.link.title = options.searchctrlcue;
+                  this.link.innerHTML = 'Show Items in This Area';
+                  // this.icon = L.DomUtil.create('i', 'glyphicon glyphicon-search', this.link);
 
-          L.DomEvent.addListener(this.link, 'click', _search);
+                  L.DomEvent.addListener(this.link, 'click', _search);
 
-          L.DomEvent.addListener(this.link, 'mouseover', function () {
-            searchHoverLayer.setBounds(map.getBounds());
-            map.addLayer(searchHoverLayer);
+                  L.DomEvent.addListener(this.link, 'mouseover', function () {
+                      searchHoverLayer.setBounds(map.getBounds());
+                      map.addLayer(searchHoverLayer);
+                  });
+
+                  L.DomEvent.addListener(this.link, 'mouseout', function () {
+                      map.removeLayer(searchHoverLayer);
+                  });
+
+                  return container;
+              }
+
           });
 
-          L.DomEvent.addListener(this.link, 'mouseout', function () {
-            map.removeLayer(searchHoverLayer);
-          });
-
-          return container;
-        }
-
-      });
-
-      // add search control to map
-      if (options.searchcontrol === true) {
-        map.addControl(new searchControl());
+          // add search control to map
+          if (options.searchcontrol === true) {
+              map.addControl(new searchControl());
+          }
       }
+
 
     });
 
