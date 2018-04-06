@@ -28,7 +28,7 @@ feature 'Advanced Searching' do
         expect(page).to have_css '#type_facet_chosen'
         expect(page).to have_css '#medium_facet_chosen'
         expect(page).to have_css '#rights_facet_chosen'
-        expect(page).to have_css '#collection_name_sms_chosen'
+        expect(page).to have_css '#collection_titles_sms_chosen'
         expect(page).to have_css '#provenance_facet_chosen'
       end
     end

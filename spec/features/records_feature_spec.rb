@@ -6,7 +6,7 @@ feature 'Records' do
   before(:each) { visit search_records_path }
   context 'search bar' do
     scenario 'uses records search URL' do
-      expect(page).to have_css("form[action='#{search_records_url}']")
+      expect(page).to have_css("form[action='#{search_records_path}']")
     end
     scenario 'has a placeholder indicating it searches Collections' do
       expect(page).to have_css("input[placeholder='#{I18n.t('search.bar.placeholder.default')}']")

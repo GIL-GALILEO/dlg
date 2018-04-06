@@ -185,4 +185,8 @@ class RecordsController < CatalogController
   def collection_limit_set?
     params.key? 'collection_record_id'
   end
+
+  def search_action_url(options = {})
+    search_records_path(options.except(:controller, :action))
+  end
 end

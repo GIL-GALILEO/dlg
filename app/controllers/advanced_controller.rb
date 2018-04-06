@@ -4,6 +4,6 @@
 class AdvancedController < BlacklightAdvancedSearch::AdvancedController
   copy_blacklight_config_from RecordsController
   def search_action_url(options = {})
-    search_records_url(options.except(:controller, :action))
+    search_records_path(options.except(:controller, :action))
   end
 end
