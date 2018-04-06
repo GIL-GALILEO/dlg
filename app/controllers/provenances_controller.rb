@@ -3,10 +3,10 @@
 # handle actions for Holding Institution browse page
 class ProvenancesController < CatalogController
   include FacetBrowseBehavior
-  PIVOT_FACET_KEY = 'provenance_facet,collection_name_sms'
+  PIVOT_FACET_KEY = 'provenance_facet,collection_titles_sms'
   FACET_FIELD = 'provenance_collection_facet'
   PRIMARY_FACET_FIELD = 'provenance_facet'
-  SECONDARY_FACET_FIELD = 'collection_name_sms'
+  SECONDARY_FACET_FIELD = 'collection_titles_sms'
   SORT_PARAMS = %w[inst_sort coll_sort].freeze
 
   configure_blacklight do |config|
@@ -15,7 +15,7 @@ class ProvenancesController < CatalogController
                            limit: 200,
                            more_limit: 200,
                            show: false
-    config.add_facet_field :collection_name_sms,
+    config.add_facet_field :collection_titles_sms,
                            label: '_',
                            limit: 200,
                            more_limit: 200,
@@ -26,7 +26,7 @@ class ProvenancesController < CatalogController
                            limit: 200,
                            more_limit: 200,
                            show: false,
-                           pivot: %w[provenance_facet collection_name_sms]
+                           pivot: %w[provenance_facet collection_titles_sms]
 
   end
 
@@ -66,7 +66,7 @@ class ProvenancesController < CatalogController
   def collections_from_inst(pivot_response)
     pivot_response['pivot'].map do |c|
       state = search_state.add_facet_params_and_redirect('provenance_facet', pivot_response['value'])
-      state['f']['collection_name_sms'] = [c['value']]
+      state['f']['collection_titles_sms'] = [c['value']]
       link = search_action_path(state)
       OpenStruct.new(
         name: c['value'],
