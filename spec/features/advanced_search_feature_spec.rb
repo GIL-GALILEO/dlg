@@ -19,10 +19,6 @@ feature 'Advanced Searching' do
     end
     context 'multi-select facets', js: true do
       scenario 'exist for all facet fields' do
-        expect(page).to have_css '#creator_facet_chosen'
-        expect(page).to have_css '#subject_facet_chosen'
-        expect(page).to have_css '#subject_personal_facet_chosen'
-        expect(page).to have_css '#location_facet_chosen'
         expect(page).to have_css '#counties_facet_chosen'
         expect(page).to have_css '#year_facet_chosen'
         expect(page).to have_css '#type_facet_chosen'

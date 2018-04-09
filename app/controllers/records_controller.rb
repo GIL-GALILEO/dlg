@@ -153,24 +153,23 @@ class RecordsController < CatalogController
     # config.show.partials.insert(1, :openseadragon)
 
     # default advanced config values
+    advanced_search_facets = %w[counties_facet year_facet medium_facet
+                                type_facet rights_facet collection_titles_sms
+                                provenance_facet]
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     config.advanced_search[:qt] ||= 'advanced'
     config.advanced_search[:url_key] ||= 'advanced'
     config.advanced_search[:query_parser] ||= 'dismax'
-    config.advanced_search[:form_facet_partial]   ||= 'advanced_search_facets_as_select'
-    config.advanced_search[:form_solr_parameters] ||= {
-      'f.counties_facet.facet.limit' => 500,
-      'f.provenance_facet.facet.limit' => 500,
-      'f.subject_facet.facet.limit' => 500,
-      'f.subject_personal_facet.facet.limit' => 500,
-      'f.year_facet.facet.limit' => 500,
-      'f.location_facet.facet.limit' => 500,
-      'f.rights_facet.facet.limit' => 500,
-      'f.type_facet.facet.limit' => 500,
-      'f.medium_facet.facet.limit' => 500,
-      'f.time_periods_sms.facet.limit' => -1,
-      'f.subjects_sms.facet.limit' => -1,
-      'f.collection_titles_sms.facet.limit' => -1
+    config.advanced_search[:form_facet_partial] ||= 'advanced_search_facets_as_select'
+    config.advanced_search[:form_solr_parameters] = {
+      'facet.field' => advanced_search_facets,
+      'f.counties_facet.facet.limit' => -1,
+      'f.year_facet.facet.limit' => 800,
+      'f.medium_facet.facet.limit' => 800,
+      'f.type_facet.facet.limit' => -1,
+      'f.rights_facet.facet.limit' => -1,
+      'f.collection_titles_sms.facet.limit' => -1,
+      'f.provenance_facet.facet.limit' => -1
     }
   end
 
