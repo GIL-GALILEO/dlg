@@ -7,7 +7,7 @@ module DlgFacetsHelper
   end
 
   def active_facet_sort(field, value)
-    sort = @sort_params[field] || 'count'
+    sort = @sort_params[field] || 'index'
     sort == value ? 'btn-primary' : 'btn-default'
   end
 

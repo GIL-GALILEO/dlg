@@ -1,4 +1,4 @@
 <div class="btn-group facet-sort-group" role="group" aria-label="Sort Options">
-  <%= link_to t('search.facets.sort.count'), sort_params.merge({p => 'count'}), class: "facet-sort-link btn #{active_facet_sort(p, 'count')}" %>
   <%= link_to t('search.facets.sort.az'), sort_params.merge({p => 'index'}), class: "facet-sort-link btn #{active_facet_sort(p, 'index')}" %>
+  <%= link_to t('search.facets.sort.count'), sort_params.merge({p => 'count'}), class: "facet-sort-link btn #{active_facet_sort(p, 'count')}" %>
 </div>

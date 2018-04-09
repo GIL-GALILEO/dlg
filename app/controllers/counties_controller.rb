@@ -8,11 +8,7 @@ class CountiesController < CatalogController
 
   configure_blacklight do |config|
     config.add_facet_field :counties_facet,
-                           label: '_',
-                           limit: 500,
-                           display: false,
-                           sort: 'count',
-                           more_limit: 500
+                           more_limit: -2
   end
 
   def index
@@ -48,7 +44,7 @@ class CountiesController < CatalogController
   end
 
   def primary_facet_sort
-    valid_sorts.include?(params[sort_params]) ? params[sort_params] : 'count'
+    valid_sorts.include?(params[sort_params]) ? params[sort_params] : 'index'
   end
 
   def primary_facet_field
