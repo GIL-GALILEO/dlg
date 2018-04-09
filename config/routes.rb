@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     concerns :searchable
   end
 
+  get '/search', to: 'advanced#index', as: 'search'
   get '/collection/:collection_record_id', to: 'records#index', as: 'collection_home'
   get '/counties', to: 'counties#index', as: 'counties'
   get '/institutions', to: 'provenances#index', as: 'institutions'
