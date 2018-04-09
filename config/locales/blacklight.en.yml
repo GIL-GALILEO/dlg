@@ -4,6 +4,7 @@ en:
     search:
       facets:
         title: 'Refine'
+        more_html: 'See All Values <span class="sr-only">for %{field_name}</span> »'
       form:
         search:
           sr_label: 'Search Box'
