@@ -220,6 +220,7 @@ en:
     map: 'Locations'
     external_link: 'View at Partner Site'
     tools:
+      reuse: 'Reuse Information'
       citation:
         title: 'Citations'
         field_value_unavailable: 'Not Available'

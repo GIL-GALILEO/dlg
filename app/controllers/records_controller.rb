@@ -173,6 +173,8 @@ class RecordsController < CatalogController
     }
   end
 
+  add_show_tools_partial :reuse, partial: 'reuse'
+
   def collection?(_, doc)
     doc['class_name_ss'] == 'Collection'
   end
