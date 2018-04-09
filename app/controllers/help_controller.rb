@@ -2,5 +2,5 @@
 
 # "Help" menu items static content controller
 class HelpController < HomepageController
-  def page; end
+  def search; end
 end

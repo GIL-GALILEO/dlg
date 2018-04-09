@@ -228,7 +228,10 @@ en:
     galileo: 'The Digital Library of Georgia is part of the GALILEO Initiative'
     copyright: '© %{year} Digital Library of Georgia'
   advanced:
+    title: 'Search'
     search_history: 'Search History'
+  help:
+    search: 'Search Tips'
 
 
 

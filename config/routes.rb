@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   end
 
   namespace :help do
-    # get 'a'
+    get 'search'
     # get 'b'
     # get 'c'
   end
