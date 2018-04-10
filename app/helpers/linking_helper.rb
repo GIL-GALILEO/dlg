@@ -10,6 +10,10 @@ module LinkingHelper
     document['edm_is_shown_at_display'].first
   end
 
+  def freely_available_path
+    '/records?utf8=✓f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FInC-EDU%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FInC-NC%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FInC-RUU%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FNKC%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FNoC-NC%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FNoC-US%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby-nc%2F4.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2Fsearch_field=advanced&commit=Search'
+  end
+
   # handle linking in catalog results
   def linkify(options = {})
     url = options[:value].first
