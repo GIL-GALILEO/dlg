@@ -24,7 +24,7 @@ class RecordsController < CatalogController
     config.add_facet_field :rights_facet,                label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label
     config.add_facet_field :collection_titles_sms,       label: I18n.t('search.facets.collection_name'), limit: true
     config.add_facet_field :provenance_facet,            label: I18n.t('search.facets.provenance'), limit: true
-    config.add_facet_field :class_name,                  label: I18n.t('search.facets.record_type'), display: false
+    config.add_facet_field :class_name,                  label: I18n.t('search.facets.record_type'), show: false
 
 
     # solr fields to be displayed in the index (search results) view
