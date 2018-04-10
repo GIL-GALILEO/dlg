@@ -121,6 +121,7 @@ en:
       time_periods: 'Time Periods'
       subjects: 'Topics'
       county: 'Georgia County'
+      record_type: 'Record Type'
       sort:
         az: 'Sort A-Z'
         count: 'Sort by Count'
