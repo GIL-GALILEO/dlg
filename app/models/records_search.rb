@@ -10,7 +10,7 @@ class RecordsSearch < SearchBuilder
 
   def limit_by_collection(solr_parameters)
     return unless collection_specified
-    solr_parameters[:fq] << "collection_record_id_ss:#{collection_specified}"
+    solr_parameters[:fq] << "collection_record_id_sms:#{collection_specified}"
     solr_parameters['facet.field'].delete('collection_record_id_sms')
   end
 
