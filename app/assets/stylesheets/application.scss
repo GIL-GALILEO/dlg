@@ -13,11 +13,18 @@
 @import "blacklight_maps_customizations";
 @import "openseadragon/openseadragon";
 
-.explore-icon {
-  text-align: center;
-  padding: 20px;
-  font-size: 1.2em;
-}
+section#popular {
+  margin-top: 70px; }
+section#popular img {
+  margin-bottom: 5px; }
+section#popular h2 {
+  font-size: 24px;
+  margin-bottom: 5px; }
+section#popular a:hover {
+  text-decoration: none; }
+section#popular p {
+  font-size: 14px;
+  padding-bottom: 30px; }
 
 a.search-control {
   width: auto !important;

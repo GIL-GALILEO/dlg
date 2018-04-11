@@ -27,193 +27,209 @@
   </div>
 </div>
 <% end %>
-<section aria-label="Primary Site Pages">
-<!--  This area will contain 4 rounded images directing the user to the most interesting parts of the site for browsing content-->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-sm-6 col-xs-12"> <!-- Please adjust these as you see fit -->
-        <div class="explore-icon">
-          <a href="<%= search_collections_path %>">
-            <img src="<%= asset_path 'explore-collections.png' %>" alt="" class="explore-icon-image img-circle">
-            <h4>Collections</h4>
-          </a>
-          <p>Explore our collections.</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="explore-icon">
-          <a href="<%= counties_path %>">
-            <img src="<%= asset_path 'explore-counties.png' %>" alt="" class="explore-icon-image img-circle">
-            <h4>Counties</h4>
-          </a>
-          <p>Find content from Georgia's 159 counties.</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="explore-icon">
-          <a href="<%= freely_available_path %>">
-            <img src="<%= asset_path 'explore-free.png' %>" alt="" class="explore-icon-image img-circle">
-            <h4>Free to Use</h4>
-          </a>
-          <p>See items licensed for reuse.</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="explore-icon">
-          <a href="<%= map_records_path %>">
-            <img src="<%= asset_path 'explore-map.png' %>" alt="" class="explore-icon-image img-circle">
-            <h4>Map</h4>
-          </a>
-          <p>Browse a world map and find items based on location.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section aria-labelledby="discover-heading">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 id="discover-heading">Discover</h2>
-        <div class="nav-tabs-responsive">
-          <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a data-toggle="tab" href="#new">New</a></li>
-            <li role="presentation"><a data-toggle="tab" href="#civil-rights">Civil Rights</a></li>
-            <li role="presentation"><a data-toggle="tab" href="#newspapers">Newspapers</a></li>
-            <li role="presentation"><a data-toggle="tab" href="#civil-war">Civil War</a></li>
-          </ul>
-        </div>
-        <div class="tab-content">
-          <div id="new" class="tab-pane fade in <%= 'active' if @tabs_features %>">
-            <div class="row">
-              <% if @tabs_features %>
-              <div class="col-md-6">
-                <%= render 'primary_tab_feature', feature: @tabs_features.primary  %>
-              </div>
-              <div class="col-md-6 col-lg-6 right-col">
-              <% @tabs_features.secondary.each do |tf| %>
-                <%= render 'regular_tab_feature', feature: tf %>
-              <% end %>
-              </div>
-              <% end %>
-            </div>
+<main role="main">
+  <h2 id="discover-heading">Discover</h2>
+  <section id="popular" aria-label="Popular Site Pages">
+    <!--  This area will contain 4 rounded images directing the user to the most interesting parts of the site for browsing content-->
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3"> <!-- Please adjust these as you see fit -->
+          <div class="explore-icon text-center">
+            <a href="<%= search_collections_path %>">
+              <img src="<%= asset_path 'explore-collections.png' %>" alt="Image representing the Collection search page" class="explore-icon-image img-circle">
+              <h2>Collections</h2>
+            </a>
+            <p>Explore our collections.</p>
           </div>
-          <div id="civil-rights" class="tab-pane fade <%= 'active' unless @tabs_features  %>">
-            <%= render 'crdl' %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="explore-icon text-center">
+            <a href="<%= counties_path %>">
+              <img src="<%= asset_path 'explore-counties.png' %>" alt="Image representing the Counties browse page" class="explore-icon-image img-circle">
+              <h2>Counties</h2>
+            </a>
+            <p>Find content from Georgia's 159 counties.</p>
           </div>
-          <div id="newspapers" class="tab-pane fade">
-            <%= render 'ghnp' %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="explore-icon text-center">
+            <a href="<%= freely_available_path %>">
+              <img src="<%= asset_path 'explore-free.png' %>" alt="Image representing the freely available resources link" class="explore-icon-image img-circle">
+              <h2>Free to Use</h2>
+            </a>
+            <p>See items licensed for reuse.</p>
           </div>
-          <div id="civil-war" class="tab-pane fade">
-            <%= render 'amso' %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="explore-icon text-center">
+            <a href="<%= map_records_path %>">
+              <img src="<%= asset_path 'explore-map.png' %>" alt="Image representing the Map browse page" class="explore-icon-image img-circle">
+              <h2>Map</h2>
+            </a>
+            <p>Browse a world map and find items based on location.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section aria-labelledby="partner-sponsor-heading">
-  <div class="partners">
-    <div class="container-fluid">
+  </section>
+  <section aria-label="Tabbed area of featured content links">
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2 id="partner-sponsor-heading">Our Partners & Sponsors</h2>
+          <div class="nav-tabs-responsive">
+            <ul class="nav nav-tabs">
+              <li role="presentation" class="active">
+                <a data-toggle="tab" href="#new">New</a></li>
+              <li role="presentation">
+                <a data-toggle="tab" href="#civil-rights">Civil Rights</a></li>
+              <li role="presentation">
+                <a data-toggle="tab" href="#newspapers">Newspapers</a></li>
+              <li role="presentation">
+                <a data-toggle="tab" href="#civil-war">Civil War</a></li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div id="new" class="tab-pane fade in <%= 'active' if @tabs_features %>">
+              <div class="row">
+                <% if @tabs_features %>
+                  <div class="col-md-6">
+                    <%= render 'primary_tab_feature', feature: @tabs_features.primary %>
+                  </div>
+                  <div class="col-md-6 col-lg-6 right-col">
+                    <% @tabs_features.secondary.each do |tf| %>
+                      <%= render 'regular_tab_feature', feature: tf %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div id="civil-rights" class="tab-pane fade <%= 'active' unless @tabs_features %>">
+              <%= render 'crdl' %>
+            </div>
+            <div id="newspapers" class="tab-pane fade">
+              <%= render 'ghnp' %>
+            </div>
+            <div id="civil-war" class="tab-pane fade">
+              <%= render 'amso' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="partner-sponsor-heading">
+    <div class="partners">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 id="partner-sponsor-heading">Our Partners & Sponsors</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="https://www.clir.org/">
+              <img class="img-responsive" alt="Sponsor logo for CLIR" src="<%= asset_path 'partners/clir-01.png' %>">
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="https://dp.la/">
+              <img class="img-responsive" alt="Sponsor logo for DPLA" src="<%= asset_path 'partners/dpla-01.png' %>">
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="http://gaarts.org/">
+              <img class="img-responsive" alt="Sponsor logo for GCA" src="<%= asset_path 'partners/gca-01.png' %>">
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="https://www.georgiahumanities.org/">
+              <img class="img-responsive" alt="Sponsor logo for Georgia Humanities" src="<%= asset_path 'partners/humanities-01.png' %>">
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="http://www.georgialibraries.org/">
+              <img class="img-responsive" alt="Sponsor logo for GPLS" src="<%= asset_path 'partners/gpls-01.png' %>">
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="https://www.neh.gov/">
+              <img class="img-responsive" alt="Sponsor logo for NEH" src="<%= asset_path 'partners/neh-01.png' %>">
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="https://www.imls.gov/">
+              <img class="img-responsive" alt="Sponsor logo for IMLS" src="<%= asset_path 'partners/imls-01.png' %>">
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="https://knightfoundation.org/">
+              <img class="img-responsive" alt="Sponsor logo for Knight Foundation" src="<%= asset_path 'partners/knight-01.png' %>">
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <a href="https://www.archives.gov/nhprc">
+              <img class="img-responsive" alt="Sponsor logo for National Archives" src="<%= asset_path 'partners/nhprc-01.png' %>">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section aria-labelledby="dlg-and-me-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 id="dlg-and-me-heading">DLG and Me</h2>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="https://www.clir.org/">
-            <img class="img-responsive" alt="Sponsor logo for CLIR" src="<%= asset_path 'partners/clir-01.png' %>">
-          </a>
+        <div class="col-md-8 blog-post">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="<%= asset_path 'hhj.jpg' %>" alt="DLG and Me Story Image for Houston Home Journal" class="img-responsive">
+              <h3><a href="#">Tombstone Mystery Solved and Family Keepsake
+                Revived</a></h3>
+              Judith Malone, Perry Branch Manager of the Houston County Public Library, describes value of digitizing their local newspaper.
+            </div>
+            <div class="col-md-6">
+              <img src="<%= asset_path 'flagpole.png' %>" alt="DLG and Me Story Image for the Flagpole" class="img-responsive">
+              <h3><a href="">Unique Partnership Captures Athens' Music and Art
+                Scene from the 1980s Onwards</a></h3>
+              Editor Pete McCommons discusses the impact of the digitization of
+              Athens' weekly music newspaper.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <img src="<%= asset_path 'spelman.png' %>" alt="DLG and Me Story Image for Spelman College" class="img-responsive">
+              <h3><a href="">African American Women's Education in Atlanta
+                Highlighted in Grant-Funded Project</a></h3>
+              Thanks to a grant from CLIR, historic Spelman College debuts its
+              first online project and reveals the history of African American
+              women's education in Atlanta from 1881 onwards.
+            </div>
+            <div class="col-md-6">
+              <img src="<%= asset_path 'wsbtv.png' %> " alt="DLG and Me Story Image for Atlanta Monster Podcast" class="img-responsive">
+              <h3><a href="">Atlanta Monster Podcast Features WSB-TV Newsfilm
+                Collection</a></h3>
+              True crime podcast about the Atlanta Child Murders sources the
+              University of Georgia's Brown Media Archives' WSB-TV Newsfilm
+              collection.
+            </div>
+          </div>
         </div>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="https://dp.la/">
-            <img class="img-responsive" alt="Sponsor logo for DPLA" src="<%= asset_path 'partners/dpla-01.png' %>">
+        <div class="col-md-4">
+          <a class="twitter-timeline"
+             href="https://twitter.com/DigLibGA?ref_src=twsrc%5Etfw"
+             data-tweet-limit="3"
+             data-link-color="#93450E">
+            Tweets by DigLibGA
           </a>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="http://gaarts.org/">
-            <img class="img-responsive" alt="Sponsor logo for GCA" src="<%= asset_path 'partners/gca-01.png' %>">
-          </a>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="https://www.georgiahumanities.org/">
-            <img class="img-responsive" alt="Sponsor logo for Georgia Humanities" src="<%= asset_path 'partners/humanities-01.png' %>">
-          </a>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="http://www.georgialibraries.org/">
-            <img class="img-responsive" alt="Sponsor logo for GPLS" src="<%= asset_path 'partners/gpls-01.png' %>">
-          </a>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="https://www.neh.gov/">
-            <img class="img-responsive" alt="Sponsor logo for NEH" src="<%= asset_path 'partners/neh-01.png' %>">
-          </a>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="https://www.imls.gov/">
-            <img class="img-responsive" alt="Sponsor logo for IMLS" src="<%= asset_path 'partners/imls-01.png' %>">
-          </a>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="https://knightfoundation.org/">
-            <img class="img-responsive" alt="Sponsor logo for Knight Foundation" src="<%= asset_path 'partners/knight-01.png' %>">
-          </a>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <a href="https://www.archives.gov/nhprc">
-            <img class="img-responsive" alt="Sponsor logo for National Archives" src="<%= asset_path 'partners/nhprc-01.png' %>">
-          </a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section aria-labelledby="dlg-and-me-heading">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 id="dlg-and-me-heading">DLG and Me</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 blog-post">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="<%= asset_path 'hhj.png' %>" alt="DLG and Me Story Image for Houston Home Journal" class="img-responsive">
-            <h3><a href="#">Houston County Newspaper Partnership: A Resource Over 100 Years in the Making</a></h3>
-            The Houston County Public Library, <span class="italicized">Houston Home Journal</span>, Flint Energies, and DLG partnered to digitize the Home Journal from its inception to the present.
-          </div>
-          <div class="col-md-6">
-            <img src="<%= asset_path 'flagpole.png' %>" alt="DLG and Me Story Image for the Flagpole" class="img-responsive">
-            <h3><a href="">Unique Partnership Captures Athens' Music and Art Scene from the 1980s Onwards</a></h3>
-            Editor Pete McCommons discusses the impact of the digitization of Athens' weekly music newspaper.
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <img src="<%= asset_path 'spelman.png' %>" alt="DLG and Me Story Image for Spelman College" class="img-responsive">
-            <h3><a href="">African American Women's Education in Atlanta Highlighted in Grant-Funded Project</a></h3>
-            Thanks to a grant from CLIR, historic Spelman College debuts its first online project and reveals the history of African American women's education in Atlanta from 1881 onwards.
-          </div>
-          <div class="col-md-6">
-            <img src="<%= asset_path 'wsbtv.png' %> "alt="DLG and Me Story Image for Atlanta Monster Podcast" class="img-responsive">
-            <h3><a href="">Atlanta Monster Podcast Features WSB-TV Newsfilm Collection</a></h3>
-            True crime podcast about the Atlanta Child Murders sources the University of Georgia's Brown Media Archives' WSB-TV Newsfilm collection.
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <a class="twitter-timeline"
-           href="https://twitter.com/DigLibGA?ref_src=twsrc%5Etfw"
-           data-tweet-limit="3"
-           data-link-color="#93450E">
-          Tweets by DigLibGA
-        </a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
+
 
