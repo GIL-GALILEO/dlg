@@ -7,6 +7,7 @@
           <div class="input-group input-group-lg full-width">
             <input name="q" type="text" id="q" class="form-control" placeholder="<%= search_bar_placeholder %>" aria-label="Input to <%= search_bar_placeholder %>">
             <input type="hidden" name="search_field" value="all_fields">
+            <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="sr-only"><%= t('blacklight.search.form.search.sr_label') %></span>
