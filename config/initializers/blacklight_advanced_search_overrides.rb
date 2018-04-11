@@ -26,5 +26,25 @@ Rails.application.config.to_prepare do
         end
       end
     end
+
+    def render_constraints_filters(my_params = params)
+      content = super(my_params)
+
+      if advanced_query
+        advanced_query.filters.each_pair do |field, value_list|
+          label = facet_field_label(field)
+          new_value_list = value_list.map do |val|
+            facet_display_value(field, val)
+          end
+          content << render_constraint_element(
+            label,
+            safe_join(Array(new_value_list), " <strong class='text-muted constraint-connector'>OR</strong> ".html_safe),
+            remove: search_action_path(remove_advanced_filter_group(field, my_params).except(:controller, :action))
+          )
+        end
+      end
+
+      content
+    end
   end
 end
