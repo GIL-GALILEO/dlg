@@ -124,12 +124,12 @@ html {
   }
 
   .carousel-inner {
-    height: 250px;
+    height: 200px;
     .item {
-      height: 250px;
+      height: 200px;
     }
     .active {
-      height: 250px;
+      height: 200px;
     }
     .fill {
       width: 100%;
@@ -574,9 +574,9 @@ section#institutions {
       font-size: 50px;
     }
     .carousel-inner {
-      height: 500px;
+      height: 300px;
       .item {
-        height: 500px;
+        height: 300px;
         .carousel-caption {
           font-size: 14px;
           h2 {
@@ -585,7 +585,7 @@ section#institutions {
         }
       }
       .active {
-        height: 500px;
+        height: 300px;
       }
     }
   }
