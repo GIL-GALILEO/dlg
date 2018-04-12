@@ -37,6 +37,10 @@ module CatalogHelper
     end
   end
 
+  def type_cleaner(value)
+    value.underscore.split('_').collect(&:capitalize).join(' ')
+  end
+
   # Render human-readable label for RS.org value, if available and URI otherwise
   def rights_icon_label(uri)
     I18n.t([:rights])[0].each do |r|

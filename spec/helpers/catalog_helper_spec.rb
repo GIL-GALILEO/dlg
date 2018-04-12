@@ -27,4 +27,12 @@ describe CatalogHelper do
       expect(spatial_cleaner(value)).to eq 'United States, Georgia, Clarke County, Athens'
     end
   end
+  describe '#type_cleaner' do
+    it 'adds a space when appropriate' do
+      expect(type_cleaner('InteractiveResource')).to eq 'Interactive Resource'
+      expect(type_cleaner('StillImage')).to eq 'Still Image'
+      expect(type_cleaner('MovingImage')).to eq 'Moving Image'
+      expect(type_cleaner('Dataset')).to eq 'Dataset'
+    end
+  end
 end
