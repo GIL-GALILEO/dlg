@@ -6,10 +6,10 @@ describe LinkingHelper do
   describe '#link_to_collection_page' do
     it 'shows a link to the collection with the collection name' do
       opt = {
-        document: {
+        document: SolrDocument.new(
           id: 'test_collection',
-          collection_name_sms: ['Test Name']
-        }
+          collection_titles_sms: ['Test Name']
+        )
       }
       expect(link_to_collection_page(opt)).to(
         eq link_to 'Test Name', collection_home_path('test_collection')

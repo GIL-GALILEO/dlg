@@ -46,18 +46,4 @@ module CatalogHelper
     end
     uri
   end
-
-  def identifier_for(document)
-    document['record_id_ss']
-  end
-
-  def do_url?(document)
-    document.key?('edm_is_shown_by_display') &&
-      document['edm_is_shown_by_display'].first =~ URI.regexp
-  end
-
-  def md_url?(document)
-    document.key?('edm_is_shown_at_display') &&
-      document['edm_is_shown_at_display'].first =~ URI.regexp
-  end
 end

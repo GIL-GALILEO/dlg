@@ -2,14 +2,6 @@
 
 # Common helper methods for HTML link/button generating logic
 module LinkingHelper
-  def do_url_for(document)
-    document['edm_is_shown_by_display'].first
-  end
-
-  def md_url_for(document)
-    document['edm_is_shown_at_display'].first
-  end
-
   def freely_available_path
     '/records?f%5Bclass_name%5D%5B%5D=Item&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FInC-NC%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FInC-RUU%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FNKC%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FNoC-NC%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=http%3A%2F%2Frightsstatements.org%2Fvocab%2FNoC-US%2F1.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby-nc%2F4.0%2F&f_inclusive%5Brights_facet%5D%5B%5D=https%3A%2F%2Fcreativecommons.org%2Flicenses%2Fby%2F4.0%2F&search_field%3Dadvanced'
   end
@@ -26,26 +18,24 @@ module LinkingHelper
 
   # generate a link to a collection page using a collection document
   def link_to_collection_page(options)
-    collection_title = options[:document][:collection_name_sms].first
-    collection_record_id = options[:document][:id]
-    link_to collection_title, collection_home_path(collection_record_id)
+    doc = options[:document]
+    link_to doc.collection_title, collection_home_path(doc.id)
   end
 
   # generate link to collection page from an item document
   def item_link_to_collection_page(options)
-    collection_title = options[:document][:collection_name_sms].first
-    collection_record_id = options[:document][:collection_record_id_ss]
-    link_to collection_title, collection_home_path(collection_record_id)
+    doc = options[:document]
+    link_to doc.collection_title, collection_home_path(doc.collection_id)
   end
 
   # overrides function in BL configuration_helper_behavior
   def collection_index_link_to(document)
-    link_title = if document.key? 'dcterms_title_display'
-                   document['dcterms_title_display'].first
+    link_title = if document.key? 'title'
+                   document.title
                  else
                    I18n.t('collection.homepage_link')
                  end
-    link_to link_title, collection_home_path(document['id'])
+    link_to link_title, collection_home_path(document.id)
   end
 
   # link to external site from a collection homepage
@@ -63,7 +53,7 @@ module LinkingHelper
     if md_url?(document)
       link_to(
         I18n.t('show.external_link'),
-        md_url_for(document),
+        document.md_url,
         class: 'btn btn-primary', target: '_blank'
       )
     else

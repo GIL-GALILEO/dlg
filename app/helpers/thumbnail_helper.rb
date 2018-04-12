@@ -5,7 +5,7 @@ module ThumbnailHelper
 
   # Return img tag for thumbnail with link
   def thumbnail_image_tag(document)
-    case document['class_name_ss']
+    case document.klass
     when 'Item'
       image_tag(item_thumb_url(document), class: 'thumbnail')
     when 'Collection'
@@ -22,16 +22,17 @@ module ThumbnailHelper
     if sound_type_item?(document)
       asset_path 'file-audio.png'
     else
-      "http://dlg.galileo.usg.edu/#{document['record_id_ss'].split('_')[0]}/#{document['record_id_ss'].split('_')[1]}/do-th:#{document['record_id_ss'].split('_')[2]}"
+      parts = document.id.split('_')
+      "http://dlg.galileo.usg.edu/#{parts[0]}/#{parts[1]}/do-th:#{parts[2]}"
     end
   end
 
   # On Item show pages, link thumbnail to DO if available, no link otherwise
   def show_item_thumb(document)
-    if do_url? document
+    if document.do_url
       link_to(
         thumbnail_image_tag(document),
-        do_url_for(document),
+        document.do_url,
         target: '_blank'
       )
     else
@@ -41,15 +42,15 @@ module ThumbnailHelper
 
   # Link index page item thumb to DO if present, show page otherwise
   def index_item_thumb(document)
-    if do_url? document
+    if document.do_url
       link_to(
         thumbnail_image_tag(document),
-        do_url_for(document), target: '_blank'
+        document.do_url, target: '_blank'
       )
     else
       link_to(
         thumbnail_image_tag(document),
-        solr_document_path(identifier_for(document))
+        solr_document_path(document.id)
       )
     end
   end
@@ -57,10 +58,10 @@ module ThumbnailHelper
   # Check if collection has image set, return it or old style thumbnail URL
   # TODO: this check for dlg_default_image.png should be eliminated
   def collection_thumb_url(document)
-    if document['image_ss'] == '/dlg_default_image.png'
-      document['thumbnail_ss']
+    if document.image == '/dlg_default_image.png'
+      document.thumbnail
     else
-      cache_server_image_link document['image_ss']
+      cache_server_image_link document.image
     end
   end
 
@@ -68,16 +69,16 @@ module ThumbnailHelper
   def index_collection_thumb(document)
     link_to(
       thumbnail_image_tag(document),
-      collection_home_path(identifier_for(document))
+      collection_home_path(document.id)
     )
   end
 
   # Used in view to render collection thumb on show page
   def show_collection_thumb(document)
-    if md_url? document
+    if document.md_url
       link_to(
         thumbnail_image_tag(document),
-        md_url_for(document),
+        document.md_url,
         target: '_blank'
       )
     else
@@ -91,7 +92,7 @@ module ThumbnailHelper
   end
 
   def sound_type_item?(document)
-    document['dcterms_type_display']&.include?('Sound') &&
-      document['class_name_ss'] == 'Item'
+    document.types&.include?('Sound') &&
+      document.item?
   end
 end

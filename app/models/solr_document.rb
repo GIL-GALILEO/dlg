@@ -14,4 +14,44 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
+
+  def klass
+    self[:class_name_ss]
+  end
+
+  def item?
+    klass == 'Item'
+  end
+
+  def title
+    self[:title]
+  end
+
+  def image
+    self[:image_ss]
+  end
+
+  def thumbnail
+    self[:thumbnail_ss]
+  end
+
+  def types
+    self[:dcterms_type_display]
+  end
+
+  def do_url
+    self[:edm_is_shown_by_display]&.first
+  end
+
+  def md_url
+    self[:edm_is_shown_at_display]&.first
+  end
+
+  def collection_title
+    self[:collection_titles_sms]&.first
+  end
+
+  def collection_id
+    self[:collection_record_id_sms]&.first
+  end
 end
