@@ -4,30 +4,63 @@
     <h1 class="modal-title"><%= t('help.searching') %></h1>
   </div>
   <div class="modal-body">
-    <ul class="advanced-help">
-      <li>Select "match all" to require all fields.
-      </li>
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="advanced-help">
+          <li>Select "match all" to require all fields.</li>
+          <li>Select "match any" to find at least one field.</li>
+          <li>Combine keywords and attributes to find specific items.</li>
+          <li>Use quotation marks to search as a phrase.</li>
+          <li>Use "+" before a term to make it required. (Otherwise results
+            matching only some of your terms may be included).
+            <ul>
+              <li>Ex: <kbd>+girl scouts</kbd></li>
+            </ul>
+          </li>
+          <li>Use "-" before a word or phrase to exclude.
+            <ul>
+              <li>Ex: <kbd>cats -dogs</kbd></li>
+            </ul>
+          </li>
+          <li>Use "OR", "AND", and "NOT" to create complex boolean logic. You
+            can use parentheses in your complex expressions.
+          </li>
+          <li>Truncation and wildcards are not supported - word-stemming is done
+            automatically.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-5"><strong>This Search</strong></div>
+          <div class="col-md-7"><strong>Will Find</strong></div>
+        </div>
+        <div class="row">
+          <div class="col-md-5"><kbd>“Floyd Jillson”</kbd></div>
+          <div class="col-md-7">Records that have the name Floyd Jillson</div>
+        </div>
+        <div class="row">
+          <div class="col-md-5"><kbd>girl scouts +low</kbd></div>
+          <div class="col-md-7">Records with the word low that also contain girl and/or scouts</div>
+        </div>
+        <div class="row">
+          <div class="col-md-5"><kbd>brunswick -stew</kbd></div>
+          <div class="col-md-7">Records with the word Brunswick but not the word stew</div>
+        </div>
+        <div class="row">
+          <div class="col-md-5"><kbd>“African American” AND art</kbd></div>
+          <div class="col-md-7">Records containing the phrase “African American” and art</div>
+        </div>
+        <div class="row">
+          <div class="col-md-5"><kbd>bread AND (butter OR fruit)</kbd></div>
+          <div class="col-md-7">Records containing the words bread and butter or bread and fruit></div>
+        </div>
+      </div>
+    </div>
 
-      <li>Select "match any" to find at least one field.
-      </li>
 
-      <li>Combine keywords and attributes to find specific items.
-      </li>
 
-      <li>Use quotation marks to search as a phrase.
-
-      <li>Use "+" before a term to make it required. (Otherwise results matching
-        only some of your terms may be included).
-      </li>
-
-      <li>Use "-" before a word or phrase to exclude.
-
-      <li>Use "OR", "AND", and "NOT" to create complex boolean logic. You can
-        use parentheses in your complex expressions.
-      </li>
-      <li>Truncation and wildcards are not supported - word-stemming is done
-        automatically.
-      </li>
-    </ul>
   </div>
 </div>
