@@ -30,13 +30,11 @@ module CatalogHelper
   end
 
   def spatial_cleaner(value)
-    no_coordinates = if value =~ COORDINATES_REGEXP
-                       value.sub(COORDINATES_REGEXP, '')[0...-2]
-                     else
-                       value
-                     end
-    clean_value = no_coordinates.gsub('United States, ', '').gsub('United States', '')
-    clean_value.empty? ? no_coordinates : clean_value
+    if value =~ COORDINATES_REGEXP
+      value.sub(COORDINATES_REGEXP, '')[0...-2]
+    else
+      value
+    end
   end
 
   # Render human-readable label for RS.org value, if available and URI otherwise
