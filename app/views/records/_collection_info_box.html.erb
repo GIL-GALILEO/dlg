@@ -7,7 +7,12 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
           <div class="collection-image-area pull-right">
-            <%= image_tag(cache_server_image_link(@collection.image), class: 'img-thumbnail img-responsive collection-image') if @collection.image %>
+            <%# TODO: remove this horrible vang image override %>
+            <% if @collection.image && @collection.id == 'dlg_vang' %>
+              <%= image_tag(cache_server_image_link(vang_image), class: 'img-thumbnail img-responsive collection-image') %>
+            <% elsif @collection.image %>
+              <%= image_tag(cache_server_image_link(@collection.image), class: 'img-thumbnail img-responsive collection-image') %>
+            <% end %>
           </div>
           <div class="collection-info-text">
             <p><%= strip_tags(@collection.short_description) %></p>

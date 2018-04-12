@@ -65,19 +65,33 @@ module ThumbnailHelper
     end
   end
 
+  def vang_image
+    '/uploads/repository/71/image/feature_image.png'
+  end
+
   # Used in view to render index page thumbnail for Collections
+  # # TODO: avoid this awful hack to display special image for vang
   def index_collection_thumb(document)
+    image = collection_image_tag document
     link_to(
-      thumbnail_image_tag(document),
+      image,
       collection_home_path(document.id)
     )
+  end
+
+  def collection_image_tag(document)
+    if document.id == 'dlg_vang'
+      image_tag(cache_server_image_link(vang_image), class: 'thumbnail collection-image')
+    else
+      thumbnail_image_tag(document)
+    end
   end
 
   # Used in view to render collection thumb on show page
   def show_collection_thumb(document)
     if document.md_url
       link_to(
-        thumbnail_image_tag(document),
+        collection_image_tag(document),
         document.md_url,
         target: '_blank'
       )
