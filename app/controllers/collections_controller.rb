@@ -13,8 +13,8 @@ class CollectionsController < CatalogController
     config.add_facet_field :location_facet,          label: I18n.t('search.facets.location'), limit: true, helper_method: :spatial_cleaner
     config.add_facet_field :counties_facet,          label: I18n.t('search.facets.county'), limit: true
     config.add_facet_field :year_facet,              label: I18n.t('search.facets.year'), limit: true
-    config.add_facet_field :type_facet,              label: I18n.t('search.facets.type'), limit: true, helper_method: :type_cleaner
     config.add_facet_field :medium_facet,            label: I18n.t('search.facets.medium'), limit: true
+    config.add_facet_field :type_facet,              label: I18n.t('search.facets.type'), limit: true, helper_method: :type_cleaner
     config.add_facet_field :rights_facet,            label: I18n.t('search.facets.rights'), limit: true, helper_method: :rights_icon_label
     config.add_facet_field :provenance_facet,        label: I18n.t('search.facets.provenance'), limit: true
     config.add_facet_field :subjects_sms,            label: I18n.t('search.facets.subjects'), limit: true
@@ -25,29 +25,28 @@ class CollectionsController < CatalogController
     config.add_index_field :short_description_display,    label: I18n.t('search.labels.short_description'), helper_method: :strip_html
 
     # Show Fields
-    config.add_show_field 'dcterms_creator_display',                label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
-    config.add_show_field 'dcterms_contributor_display',            label: I18n.t('search.labels.dcterms_contributor')
-    config.add_show_field 'dcterms_publisher_display',              label: I18n.t('search.labels.dcterms_publisher')
-    config.add_show_field 'dc_date_display',                        label: I18n.t('search.labels.dc_date')
-    config.add_show_field 'dcterms_temporal_display',               label: I18n.t('search.labels.dcterms_temporal')
-    config.add_show_field 'dcterms_subject_display',                label: I18n.t('search.labels.dcterms_subject'), link_to_search: :subject_facet
-    config.add_show_field 'subjects_sms',                           label: I18n.t('search.labels.subjects')
-    config.add_show_field 'dcterms_spatial_display',                label: I18n.t('search.labels.dcterms_spatial'), link_to_search: :location_facet
-    config.add_show_field 'dcterms_medium_display',                 label: I18n.t('search.labels.dcterms_medium'), link_to_search: :medium_facet
-    config.add_show_field 'dcterms_type_display',                   label: I18n.t('search.labels.dcterms_type')
-    config.add_show_field 'dc_format_display',                      label: I18n.t('search.labels.dc_format')
-    config.add_show_field 'dcterms_description_display',            label: I18n.t('search.labels.dcterms_description')
-    config.add_show_field 'dcterms_identifier_display',             label: I18n.t('search.labels.dcterms_identifier')
-    config.add_show_field 'edm_is_shown_at_display',                label: I18n.t('search.labels.edm_is_shown_at'), helper_method: :linkify
-    config.add_show_field 'edm_is_shown_by_display',                label: I18n.t('search.labels.edm_is_shown_by'), helper_method: :linkify
-    config.add_show_field 'dcterms_language_display',               label: I18n.t('search.labels.dcterms_language')
-    config.add_show_field 'dcterms_rights_holder_display',          label: I18n.t('search.labels.dcterms_rights_holder')
-    config.add_show_field 'dlg_local_right',                        label: I18n.t('search.labels.dlg_local_right')
-    config.add_show_field 'dcterms_bibliographic_citation_display', label: I18n.t('search.labels.dcterms_bibliographic_citation')
-    config.add_show_field 'dcterms_is_part_of_display',             label: I18n.t('search.labels.dcterms_is_part_of')
-    config.add_show_field 'dcterms_provenance_display',             label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
-    config.add_show_field 'dc_right_display',                       label: I18n.t('search.labels.dc_right'), helper_method: :rights_icon_tag
-    # config.add_show_field 'dcterms_extent_display',                 label: I18n.t('search.labels.dcterms_extent')
+    config.add_show_field :dcterms_creator_display,                label: I18n.t('search.labels.dcterms_creator'), link_to_search: :creator_facet
+    config.add_show_field :dcterms_contributor_display,            label: I18n.t('search.labels.dcterms_contributor')
+    config.add_show_field :dcterms_publisher_display,              label: I18n.t('search.labels.dcterms_publisher')
+    config.add_show_field :dc_date_display,                        label: I18n.t('search.labels.dc_date')
+    config.add_show_field :dcterms_temporal_display,               label: I18n.t('search.labels.dcterms_temporal')
+    config.add_show_field :dcterms_subject_display,                label: I18n.t('search.labels.dcterms_subject'), link_to_search: :subject_facet
+    config.add_show_field :subjects_sms,                           label: I18n.t('search.labels.subjects')
+    config.add_show_field :dcterms_spatial_display,                label: I18n.t('search.labels.dcterms_spatial'), link_to_search: :location_facet
+    config.add_show_field :dcterms_medium_display,                 label: I18n.t('search.labels.dcterms_medium'), link_to_search: :medium_facet
+    config.add_show_field :dcterms_type_display,                   label: I18n.t('search.labels.dcterms_type')
+    config.add_show_field :dc_format_display,                      label: I18n.t('search.labels.dc_format')
+    config.add_show_field :dcterms_description_display,            label: I18n.t('search.labels.dcterms_description')
+    config.add_show_field :dcterms_identifier_display,             label: I18n.t('search.labels.dcterms_identifier')
+    config.add_show_field :edm_is_shown_at_display,                label: I18n.t('search.labels.edm_is_shown_at'), helper_method: :linkify
+    config.add_show_field :edm_is_shown_by_display,                label: I18n.t('search.labels.edm_is_shown_by'), helper_method: :linkify
+    config.add_show_field :dcterms_language_display,               label: I18n.t('search.labels.dcterms_language')
+    config.add_show_field :dcterms_rights_holder_display,          label: I18n.t('search.labels.dcterms_rights_holder')
+    config.add_show_field :dlg_local_right,                        label: I18n.t('search.labels.dlg_local_right')
+    config.add_show_field :dcterms_bibliographic_citation_display, label: I18n.t('search.labels.dcterms_bibliographic_citation')
+    config.add_show_field :dcterms_is_part_of_display,             label: I18n.t('search.labels.dcterms_is_part_of')
+    config.add_show_field :dcterms_provenance_display,             label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
+    config.add_show_field :dc_right_display,                       label: I18n.t('search.labels.dc_right'), helper_method: :rights_icon_tag
 
     config.show.html_title = 'title_display'
 

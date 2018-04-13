@@ -234,6 +234,22 @@ en:
     search_history: 'Search History'
   help:
     search: 'Search Tips'
+    refine_items: 'Refine Info'
+    refine_collections: 'Refine Info'
+    facets:
+      creator: 'Creator of the physical object'
+      subject: 'The topics a record is about in Library of Congress Subject Heading form'
+      people: 'The people a record is about in Library of Congress Subject Heading form'
+      location: 'The name of the place in which the physical item originated'
+      county: 'The name of the Georgia County in which the physical item originated'
+      year: 'The year in which the physical item was created'
+      medium: 'The specific type of physical item (photographs, negatives, reports, newspapers, film, etc.)'
+      type: 'The type of digital object (Still Image, Moving Image, Text, Sound, etc.)'
+      rights: 'Rightsstatements.org or Creative Commons rights and reuse statements'
+      collection: 'The name of the digital collection the items belong to'
+      provenance: 'The name of the institution that holds the physical item'
+      time_period: 'Records from time periods relevant to Georgia history'
+      topic: 'Records about popular topics in Georgia history'
 
 
 

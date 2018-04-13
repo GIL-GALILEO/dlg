@@ -51,8 +51,8 @@ Rails.application.routes.draw do
 
   namespace :help do
     get 'search'
-    # get 'b'
-    # get 'c'
+    get 'refine-items'
+    get 'refine-collections'
   end
 
   root to: 'homepage#index'

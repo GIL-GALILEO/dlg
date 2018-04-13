@@ -10,4 +10,12 @@ module HelpHelper
       class: 'btn btn-default', data: { ajax_modal: 'trigger' }
     )
   end
+
+  def refine_help
+    if controller.class.name =~ /Collection/
+      'refine_collections'
+    else
+      'refine_items'
+    end
+  end
 end

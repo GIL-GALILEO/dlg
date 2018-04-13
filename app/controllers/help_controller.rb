@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-# "Help" menu items static content controller
+# Helpful modal content controller
 class HelpController < HomepageController
   def search; end
+
+  def refine_items; end
+
+  def refine_collections; end
 end
