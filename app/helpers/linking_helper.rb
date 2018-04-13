@@ -50,7 +50,7 @@ module LinkingHelper
   # show button for link to external collection page
   # TODO: check for local? value and display something else? not 'Partner'?
   def visit_partner_button(document)
-    if md_url?(document)
+    if document.md_url
       link_to(
         I18n.t('show.external_link'),
         document.md_url,
