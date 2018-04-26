@@ -28,7 +28,7 @@ feature 'Collections' do
     end
     context 'search bar' do
       scenario 'has a placeholder indicating it searches over the collection Collections' do
-        expect(page).to have_css("input[placeholder='#{I18n.t('search.bar.placeholder.collection', collection: 'Historic Documents of Georgia' )}']")
+        expect(page).to have_css("input[placeholder='#{I18n.t('search.bar.placeholder.collection', collection: 'Historic Documents of Georgia (Georgia Archives)' )}']")
       end
     end
   end
