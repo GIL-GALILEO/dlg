@@ -3,7 +3,8 @@ en:
     maps:
       title: 'Map'
     search:
-      start_over: 'New Search'
+      start_over: 'Clear All'
+      new_search: 'New Search'
   support:
     array:
       words_connector: "<br> "

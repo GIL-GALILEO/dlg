@@ -1,7 +1,10 @@
 <% if query_has_constraints? %>
   <div id="appliedParams" class="clearfix constraints-container">
     <div class="pull-right">
-      <%= link_to t('blacklight.search.start_over'), search_path, class: 'catalog_startOverLink btn btn-sm btn-text', id: 'startOverLink' %>
+      <div class="btn-group" role="group" aria-label="Search Options">
+        <%= link_to t('blacklight.search.new_search'), search_path, class: 'btn btn-text btn-sm' %>
+        <%= link_to t('blacklight.search.start_over'), start_over_path, class: 'catalog_startOverLink btn btn-text btn-sm', id: 'startOverLink' %>
+      </div>
     </div>
     <span class="constraints-label"><%= t('blacklight.search.filters.title') %></span>
     <%= render_constraints(params) %>
