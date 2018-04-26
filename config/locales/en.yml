@@ -162,7 +162,8 @@ en:
     sort:
       relevance: 'Relevance'
       collection: 'Collection'
-      date: 'Date'
+      date_asc: 'Date (Ascending)'
+      date_desc: 'Date (Descending)'
       collections_first: 'Collections First'
       collection_title: 'Collection Name'
       title: 'Title'
