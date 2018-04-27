@@ -3,7 +3,7 @@ require_relative 'boot'
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
-require "active_job/railtie"
+# require "active_job/railtie"
 require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
@@ -18,6 +18,9 @@ Bundler.require(*Rails.groups)
 
 module Dlg2
   class Application < Rails::Application
+    # Use custom controller for exception landing pages
+    config.exceptions_app = routes
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
