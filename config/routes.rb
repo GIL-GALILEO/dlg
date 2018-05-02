@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     get 'search'
     get 'refine-items'
     get 'refine-collections'
+    get 'map'
   end
 
   root to: 'homepage#index'

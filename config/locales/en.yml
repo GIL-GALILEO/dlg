@@ -239,6 +239,7 @@ en:
     search: 'Search Tips'
     refine_items: 'Refine Info'
     refine_collections: 'Refine Info'
+    map: 'Map Search Tips'
     facets:
       creator: 'Creator of the physical object'
       subject: 'The topics a record is about in Library of Congress Subject Heading form'

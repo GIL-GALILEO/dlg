@@ -7,4 +7,6 @@ class HelpController < HomepageController
   def refine_items; end
 
   def refine_collections; end
+
+  def map; end
 end

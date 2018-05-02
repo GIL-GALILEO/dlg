@@ -2,14 +2,28 @@
   <div class="sr-only">
     <span id="mapped-record-count"><%= @response['response']['numFound'] %></span> records displayed on map
   </div>
-  <div id="map-leader"></div>
-  <%= blacklight_map_tag('blacklight-index-map',
-                         {data:{searchcontrol: true,
-                                catalogpath: search_location_path,
-                                placenamefield: blacklight_config.view.maps.placename_field,
-                                clustercount:'hits',
-                                searchresultsview: default_document_index_view_type,
-                                initialview: blacklight_config.view.maps.initialview
-                         }}) %>
-  <%= javascript_tag "$('#blacklight-index-map').blacklight_leaflet_map(#{geojson_features});" %>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="map-leader" class="pull-left">
+        <%# javascript injected text goes here  %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="map-help" class="pull-right">
+        <%= help_link 'map' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= blacklight_map_tag('blacklight-index-map',
+                           {data: {searchcontrol: true,
+                                   catalogpath: search_location_path,
+                                   placenamefield: blacklight_config.view.maps.placename_field,
+                                   clustercount: 'hits',
+                                   searchresultsview: default_document_index_view_type,
+                                   initialview: blacklight_config.view.maps.initialview
+                           }}) %>
+    <%= javascript_tag "$('#blacklight-index-map').blacklight_leaflet_map(#{geojson_features});" %>
+  </div>
+
 </div>
