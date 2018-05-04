@@ -13,6 +13,17 @@
 @import "blacklight_maps_customizations";
 @import "openseadragon/openseadragon";
 
+.top-banner {
+  text-align: center;
+  background: $dlg-blue;
+  font-size: 1.4em;
+  padding: 5px;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+}
+
 section#popular {
   margin-top: 70px; }
 section#popular img {
