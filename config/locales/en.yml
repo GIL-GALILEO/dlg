@@ -38,7 +38,7 @@ en:
       noc_nc:
         label: 'No Copyright - Non-Commercial Use Only'
         uri: 'http://rightsstatements.org/vocab/NoC-NC/1.0/'
-        icon_url: 'rs_org_icons/NoC-NC.dark-white-interior-blue-type.svg'
+        icon_url: 'rs_org_icons/NoC-NONCOMMERCIAL.dark-white-interior-blue-type.svg'
       noc_oklr:
         label: 'No Copyright - Other Known Legal Restrictions'
         uri: 'http://rightsstatements.org/vocab/NoC-OKLR/1.0/'
