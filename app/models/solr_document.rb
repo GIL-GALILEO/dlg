@@ -15,6 +15,24 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
 
+  field_semantics.merge!(
+    contributor: 'dcterms_contributor_display',
+    coverage: 'dcterms_spatial_display',
+    creator: 'dcterms_creator_display',
+    date: 'dc_date_display',
+    description: 'dcterms_description_display',
+    format: 'dc_format_display',
+    identifier: 'dcterms_identifier_display',
+    language: 'dcterms_language_display',
+    publisher: 'dcterms_publisher_display',
+    relation: 'dc_relation_display',
+    rights: 'dc_right_display',
+    source: 'dcterms_is_part_of_display',
+    subject: 'dcterms_subject_display',
+    title: 'dcterms_title_display',
+    type: 'dcterms_type_display'
+  )
+
   def klass
     self[:class_name_ss]
   end
