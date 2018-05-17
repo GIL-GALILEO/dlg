@@ -31,8 +31,7 @@ module ThumbnailHelper
     if document.do_url
       link_to(
         thumbnail_image_tag(document),
-        document.do_url,
-        target: '_blank'
+        document.do_url
       )
     else
       thumbnail_image_tag(document) + visit_partner_button(document)
@@ -44,7 +43,7 @@ module ThumbnailHelper
     if document.do_url
       link_to(
         thumbnail_image_tag(document),
-        document.do_url, target: '_blank'
+        document.do_url
       )
     else
       link_to(
@@ -91,8 +90,7 @@ module ThumbnailHelper
     if document.md_url
       link_to(
         collection_image_tag(document),
-        document.md_url,
-        target: '_blank'
+        document.md_url
       )
     else
       # No other link available, so link thumb to internal collection homepage
