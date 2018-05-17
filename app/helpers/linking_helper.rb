@@ -35,7 +35,7 @@ module LinkingHelper
                  else
                    I18n.t('collection.homepage_link')
                  end
-    link_to link_title, collection_home_path(document.id)
+    link_to link_title, collection_home_path(document.id), class: 'record-show-link'
   end
 
   # link to external site from a collection homepage
