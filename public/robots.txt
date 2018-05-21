@@ -1,2 +1,10 @@
-# User-agent: *
-# Disallow: /
+User-agent: *
+Disallow: /records?
+Disallow: /records.html?
+Disallow: /records/facet
+Disallow: /records/map
+Disallow: /collections?
+Disallow: /collections.html?
+Disallow: /collections/facet
+Disallow: /institutions
+Disallow: /counties
