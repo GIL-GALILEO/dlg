@@ -3,6 +3,7 @@
     "short_name": "DLG",
     "description": "Sharing Georgia's History and Culture Online",
     "lang": "en-US",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
