@@ -23,7 +23,7 @@ SitemapGenerator::Sitemap.create do
       rows: 1000,
       fl: 'id, updated_at_dts',
       fq: 'display_b:1, portals_sms:"georgia"',
-      cursorMark: '*',
+      cursorMark: cursor,
       sort: 'id asc'
     }
     response['response']['docs'].each do |doc|
