@@ -1,4 +1,5 @@
 User-agent: *
+Sitemap: https://dlg.usg.edu/sitemap.xml.gz
 Disallow: /records?
 Disallow: /records.html?
 Disallow: /records/facet
@@ -8,3 +9,4 @@ Disallow: /collections.html?
 Disallow: /collections/facet
 Disallow: /institutions
 Disallow: /counties
+Disallow: /map

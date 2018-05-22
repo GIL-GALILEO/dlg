@@ -19,3 +19,7 @@
 
 /config/secrets.yml
 /.rspec
+
+# ignore sitemap files generated in development
+/public/*.gz
+/sitemap.xml
