@@ -33,6 +33,30 @@ class SolrDocument
     type: 'dcterms_type_display'
   )
 
+  def as_json(_)
+    {
+      id: id,
+      title: title,
+      collection_id: collection_id,
+      collection_title: collection_title,
+      dcterms_contributor: self['dcterms_contributor_display'],
+      dcterms_spatial: self['dcterms_spatial_display'],
+      dcterms_creator: self['dcterms_creator_display'],
+      dc_date: self['dc_date_display'],
+      dcterms_description: self['dcterms_description_display'],
+      dc_format: self['dc_format_display'],
+      dcterms_identifier: self['dcterms_identifier_display'],
+      dcterms_language: self['dcterms_language_display'],
+      dcterms_publisher: self['dcterms_publisher_display'],
+      dc_relation: self['dc_relation_display'],
+      dc_right: self['dc_right_display'],
+      dcterms_is_part_of: self['dcterms_is_part_of_display'],
+      dcterms_subject: self['dcterms_subject_display'],
+      dcterms_title: self['dcterms_title_display'],
+      dcterms_type: self['dcterms_type_display']
+    }
+  end
+
   def klass
     self[:class_name_ss]
   end
