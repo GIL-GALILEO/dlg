@@ -196,7 +196,6 @@ html {
 .navbar-default {
   border: none;
   border-top: 3px solid #ab7c5b;
-  //border-bottom: 1px solid #ab7c5b;
   border-radius: 0;
   background: none;
 
@@ -219,10 +218,7 @@ html {
 
 .search {
   padding: 10px 0;
-  //background-color: #F7F6F1;
   background-color: #1B8892;
-  //border-bottom: 1px solid #E8E5D4;
-  //margin-bottom: 10px;
   .input-group-lg>.input-group-btn>.btn {
     padding: 10px 20px;
   }
@@ -238,7 +234,7 @@ html {
     text-align: center;
     margin: 0;
     img {
-      width: 200px;
+      width: 345px;
     }
   }
   .logo-galileo {
@@ -349,7 +345,6 @@ ul.social-icons {
   }
   h4 {
     margin-top: 0;
-    //margin-bottom:0;
   }
   p {
     color: $gray-light;
@@ -496,12 +491,10 @@ section#institutions {
     .facet-count, .badge {
       width: auto;
       float: right;
-      //margin-top: 20px;
     }
     .facet-label {
       display: inline;
       text-indent: 0;
-      padding-right: 20px;
       padding: 0 20px 0 0;
     }
   }
