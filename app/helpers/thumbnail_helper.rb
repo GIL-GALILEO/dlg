@@ -22,7 +22,7 @@ module ThumbnailHelper
     if sound_type_item?(document)
       asset_path 'file-audio.png'
     else
-      "http://dlg.galileo.usg.edu/#{document['repository_slug_ss']}/#{document['collection_slug_ss']}/do-th:#{document['slug_ss']}"
+      "//dlg.galileo.usg.edu/#{document['repository_slug_ss']}/#{document['collection_slug_ss']}/do-th:#{document['slug_ss']}"
     end
   end
 
