@@ -12,6 +12,10 @@ class RecordsController < CatalogController
   configure_blacklight do |config|
     config.search_builder_class = RecordsSearch
 
+    config.default_document_solr_params = {
+      fq: 'display_b: 1, portals_sms:"georgia"'
+    }
+
     # FACETS
     config.add_facet_field :creator_facet,               label: I18n.t('search.facets.creator'), limit: true
     config.add_facet_field :subject_facet,               label: I18n.t('search.facets.subject'), limit: true
