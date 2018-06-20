@@ -7,6 +7,10 @@ class RecordsController < CatalogController
   include BlacklightAdvancedSearch::RenderConstraintsOverride
   helper BlacklightAdvancedSearch::RenderConstraintsOverride
 
+  rescue_from Blacklight::Exceptions::RecordNotFound do |e|
+    redirect_to '/404'
+  end
+
   before_action :set_collection, only: :index, if: :collection_limit_set?
 
   configure_blacklight do |config|
