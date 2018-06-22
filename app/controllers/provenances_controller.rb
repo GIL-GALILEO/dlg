@@ -42,7 +42,9 @@ class ProvenancesController < CatalogController
   private
 
   def holding_institutions
-    provenances_pivot_facet_values.map { |p| build_holding_institution p }
+    provenances_pivot_facet_values
+      .select { |p| p.key? 'pivot' }
+      .map { |p| build_holding_institution p }
   end
 
   def build_holding_institution(prov)
