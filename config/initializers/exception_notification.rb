@@ -8,6 +8,7 @@ ExceptionNotification.configure do |config|
   end
   config.ignored_exceptions += %w[Blacklight::Exceptions::RecordNotFound]
   config.error_grouping = true
+  config.error_grouping_period = 10.minutes
   config.add_notifier :slack,
                       webhook_url: Rails.application.secrets.slack_webhook_url,
                       channel: '#app-exceptions',
