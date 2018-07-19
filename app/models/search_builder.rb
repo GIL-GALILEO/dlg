@@ -3,7 +3,9 @@
 # abstract class for dlg search builder classes
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
+  include BlacklightRangeLimit::RangeLimitBuilder
   include BlacklightMaps::MapsSearchBuilderBehavior
+
   self.default_processor_chain += %i[
     show_only_public_records
     show_only_dlg_records

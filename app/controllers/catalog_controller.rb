@@ -3,6 +3,7 @@
 # Main Blacklight controller housing common configuration shared with other
 # child Controllers
 class CatalogController < ApplicationController
+  include BlacklightRangeLimit::ControllerOverride
   include Blacklight::Catalog
 
   configure_blacklight do |config|

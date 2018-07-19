@@ -2,11 +2,13 @@
 
 # controller for search history actions
 class SearchHistoryController < ApplicationController
+  include Blacklight::Configurable
   helper BlacklightMaps::RenderConstraintsOverride
   helper BlacklightAdvancedSearch::RenderConstraintsOverride
-  include Blacklight::Configurable
+  helper BlacklightRangeLimit::ViewHelperOverride
+  helper RangeLimitHelper
 
-  # formerly included modeule code pasted here to easily override
+  # formerly included module code pasted here to easily override
   # the copying of config from CatalogController
   copy_blacklight_config_from(RecordsController)
 

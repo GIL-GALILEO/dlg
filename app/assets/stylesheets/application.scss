@@ -11,6 +11,8 @@
 @import "blacklight_gallery/default";
 @import "blacklight_maps/blacklight-maps";
 @import "blacklight_maps_customizations";
+@import 'bootstrap_slider';
+@import 'blacklight_range_limit/blacklight_range_limit';
 @import "openseadragon/openseadragon";
 
 .top-banner {
@@ -501,14 +503,34 @@ section#institutions {
   }
 }
 
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
+/* Extra small devices (phones, less than 768px) 
+ *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
+*/
+/* No media query since this is the default in Bootstrap 
+ *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
+*/
 
 @media (min-width: $screen-xs-min) { }
 
-/* Small devices (tablets, 768px and up) */
+/* Small devices (tablets, 768px and up) 
+ *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
+*/
 @media (min-width: $screen-sm-min) {
-  /*override default behavior on extra margin given to navbar*/
+  /*override default behavior on extra margin given to navbar
+ *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
+*/
   .container > .navbar-collapse {
     margin-right: -15px;
     margin-left: -15px;
@@ -636,7 +658,12 @@ section#institutions {
       float: right;
     }
   }
-  /* this is in the app itself.. adding for local development */
+  /* this is in the app itself.. adding for local development 
+ *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
+*/
   .facets-toggle {
     display: none;
   }
@@ -675,7 +702,12 @@ section#institutions {
   }
 }
 
-/* Medium devices (desktops, 992px and up) */
+/* Medium devices (desktops, 992px and up) 
+ *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
+*/
 @media (min-width: $screen-md-min) {
   .header {
     padding: 10px 0;
@@ -722,7 +754,12 @@ section#institutions {
   }
 }
 
-/* Large devices (large desktops, 1200px and up) */
+/* Large devices (large desktops, 1200px and up) 
+ *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
+*/
 @media (min-width: $screen-lg-min) {
   section#counties {
     .sort-buttons {

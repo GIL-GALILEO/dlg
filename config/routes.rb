@@ -6,14 +6,19 @@ Rails.application.routes.draw do
 
   concern :searchable, Blacklight::Routes::Searchable.new
   concern :exportable, Blacklight::Routes::Exportable.new
+  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
 
   resource :records, only: [:index] do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
+    concerns :range_searchable
+
   end
   resource :collections, only: [:index] do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
+    concerns :range_searchable
+
   end
 
   get '/search', to: 'advanced#index', as: 'search'

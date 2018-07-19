@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require 'blacklight_advanced_search'
+//= require blacklight_range_limit
 //= require blacklight/blacklight
 //= require_tree .
 
@@ -40,7 +41,7 @@ Blacklight.onLoad(function() {
         width: '100%'
     });
 
-    // chosenify nimination form selects
+    // chosenify nomination form selects
     $('select.nomination-select').chosen();
 
 });
