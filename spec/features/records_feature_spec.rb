@@ -17,4 +17,17 @@ feature 'Records' do
       expect(page).to have_css('a.view-type-gallery.active')
     end
   end
+  context 'range facet plugin', js: true do
+    before(:each) { find('div.blacklight-year_facet').click }
+    scenario 'slider is shown' do
+      expect(page).to have_css('div.slider.slider-horizontal')
+    end
+    scenario 'date inputs for range are shown' do
+      expect(page).to have_css('#range_year_facet_begin')
+      expect(page).to have_css('#range_year_facet_end')
+    end
+    scenario 'flot histogram is shown' do
+      expect(page).to have_css('canvas.flot-overlay')
+    end
+  end
 end
