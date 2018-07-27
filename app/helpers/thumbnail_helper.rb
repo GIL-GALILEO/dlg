@@ -13,7 +13,7 @@ module ThumbnailHelper
     else
       image_tag(no_thumb_url, class: 'thumbnail')
     end
-  rescue StandardError # TODO: ?
+  rescue StandardError => e # TODO: ?
     image_tag(no_thumb_url, class: 'thumbnail')
   end
 

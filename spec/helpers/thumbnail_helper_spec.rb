@@ -5,10 +5,10 @@ require 'rails_helper'
 describe ThumbnailHelper do
   describe '#thumbnail_image_tag' do
     it 'handles documents with missing or unexpected data gracefully' do
-      no_thumb = '<img class="thumbnail" src="/no-thumb.png" alt="No thumb" />'
-      wrong_class_doc = { 'class_name_ss': 'Fail' }
+      no_thumb = '<img class="thumbnail" src="/no-thumb.png" />'
+      wrong_class_doc = SolrDocument.new(class_name_ss: 'Fail')
       expect(thumbnail_image_tag(wrong_class_doc)).to eq no_thumb
-      error_doc = { 'class_name_ss': 'Item' }
+      error_doc = SolrDocument.new
       expect(thumbnail_image_tag(error_doc)).to eq no_thumb
     end
   end
