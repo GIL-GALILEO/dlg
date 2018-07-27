@@ -18,6 +18,25 @@ feature 'Collections' do
         expect(page).to have_css('a.view-type-list.active')
       end
     end
+    context 'range facet plugin', js: true do
+      before(:each) { find('div.blacklight-year_facet').click }
+      scenario 'slider is shown' do
+        expect(page).to have_css('div.slider.slider-horizontal')
+      end
+      scenario 'date inputs for range are shown' do
+        expect(page).to have_css('#range_year_facet_begin')
+        expect(page).to have_css('#range_year_facet_end')
+      end
+      scenario 'flot histogram is shown' do
+        expect(page).to have_css('canvas.flot-overlay')
+      end
+      scenario 'limiting to a range shows constraint in constraint area' do
+        click_button(I18n.t('blacklight.range_limit.submit_limit'))
+        within '#appliedParams' do
+          expect(page).to have_text I18n.t('search.facets.year')
+        end
+      end
+    end
   end
   context 'collection home page' do
     before(:each) { visit collection_home_path('gaarchives_hdg') }

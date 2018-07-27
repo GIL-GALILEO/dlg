@@ -29,5 +29,11 @@ feature 'Records' do
     scenario 'flot histogram is shown' do
       expect(page).to have_css('canvas.flot-overlay')
     end
+    scenario 'limiting to a range shows constraint in constraint area' do
+      click_button(I18n.t('blacklight.range_limit.submit_limit'))
+      within '#appliedParams' do
+        expect(page).to have_text I18n.t('search.facets.year')
+      end
+    end
   end
 end
