@@ -5,7 +5,9 @@ class RecordsController < CatalogController
   include BlacklightMaps::ControllerOverride
   include BlacklightAdvancedSearch::Controller
   include BlacklightAdvancedSearch::RenderConstraintsOverride
+  include BlacklightRangeLimit::ControllerOverride
   helper BlacklightAdvancedSearch::RenderConstraintsOverride
+
 
   rescue_from Blacklight::Exceptions::RecordNotFound do |e|
     redirect_to '/404'
