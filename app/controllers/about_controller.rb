@@ -7,4 +7,6 @@ class AboutController < HomepageController
   def policy; end
 
   def partners_sponsors; end
+
+  def api; end
 end
