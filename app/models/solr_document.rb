@@ -65,6 +65,18 @@ class SolrDocument
     klass == 'Item'
   end
 
+  def local?
+    self[:local_ss] == '1'
+  end
+
+  def files?
+    self[:files_is].to_i.positive?
+  end
+
+  def files
+    self[:files_is]
+  end
+
   def title
     self[:title]
   end

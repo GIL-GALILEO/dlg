@@ -48,4 +48,14 @@ module CatalogHelper
     end
     uri
   end
+
+  def iiif_manifest_url(document = @document)
+    slugs = document.id.split('_')
+    if document.files > 1
+      "http://dlg-staging.galib.uga.edu/iiif/2/dlg%2f#{slugs[0]}%2f#{slugs[1]}%2f#{document.id}-001.jp2/info.json"
+    else
+      "http://dlg-staging.galib.uga.edu/iiif/2/dlg%2f#{slugs[0]}%2f#{slugs[1]}%2f#{document.id}.jp2/info.json"
+    end
+
+  end
 end
