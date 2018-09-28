@@ -1,12 +1,5 @@
 <section id="record-show">
   <div class="container">
-    <% if @document.local? && @document.files? %>
-    <div class="row">
-      <div class="col-md-12">
-        <%= openseadragon_picture_tag iiif_manifest_url %>
-      </div>
-    </div>
-    <% end %>
     <div class="row">
       <div id="content" class="<%= show_content_classes %>">
         <%= render_document_main_content_partial %>

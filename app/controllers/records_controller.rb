@@ -184,6 +184,7 @@ class RecordsController < CatalogController
       'f.collection_titles_sms.facet.limit' => -1,
       'f.provenance_facet.facet.limit' => -1
     }
+    config.show.partials << :viewer
   end
 
   add_show_tools_partial :reuse, partial: 'reuse'

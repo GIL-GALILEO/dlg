@@ -1,0 +1,9 @@
+<% if @document.local? && @document.files? %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well">
+        <%= openseadragon_picture_tag iiif_manifest_urls, { data: { openseadragon: { sequenceMode: true }}} %>
+      </div>
+    </div>
+  </div>
+<% end %>
