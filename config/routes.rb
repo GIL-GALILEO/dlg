@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     get 'mission'
     get 'policy'
     get 'partners-sponsors'
+    get 'api'
   end
 
   namespace :help do

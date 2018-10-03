@@ -1,0 +1,88 @@
+<section id="about">
+  <div class="container">
+    <h2>DLG API</h2>
+    <p>This site provides an API for researchers and digital humanists. Responses come in either XML or JSON flavor.</p>
+    <h3>Endpoints</h3>
+    <table class="table">
+      <tr>
+        <th>URL Scheme</th>
+        <th>Description</th>
+        <th>Expected Response</th>
+        <th>Notes</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>
+          <code>https://dlg.usg.edu/records.json</code><br>
+          <code>https://dlg.usg.edu/records.xml</code>
+        </td>
+        <td>
+          Returns all search records in a paginated list with facet data.
+        </td>
+        <td>
+          Item(s), Facet information
+        </td>
+        <td>
+          Combine with query parameters to limit results. Results are paginated.
+        </td>
+        <td>
+          <a href="https://dlg.usg.edu/records.json?f%5Bcounties_facet%5D%5B%5D=Clarke&only_path=true&op=ANDq=columns&search_field=all_fields&sort=score+desc%2C+year+asc">JSON Results for 'columns' in Clarke County</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>https://dlg.usg.edu/record/{<var>identifier</var>}.json</code><br>
+          <code>https://dlg.usg.edu/record/{<var>identifier</var>}.xml</code>
+        </td>
+        <td>
+          Returns all available metadata for record corresponding to <var>identifier</var>.
+        </td>
+        <td>
+          Item
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          <a href="https://dlg.usg.edu/record/dlg_larc_jlc0378.json">JSON for <var>dlg_larc_jlc0378</var></a>
+        </td>
+      <tr>
+        <td>
+          <code>https://dlg.usg.edu/collections.json</code><br>
+          <code>https://dlg.usg.edu/collections.xml</code>
+        </td>
+        <td>
+          Returns all collection search records in a paginated list with facet data.
+        </td>
+        <td>
+          Collection(s), Facet information
+        </td>
+        <td>
+          Combine with query parameters to limit results. Results are paginated.
+        </td>
+        <td>
+          <a href="https://dlg.usg.edu/collections.json?only_path=true&op=ANDq=architecture&search_field=all_fields&sort=score+desc%2C+year+asc">JSON Results for Collections matching 'architecture'</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>https://dlg.usg.edu/collection/{<var>identifier</var>}.json</code><br>
+          <code>https://dlg.usg.edu/collection/{<var>identifier</var>}.xml</code>
+        </td>
+        <td>
+          Returns all items contained in the Collection corresponding to <var>identifier</var>.
+        </td>
+        <td>
+          Item(s), facet information
+        </td>
+        <td>
+          &nbsp;
+        </td>
+        <td>
+          <a href="https://dlg.usg.edu/collection/dlg_gacoch.json">JSON for records in <var>dlg_gacoch</var></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
+
