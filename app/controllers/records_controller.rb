@@ -67,7 +67,6 @@ class RecordsController < CatalogController
     config.add_show_field :dcterms_bibliographic_citation_display,  label: I18n.t('search.labels.dcterms_bibliographic_citation')
     config.add_show_field :dcterms_is_part_of_display,              label: I18n.t('search.labels.dcterms_is_part_of')
     config.add_show_field :dcterms_provenance_display,              label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
-    config.add_show_field :new_dcterms_provenance_display,          label: "New #{ I18n.t('search.labels.dcterms_provenance')}", link_to_search: :provenance_facet
     config.add_show_field :dc_right_display,                        label: I18n.t('search.labels.dc_right'), helper_method: :rights_icon_tag
     # config.add_show_field 'dcterms_extent_display',                 label: I18n.t('search.labels.dcterms_extent')
     # config.add_show_field 'dcterms_temporal_display',               label: I18n.t('search.labels.dcterms_temporal')
