@@ -8,7 +8,6 @@ class RecordsController < CatalogController
   include BlacklightRangeLimit::ControllerOverride
   helper BlacklightAdvancedSearch::RenderConstraintsOverride
 
-
   rescue_from Blacklight::Exceptions::RecordNotFound do |e|
     redirect_to '/404'
   end
@@ -68,12 +67,6 @@ class RecordsController < CatalogController
     config.add_show_field :dcterms_is_part_of_display,              label: I18n.t('search.labels.dcterms_is_part_of')
     config.add_show_field :dcterms_provenance_display,              label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
     config.add_show_field :dc_right_display,                        label: I18n.t('search.labels.dc_right'), helper_method: :rights_icon_tag
-    # config.add_show_field 'dcterms_extent_display',                 label: I18n.t('search.labels.dcterms_extent')
-    # config.add_show_field 'dcterms_temporal_display',               label: I18n.t('search.labels.dcterms_temporal')
-    # config.add_show_field 'collection_name_sms',                    label: I18n.t('search.labels.collection'), link_to_search: true
-    # config.add_show_field 'dc_relation_display',                    label: I18n.t('search.labels.dc_relation')
-    # config.add_show_field 'dcterms_title_display',                  label: I18n.t('search.labels.dcterms_title')
-    # config.add_show_field 'record_id_ss',                           label: I18n.t('search.labels.record_id')
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and

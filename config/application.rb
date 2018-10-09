@@ -1,4 +1,5 @@
 require_relative 'boot'
+require_relative '../lib/middleware/bad_request_handler'
 
 require "rails"
 # Pick the frameworks you want:
@@ -30,5 +31,8 @@ module Dlg2
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Handle BarRequest errors with custom middleware
+    config.middleware.use BadRequestHandler
   end
 end
