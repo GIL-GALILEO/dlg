@@ -19,6 +19,11 @@ class MetaApi
     parse_record response
   end
 
+  def self.institution_info(name)
+    response = call "#{URI}/api/hi_info?authorized_name=#{name}"
+    parse_record response
+  end
+
   def self.parse_tabs(response)
     return nil unless response
     pr = response.parsed_response
