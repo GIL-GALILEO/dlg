@@ -27,7 +27,6 @@ class ProvenancesController < CatalogController
                            more_limit: 200,
                            show: false,
                            pivot: %w[provenance_facet collection_titles_sms]
-
   end
 
   def index
