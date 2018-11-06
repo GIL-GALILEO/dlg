@@ -12,6 +12,17 @@ module LinkingHelper
     link_to url, url, target: '_blank'
   end
 
+  def regex_linkify(options = {})
+    values = options[:value]
+    values.map! do |v|
+      URI.extract(v).each do |uri|
+        v = v.sub(uri, link_to(uri))
+      end
+      v
+    end
+    values.join('<br>').html_safe
+  end
+
   def cache_server_image_link(v)
     "#{Rails.application.secrets.cache_server}#{v}"
   end
