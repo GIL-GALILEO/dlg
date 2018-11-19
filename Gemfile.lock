@@ -182,7 +182,7 @@ GEM
       websocket-driver (>= 0.2.0)
     public_suffix (3.0.1)
     puma (3.11.2)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)
@@ -326,4 +326,4 @@ DEPENDENCIES
   xray-rails
 
 BUNDLED WITH
-   1.16.1
+   1.16.4
