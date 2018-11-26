@@ -43,7 +43,7 @@ class ProvenancesController < CatalogController
   def holding_institutions
     provenances_pivot_facet_values
       .select { |p| p.key? 'pivot' }
-      .map { |p| build_holding_institution p }
+      .map(&method(:build_holding_institution))
   end
 
   def build_holding_institution(prov)
@@ -66,19 +66,21 @@ class ProvenancesController < CatalogController
 
   def collections_from_inst(pivot_response)
     pivot_response['pivot'].map do |c|
-      state = search_state.add_facet_params_and_redirect('provenance_facet', pivot_response['value'])
+      state = search_state.add_facet_params_and_redirect(
+        'provenance_facet', pivot_response['value']
+      )
       state['f']['collection_titles_sms'] = [c['value']]
       link = search_action_path(state)
-      OpenStruct.new(
-        name: c['value'],
-        count: c['count'],
-        href: link
-      )
+      OpenStruct.new(name: c['value'], count: c['count'], href: link)
     end
   end
 
   def primary_facet_sort
-    valid_sorts.include?(params[sort_params[0]]) ? params[sort_params[0]] : 'index'
+    if valid_sorts.include?(params[sort_params[0]])
+      params[sort_params[0]]
+    else
+      'index'
+    end
   end
 
   def primary_facet_field
@@ -86,7 +88,11 @@ class ProvenancesController < CatalogController
   end
 
   def secondary_facet_sort
-    valid_sorts.include?(params[sort_params[1]]) ? params[sort_params[1]] : 'count'
+    if valid_sorts.include?(params[sort_params[1]])
+      params[sort_params[1]]
+    else
+      'count'
+    end
   end
 
   def secondary_facet_field

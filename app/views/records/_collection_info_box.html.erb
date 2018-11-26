@@ -7,23 +7,20 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
           <div class="collection-image-area pull-right">
-            <%# TODO: remove this horrible vang image override %>
-            <% if @collection.image && @collection.id == 'dlg_vang' %>
-              <%= image_tag(cache_server_image_link(vang_image), class: 'img-thumbnail img-responsive collection-image') %>
-            <% elsif @collection.image %>
-              <%= image_tag(cache_server_image_link(@collection.image), class: 'img-thumbnail img-responsive collection-image') %>
+            <% if @collection.holding_institution_image %>
+              <%= image_tag(cache_server_image_link(@collection.holding_institution_image), class: 'img-thumbnail img-responsive collection-image') %>
             <% end %>
           </div>
           <div class="collection-info-text">
             <p><%= strip_tags(@collection.short_description) %></p>
-            <p><%= t('collection.from_institutions') %> <%= @collection.institution.to_sentence({words_connector: ', ', two_words_connector: ' and ', last_word_connector: ', and ' }) %>.</p>
+            <p><%= t('collection.from_institutions') %> <%= @collection.dcterms_provenance.to_sentence({words_connector: ', ', two_words_connector: ' and ', last_word_connector: ', and ' }) %>.</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <%= link_to t('collection.more_info'), solr_document_path(@collection.id), class: 'btn btn-default' %>
-          <% if @collection.is_shown_at.any? %>
+          <% if @collection.edm_is_shown_at %>
           <div class="pull-right">
             <%= collection_external_homepage_link %>
           </div>

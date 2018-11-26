@@ -186,7 +186,7 @@ class RecordsController < CatalogController
   end
 
   def set_collection
-    @collection = MetaApi.record_info params['collection_record_id']
+    @collection = MetaApiV2.new.collection params['collection_record_id']
   end
 
   def collection_limit_set?

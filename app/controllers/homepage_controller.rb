@@ -4,12 +4,31 @@
 class HomepageController < CatalogController
   layout 'homepage'
   def index
-    @carousel_features = MetaApi.carousel_items 5
-    @tabs_features = MetaApi.tabs_items 4
+    set_features
   end
 
   # return link to faceted main results page
   def search_action_url(options = {})
     search_records_path(options.except(:controller, :action))
+  end
+
+  private
+
+  def set_features
+    @carousel_features = MetaApiV2.new.features type: 'carousel', count: 5
+    @tabs_features = sorted_tabs
+  end
+
+  def sorted_tabs
+    sorted = {}
+    sorted[:secondary] = []
+    MetaApiV2.new.features(type: 'tab', count: 4).each do |f|
+      if f.primary
+        sorted[:primary] = f
+      else
+        sorted[:secondary] << f
+      end
+    end
+    OpenStruct.new sorted
   end
 end

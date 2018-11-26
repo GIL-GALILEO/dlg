@@ -11,13 +11,46 @@ class MetaApiV2
     }
   end
 
-  def holding_institutions(options = {})
-    r = self.class.get '/holding_institutions', @options.merge(options)
-    r.parsed_response
+  def features(query = {})
+    get_many '/features', params(query)
+  end
+
+  def holding_institutions(query = {})
+    get_many '/holding_institutions', params(query)
   end
 
   def holding_institution(id)
-    r = self.class.get "/holding_institutions/#{id}", @options
-    r.parsed_response
+    get "/holding_institutions/#{id}"
+  end
+
+  def collections(query = {})
+    get_many '/collections', params(query)
+  end
+
+  def collection(id)
+    get "/collections/#{id}"
+  end
+
+  private
+
+  def get(url, options = params)
+    OpenStruct.new self.class.get(url, options).parsed_response
+  rescue StandardError
+    OpenStruct.new
+  end
+
+  def get_many(url, options = params)
+    response = self.class.get(url, options).parsed_response
+    response.map do |entity|
+      OpenStruct.new entity
+    end
+  rescue StandardError
+    []
+  end
+
+  def params(query = nil)
+    options = @options
+    options[:query] = query
+    options
   end
 end
