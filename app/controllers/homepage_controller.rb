@@ -29,6 +29,7 @@ class HomepageController < CatalogController
         sorted[:secondary] << f
       end
     end
+    sorted[:secondary].shuffle!
     OpenStruct.new sorted
   end
 end
