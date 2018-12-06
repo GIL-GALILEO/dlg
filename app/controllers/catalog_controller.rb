@@ -58,7 +58,7 @@ class CatalogController < ApplicationController
       'T Mobile' => 'tmomail.net',
       'Alltel' => 'message.alltel.com',
       'Cricket' => 'mms.mycricket.com',
-      'Project Fi' => 'msg.fi.google.com',
+      'Google Fi' => 'msg.fi.google.com',
       'Boost Mobile' => 'myboostmobile.com',
       'Comcast' => 'comcastpcs.textmsg.com',
       'Metro PCS' => 'mymetropcs.com',
