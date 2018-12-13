@@ -19,7 +19,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <%= link_to t('collection.more_info'), solr_document_path(@collection.id), class: 'btn btn-default' %>
+          <%= link_to t('collection.more_info'), solr_document_path(@collection.record_id), class: 'btn btn-default' %>
           <% if @collection.edm_is_shown_at %>
           <div class="pull-right">
             <%= collection_external_homepage_link %>
