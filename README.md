@@ -4,7 +4,7 @@ A Blacklight-powered frontend for the DLG's Georgia content.
 
 Queries and displays data from the DLG's `meta` database and search index, which is managed by the [Meta administrative app](https://github.com/GIL-GALILEO/meta).
 
- 
+Project is also [on Github](https://github.com/GIL-GALILEO/dlg/)
 
 ### Requirements
 
