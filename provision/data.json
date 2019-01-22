@@ -140,7 +140,7 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["31.066399, -80.394617"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-80.394617, 31.066399]},\"properties\":{\"placename\":\"\"}}"],
-    "institution_slug_sms":["dlg"]
+    "institution_slug_sms":["dlga"]
   },
   {
     "id":"dlg_vsbg",
@@ -194,7 +194,7 @@
     "coordinates":["31.1499528, -81.4914894"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-81.4914894, 31.1499528]},\"properties\":{\"placename\":\"United States, Georgia, Glynn County, Brunswick\"}}"],
     "placename":["United States, Georgia, Glynn County, Brunswick"],
-    "institution_slug_sms":["dlg"]
+    "institution_slug_sms":["dlga"]
   },
   {
     "id":"gaarchives_cmf_24",

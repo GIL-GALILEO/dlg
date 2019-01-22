@@ -22,11 +22,15 @@ Rails.application.routes.draw do
   end
 
   get '/search', to: 'advanced#index', as: 'search'
-  get '/collection/:collection_record_id', to: 'records#index', as: 'collection_home'
   get '/counties', to: 'counties#index', as: 'counties'
+  get '/collection/:collection_record_id',
+      to: 'records#index', as: 'collection_home'
   get '/institutions', to: 'provenances#index', as: 'institutions'
+  get '/institution/:institution_slug',
+      to: 'records#index', as: 'institution_home'
 
-  resources :solr_document, only: [:show], path: '/record', controller: 'records' do
+  resources :solr_document, only: [:show], path: '/record',
+                            controller: 'records' do
     concerns :exportable
   end
 
