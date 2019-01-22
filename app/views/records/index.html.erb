@@ -2,6 +2,8 @@
   <div class="container">
     <% if @collection && @document_list.any? %>
       <h2><%= @collection.display_title %></h2>
+    <% elsif @institution && @document_list.any? %>
+      <h2><%= @institution.display_name %></h2>
     <% end %>
     <div id="sidebar" class="<%= sidebar_classes %>">
       <%= render 'search_sidebar' %>
