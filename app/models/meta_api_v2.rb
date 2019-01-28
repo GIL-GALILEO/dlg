@@ -5,6 +5,8 @@ class MetaApiV2
   include HTTParty
   base_uri 'https://dlgadmin.galileo.usg.edu/api/v2'
 
+  DEFAULT_QUERY_PARAMS = { portal: 'georgia' }.freeze
+
   def initialize
     @options = {
       headers: { 'X-User-Token': Rails.application.secrets.meta_api_key }
@@ -49,9 +51,9 @@ class MetaApiV2
     []
   end
 
-  def params(query = nil)
+  def params(query = {})
     options = @options
-    options[:query] = query
+    options[:query] = query.merge(DEFAULT_QUERY_PARAMS)
     options
   end
 end

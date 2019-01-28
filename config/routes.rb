@@ -12,20 +12,20 @@ Rails.application.routes.draw do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
     concerns :range_searchable
-
   end
+
   resource :collections, only: [:index] do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
     concerns :range_searchable
-
   end
+
+  get 'institutions', to: 'institutions#index', as: 'institutions'
 
   get '/search', to: 'advanced#index', as: 'search'
   get '/counties', to: 'counties#index', as: 'counties'
   get '/collection/:collection_record_id',
       to: 'records#index', as: 'collection_home'
-  get '/institutions', to: 'provenances#index', as: 'institutions'
   get '/institution/:institution_slug',
       to: 'records#index', as: 'institution_home'
 
