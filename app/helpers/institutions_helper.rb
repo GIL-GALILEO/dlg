@@ -68,4 +68,9 @@ module InstitutionsHelper
     txt = params[:letter] == l ? "<span class='badge'>#{l}</span>".html_safe : l
     link_to txt, institutions_path(letter: l)
   end
+
+  def institution_types
+    %w[All Archives State\ libraries Public\ libraries Museums University\ archives
+       State\ agencies Presidential\ libraries Historical\ Societies]
+  end
 end
