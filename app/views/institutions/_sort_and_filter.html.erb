@@ -1,0 +1,15 @@
+<div class="btn-group btn-group-sm" role="group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <% if params[:type] %>
+      <%= sanitize(params[:type]) %>
+    <% else %>
+      Institution Type
+    <% end %>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <% institution_types.each do |inst_type| %>
+    <li><a href="<%= institutions_path(type: inst_type) %>"><%= inst_type %></a></li>
+    <% end %>
+  </ul>
+</div>

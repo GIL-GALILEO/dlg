@@ -4,44 +4,14 @@
     <div class="container">
       <h2>Institutions</h2>
       <div class="row">
-        <div class="col-md-12 text-center">
-          <div class="panel panel-default az_nav">
-            <div class="panel-body">
-              <span>Browse by Name:</span>
-              <ul>
-                <li><%= link_to 'All', institutions_path %></li>
-                <% ('A'..'Z').each do |l| %>
-                  <li><%= letter_link(l)  %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <%= render 'letter_nav' %>
         <div class="col-sm-12 sort-pagination">
           <div class="row">
             <div class="col-sm-6">
-              <div class="btn-group btn-group-sm" role="group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Sort by <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Count</a></li>
-                  <li><a href="#">A-Z</a></li>
-                </ul>
-              </div>
+              <%= render 'sort_and_filter' %>
             </div>
             <div class="col-sm-6">
-              <nav aria-label="Page navigation">
-                <ul class="pagination pagination-sm">
-                  <%= previous_page_paginator %>
-                  <li>
-                    <a href="#" aria-label="Current Page">
-                      <span aria-hidden="true">Page <%= current_page %></span>
-                    </a>
-                  </li>
-                  <%= next_page_paginator %>
-                </ul>
-              </nav>
+              <%= render 'pagination' %>
             </div>
           </div>
         </div>
@@ -57,6 +27,16 @@
             <% end %>
             </div>
           <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 sort-pagination">
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6">
+              <%= render 'pagination' %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

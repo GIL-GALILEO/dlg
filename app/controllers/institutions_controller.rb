@@ -8,8 +8,8 @@ class InstitutionsController < HomepageController
     @institutions = MetaApiV2.new.holding_institutions(
       per_page: institution_params[:per_page],
       page: institution_params[:page],
-      letter: institution_params[:letter][0], # only first letter, please
-      type: institution_params[:type]
+      letter: letter, # only first letter, please
+      type: institution_type
     )
   end
 
@@ -17,5 +17,17 @@ class InstitutionsController < HomepageController
 
   def institution_params
     params.permit(:page, :per_page, :letter, :type)
+  end
+
+  def letter
+    institution_params.key?(:letter) ? institution_params[:letter][0] : nil
+  end
+
+  def institution_type
+    if institution_params[:type] == 'All'
+      nil
+    else
+      institution_params[:type]
+    end
   end
 end
