@@ -54,6 +54,7 @@ class MetaApiV2
   def params(query = {})
     options = @options
     options[:query] = query.merge(DEFAULT_QUERY_PARAMS)
+                           .reject { |_, v| v.blank? }
     options
   end
 end

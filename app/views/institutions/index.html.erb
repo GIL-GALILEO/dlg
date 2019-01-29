@@ -1,0 +1,66 @@
+<% content_for(:page_title) { t('titles.institutions') } %>
+<section id="institutions">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Institutions</h2>
+      </div>
+    </div>
+    <div class="row">
+      <ul>
+        <% @institutions.each do |i| %>
+          <li><%= i.authorized_name %></li>
+        <% end %>
+      </ul>
+    </div>
+<!--    <div class="row">-->
+<!--      <div class="col-md-12 text-center">-->
+<!--        <div class="panel panel-default az_nav">-->
+<!--          <div class="panel-body">-->
+<!--            <span>Browse by Name:</span>-->
+<!--            <ul>-->
+<!--              <li><a href="#all">All</a></li>-->
+              <%# @letters.each do |l, v| %>
+                <%# if v %>
+<!--                  <li><a href="#<%#= l %>" data-turbolinks="false"><%#= l %></a></li>-->
+                <%# else %>
+<!--                  <li><span><%#= l %></span></li>-->
+                <%# end %>
+              <%# end %>
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--      <div class="col-md-12">-->
+<!--        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">-->
+<!--          <a name="all"></a>-->
+          <%# @holding_institutions.each_with_index do |holding_inst, i| %>
+<!--          <div class="panel panel-default">-->
+            <%# letter = holding_inst.name[0] %>
+            <%# if @letters.has_key?(letter) && @letters[letter] %>
+              <%# @letters.delete(letter) %>
+<!--              <a name="<%#= letter %>"></a>-->
+            <%# end %>
+<!--            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%#= i %>" aria-expanded="true" aria-controls="collapse<%#= i %>">-->
+<!--              <div class="panel-heading" role="tab" id="heading<%#= i %>">-->
+<!--                <h3 class="panel-title"><%#= holding_inst.name %></h3> <span class="badge"><%#= "#{number_with_delimiter(holding_inst.count)} #{'Item'.pluralize(holding_inst.count)}" %></span>-->
+<!--              </div>-->
+<!--            </a>-->
+<!--            <div id="collapse<%#= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%#= i %>">-->
+<!--              <ul class="list-group">-->
+                <%# holding_inst.collections.each do |collection| %>
+<!--                <li class="list-group-item">-->
+<!--                  <span class="badge"><%#= number_with_delimiter collection.count %></span> <%#= link_to collection.name, collection.href %>-->
+<!--                </li>-->
+                <%# end %>
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+          <%# end %>
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+  </div>
+</section>
