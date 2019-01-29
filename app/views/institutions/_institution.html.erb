@@ -2,23 +2,22 @@
 <div class="panel panel-default">
   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= num %>" aria-expanded="true" aria-controls="collapse<%= num %>">
     <div class="panel-heading" role="tab" id="heading<%= num %>">
-      <h3 class="panel-title"><%= inst.authorized_name %></h3> <span class="badge"><%= total_item_count %> Items</span>
+      <h3 class="panel-title"><%= inst.authorized_name %></h3> <span class="badge"><%= number_with_delimiter(total_item_count) %> Items</span>
       <p class="text-left"><%= inst.short_description %></p>
     </div>
   </a>
   <div id="collapse<%= num %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= num %>">
     <div class="row">
-      <div class="col-sm-6 text-center">
-        <a class="btn btn-primary text-center" href="">Visit Institution Homepage</a>
-      </div>
-      <div class="col-sm-6 text-center">
-        <a class="btn btn-primary text-center" href="">Visit Other Link</a>
+      <div class="col-md-12 text-center">
+        <a class="btn btn-primary text-center" href="<%= institution_results_link(inst.authorized_name) %>">Show All Items</a>
+        <a class="btn btn-primary text-center" href="<%= institution_home_path(inst.slug) %>">Visit Institution Homepage</a>
+        <% if inst.homepage_url %><a class="btn btn-primary text-center" href="<%= inst.homepage_url %>">Visit Partner Site</a><% end %>
       </div>
     </div>
     <ul class="list-group">
       <% inst.collections.each do |c| %>
         <li class="list-group-item">
-          <span class="badge"><%= c['items_count'] %></span> <a href=""><%= c['display_title'] %></a>
+          <span class="badge"><%= c['items_count'] %></span> <a href="<%= collection_home_path(c['record_id']) %>"><%= c['display_title'] %></a>
         </li>
       <% end %>
     </ul>

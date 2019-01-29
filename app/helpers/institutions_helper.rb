@@ -48,4 +48,24 @@ module InstitutionsHelper
   def current_page
     params[:page] || '1'
   end
+
+  # TODO: is this useful?
+  def collection_results_link(inst, coll)
+    facet_params = search_state.add_facet_params_and_redirect(
+      'collection_titles_sms', coll.display_name
+    )
+    facet_params['f']['provenance_facet'] = [inst]
+    search_action_path facet_params
+  end
+
+  def institution_results_link(inst)
+    search_action_path(
+      search_state.add_facet_params_and_redirect('provenance_facet', inst)
+    )
+  end
+
+  def letter_link(l)
+    txt = params[:letter] == l ? "<span class='badge'>#{l}</span>".html_safe : l
+    link_to txt, institutions_path(letter: l)
+  end
 end
