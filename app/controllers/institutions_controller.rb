@@ -8,7 +8,7 @@ class InstitutionsController < HomepageController
     @institutions = MetaApiV2.new.holding_institutions(
       per_page: institution_params[:per_page],
       page: institution_params[:page],
-      letter: institution_params[:letter],
+      letter: institution_params[:letter][0], # only first letter, please
       type: institution_params[:type]
     )
   end
