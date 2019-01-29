@@ -6,8 +6,16 @@ class InstitutionsController < HomepageController
   def index
     # query supports type, letter, page and per_page. default per page is 20
     @institutions = MetaApiV2.new.holding_institutions(
-      per_page: params[:per_page], page: params[:page], letter: params[:letter],
-      type: params[:type]
+      per_page: institution_params[:per_page],
+      page: institution_params[:page],
+      letter: institution_params[:letter],
+      type: institution_params[:type]
     )
+  end
+
+  private
+
+  def institution_params
+    params.permit(:page, :per_page, :letter, :type)
   end
 end
