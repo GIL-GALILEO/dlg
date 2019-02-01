@@ -1,0 +1,21 @@
+<div id="collections-list">
+  <h3><%= t('institution.collection_info') %></h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Number of Items</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @institution.collections.each do |collection| %>
+      <tr>
+        <td><%= link_to collection['display_title'], collection_home_path(collection['record_id']) %></td>
+        <td><%= collection['short_description'] %></td>
+        <td><%= link_to collection['items_count'], collection_home_path(collection['record_id']) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

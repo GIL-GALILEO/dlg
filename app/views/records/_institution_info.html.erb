@@ -1,0 +1,40 @@
+<div id="institution-info">
+  <div class="row">
+    <% if @institution.image && @institution.image.key?('url') %>
+      <img src="<%= cache_server_image_link @institution.image['url'] %>" alt="Logo for <%= @institution.authorized_name %>">
+    <% end %>
+    <span class="institution-description">
+      <%= institution_description %>
+    </span>
+    <%= link_to t('institution.url'), @institution.homepage_url, class: 'btn btn-primary' if @institution.homepage_url.present? %>
+    <dl class="dl-horizontal">
+      <% if @institution.strengths.present? %>
+        <dt>Strengths:</dt>
+        <dd><%= @institution.strengths %></dd>
+      <% end %>
+      <% if @institution.parent_institution.present? %>
+        <dt>Parent Institution:</dt>
+        <dd><%= @institution.parent_institution %></dd>
+      <% end %>
+    </dl>
+    <% if @institution.coordinates.present? %>
+      <div id="location-map"></div>
+    <% end %>
+  </div>
+  <%= render 'institution_collection' if @institution.collections.any? %>
+</div>
+<script type="text/javascript">
+    map = L.map('location-map', {
+        scrollWheelZoom: false,
+        center: [<%= @institution.coordinates %>],
+        zoom: 13
+    });
+    tiles = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+        {
+            id: 'osm.default',
+            attribution: '©OpenStreetMap, ©CartoDB'
+        }
+    ).addTo(map);
+    L.marker([<%= @institution.coordinates %>]).addTo(map);
+</script>

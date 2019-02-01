@@ -9,14 +9,30 @@
       <%= render 'search_sidebar' %>
     </div>
     <div id="content" class="<%= main_content_classes %>">
-      <%= render 'collection_info_box' if @collection && @document_list.any? %>
-      <%= render 'search_results' %>
+      <% if @collection && @document_list.any? %>
+        <%# show collection info panel and results if collection params is set (MK 1/2019) %>
+        <%= render 'collection_info_box' %>
+        <%= render 'search_results' %>
+      <% elsif @institution %>
+        <%# only show Institution information when no search query has been conducted (MK 1/2019) %>
+        <% if has_search_parameters? %>
+          <%= render 'search_results' %>
+        <% else %>
+          <%= render 'institution_info' %>
+        <% end %>
+      <% else %>
+        <%= render 'search_results' %>
+      <% end %>
     </div>
   </div>
 </section>
 <%# TODO: move to helper when finalized %>
 <% if @collection && !has_search_parameters? %>
   <% @page_title = "#{@collection.display_title} Collection Items - #{application_name}"  %>
+<% elsif @institution && !has_search_parameters? %>
+  <% @page_title = "#{institution_name} Collection Items - #{application_name}"  %>
 <% elsif @collection && has_search_parameters? %>
   <% @page_title = "#{render_search_to_page_title(params)} - #{@collection.display_title} Collection Items - #{application_name}" %>
+<% elsif @institution && has_search_parameters? %>
+  <% @page_title = "#{render_search_to_page_title(params)} - #{institution_name} Institution Items - #{application_name}" %>
 <% end %>

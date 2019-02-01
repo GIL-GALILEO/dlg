@@ -97,6 +97,7 @@ en:
         default: 'Search All Items'
         collections: 'Search for Collections'
         collection: 'Search Items in %{collection}'
+        institution: 'Search Items in %{institution}'
     index:
       truncated_field: '..(more)'
       collection_label: 'Collection'
@@ -205,6 +206,9 @@ en:
     institutions: 'Institutions'
     collections: 'All Collections - %{application_name}'
     map: "Map - %{application_name}"
+  institution:
+    url: 'Visit Partner Site'
+    collection_info: 'Collection Info'
   collection:
     header: 'Collections'
     info_box_title: 'Collection Information'
