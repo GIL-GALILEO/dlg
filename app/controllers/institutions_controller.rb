@@ -2,6 +2,7 @@
 
 # handle actions for Institution browse page
 class InstitutionsController < HomepageController
+  # TODO: search bar doesn't preset filter for institution name
   # returns a paginated set of holding institution objects from the MetaApiV2
   def index
     # query supports type, letter, page and per_page. default per page is 20
@@ -11,6 +12,11 @@ class InstitutionsController < HomepageController
       letter: letter, # only first letter, please
       type: institution_type
     )
+  end
+
+  def show
+    @institution = MetaApiV2.new.holding_institution params[:id]
+    redirect_to '/404' unless @institution
   end
 
   private

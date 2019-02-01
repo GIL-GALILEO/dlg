@@ -16,8 +16,8 @@
 @import "openseadragon/openseadragon";
 
 #location-map {
-  height: 365px;
-  width: 330px;
+  height: 300px;
+  width: 300px;
 }
 
 .top-banner {
@@ -381,6 +381,14 @@ section#counties {
     column-gap: 5px;
   }
 }
+
+section#holding_institution dl {
+  margin: 30px 0 20px 0; }
+section#holding_institution dl dd {
+  margin-bottom: 10px; }
+
+section#holding_institution img {
+  display: inline; }
 
 section#institutions {
   .az_nav {

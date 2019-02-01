@@ -20,14 +20,15 @@ Rails.application.routes.draw do
     concerns :range_searchable
   end
 
-  get 'institutions', to: 'institutions#index', as: 'institutions'
+  # get 'institutions', to: 'institutions#index', as: 'institutions'
+  resources :institutions, only: %i[index show]
 
   get '/search', to: 'advanced#index', as: 'search'
   get '/counties', to: 'counties#index', as: 'counties'
   get '/collection/:collection_record_id',
       to: 'records#index', as: 'collection_home'
-  get '/institution/:institution_slug',
-      to: 'records#index', as: 'institution_home'
+  # get '/institution/:institution_slug',
+  #     to: 'records#index', as: 'institution_home'
 
   resources :solr_document, only: [:show], path: '/record',
                             controller: 'records' do

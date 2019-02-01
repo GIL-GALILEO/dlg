@@ -36,15 +36,20 @@ class MetaApiV2
   private
 
   def get(url, options = params)
-    OpenStruct.new self.class.get(url, options).parsed_response
+    data = self.class.get(url, options).parsed_response
+    data.present? ? OpenStruct.new(data) : nil
   rescue StandardError
     OpenStruct.new
   end
 
   def get_many(url, options = params)
     response = self.class.get(url, options).parsed_response
-    response.map do |entity|
-      OpenStruct.new entity
+    if response.present?
+      response.map do |entity|
+        OpenStruct.new entity
+      end
+    else
+      nil
     end
   rescue StandardError
     []
