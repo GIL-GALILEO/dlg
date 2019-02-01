@@ -36,7 +36,8 @@ class MetaApiV2
   private
 
   def get(url, options = params)
-    OpenStruct.new self.class.get(url, options).parsed_response
+    data = self.class.get(url, options).parsed_response
+    data.present? ? OpenStruct.new(data) : nil
   rescue StandardError
     nil
   end

@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <a class="btn btn-primary text-center" href="<%= institution_results_link(inst.authorized_name) %>">Show All Items</a>
-        <a class="btn btn-primary text-center" href="<%= institution_home_path(inst.slug) %>">More About This Institution</a>
+        <a class="btn btn-primary text-center" href="<%= institution_path(inst.slug) %>">More About This Institution</a>
         <% if inst.homepage_url %><a class="btn btn-primary text-center" href="<%= inst.homepage_url %>">Visit Partner Site</a><% end %>
       </div>
     </div>

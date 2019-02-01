@@ -3,11 +3,12 @@
 # helper methods for RecordsController
 module RecordsHelper
   def institution_description
-    if @institution.description.present?
-      @institution.description
-    else
-      @institution.short_description
-    end
+    description = if @institution.description.present?
+                    @institution.description
+                  else
+                    @institution.short_description
+                  end
+    strip_tags description
   end
 
   def institution_name

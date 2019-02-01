@@ -208,7 +208,12 @@ en:
     map: "Map - %{application_name}"
   institution:
     url: 'Visit Partner Site'
-    collection_info: 'Collection Info'
+    collection_info: 'Collections'
+    all_items: 'Show All Items'
+    collections:
+      name: 'Name'
+      description: 'Description'
+      items: 'Number of Items'
   collection:
     header: 'Collections'
     info_box_title: 'Collection Information'
