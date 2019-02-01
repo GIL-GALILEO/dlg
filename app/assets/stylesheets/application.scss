@@ -15,6 +15,11 @@
 @import 'blacklight_range_limit/blacklight_range_limit';
 @import "openseadragon/openseadragon";
 
+#location-map {
+  height: 365px;
+  width: 330px;
+}
+
 .top-banner {
   text-align: center;
   background: $dlg-blue;

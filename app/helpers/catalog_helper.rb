@@ -9,6 +9,8 @@ module CatalogHelper
   def search_bar_placeholder
     if @collection
       I18n.t 'search.bar.placeholder.collection', collection: @collection.display_title
+    elsif @institution
+      I18n.t 'search.bar.placeholder.institution', institution: @institution.authorized_name
     elsif controller.class.name.downcase =~ /collections/
       I18n.t 'search.bar.placeholder.collections'
     else
