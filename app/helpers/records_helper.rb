@@ -2,20 +2,16 @@
 
 # helper methods for RecordsController
 module RecordsHelper
-  def institution_description
-    description = if @institution.description.present?
-                    @institution.description
-                  else
-                    @institution.short_description
-                  end
-    strip_tags description
-  end
-
-  def institution_name
-    if @institution.display_name.present?
-      @institution.display_name
-    else
-      @institution.authorized_name
-    end
+  def set_page_title
+    prefix = if @collection && !has_search_parameters?
+               "#{@collection.display_title} Collection Items"
+             elsif @institution && !has_search_parameters?
+               "#{institution_name} Items"
+             elsif @collection && has_search_parameters?
+               "#{render_search_to_page_title(params)} - #{@collection.display_title} Collection Items"
+             elsif @institution && has_search_parameters?
+               "#{render_search_to_page_title(params)} - #{institution_name} Items"
+             end
+    @page_title = "#{prefix} - #{application_name}"
   end
 end

@@ -2,6 +2,23 @@
 
 # Contextual help helpers
 module InstitutionsHelper
+  def institution_description
+    description = if @institution.description.present?
+                    @institution.description
+                  else
+                    @institution.short_description
+                  end
+    strip_tags description
+  end
+
+  def institution_name
+    if @institution.display_name.present?
+      @institution.display_name
+    else
+      @institution.authorized_name
+    end
+  end
+
   def previous_page_paginator
     page = previous_page
     if page&.zero? || page.blank?
@@ -72,5 +89,9 @@ module InstitutionsHelper
   def institution_types
     %w[All Archives State\ libraries Public\ libraries Museums University\ archives
        State\ agencies Presidential\ libraries Historical\ Societies]
+  end
+
+  def set_institution_page_title
+    @page_title = "#{institution_name} - #{application_name}"
   end
 end
