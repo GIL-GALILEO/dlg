@@ -13,7 +13,7 @@ class RecordsController < CatalogController
   end
 
   before_action :set_collection, only: :index, if: :collection_limit_set?
-  # before_action :set_institution, only: :index, if: :institution_limit_set?
+  before_action :set_institution, only: :index, if: :institution_limit_set?
 
   configure_blacklight do |config|
     config.search_builder_class = RecordsSearch
@@ -198,17 +198,17 @@ class RecordsController < CatalogController
     @collection = MetaApiV2.new.collection params['collection_record_id']
   end
 
-  # def set_institution
-  #   @institution = MetaApiV2.new.holding_institution params['institution_slug']
-  # end
+  def set_institution
+    @institution = MetaApiV2.new.holding_institution params['institution_slug']
+  end
 
   def collection_limit_set?
     params.key? 'collection_record_id'
   end
 
-  # def institution_limit_set?
-  #   params.key? 'institution_slug'
-  # end
+  def institution_limit_set?
+    params.key? 'institution_slug'
+  end
 
   def search_action_url(options = {})
     search_records_path(options.except(:controller, :action))
