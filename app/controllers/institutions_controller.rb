@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 # handle actions for Institution browse page
-class InstitutionsController < HomepageController
-  # TODO: search bar doesn't preset filter for institution name
+class InstitutionsController < RecordsController
   # returns a paginated set of holding institution objects from the MetaApiV2
   def index
     # query supports type, letter, page and per_page. default per page is 20
@@ -17,6 +16,7 @@ class InstitutionsController < HomepageController
   def show
     @institution = MetaApiV2.new.holding_institution params[:id]
     redirect_to '/404' unless @institution
+    params[:institution_slug] = @institution.slug
   end
 
   private
