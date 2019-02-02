@@ -26,13 +26,4 @@
     </div>
   </div>
 </section>
-<%# TODO: move to helper when finalized %>
-<% if @collection && !has_search_parameters? %>
-  <% @page_title = "#{@collection.display_title} Collection Items - #{application_name}"  %>
-<% elsif @institution && !has_search_parameters? %>
-  <% @page_title = "#{institution_name} Collection Items - #{application_name}"  %>
-<% elsif @collection && has_search_parameters? %>
-  <% @page_title = "#{render_search_to_page_title(params)} - #{@collection.display_title} Collection Items - #{application_name}" %>
-<% elsif @institution && has_search_parameters? %>
-  <% @page_title = "#{render_search_to_page_title(params)} - #{institution_name} Institution Items - #{application_name}" %>
-<% end %>
+<% set_page_title %>
