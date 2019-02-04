@@ -34,7 +34,7 @@
         <% end %>
       </div>
     </div>
-    <% if @institution.collections.any? %>
+    <% if @institution.public_collections.any? %>
     <div class="row">
       <div class="col-md-12">
         <%= render 'institution_collection' %>
