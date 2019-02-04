@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <% @institution.collections.each do |collection| %>
+    <% @institution.public_collections.each do |collection| %>
       <tr>
         <td><%= link_to collection['display_title'], collection_home_path(collection['record_id']) %></td>
         <td><%= strip_tags collection['short_description'] %></td>

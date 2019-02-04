@@ -1,4 +1,4 @@
-<% total_item_count = inst.collections.collect { |v| v['items_count'] }.inject(0, :+) %>
+<% total_item_count = inst.public_collections.collect { |v| v['items_count'] }.inject(0, :+) %>
 <div class="panel panel-default">
   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= num %>" aria-expanded="true" aria-controls="collapse<%= num %>">
     <div class="panel-heading" role="tab" id="heading<%= num %>">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <ul class="list-group">
-      <% inst.collections.each do |c| %>
+      <% inst.public_collections.each do |c| %>
         <li class="list-group-item">
           <span class="badge"><%= c['items_count'] %></span> <a href="<%= collection_home_path(c['record_id']) %>"><%= c['display_title'] %></a>
         </li>
