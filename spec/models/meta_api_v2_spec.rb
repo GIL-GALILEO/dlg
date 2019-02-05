@@ -19,11 +19,11 @@ describe MetaApiV2 do
       expect(holding_institutions.first).to respond_to :authorized_name
     end
     it 'get holding institution' do
-      holding_institution = apiv2.holding_institution('10')
+      holding_institution = apiv2.holding_institution('dlg')
       expect(holding_institution).to respond_to 'authorized_name'
       expect(holding_institution).to respond_to 'display_name'
       expect(holding_institution.image['url'])
-        .to include 'record_image.jpg'
+        .to include 'record_image'
     end
   end
 end
