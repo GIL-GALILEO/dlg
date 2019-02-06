@@ -18,8 +18,10 @@ services:
     image: solr:6
     ports:
       - "8983:8983"
-#    volumes:
-#      - solr-data:
+    volumes:
+      - ./provision:/data
+      - solr-data:/opt/solr
+    command: bash -c "/data/solr-entrypoint.sh"
 volumes:
   pg-data:
   solr-data:
