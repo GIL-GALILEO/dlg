@@ -26,6 +26,18 @@
             <dt>Parent Institution:</dt>
             <dd><%= @institution.parent_institution %></dd>
           <% end %>
+          <% if @institution.public_contact_address.present? %>
+            <dt>Location:</dt>
+            <dd><%= @institution.public_contact_address %></dd>
+          <% end %>
+          <% if @institution.public_contact_email.present? %>
+            <dt>Email:</dt>
+            <dd><%= @institution.public_contact_email %></dd>
+          <% end %>
+          <% if @institution.public_contact_phone.present? %>
+            <dt>Phone:</dt>
+            <dd><%= @institution.public_contact_phone %></dd>
+          <% end %>
         </dl>
       </div>
       <div class="col-sm-6">
