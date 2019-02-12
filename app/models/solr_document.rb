@@ -53,7 +53,9 @@ class SolrDocument
       dcterms_is_part_of: self['dcterms_is_part_of_display'],
       dcterms_subject: self['dcterms_subject_display'],
       dcterms_title: self['dcterms_title_display'],
-      dcterms_type: self['dcterms_type_display']
+      dcterms_type: self['dcterms_type_display'],
+      edm_is_shown_by: self['edm_is_shown_by'],
+      edm_is_shown_at: self['edm_is_shown_at']
     }
   end
 

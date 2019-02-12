@@ -81,6 +81,14 @@ class RecordsController < CatalogController
 
     # define search fields
     # title
+    config.add_search_field('id') do |field|
+      field.label = I18n.t('search.labels.record_id')
+      field.solr_local_parameters = {
+        qf: 'record_id_ss^50000',
+        pf: 'record_id_ss^50000'
+      }
+    end
+    # title
     config.add_search_field('title') do |field|
       field.label = I18n.t('search.labels.dcterms_title')
       field.solr_local_parameters = {
@@ -186,7 +194,7 @@ class RecordsController < CatalogController
   end
 
   def set_collection
-    @collection = MetaApi.record_info params['collection_record_id']
+    @collection = MetaApiV2.new.collection params['collection_record_id']
   end
 
   def collection_limit_set?
