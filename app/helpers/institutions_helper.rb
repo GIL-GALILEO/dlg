@@ -34,7 +34,7 @@ module InstitutionsHelper
   def next_page_paginator
     # TODO: need to support a better means of hiding this link when no more records...
     page = next_page
-    if @institutions.length < 20
+    if @institutions && @institution.length < 20
       ''
     else
       content_tag 'li' do
