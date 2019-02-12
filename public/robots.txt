@@ -2,8 +2,11 @@ User-agent: *
 Sitemap: https://dlg.usg.edu/sitemap.xml.gz
 Disallow: /records?
 Disallow: /records.html?
+Disallow: /records.atom?
+Disallow: /records.rss?
 Disallow: /records/facet
 Disallow: /records/map
+Disallow: /collection
 Disallow: /collections?
 Disallow: /collections.html?
 Disallow: /collections/facet
