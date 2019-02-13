@@ -18,14 +18,14 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <% if @institutions.empty? %>
-            No Institutions to display
-          <% else %>
+          <% if @institutions.any? %>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
             <% @institutions.each_with_index do |inst, i| %>
               <%= render 'institution', num: i, inst: inst %>
             <% end %>
             </div>
+          <% else %>
+            No Institutions to display
           <% end %>
         </div>
       </div>
