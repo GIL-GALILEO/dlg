@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <% if @institutions.any? %>
+          <% if @institutions %>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
             <% @institutions.each_with_index do |inst, i| %>
               <%= render 'institution', num: i, inst: inst %>
