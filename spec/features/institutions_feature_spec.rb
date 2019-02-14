@@ -9,4 +9,9 @@ feature 'Institutions' do
       expect(page).to have_css("form[action='#{search_records_path}']")
     end
   end
+  context 'institution list' do
+    scenario 'lists at least 1 institution' do
+      expect(page).to have_css '.institution-panel'
+    end
+  end
 end
