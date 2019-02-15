@@ -30,7 +30,7 @@
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
           <a name="all"></a>
           <% @holding_institutions.each_with_index do |holding_inst, i| %>
-          <div class="panel panel-default">
+          <div class="panel panel-default institution-panel">
             <% letter = holding_inst.name[0] %>
             <% if @letters.has_key?(letter) && @letters[letter] %>
               <% @letters.delete(letter) %>
