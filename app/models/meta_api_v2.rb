@@ -36,7 +36,7 @@ class MetaApiV2
   def get(url, options = params)
     OpenStruct.new self.class.get(url, options).parsed_response
   rescue StandardError
-    OpenStruct.new
+    nil
   end
 
   def get_many(url, options = params)

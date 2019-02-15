@@ -1,6 +1,6 @@
 <% content_for :header do %>
 <div id="home-carousel" class="carousel slide" data-ride="carousel">
-  <% if @carousel_features %>
+  <% if @carousel_features&.any? %>
   <ol class="carousel-indicators">
     <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
     <% @carousel_features.each_with_index do |_, i| %>
@@ -12,7 +12,7 @@
     <div class="item active">
       <div class="fill" style="background-image:url(<%= asset_path 'default_feature.jpg' %>);"></div>
     </div>
-    <% if @carousel_features %>
+    <% if @carousel_features&.any? %>
       <% @carousel_features.each do |c| %>
       <div class="item">
         <div class="fill" style="background-image:url(<%= cache_server_image_link c['image']['url'] %>);">
@@ -70,6 +70,7 @@
       </div>
     </div>
   </section>
+  <% if @tabs_features.any? %>
   <section aria-label="Tabbed area of featured content links">
     <div class="container">
       <div class="row">
@@ -89,16 +90,14 @@
           <div class="tab-content">
             <div id="new" class="tab-pane fade in <%= 'active' if @tabs_features %>">
               <div class="row">
-                <% if @tabs_features %>
-                  <div class="col-md-6">
-                    <%= render 'primary_tab_feature', feature: @tabs_features.primary %>
-                  </div>
-                  <div class="col-md-6 col-lg-6 right-col">
-                    <% @tabs_features.secondary.each do |tf| %>
-                      <%= render 'regular_tab_feature', feature: tf %>
-                    <% end %>
-                  </div>
-                <% end %>
+                <div class="col-md-6">
+                  <%= render 'primary_tab_feature', feature: @tabs_features.primary %>
+                </div>
+                <div class="col-md-6 col-lg-6 right-col">
+                  <% @tabs_features.secondary.each do |tf| %>
+                    <%= render 'regular_tab_feature', feature: tf %>
+                  <% end %>
+                </div>
               </div>
             </div>
             <div id="civil-rights" class="tab-pane fade <%= 'active' unless @tabs_features %>">
@@ -115,6 +114,7 @@
       </div>
     </div>
   </section>
+  <% end %>
   <section aria-labelledby="partner-sponsor-heading">
     <div class="partners">
       <div class="container">
