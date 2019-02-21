@@ -59,7 +59,7 @@
     map = L.map('location-map', {
         scrollWheelZoom: false,
         center: [<%= @institution.coordinates %>],
-        zoom: 13
+        zoom: 11
     });
     tiles = L.tileLayer(
         'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
@@ -68,6 +68,9 @@
             attribution: '©OpenStreetMap, ©CartoDB'
         }
     ).addTo(map);
-    L.marker([<%= @institution.coordinates %>]).addTo(map);
+    L.marker([<%= @institution.coordinates %>])
+        .addTo(map)
+        .bindPopup('<%= link_to(institution_name, institution_google_map_url) %>')
+        .openPopup();
 </script>
 <% set_institution_page_title %>

@@ -94,4 +94,9 @@ module InstitutionsHelper
   def set_institution_page_title
     @page_title = "#{institution_name} - #{application_name}"
   end
+
+  def institution_google_map_url
+    # "https://www.google.com/maps/@?api=1&map_action=map&center=#{@institution.coordinates}"
+    "https://www.google.com/maps/search/?api=1&query=#{URI.encode_www_form_component(institution_name)}"
+  end
 end
