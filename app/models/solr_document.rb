@@ -21,6 +21,7 @@ class SolrDocument
     creator: 'dcterms_creator_display',
     date: 'dc_date_display',
     description: 'dcterms_description_display',
+    provenance: 'dcterms_provenance_display',
     format: 'dc_format_display',
     identifier: 'dcterms_identifier_display',
     language: 'dcterms_language_display',
@@ -54,6 +55,7 @@ class SolrDocument
       dcterms_subject: self['dcterms_subject_display'],
       dcterms_title: self['dcterms_title_display'],
       dcterms_type: self['dcterms_type_display'],
+      dcterms_provenance: self['dcterms_provenance_display'],
       edm_is_shown_by: self['edm_is_shown_by'],
       edm_is_shown_at: self['edm_is_shown_at']
     }
