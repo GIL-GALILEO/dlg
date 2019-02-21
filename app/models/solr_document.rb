@@ -57,7 +57,14 @@ class SolrDocument
       dcterms_type: self['dcterms_type_display'],
       dcterms_provenance: self['dcterms_provenance_display'],
       edm_is_shown_by: self['edm_is_shown_by'],
-      edm_is_shown_at: self['edm_is_shown_at']
+      edm_is_shown_at: self['edm_is_shown_at'],
+      dcterms_temporal: self['dcterms_temporal_display'],
+      dcterms_rights_holder: self['dcterms_rights_holder_display'],
+      dcterms_bibliographic_citation: self['dcterms_bibliographic_citation_display'],
+      dlg_local_right: self['dlg_local_right_display'],
+      dcterms_medium: self['dcterms_medium_display'],
+      dcterms_extent: self['dcterms_extent_display'],
+      dlg_subject_personal: self['dlg_subject_personal_display']
     }
   end
 
