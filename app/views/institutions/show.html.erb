@@ -32,7 +32,7 @@
           <% end %>
           <% if @institution.public_contact_email.present? %>
             <dt>Email:</dt>
-            <dd><%= @institution.public_contact_email %></dd>
+            <dd><%= mail_to @institution.public_contact_email %></dd>
           <% end %>
           <% if @institution.public_contact_phone.present? %>
             <dt>Phone:</dt>
