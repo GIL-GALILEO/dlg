@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -22,7 +24,7 @@ gem 'jquery-rails'
 gem 'leaflet-rails', '= 1.0.3'
 gem 'pg', '~> 0.21.0'
 gem 'puma', '~> 3.7'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2'
 gem 'rsolr', '>= 1.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sitemap_generator'
@@ -33,8 +35,8 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'capybara'
   gem 'capybara-screenshot'
-  gem 'rspec-rails', '~> 3.5'
   gem 'poltergeist'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
