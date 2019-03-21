@@ -3,12 +3,11 @@
 # Contextual help helpers
 module InstitutionsHelper
   def institution_description
-    description = if @institution.description.present?
-                    @institution.description
-                  else
-                    @institution.short_description
-                  end
-    description.html_safe
+    if @institution.description.present?
+      @institution.description
+    else
+      @institution.short_description
+    end
   end
 
   def institution_name
