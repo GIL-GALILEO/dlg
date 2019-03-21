@@ -8,7 +8,7 @@ module InstitutionsHelper
                   else
                     @institution.short_description
                   end
-    strip_tags description
+    description.html_safe
   end
 
   def institution_name
