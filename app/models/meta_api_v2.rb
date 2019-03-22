@@ -41,6 +41,7 @@ class MetaApiV2
 
   def get_many(url, options = params)
     response = self.class.get(url, options).parsed_response
+    return [] unless response.code == 200
     response.map do |entity|
       OpenStruct.new entity
     end

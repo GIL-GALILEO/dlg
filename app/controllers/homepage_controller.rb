@@ -30,8 +30,9 @@ class HomepageController < CatalogController
       end
     end
     sorted[:secondary].shuffle!
+    return [] unless sorted[:primary]
     OpenStruct.new sorted
   rescue StandardError
-    nil
+    []
   end
 end
