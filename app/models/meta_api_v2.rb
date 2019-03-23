@@ -40,9 +40,9 @@ class MetaApiV2
   end
 
   def get_many(url, options = params)
-    response = self.class.get(url, options).parsed_response
+    response = self.class.get(url, options)
     return [] unless response.code == 200
-    response.map do |entity|
+    response.parsed_response.map do |entity|
       OpenStruct.new entity
     end
   rescue StandardError
