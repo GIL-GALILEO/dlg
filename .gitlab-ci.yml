@@ -1,5 +1,29 @@
-test:
+stages:
+  - setup_db_solr
+  - setup_web_and_test
+  - deconstruct
+
+
+setup_db_solr:
+  stage: setup_db_solr
   script:
   - docker-compose -f docker-compose.yml up -d
   tags: 
     - shell
+    
+setup_web_and_test:
+  stage: setup_web_and_test
+  image: ruby:2.4.5
+  script:
+  - bundle install
+  - bundle exec rspec --color --format documentation
+  tags:
+    - docker
+    
+deconstruct:
+  stage: deconstruct
+  script:
+  - docker-compose rm -fs web solr db
+  when: always
+  tags:
+   - shell
