@@ -2,6 +2,6 @@ test:
   script:
   - docker-compose -f docker-compose.yml up -d
   - docker ps
-  - docker-compose stop web solr db
+  - docker-compose rm -fs web solr db
   tags: 
     - shell
