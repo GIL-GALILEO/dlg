@@ -2,6 +2,8 @@ version: '3'
 services:
   db:
     image: postgres
+    networks:
+      - bridge
     ports:
       - "5432:5432"
     volumes:
@@ -19,6 +21,8 @@ services:
 #      - solr
   solr:
     image: solr:6
+    networks:
+      - bridge
     ports:
       - "8983:8983"
     volumes:
