@@ -32,3 +32,8 @@ services:
 volumes:
   pg-data:
   solr-data:
+
+networks:
+  bridge:
+    name: bridge
+    driver: bridge
