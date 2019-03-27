@@ -30,7 +30,7 @@ setup_web_and_test:
 deconstruct:
   stage: deconstruct
   script:
-  - docker-compose rm -fs solr db
+  - docker rm -f solr db
   when: always
   tags:
    - shell
