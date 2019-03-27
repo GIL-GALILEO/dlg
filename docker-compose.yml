@@ -4,17 +4,17 @@ services:
     image: postgres
     volumes:
       - pg-data:/var/lib/postgresql/data
-  web:
-    build: .
-#    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    command: bundle exec rspec
-    volumes:
-      - .:/dlg
-#    ports:
-#      - "3000:3000"
-    depends_on:
-      - db
-      - solr
+#  web:
+#    build: .
+##    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+#    command: bundle exec rspec
+#    volumes:
+#      - .:/dlg
+##    ports:
+##      - "3000:3000"
+#    depends_on:
+#      - db
+#      - solr
   solr:
     image: solr:6
     ports:
