@@ -15,10 +15,10 @@ setup_web_and_test:
   stage: setup_web_and_test
   image: ruby:2.4.5
   script:
-  - wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+  - wget --quiet https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
   - tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2
   - cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs /bin/
-  - apt update -qq && apt -y install nodejs
+  - apt-get update -qq && apt-get -y install nodejs
   - bundle install
   - bundle exec rspec --color --format documentation
   tags:
