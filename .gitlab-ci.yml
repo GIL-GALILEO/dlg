@@ -1,6 +1,7 @@
-
 test:
   script:
-  - echo Testing runner connection
+  - docker-compose -f docker-compose.yml up -d
+  - docker ps
+  - docker-compose stop web solr db
   tags: 
     - shell
