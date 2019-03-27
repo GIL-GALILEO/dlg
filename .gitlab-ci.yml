@@ -1,0 +1,7 @@
+
+
+test:
+  script:
+  - echo Testing runner connection
+  tags: 
+    - runner-shell
