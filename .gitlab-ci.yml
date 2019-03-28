@@ -17,7 +17,7 @@ setup_db_solr:
 setup_web_and_test:
   stage: setup_web_and_test
   script:
-  - docker run -itd --name web -v `pwd`:/code -w /code --network dlg_testing --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web
+  - docker run -d --name web -v `pwd`:/code -w /code --network dlg_testing --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web
   tags:
     - shell
 
