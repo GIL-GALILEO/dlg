@@ -16,28 +16,10 @@ setup_db_solr:
     
 setup_web_and_test:
   stage: setup_web_and_test
-  image: ruby:2.4.5
-  services:
-  - alias "web"
   script:
-  - wget --quiet https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-  - tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-  - cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs /bin/
-  - apt-get update -qq && apt-get -y install nodejs
-  - bundle install
-  - bundle exec rake db:setup RAILS_ENV=test
-  - bundle exec rspec --color --format documentation
+  - docker run -itd --name web -v `pwd`:/code -w /code --network dlg_testing --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web
   tags:
-    - docker
-    
-janky_experiment:
-  stage: setup_web_and_test
-  script:
-  - docker network connect dlg_testing `docker ps | awk 'NR==2 {print $1}'`
-  when: delayed
-  start_in: 10 seconds
-  tags:
-  -  shell
+    - shell
 
 deconstruct:
   stage: deconstruct
