@@ -35,7 +35,6 @@ deconstruct:
   script:
   - docker rm -f solr db
   - docker network rm dlg_testing
-  when: 
-  - always
+  when: always
   tags:
    - shell
