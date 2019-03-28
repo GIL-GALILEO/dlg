@@ -33,7 +33,7 @@ setup_web_and_test:
 janky_experiment:
   stage: setup_web_and_test
   script:
-  - docker connect dlg_testing `docker ps | awk 'NR==2 {print $1}'`
+  - docker network connect dlg_testing `docker ps | awk 'NR==2 {print $1}'`
   when: delayed
   start_in: 10 seconds
   tags:
