@@ -29,6 +29,15 @@ setup_web_and_test:
   - bundle exec rspec --color --format documentation
   tags:
     - docker
+    
+janky_experiment:
+  stage: setup_web_and_test
+  script:
+  - docker ps -q -f "label=com.gitlab.gitlab-runner.job.id=$CI_JOB_ID" -f "label=com.gitlab.gitlab-runner.type=build"
+  when: delayed
+  start_in: 10 seconds
+  tags:
+  -  shell
 
 deconstruct:
   stage: deconstruct
