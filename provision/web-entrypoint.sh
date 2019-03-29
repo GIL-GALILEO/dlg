@@ -6,4 +6,4 @@ tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2
 cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs /bin/
 bundle install
 bundle exec rake db:setup RAILS_ENV=test
-sudo -E -u bundle exec rspec --color --format documentation
+sudo -E -u gitlab-runner bundle exec rspec --color --format documentation
