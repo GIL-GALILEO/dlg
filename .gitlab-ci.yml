@@ -25,8 +25,7 @@ setup_web_and_test:
 deconstruct:
   stage: deconstruct
   script:
-  - docker rm -f solr db web
-  - docker network rm dlg_testing
+  - docker rm -f solr db web && docker network rm dlg_testing
   - echo Success?
   when: always
   tags:
