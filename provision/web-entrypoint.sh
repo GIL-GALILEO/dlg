@@ -6,4 +6,5 @@ sudo -u gitlab-runner tar xjf phantomjs-2.1.1-linux-x86_64.tar.bz2
 cp phantomjs-2.1.1-linux-x86_64/bin/phantomjs /bin/
 HOME=/code bundle install
 HOME=/code bundle exec rake db:setup RAILS_ENV=test
+chown -R gitlab-runner:gitlab-runner /code
 sudo -E -u gitlab-runner bundle exec rspec --color --format documentation
