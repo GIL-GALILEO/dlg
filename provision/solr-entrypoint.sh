@@ -11,6 +11,6 @@ cp /opt/solr/server/solr/configsets/basic_configs/conf/synonyms.txt /opt/solr/se
 cp /opt/solr/server/solr/configsets/basic_configs/conf/protwords.txt /opt/solr/server/solr/configsets/meta/conf/protwords.txt
 /opt/solr/bin/solr start -p 8983
 /opt/solr/bin/solr create_core -c meta-test -d meta -p 8983
-curl -X POST 'http://solr:8983/solr/meta-test/update/json?commit=true' --data-binary @data.json -H 'Content-type:application/json'
+curl -X POST 'http://solr:8983/solr/meta-test/update/json?commit=true' --data-binary @provision/data.json -H 'Content-type:application/json'
 /opt/solr/bin/solr stop
 solr-foreground
