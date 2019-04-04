@@ -7,6 +7,7 @@ stages:
 setup_db_solr:
   stage: setup_db_solr
   script:
+  - docker network rm dlg_testing
   - docker network create dlg_testing
   - docker run -d --name solr --expose 8983 -v `pwd`:/data -w /data --network dlg_testing --network-alias=solr --entrypoint "/bin/bash" solr:6 /data/provision/solr-entrypoint.sh
   - curl -X POST 'http://solr:8983/solr/meta-test/update/json?commit=true' --data-binary @provision/data.json -H 'Content-type:application/json'
