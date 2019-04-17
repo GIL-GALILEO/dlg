@@ -1,0 +1,107 @@
+stages:
+  - setup_db_solr
+  - setup_web_and_test
+  - deconstruct
+  - deploy_staging
+  - deploy_production
+  - manual_actions
+
+# Setup PG and Solr containers to support test runner
+setup_db_solr:
+  stage: setup_db_solr
+  script:
+  - docker network create dlg_testing
+  - docker run -d --name solr --expose 8983 -v `pwd`:/data -w /data --network dlg_testing --network-alias=solr --entrypoint "/bin/bash" solr:6 /data/provision/solr-entrypoint.sh
+  - docker run --name db --expose 5432 --network dlg_testing --network-alias=db -d postgres
+  - docker ps
+  tags: 
+    - shell
+
+# Setup Web container to run RSpec tests
+setup_web_and_test:
+  stage: setup_web_and_test
+  script:
+  - /deploy/scripts/start_dlg_test.sh
+  - docker run -d --name web -v `pwd`:/code -w /code --network dlg_testing --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web
+  - /deploy/scripts/finish_dlg_test.sh
+  tags:
+    - shell
+
+# Teardown containers on shell runner
+deconstruct:
+  stage: deconstruct
+  script:
+  - docker rm -f solr db web
+  - docker network rm dlg_testing
+  when: always
+  tags:
+   - shell
+
+# Deploy To Staging
+# This job copies app code and secrets to staging machine, installs gems,
+# runs any database migrations, deploys assets and restarts passenger.
+deploy_to_staging:
+  stage: deploy_staging
+  only:
+    - staging
+  script:
+    - rm -rf /deploy/dlg && mkdir /deploy/dlg
+    - rsync -rv --exclude=.git* . /deploy/dlg/
+    - cd /deploy/dlg
+    - /deploy/scripts/post_fetch.sh
+
+    - bundle install --deployment
+    - RAILS_ENV=staging bundle exec rake db:migrate --trace
+    - RAILS_ENV=staging bundle exec rake assets:precompile --trace
+    - passenger-config restart-app /app/dlg
+  environment:
+    name: staging
+  tags:
+    - dlg-staging-shell
+
+# Deploy To Production
+# This job copies app code and secrets to PRODUCTION machine, installs gems,
+# runs any database migrations, deploys assets and restarts passenger.
+deploy_to_production:
+  stage: deploy_production
+  only:
+    - master
+  script:
+    - rsync -rv --exclude=.git* . /deploy/dlg/
+    - cd /deploy/dlg
+    - /deploy/scripts/post_fetch.sh
+    - bundle install --deployment
+    - RAILS_ENV=production bundle exec rake db:migrate --trace
+    - RAILS_ENV=production bundle exec rake assets:precompile --trace
+    - passenger-config restart-app /app/dlg
+  environment:
+    name: production
+  tags:
+    - dlg-shell
+
+# Restart Passenger on Staging
+restart_passenger_staging:
+  stage: manual_actions
+  only:
+    - staging
+  script:
+    - passenger-config restart-app /app/dlg
+  when: manual
+  environment:
+    name: staging
+  tags:
+    - dlg-staging-shell
+
+# Restart Passenger on Production
+restart_passenger_prod:
+  stage: manual_actions
+  only:
+    - master
+  script:
+    - passenger-config restart-app /app/dlg
+  when: manual
+  environment:
+    name: production
+  tags:
+    - dlg-shell
+
