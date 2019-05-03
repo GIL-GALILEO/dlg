@@ -77,7 +77,7 @@ deploy_to_production:
   environment:
     name: production
   tags:
-    - dlg-shell
+    - dlg-prod-shell
 
 # Restart Passenger on Staging
 restart_passenger_staging:
@@ -103,5 +103,5 @@ restart_passenger_prod:
   environment:
     name: production
   tags:
-    - dlg-shell
+    - dlg-prod-shell
 
