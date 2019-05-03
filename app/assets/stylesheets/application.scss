@@ -466,7 +466,7 @@ section#institutions {
         break-inside: avoid-column;
         padding: 10px !important;
       }
-      li.list-group-item:nth-child(even) {
+      li.list-group-item:nth-child(odd) {
         background: #f3f3f3;
       }
     }

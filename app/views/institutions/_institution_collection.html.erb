@@ -5,7 +5,6 @@
     <tr>
       <th><%= t('institution.collections.name') %></th>
       <th><%= t('institution.collections.description') %></th>
-      <th><%= t('institution.collections.items') %></th>
     </tr>
     </thead>
     <tbody>
@@ -13,7 +12,6 @@
       <tr>
         <td><%= link_to collection['display_title'], collection_home_path(collection['record_id']) %></td>
         <td><%= strip_tags collection['short_description'] %></td>
-        <td><%= link_to collection['items_count'], collection_home_path(collection['record_id']) %></td>
       </tr>
     <% end %>
     </tbody>

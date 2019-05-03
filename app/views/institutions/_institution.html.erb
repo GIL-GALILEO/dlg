@@ -17,7 +17,7 @@
     <ul class="list-group">
       <% inst.public_collections.each do |c| %>
         <li class="list-group-item">
-          <!-- <span class="badge"><%#= c['collection_institution_item_count'] %></span> --> <a href="<%= collection_home_path(c['record_id']) %>"><%= c['display_title'] %></a>
+          <a href="<%= collection_home_path(c['record_id']) %>"><%= c['display_title'] %></a>
         </li>
       <% end %>
     </ul>

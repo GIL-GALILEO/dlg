@@ -4,9 +4,8 @@
 class InstitutionsController < RecordsController
   # returns a paginated set of holding institution objects from the MetaApiV2
   def index
-    # query supports type, letter, page and per_page. default per page is 20
+    # query supports type, letter and page
     @institutions = MetaApiV2.new.holding_institutions(
-      per_page: institution_params[:per_page],
       page: institution_params[:page],
       letter: letter, # only first letter, please
       type: institution_type
@@ -22,7 +21,7 @@ class InstitutionsController < RecordsController
   private
 
   def institution_params
-    params.permit(:page, :per_page, :letter, :type)
+    params.permit(:page, :letter, :type)
   end
 
   def letter
