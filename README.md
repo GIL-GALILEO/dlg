@@ -34,3 +34,4 @@ For Ubuntu 16.04
 8. Index sample data using `./reload_solr_data.sh`
 9. `rails s` to start development server
 10. Visit [localhost:3000](http://localhost:3000)
+11. PhantomJS is needed for the test suite. Install using `sudo apt install phantomjs`
