@@ -45,10 +45,8 @@ deploy_to_staging:
   only:
     - staging
   script:
-    - rm -rf /deploy/DLG/dlg && mkdir /deploy/DLG/dlg
-    - rsync -rv --exclude=.git* . /deploy/DLG/dlg/
     - cd /deploy/DLG/dlg
-    - /deploy/scripts/post_fetch.sh
+    - git pull
     - bundle install --deployment
     - RAILS_ENV=staging bundle exec rake db:migrate --trace
     - RAILS_ENV=staging bundle exec rake assets:precompile --trace
