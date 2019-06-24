@@ -1,5 +1,5 @@
 <%# total_item_count = inst.public_collections.collect { |v| v['collection_institution_item_count'] }.inject(0, :+) %>
-<div class="panel panel-default">
+<div class="panel panel-default institution-panel">
   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= num %>" aria-expanded="true" aria-controls="collapse<%= num %>">
     <div class="panel-heading" role="tab" id="heading<%= num %>">
       <h3 class="panel-title"><%= inst.authorized_name %></h3> <span class="badge"><%= number_with_delimiter(inst['item_count']) %> Items</span>
