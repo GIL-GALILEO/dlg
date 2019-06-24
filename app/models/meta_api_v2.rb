@@ -39,14 +39,17 @@ class MetaApiV2
     data = self.class.get(url, options).parsed_response
     data.present? ? OpenStruct.new(data) : nil
   rescue StandardError
-    nil
+    OpenStruct.new
   end
 
   def get_many(url, options = params)
-    response = self.class.get(url, options)
-    return [] unless response.code == 200
-    response.parsed_response.map do |entity|
-      OpenStruct.new entity
+    response = self.class.get(url, options).parsed_response
+    if response.present?
+      response.map do |entity|
+        OpenStruct.new entity
+      end
+    else
+      nil
     end
   rescue StandardError
     []

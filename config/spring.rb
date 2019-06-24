@@ -5,12 +5,9 @@
   tmp/caching-dev.txt
 ].each { |path| Spring.watch(path) }
 
-
 Spring.after_fork do
   if ENV['DEBUGGER_STORED_RUBYLIB']
-    ENV['DEBUGGER_STORED_RUBYLIB'].split(File::PATH_SEPARATOR).each do |path|
-      next unless path =~ /ruby-debug-ide/
-      load path + '/ruby-debug-ide/multiprocess/starter.rb'
-    end
+    starter = ENV['BUNDLER_ORIG_RUBYOPT'][2..-1]
+    load(starter + '.rb')
   end
 end
