@@ -1,10 +1,26 @@
 stages:
+  - dependency_scan
   - setup_db_solr
   - setup_web_and_test
   - deconstruct
   - deploy_staging
   - deploy_production
   - manual_actions
+
+# Dependency Scan
+# Run Bundler Audit on the gemfile for staging/master deployment
+bundler_audit:
+  stage: dependency_scan
+  only:
+    - staging
+    - master
+  script:
+    - bundle audit check --update
+  environment:
+    name: dependency_scan
+  tags:
+    - shell
+
 
 # Setup PG and Solr containers to support test runner
 setup_db_solr:
