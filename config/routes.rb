@@ -18,6 +18,13 @@ Rails.application.routes.draw do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
     concerns :range_searchable
+    member do
+      get(
+        '/:collection_record_id/:collection_resource_slug',
+        to: 'collection_resources#show',
+        as: 'resource_page'
+      )
+    end
   end
 
   resources :institutions, only: %i[index show]
