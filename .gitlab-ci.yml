@@ -1,10 +1,26 @@
 stages:
+  - dependency_scan
   - setup_db_solr
   - setup_web_and_test
   - deconstruct
   - deploy_staging
   - deploy_production
   - manual_actions
+
+# Dependency Scan
+# Run Bundler Audit on the gemfile for staging/master deployment
+bundler_audit:
+  stage: dependency_scan
+  only:
+    - staging
+    - master
+  script:
+    - bundle audit check --update
+  environment:
+    name: dependency_scan
+  tags:
+    - shell
+
 
 # Setup PG and Solr containers to support test runner
 setup_db_solr:
@@ -45,10 +61,8 @@ deploy_to_staging:
   only:
     - staging
   script:
-    - rm -rf /deploy/DLG/dlg && mkdir /deploy/DLG/dlg
-    - rsync -rv --exclude=.git* . /deploy/DLG/dlg/
     - cd /deploy/DLG/dlg
-    - /deploy/scripts/post_fetch.sh
+    - git pull
     - bundle install --deployment
     - RAILS_ENV=staging bundle exec rake db:migrate --trace
     - RAILS_ENV=staging bundle exec rake assets:precompile --trace
