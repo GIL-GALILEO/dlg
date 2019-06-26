@@ -3,7 +3,7 @@
 # Class to wrap Meta API V2
 class MetaApiV2
   include HTTParty
-  base_uri 'https://dlgadmin.galileo.usg.edu/api/v2'
+  base_uri Rails.application.secrets.meta_api_url
 
   DEFAULT_QUERY_PARAMS = { portal: 'georgia' }.freeze
 
