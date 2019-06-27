@@ -80,10 +80,8 @@ deploy_to_production:
   only:
     - master
   script:
-    - rm -rf /deploy/DLG/dlg && mkdir /deploy/DLG/dlg
-    - rsync -rv --exclude=.git* . /deploy/DLG/dlg/
     - cd /deploy/DLG/dlg
-    - /deploy/scripts/post_fetch.sh
+    - git pull
     - bundle install --deployment
     - RAILS_ENV=production bundle exec rake db:migrate --trace
     - RAILS_ENV=production bundle exec rake assets:precompile --trace
