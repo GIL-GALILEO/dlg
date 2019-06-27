@@ -33,12 +33,16 @@ class MetaApiV2
     get "/collections/#{id}"
   end
 
+  def collection_resource(collection_id, resource_slug)
+    get "/collections/#{collection_id}/resource/#{resource_slug}"
+  end
+
   private
 
   def get(url, options = params)
     data = self.class.get(url, options).parsed_response
     data.present? ? OpenStruct.new(data) : nil
-  rescue StandardError
+  rescue StandardError => e
     OpenStruct.new
   end
 
@@ -51,7 +55,7 @@ class MetaApiV2
     else
       nil
     end
-  rescue StandardError
+  rescue StandardError => e
     []
   end
 

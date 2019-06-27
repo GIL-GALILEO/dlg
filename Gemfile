@@ -37,6 +37,7 @@ group :development, :test do
   gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'rspec-rails', '~> 3.5'
+  gem 'webmock'
 end
 
 group :development do
