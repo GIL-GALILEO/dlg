@@ -77,10 +77,6 @@ module ApiV2Helpers
       )
   end
 
-  def meta_api_url
-    Rails.application.secrets.meta_api_url || 'https://test.api'
-  end
-
   def api_url(path)
     Rails.application.secrets.meta_api_url + '/' + path
   end
