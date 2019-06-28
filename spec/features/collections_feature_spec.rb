@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 feature 'Collections' do
+  include ApiV2Helpers
+
   context 'collection search page' do
     before(:each) { visit search_collections_path }
     context 'search bar' do
@@ -39,15 +41,25 @@ feature 'Collections' do
     end
   end
   context 'collection home page' do
-    before(:each) { visit collection_home_path('gaarchives_hdg') }
+    before(:each) do
+      stub_collection_request
+      visit collection_home_path 'dlg_vsbg'
+    end
     context 'results list' do
-      scenario 'includes items based on other_collection values' do
-        expect(page).to have_text 'chapter of child health'
+      # check that items that are members of a collection via the
+      # 'other_collection' valuies in DLG Admin are included in search results
+      # that limit based on collection_titles_sms. see models/records_search
+      scenario 'includes items based on other_collection values', js: true do
+        expect(page).to have_text 'Map of Dade County'
       end
     end
     context 'search bar' do
-      scenario 'has a placeholder indicating it searches over the collection Collections' do
-        expect(page).to have_css("input[placeholder='#{I18n.t('search.bar.placeholder.collection', collection: 'Historic Documents of Georgia (Georgia Archives)' )}']")
+      scenario 'has a placeholder indicating it searches over the collection' do
+        placeholder_text = I18n.t(
+          'search.bar.placeholder.collection',
+          collection: 'Liberty Ships'
+        )
+        expect(page).to have_css("input[placeholder='#{placeholder_text}']")
       end
     end
   end

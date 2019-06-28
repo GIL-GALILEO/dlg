@@ -1,0 +1,42 @@
+{
+  "id":1,
+  "display_title":"Liberty Ships",
+  "short_description":"Description of Liberty Ships",
+  "dc_right":["https://creativecommons.org/publicdomain/zero/1.0/"],
+  "dc_date":["1943/1945"],
+  "dcterms_creator":["J.A. Jones Construction Company "],
+  "dcterms_description":["Long description"],
+  "dcterms_medium":["Aerial photographs, Black-and-white photographs"],
+  "dcterms_spatial":["United States, Georgia, Glynn County, Brunswick, 31.1499528, -81.4914894"],
+  "dcterms_subject":["Liberty ships--Georgia--Brunswick","Shipbuilding industry--Georgia--Brunswick"],
+  "dcterms_title":["Liberty Ships of Georgia"],
+  "dcterms_type":["Collection"],
+  "edm_is_shown_at":["https://url.com"],
+  "items_count":44,
+  "record_id":"dlg_vsbg",
+  "edm_is_shown_by":["https://url.com"],
+  "collection_resources_count":"2",
+  "sponsor_note":"Sponsor Note",
+  "sponsor_image":{"url":"/uploads/collection/1/sponsor_image/record_image.jpg"},
+  "dcterms_provenance":[""],
+  "holding_institution_image":"/uploads/holding_institution/1/image/record_image.gif",
+  "portals":[
+    {"id":1,"code":"dlg","name":"Digital Library of Georgia"}
+  ],
+  "collection_resources":[
+    {"slug":"one","position":1,"title":"One"},
+    {"slug":"two","position":2,"title":"Two"}
+  ],
+  "holding_institutions":[
+    {
+      "authorized_name":"HI1",
+      "image":{"url":"/uploads/holding_institution/1/image/record_image.gif"},
+      "display_name":"HI1"
+    },
+    {
+      "authorized_name":"HI2",
+      "image":{"url":"/uploads/holding_institution/2/image/record_image.gif"},
+      "display_name":"HI2"
+    }
+  ]
+}
