@@ -3,7 +3,7 @@
 # Class to wrap Meta API V2
 class MetaApiV2
   include HTTParty
-  base_uri Rails.application.secrets.meta_api_url
+  base_uri(Rails.application.secrets.meta_api_url || 'https://test.api')
 
   DEFAULT_QUERY_PARAMS = { portal: 'georgia' }.freeze
 
