@@ -13,45 +13,15 @@
           </div>
           <div id="collapse1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
             <div class="panel-body text-left">
-              <%= collection_field_tag(
-                    'Medium', multivalued_collection_field(:dcterms_medium)
-                  ) %>
-              <p>
-                <strong>Medium</strong><br>
-                <%= multivalued_collection_field(:dcterms_medium) %>
-              </p>
-              <p>
-                <strong>Creator:</strong><br>
-                <%= multivalued_collection_field(:dcterms_creator) %>
-              </p>
-              <p>
-                <strong>Date of Original:</strong><br>
-                <%= multivalued_collection_field(:dc_date) %>
-              </p>
-              <p>
-                <strong>Subject:</strong><br>
-                <%= collection_subject_links %>
-              </p>
-              <p>
-                <strong>Location:</strong><br>
-                <%= collection_location_links %>
-              </p>
-              <p>
-                <strong>Type:</strong><br>
-                <%= multivalued_collection_field(:dcterms_type) %>
-              </p>
-              <p>
-                <strong>Description:</strong><br>
-                <%= multivalued_collection_field(:dcterms_description) %>
-              </p>
-              <p>
-                <strong>Original Collection:</strong><br>
-                <%= multivalued_collection_field(:dcterms_is_part_of) %>
-              </p>
-              <p>
-                <strong>Rights:</strong><br>
-                <%= rights_statement_icons %>
-              </p>
+              <%= collection_field_tag('Medium', multivalued_collection_field(:dcterms_medium)) %>
+              <%= collection_field_tag('Creator', multivalued_collection_field(:dcterms_creator)) %>
+              <%= collection_field_tag('Date of Original', multivalued_collection_field(:dc_date)) %>
+              <%= collection_field_tag('Subject', collection_subject_links) %>
+              <%= collection_field_tag('Location', collection_location_links) %>
+              <%= collection_field_tag('Type', multivalued_collection_field(:dcterms_type)) %>
+              <%= collection_field_tag('Description', multivalued_collection_field(:dcterms_description)) %>
+              <%= collection_field_tag('Original Collection', multivalued_collection_field(:dcterms_is_part_of)) %>
+              <%= collection_field_tag('Rights', rights_statement_icons ) %>
             </div>
           </div>
         </div>

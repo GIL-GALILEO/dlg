@@ -68,10 +68,6 @@ module RecordsHelper
   end
 
   def collection_field_tag(label, field_value)
-    content_tag(:p) do
-      content_tag(:strong) do
-        label
-      end + field_value
-    end
+    tag.p(tag.strong(label) + tag.br + field_value)
   end
 end
