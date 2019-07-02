@@ -1,25 +1,17 @@
 <section id="record-results">
   <div class="container">
-    <% if @collection && @document_list.any? %>
+    <% if collection_limited_results? %>
       <h2><%= @collection.display_title %></h2>
-    <% elsif @institution && @document_list.any? %>
-      <h2><%= @institution.display_name %></h2>
+      <%= render 'institution_icons', institutions: @collection.institutions %>
     <% end %>
     <div id="sidebar" class="<%= sidebar_classes %>">
       <%= render 'search_sidebar' %>
     </div>
     <div id="content" class="<%= main_content_classes %>">
-      <% if @collection && @document_list.any? %>
+      <% if collection_limited_results? %>
         <%# show collection info panel and results if collection params is set (MK 1/2019) %>
-        <%= render 'collection_info_box' %>
+        <%= render 'collection_details' %>
         <%= render 'search_results' %>
-      <% elsif @institution %>
-        <%# only show Institution information when no search query has been conducted (MK 1/2019) %>
-        <% if has_search_parameters? %>
-          <%= render 'search_results' %>
-        <% else %>
-          <%= render 'institution_info' %>
-        <% end %>
       <% else %>
         <%= render 'search_results' %>
       <% end %>

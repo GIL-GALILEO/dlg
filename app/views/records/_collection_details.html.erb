@@ -1,0 +1,64 @@
+<div class="collection-details">
+  <p><%= @collection.dcterms_description.first %></p>
+  <p><%= collection_holding_institutions_text %></p>
+  <div class="panel-group text-center" id="accordion">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="collapsed" aria-expanded="false">
+                More About This Collection <span class="caret"></span></a>
+            </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div class="panel-body text-left">
+              <%= collection_field_tag(
+                    'Medium', multivalued_collection_field(:dcterms_medium)
+                  ) %>
+              <p>
+                <strong>Medium</strong><br>
+                <%= multivalued_collection_field(:dcterms_medium) %>
+              </p>
+              <p>
+                <strong>Creator:</strong><br>
+                <%= multivalued_collection_field(:dcterms_creator) %>
+              </p>
+              <p>
+                <strong>Date of Original:</strong><br>
+                <%= multivalued_collection_field(:dc_date) %>
+              </p>
+              <p>
+                <strong>Subject:</strong><br>
+                <%= collection_subject_links %>
+              </p>
+              <p>
+                <strong>Location:</strong><br>
+                <%= collection_location_links %>
+              </p>
+              <p>
+                <strong>Type:</strong><br>
+                <%= multivalued_collection_field(:dcterms_type) %>
+              </p>
+              <p>
+                <strong>Description:</strong><br>
+                <%= multivalued_collection_field(:dcterms_description) %>
+              </p>
+              <p>
+                <strong>Original Collection:</strong><br>
+                <%= multivalued_collection_field(:dcterms_is_part_of) %>
+              </p>
+              <p>
+                <strong>Rights:</strong><br>
+                <%= rights_statement_icons %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if @collection&.collection_resources&.any? %>
+        <%= render 'collection_resources_panel' %>
+      <% end %>
+    </div>
+  </div>
+</div>

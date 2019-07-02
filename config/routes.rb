@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     concerns :range_searchable
   end
 
+  get '/collection/:collection_record_id',
+      to: 'records#index', as: 'collection_home'
   resource :collections, only: [:index] do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
@@ -31,8 +33,6 @@ Rails.application.routes.draw do
 
   get '/search', to: 'advanced#index', as: 'search'
   get '/counties', to: 'counties#index', as: 'counties'
-  get '/collection/:collection_record_id',
-      to: 'records#index', as: 'collection_home'
 
   resources :solr_document, only: [:show], path: '/record',
                             controller: 'records' do

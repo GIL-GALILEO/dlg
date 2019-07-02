@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="holding-institution-logos">
+    <div class="col-xs-4 col-xs-offset-4  holding-institution-logo">
+      <% if @collection.holding_institutions&.any? %>
+        <% @collection.holding_institutions.each do |inst| %>
+          <div class="col-xs-12 col-sm-4">
+            <img class="img-responsive" src="<%= cache_server_image_link(inst['image']['url']) %>" alt="<% inst['display_name'] %>">
+          </div>
+        <% end %>
+      <% else %>
+        <div class="col-xs-12 col-sm-4">
+          <img class="img-responsive" src="<%= cache_server_image_link(@collection.holding_institution_image) %>" alt="<% @collection.dcterms_provenance.first %>">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

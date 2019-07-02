@@ -47,10 +47,22 @@ feature 'Collections' do
     end
     context 'results list' do
       # check that items that are members of a collection via the
-      # 'other_collection' valuies in DLG Admin are included in search results
+      # 'other_collection' values in DLG Admin are included in search results
       # that limit based on collection_titles_sms. see models/records_search
       scenario 'includes items based on other_collection values', js: true do
         expect(page).to have_text 'Map of Dade County'
+      end
+    end
+    context 'more about panel' do
+      scenario 'shows '
+    end
+    context 'resources panel', js: true do
+      scenario 'lists links to provided resources' do
+        within '.resources-panel' do
+          click_on 'Additional Resources'
+          expect(page).to have_link('One', href: '/collections/dlg_vsbg/one')
+          expect(page).to have_link('Two', href: '/collections/dlg_vsbg/two')
+        end
       end
     end
     context 'search bar' do

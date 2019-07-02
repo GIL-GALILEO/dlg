@@ -43,6 +43,7 @@ class MetaApiV2
     data = self.class.get(url, options).parsed_response
     data.present? ? OpenStruct.new(data) : nil
   rescue StandardError => e
+    # TODO: is this right? test this case
     OpenStruct.new
   end
 
