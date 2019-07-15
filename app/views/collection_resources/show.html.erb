@@ -2,7 +2,7 @@
   <div class="container">
     <h2><%= @resource.title %></h2>
     <div class="resource-content">
-      <%= @resource.content %>
+      <%= @resource.content.html_safe %>
     </div>
   </div>
 </section>
