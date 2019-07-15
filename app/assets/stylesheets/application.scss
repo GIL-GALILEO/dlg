@@ -386,13 +386,14 @@ section#counties {
   }
 }
 
-section#holding_institution dl {
-  margin: 30px 0 20px 0; }
-section#holding_institution dl dd {
-  margin-bottom: 10px; }
-
-section#holding_institution img {
-  display: inline; }
+section#holding_institution {
+  dl {
+    margin: 30px 0 20px 0; }
+  dl dd {
+    margin-bottom: 10px; }
+  img {
+    display: inline; }
+}
 
 section#institutions {
   .az_nav {

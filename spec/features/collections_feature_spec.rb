@@ -53,6 +53,19 @@ feature 'Collections' do
         expect(page).to have_text 'Map of Dade County'
       end
     end
+    context 'sponsor information' do
+      scenario 'shows sponsor message' do
+        within '.sponsor-info' do
+          expect(page).to have_text 'Sponsor Note'
+        end
+      end
+      scenario 'shows sponsor image', js: true do
+        within '.sponsor-info' do
+          image = find('.sponsor-image')
+          expect(image[:src]).to include '/uploads/collection/1/sponsor_image/record_image.jpg'
+        end
+      end
+    end
     context 'more about panel' do
       scenario 'shows '
     end
