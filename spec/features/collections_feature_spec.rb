@@ -67,7 +67,13 @@ feature 'Collections' do
       end
     end
     context 'more about panel' do
-      scenario 'shows '
+      scenario 'shows field label only if value is set' do
+        within '.collection-metadata-panel' do
+          click_on 'More About This Collection'
+          expect(page).to have_text 'Long description'
+          expect(page).not_to have_text 'Original Collection'
+        end
+      end
     end
     context 'resources panel', js: true do
       scenario 'lists links to provided resources' do

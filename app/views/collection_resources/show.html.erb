@@ -1,8 +1,10 @@
 <section id="collection_resource" class="">
   <div class="container">
-    <h2><%= @resource.title %></h2>
+    <h2><%= @collection.display_title %></h2>
+    <h3><%= @resource.title %></h3>
     <div class="resource-content">
       <%= @resource.content.html_safe %>
     </div>
   </div>
 </section>
+<% @page_title = "#{@resource.title} - #{@collection.display_title} - #{application_name}" %>

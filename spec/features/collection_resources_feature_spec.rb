@@ -15,5 +15,8 @@ feature 'CollectionResources' do
       expect(page).to have_text 'Bibliography'
       expect(page).to have_text 'Bibliographic content'
     end
+    scenario 'including collection name' do
+      expect(page).to have_text 'Liberty Ships'
+    end
   end
 end
