@@ -68,6 +68,6 @@ module RecordsHelper
   end
 
   def collection_field_tag(label, field_value)
-    tag.p(tag.strong(label) + tag.br + field_value)
+    tag.p(tag.strong(label) + tag.br + field_value) if field_value
   end
 end
