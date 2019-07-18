@@ -2,7 +2,7 @@
   <div class="container">
     <h2><%= @collection.display_title %></h2>
     <h3><%= @resource.title %></h3>
-    <ol class="breadcrumbs">
+    <ol class="breadcrumb">
       <li><%= link_to 'Collections', search_collections_path %></li>
       <li><%= link_to @collection.display_title, collection_home_path(@collection.record_id) %></li>
       <li><%= @resource.title %></li>
