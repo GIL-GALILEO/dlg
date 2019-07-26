@@ -9,7 +9,6 @@ class RecordsSearch < SearchBuilder
     add_advanced_search_to_solr
     limit_by_collection
     limit_by_institution
-    include_fulltext_field
   ]
 
   def limit_by_collection(solr_parameters)
@@ -22,11 +21,6 @@ class RecordsSearch < SearchBuilder
     return unless institution_specified
     solr_parameters[:fq] << "institution_slug_sms:#{institution_specified}"
     solr_parameters['facet.field'].delete('institution_slug_sms')
-  end
-
-  def include_fulltext_field(solr_parameters)
-    return unless search_fulltext
-    solr_parameters[:qf] << 'fulltext_texts' # TODO: qf values do not appear to be set...
   end
 
   def show_only_public_records(solr_parameters)
@@ -52,9 +46,5 @@ class RecordsSearch < SearchBuilder
 
   def institution_specified
     blacklight_params[:institution_slug]
-  end
-
-  def search_fulltext
-    blacklight_params[:search_fulltext]
   end
 end
