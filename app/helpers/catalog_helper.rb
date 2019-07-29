@@ -18,6 +18,12 @@ module CatalogHelper
     end
   end
 
+  # show search bar options only on homepage and record search
+  def show_search_bar_options
+    zone = controller.class.name.downcase
+    zone =~ /homepage/ || zone =~ /records/
+  end
+
   def strip_html(options = {})
     strip_tags(options[:value].first)
   end
