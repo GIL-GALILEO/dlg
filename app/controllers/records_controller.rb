@@ -85,58 +85,58 @@ class RecordsController < CatalogController
       field.include_in_advanced_search = false
       field.label = 'Both'
       field.solr_local_parameters = {
-        qf: 'title_unstem_search^100
-        creator_unstem_search^100
-        contributor_unstem_search^100
-        subject_unstem_search^100
-        description_unstem_search^100
-        publisher_unstem_search^100
-        date_unstem_search^100
-        temporal_unstem_search^100
-        spatial_unstem_search^100
-        is_part_of_unstem_search^100
-        identifier_unstem_search^100
-        edm_is_shown_at_text^100
-        edm_is_shown_by_text^100
-        collection_titles_unstem_search^100
-        dcterms_title_text
-        dcterms_creator_text
-        dcterms_contributor_text
-        dcterms_subject_text
-        dcterms_description_text
-        dcterms_publisher_text
-        dcterms_temporal_text
-        dcterms_spatial_text
-        dcterms_is_part_of_text
-        dcterms_identifier_text
-        collection_titles_text
-        fulltext_texts',
-        pf: 'title_unstem_search^100
-        creator_unstem_search^100
-        contributor_unstem_search^100
-        subject_unstem_search^100
-        description_unstem_search^100
-        publisher_unstem_search^100
-        date_unstem_search^100
-        temporal_unstem_search^100
-        spatial_unstem_search^100
-        is_part_of_unstem_search^100
-        identifier_unstem_search^100
-        edm_is_shown_at_text^100
-        edm_is_shown_by_text^100
-        collection_titles_unstem_search^100
-        dcterms_title_text
-        dcterms_creator_text
-        dcterms_contributor_text
-        dcterms_subject_text
-        dcterms_description_text
-        dcterms_publisher_text
-        dcterms_temporal_text
-        dcterms_spatial_text
-        dcterms_is_part_of_text
-        dcterms_identifier_text
-        collection_titles_text
-        fulltext_texts'
+        qf: 'fulltext_texts^150
+             title_unstem_search^100
+             creator_unstem_search^100
+             contributor_unstem_search^100
+             subject_unstem_search^100
+             description_unstem_search^100
+             publisher_unstem_search^100
+             date_unstem_search^100
+             temporal_unstem_search^100
+             spatial_unstem_search^100
+             is_part_of_unstem_search^100
+             identifier_unstem_search^100
+             edm_is_shown_at_text^100
+             edm_is_shown_by_text^100
+             collection_titles_unstem_search^100
+             dcterms_title_text
+             dcterms_creator_text
+             dcterms_contributor_text
+             dcterms_subject_text
+             dcterms_description_text
+             dcterms_publisher_text
+             dcterms_temporal_text
+             dcterms_spatial_text
+             dcterms_is_part_of_text
+             dcterms_identifier_text
+             collection_titles_text',
+        pf: 'fulltext_texts^150
+             title_unstem_search^100
+             creator_unstem_search^100
+             contributor_unstem_search^100
+             subject_unstem_search^100
+             description_unstem_search^100
+             publisher_unstem_search^100
+             date_unstem_search^100
+             temporal_unstem_search^100
+             spatial_unstem_search^100
+             is_part_of_unstem_search^100
+             identifier_unstem_search^100
+             edm_is_shown_at_text^100
+             edm_is_shown_by_text^100
+             collection_titles_unstem_search^100
+             dcterms_title_text
+             dcterms_creator_text
+             dcterms_contributor_text
+             dcterms_subject_text
+             dcterms_description_text
+             dcterms_publisher_text
+             dcterms_temporal_text
+             dcterms_spatial_text
+             dcterms_is_part_of_text
+             dcterms_identifier_text
+             collection_titles_text'
       }
     end
 
