@@ -67,6 +67,7 @@ class RecordsController < CatalogController
     config.add_show_field :dcterms_is_part_of_display,              label: I18n.t('search.labels.dcterms_is_part_of'), helper_method: :regex_linkify
     config.add_show_field :dcterms_provenance_display,              label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
     config.add_show_field :dc_right_display,                        label: I18n.t('search.labels.dc_right'), helper_method: :rights_icon_tag
+    config.add_show_field :fulltext_texts,                          label: "Full Text"
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
