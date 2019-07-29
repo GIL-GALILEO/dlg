@@ -83,7 +83,7 @@ class RecordsController < CatalogController
     # fulltexty
     config.add_search_field('both') do |field|
       field.include_in_advanced_search = false
-      field.label = 'Both'
+      field.label = I18n.t('search.labels.both')
       field.solr_local_parameters = {
         qf: 'fulltext_texts^150
              title_unstem_search^100
@@ -142,11 +142,11 @@ class RecordsController < CatalogController
 
     config.add_search_field('metadata') do |field|
       field.include_in_advanced_search = false
-      field.label = 'Metadata'
+      field.label = I18n.t('search.labels.metadata')
     end
 
     config.add_search_field('fulltext') do |field|
-      field.label = 'Full Text'
+      field.label = I18n.t('search.labels.fulltext')
       field.solr_local_parameters = {
         qf: 'fulltext_texts^1000',
         pf: 'fulltext_texts^1000'

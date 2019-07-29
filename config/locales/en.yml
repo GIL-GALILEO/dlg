@@ -129,6 +129,9 @@ en:
         count: 'Sort by Count'
     labels:
       record_id: 'Record ID'
+      both: 'Metadata & Fulltext'
+      metadata: 'Metadata'
+      fulltext: 'Full Text'
       collection: 'Collection'
       dcterms_provenance: 'Holding Institution'
       dcterms_title: 'Title'
