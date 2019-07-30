@@ -2,19 +2,30 @@
   <div class="container">
     <div class="row">
       <div id="content" class="<%= show_content_classes %>">
-        <ul class="nav nav-tabs nav-justified">
-          <li class="active"><a href="#metadata" data-toggle="metadata" aria-expanded="true">Metadata</a></li>
-          <li><a href="#text" data-toggle="text" aria-expanded="true">Text</a></li>
-          <li><a href="#item" data-toggle="item" aria-expanded="true">Item</a></li>
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="active">
+            <a class="nav-link active" href="#metadata" id="metadata-tab" data-toggle="tab" aria-controls="metadata" aria-selected="true">Metadata</a>
+          </li>
+          <li role="presentation">
+            <a class="nav-link" href="#text" id="text-tab" data-toggle="tab" aria-controls="text" aria-selected="true">Text</a>
+          </li>
+          <li role="presentation">
+            <a class="nav-link" href="#item" id="item-tab" data-toggle="tab" aria-controls="item" aria-selected="true">Item</a>
+          </li>
         </ul>
         <div class="tab-content">
-          <div id="metadata" class="tab-pane fade active in">
+          <div id="metadata" class="tab-pane fade in active" role="tabpanel" aria-labelledby="metadata-tab">
             <%= render_document_main_content_partial %>
           </div>
-          <div id="text" class="tab-pane fade">
+          <div id="text" class="tab-pane fade" role="tabpanel" aria-labelledby="text-tab">
             <%# render fulltext %>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <%= @document.fulltext %>
+              </div>
+            </div>
           </div>
-          <div id="item" class="tab-pane fade">
+          <div id="item" class="tab-pane fade" role="tabpanel" aria-labelledby="item-tab">
             <%# render images in OSD %>
           </div>
         </div>

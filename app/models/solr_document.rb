@@ -88,6 +88,10 @@ class SolrDocument
     self[:thumbnail_ss]
   end
 
+  def fulltext
+    self[:fulltext_texts].first
+  end
+
   def types
     self[:dcterms_type_display]
   end
