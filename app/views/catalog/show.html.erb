@@ -2,7 +2,22 @@
   <div class="container">
     <div class="row">
       <div id="content" class="<%= show_content_classes %>">
-        <%= render_document_main_content_partial %>
+        <ul class="nav nav-tabs nav-justified">
+          <li class="active"><a href="#metadata" data-toggle="metadata" aria-expanded="true">Metadata</a></li>
+          <li><a href="#text" data-toggle="text" aria-expanded="true">Text</a></li>
+          <li><a href="#item" data-toggle="item" aria-expanded="true">Item</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="metadata" class="tab-pane fade active in">
+            <%= render_document_main_content_partial %>
+          </div>
+          <div id="text" class="tab-pane fade">
+            <%# render fulltext %>
+          </div>
+          <div id="item" class="tab-pane fade">
+            <%# render images in OSD %>
+          </div>
+        </div>
       </div>
       <div id="sidebar" class="<%= show_sidebar_classes %>">
         <%= render_document_sidebar_partial %>
