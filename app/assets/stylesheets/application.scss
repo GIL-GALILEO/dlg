@@ -786,3 +786,17 @@ section#institutions {
     }
   }
 }
+
+.searchbox {
+  position: relative;
+  padding-left: 40px; }
+.searchbox a {
+  color: #fff; }
+.searchbox .glyphicon {
+  position: absolute;
+  left: 10px;
+  top: 13px;
+  font-size: 1.5em; }
+
+.has-fulltext {
+  color: #0E8893; }
