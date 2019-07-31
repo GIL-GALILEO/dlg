@@ -92,6 +92,10 @@ class SolrDocument
     self[:fulltext_texts].first
   end
 
+  def iiif_ids
+    self[:iiif_ids_sms]
+  end
+
   def types
     self[:dcterms_type_display]
   end
