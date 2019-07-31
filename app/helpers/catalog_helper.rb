@@ -59,7 +59,7 @@ module CatalogHelper
 
   def iiif_manifest_urls
     iiif_prefix = Rails.application.secrets.iiif_prefix
-    @document.iiif_ids.map do |id|
+    @document.iiif_ids&.map do |id|
       iiif_prefix + id
     end
   end

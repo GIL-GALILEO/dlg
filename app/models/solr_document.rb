@@ -89,7 +89,7 @@ class SolrDocument
   end
 
   def fulltext
-    self[:fulltext_texts].first
+    self[:fulltext_texts]&.first
   end
 
   def iiif_ids
