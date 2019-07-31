@@ -2,32 +2,27 @@
   <div class="container">
     <div class="row">
       <div id="content" class="<%= show_content_classes %>">
+        <% if show_tabs? %>
         <ul class="nav nav-tabs nav-justified" role="tablist">
           <li role="presentation" class="active">
             <a class="nav-link active" href="#metadata" id="metadata-tab" data-toggle="tab" aria-controls="metadata" aria-selected="true">Metadata</a>
           </li>
+          <% if @document.fulltext %>
           <li role="presentation">
             <a class="nav-link" href="#text" id="text-tab" data-toggle="tab" aria-controls="text" aria-selected="true">Text</a>
           </li>
+          <% end %>
+          <% if @document.iiif_ids %>
           <li role="presentation">
             <a class="nav-link" href="#item" id="item-tab" data-toggle="tab" aria-controls="item" aria-selected="true">Item</a>
           </li>
+          <% end %>
         </ul>
+        <% end %>
         <div class="tab-content">
-          <div id="metadata" class="tab-pane fade in active" role="tabpanel" aria-labelledby="metadata-tab">
-            <%= render_document_main_content_partial %>
-          </div>
-          <div id="text" class="tab-pane fade" role="tabpanel" aria-labelledby="text-tab">
-            <%# render fulltext %>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <%= @document.fulltext %>
-              </div>
-            </div>
-          </div>
-          <div id="item" class="tab-pane fade" role="tabpanel" aria-labelledby="item-tab">
-            <%= openseadragon_picture_tag iiif_manifest_urls, { data: { openseadragon: { sequenceMode: true }}}  %>
-          </div>
+          <%= render 'metadata_tab', document: @document %>
+          <%= render 'text_tab', document: @document if @document.fulltext %>
+          <%= render 'item_tab', document: @document if @document.iiif_ids %>
         </div>
       </div>
       <div id="sidebar" class="<%= show_sidebar_classes %>">
