@@ -1,0 +1,7 @@
+<div id="metadata" class="tab-pane fade in active" role="tabpanel" aria-labelledby="metadata-tab">
+  <div id="document" class="document <%= render_document_class %>" itemscope  itemtype="<%= @document.itemtype %>">
+    <div id="doc_<%= @document.id.to_s.parameterize %>">
+      <%= render 'show_default', document: @document %>
+    </div>
+  </div>
+</div>
