@@ -1,21 +1,61 @@
 <div class="container">
   <%= form_tag search_action_url, method: :get, class: 'search-query-form form-inline', role: 'search', 'aria-label': 'Search Form' do %>
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="form-group full-width">
-          <label for="q" class="sr-only"><%= t('blacklight.search.form.search.sr_label') %></label>
-          <div class="input-group input-group-lg full-width">
-            <input name="q" type="text" id="q" class="form-control" placeholder="<%= search_bar_placeholder %>" aria-label="Input to <%= search_bar_placeholder %>">
-            <input type="hidden" name="search_field" value="all_fields">
-            <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="submit">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="sr-only"><%= t('blacklight.search.form.search.sr_label') %></span>
+      <div class="col-md-8 col-md-offset-2 searchbox">
+        <a href="#" data-toggle="modal" data-target="#searchHelp">
+          <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+        </a>
+        <label for="q" class="sr-only"><%= t('blacklight.search.form.search.sr_label') %></label>
+        <div class="input-group input-group-lg">
+          <div class="input-group-btn search-panel">
+            <% if search_fields.length > 1 %>
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="search-type">Search Records</span>
+                <span class="caret"></span>
               </button>
-            </span>
+              <ul class="dropdown-menu" role="menu">
+                <% fields = search_fields.length %>
+                <% search_fields.each_with_index do |field, i| %>
+                  <%# show divider before final element %>
+                  <% if i + 1 == fields %>
+                  <li class="divider"></li>
+                  <% end %>
+                  <li>
+                    <a href="#" data-search-field="<%= field[1] %>"><%= field[0] %></a>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+            <input type="hidden" name="search_field" value="all_fields">
           </div>
+          <input name="q" type="text" id="q" class="form-control" placeholder="<%= search_bar_placeholder %>" aria-label="Input to <%= search_bar_placeholder %>">
+          <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <span class="sr-only"><%= t('blacklight.search.form.search.sr_label') %></span>
+            </button>
+          </span>
         </div>
       </div>
     </div>
   <% end %>
+</div>
+
+<div id="searchHelp" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Searching Help</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some guidance about the usage of these Search Options.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
