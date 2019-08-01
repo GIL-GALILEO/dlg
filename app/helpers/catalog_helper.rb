@@ -56,4 +56,16 @@ module CatalogHelper
     end
     uri
   end
+
+  # related to show page tabs
+  def show_tabs?(document = @document)
+    document.fulltext || document.iiif_ids
+  end
+
+  def iiif_manifest_urls(document = @document)
+    iiif_prefix = Rails.application.secrets.iiif_prefix
+    @document.iiif_ids&.map do |id|
+      iiif_prefix + id
+    end
+  end
 end
