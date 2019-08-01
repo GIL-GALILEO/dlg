@@ -44,4 +44,12 @@ Blacklight.onLoad(function() {
     // chosenify nomination form selects
     $('select.nomination-select').chosen();
 
+    // Handle switching search types
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        $('#search-type').text('Search ' + $this.text());
+        $('input[name="search_field"]').val($this.data('search-field'))
+    });
+
 });

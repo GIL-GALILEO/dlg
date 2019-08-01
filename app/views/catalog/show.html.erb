@@ -1,8 +1,34 @@
+<% @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name).html_safe %>
+<% content_for(:head) { render_link_rel_alternates } %>
+
 <section id="record-show">
   <div class="container">
+    <%= render 'previous_next_doc' %>
+    <%= render_document_heading(@document, :tag => :h1) %>
     <div class="row">
       <div id="content" class="<%= show_content_classes %>">
-        <%= render_document_main_content_partial %>
+        <% if show_tabs? %>
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="active">
+            <a class="nav-link active" href="#metadata" id="metadata-tab" data-toggle="tab" aria-controls="metadata" aria-selected="true">Metadata</a>
+          </li>
+          <% if @document.fulltext %>
+          <li role="presentation">
+            <a class="nav-link" href="#text" id="text-tab" data-toggle="tab" aria-controls="text" aria-selected="true">Text</a>
+          </li>
+          <% end %>
+          <% if @document.iiif_ids %>
+          <li role="presentation">
+            <a class="nav-link" href="#item" id="item-tab" data-toggle="tab" aria-controls="item" aria-selected="true">Item</a>
+          </li>
+          <% end %>
+        </ul>
+        <% end %>
+        <div class="tab-content">
+          <%= render 'metadata_tab', document: @document %>
+          <%= render 'text_tab', document: @document if @document.fulltext %>
+          <%= render 'item_tab', document: @document if @document.iiif_ids %>
+        </div>
       </div>
       <div id="sidebar" class="<%= show_sidebar_classes %>">
         <%= render_document_sidebar_partial %>
@@ -15,4 +41,12 @@
       </div>
     </div>
   </div>
+  <% if @document.respond_to?(:export_as_openurl_ctx_kev) %>
+    <!--
+         // COinS, for Zotero among others.
+         // This document_partial_name(@document) business is not quite right,
+         // but has been there for a while.
+    -->
+    <span class="Z3988" title="<%= @document.export_as_openurl_ctx_kev(document_partial_name(@document)) %>"></span>
+  <% end %>
 </section>

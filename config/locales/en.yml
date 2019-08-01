@@ -94,10 +94,10 @@ en:
   search:
     bar:
       placeholder:
-        default: 'Search All Items'
-        collections: 'Search for Collections'
-        collection: 'Search Items in %{collection}'
-        institution: 'Search Items in %{institution}'
+        default: 'for...'
+        collections: 'in Collections'
+        collection: 'items in %{collection}'
+        institution: 'items in %{institution}'
     index:
       truncated_field: '..(more)'
       collection_label: 'Collection'
@@ -129,6 +129,9 @@ en:
         count: 'Sort by Count'
     labels:
       record_id: 'Record ID'
+      both: 'Both'
+      metadata: 'Records'
+      fulltext: 'Full Text'
       collection: 'Collection'
       dcterms_provenance: 'Holding Institution'
       dcterms_title: 'Title'
