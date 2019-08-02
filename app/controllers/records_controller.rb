@@ -81,7 +81,7 @@ class RecordsController < CatalogController
 
     # define search fields
     # title
-    config.add_search_field('id') do |field|
+    config.add_search_field('record_id') do |field|
       field.label = I18n.t('search.labels.record_id')
       field.solr_local_parameters = {
         qf: 'record_id_ss^50000',
