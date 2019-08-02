@@ -20,6 +20,19 @@
   width: 300px;
 }
 
+.nav-tabs-justified>.active>a, .nav-tabs.nav-justified>.active>a, .nav-tabs-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus, .nav-tabs.nav-justified>.active>a:focus {
+  border: 1px solid $dlg-blue;
+  border-bottom: none;
+}
+
+.nav-tabs.nav-justified>li>a {
+  border: none;
+}
+
+.nav-tabs.nav-justified>li>a:hover {
+  border-color: transparent transparent $dlg-blue!important;
+}
+
 .top-banner {
   text-align: center;
   background: $dlg-blue;
@@ -562,6 +575,11 @@ section#institutions {
   body {
     margin-bottom: $height-footer;
   }
+
+  .nav-tabs-justified>li>a, .nav-tabs.nav-justified>li>a {
+    border-bottom: 1px solid $dlg-blue;
+  }
+
   section#counties {
     ul.counties-list {
       -moz-column-count: 3;
