@@ -4,7 +4,7 @@ RSpec.describe 'JSON Endpoint', type: :request do
   # support special use case
   context '#index' do
     it 'returns a single record by record_id' do
-      get '/records.json?search_field=id&q=gaarchives_cmf_70'
+      get '/records.json?search_field=record_id&q=gaarchives_cmf_70'
       body = JSON.parse(response.body)
       expect(body['response']['docs'].length).to eq 1
     end
