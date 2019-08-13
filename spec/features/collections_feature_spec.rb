@@ -39,7 +39,7 @@ feature 'Collections' do
     end
   end
   context 'collection home page' do
-    before(:each) { visit collection_home_path('gaarchives_hdg') }
+    before(:each) { visit collection_home_path('dlg_ugahistory') }
     context 'results list' do
       scenario 'includes items based on other_collection values' do
         expect(page).to have_text 'chapter of child health'
@@ -47,7 +47,7 @@ feature 'Collections' do
     end
     context 'search bar' do
       scenario 'has a placeholder indicating it searches over the collection Collections' do
-        expect(page).to have_css("input[placeholder='#{I18n.t('search.bar.placeholder.collection', collection: 'Historic Documents of Georgia (Georgia Archives)' )}']")
+        expect(page).to have_css("input[placeholder=\"#{I18n.t('search.bar.placeholder.collection', collection: "Documents from UGA's History")}\"]")
       end
     end
   end
