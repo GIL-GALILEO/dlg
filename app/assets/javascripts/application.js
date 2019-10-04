@@ -29,7 +29,7 @@ Blacklight.onLoad(function() {
     });
 
     // handling for secondary submit button to advanced search form
-    const $auxAdvSubmit = $('button.auxiliary-advanced-search-submit');
+    var $auxAdvSubmit = $('button.auxiliary-advanced-search-submit');
     $auxAdvSubmit.click(function() {
         $('form.advanced').submit()
     });
@@ -53,15 +53,15 @@ Blacklight.onLoad(function() {
     });
 
     // support deeplinking to tab content
-    const url = window.location.href;
+    var url = window.location.href;
     if (url.indexOf("#") > 0){
-        const activeTab = url.substring(url.indexOf("#") + 1);
+        var activeTab = url.substring(url.indexOf("#") + 1);
         $('.nav[role="tablist"] a[href="#' + activeTab + '"]').tab('show');
     }
 
     $('a[role="tab"]').click(function(e) {
-        const hash = $(this).attr("href");
-        const newUrl = url.split("#")[0] + hash;
+        var hash = $(this).attr("href");
+        var newUrl = url.split("#")[0] + hash;
         history.replaceState(null, null, newUrl);
     });
 
