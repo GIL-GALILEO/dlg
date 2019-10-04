@@ -62,7 +62,7 @@ class RecordsController < CatalogController
     config.add_show_field :edm_is_shown_by_display,                 label: I18n.t('search.labels.edm_is_shown_by'), helper_method: :linkify
     config.add_show_field :dcterms_language_display,                label: I18n.t('search.labels.dcterms_language')
     config.add_show_field :dcterms_rights_holder_display,           label: I18n.t('search.labels.dcterms_rights_holder')
-    config.add_show_field :dlg_local_right,                         label: I18n.t('search.labels.dlg_local_right')
+    config.add_show_field :dlg_local_right_display,                 label: I18n.t('search.labels.dlg_local_right')
     config.add_show_field :dcterms_bibliographic_citation_display,  label: I18n.t('search.labels.dcterms_bibliographic_citation')
     config.add_show_field :dcterms_is_part_of_display,              label: I18n.t('search.labels.dcterms_is_part_of'), helper_method: :regex_linkify
     config.add_show_field :dcterms_provenance_display,              label: I18n.t('search.labels.dcterms_provenance'), link_to_search: :provenance_facet
