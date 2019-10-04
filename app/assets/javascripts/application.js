@@ -53,19 +53,16 @@ Blacklight.onLoad(function() {
     });
 
     // support deeplinking to tab content
-    $(document).ready(() => {
-        const url = window.location.href;
-        if (url.indexOf("#") > 0){
-            const activeTab = url.substring(url.indexOf("#") + 1);
-            $('.nav[role="tablist"] a[href="#'+activeTab+'"]').tab('show');
-        }
+    const url = window.location.href;
+    if (url.indexOf("#") > 0){
+        const activeTab = url.substring(url.indexOf("#") + 1);
+        $('.nav[role="tablist"] a[href="#' + activeTab + '"]').tab('show');
+    }
 
-        $('a[role="tab"]').on("click", function() {
-            let newUrl;
-            const hash = $(this).attr("href");
-            newUrl = url.split("#")[0] + hash;
-            history.replaceState(null, null, newUrl);
-        });
+    $('a[role="tab"]').click(function(e) {
+        const hash = $(this).attr("href");
+        const newUrl = url.split("#")[0] + hash;
+        history.replaceState(null, null, newUrl);
     });
 
 });
