@@ -29,7 +29,7 @@ Blacklight.onLoad(function() {
     });
 
     // handling for secondary submit button to advanced search form
-    var $auxAdvSubmit = $('button.auxiliary-advanced-search-submit');
+    const $auxAdvSubmit = $('button.auxiliary-advanced-search-submit');
     $auxAdvSubmit.click(function() {
         $('form.advanced').submit()
     });
@@ -50,6 +50,22 @@ Blacklight.onLoad(function() {
         var $this = $(this);
         $('#search-type').text('Search ' + $this.text());
         $('input[name="search_field"]').val($this.data('search-field'))
+    });
+
+    // support deeplinking to tab content
+    $(document).ready(() => {
+        const url = window.location.href;
+        if (url.indexOf("#") > 0){
+            const activeTab = url.substring(url.indexOf("#") + 1);
+            $('.nav[role="tablist"] a[href="#'+activeTab+'"]').tab('show');
+        }
+
+        $('a[role="tab"]').on("click", function() {
+            let newUrl;
+            const hash = $(this).attr("href");
+            newUrl = url.split("#")[0] + hash;
+            history.replaceState(null, null, newUrl);
+        });
     });
 
 });

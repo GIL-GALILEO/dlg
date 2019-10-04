@@ -10,16 +10,16 @@
         <% if show_tabs? %>
         <ul class="nav nav-tabs nav-justified" role="tablist">
           <li role="presentation" class="active">
-            <a class="nav-link active" href="#metadata" id="metadata-tab" data-toggle="tab" aria-controls="metadata" aria-selected="true">Metadata</a>
+            <a class="nav-link active" href="#metadata" id="metadata-tab" data-toggle="tab" aria-controls="metadata" aria-selected="true" role="tab">Metadata</a>
           </li>
           <% if @document.fulltext %>
           <li role="presentation">
-            <a class="nav-link" href="#text" id="text-tab" data-toggle="tab" aria-controls="text" aria-selected="true">Text</a>
+            <a class="nav-link" href="#text" id="text-tab" data-toggle="tab" aria-controls="text" aria-selected="true" role="tab">Text</a>
           </li>
           <% end %>
           <% if @document.iiif_ids %>
           <li role="presentation">
-            <a class="nav-link" href="#item" id="item-tab" data-toggle="tab" aria-controls="item" aria-selected="true">Item</a>
+            <a class="nav-link" href="#item" id="item-tab" data-toggle="tab" aria-controls="item" aria-selected="true" role="tab">Item</a>
           </li>
           <% end %>
         </ul>
