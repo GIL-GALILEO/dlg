@@ -24,7 +24,6 @@
   <%= content_for :head %>
 </head>
 <body class="<%= render_body_class %>" <% if Rails.application.secrets.ga_tracking_id %>data-analytics-id="<%= Rails.application.secrets.ga_tracking_id %>"<% end %>>
-  <%= render partial: 'shared/survey_banner' %>
   <%= render partial: 'shared/header_navbar' %>
   <%= render partial: 'shared/ajax_modal' %>
   <%= render partial: '/flash_msg', layout: 'shared/flash_messages' %>
