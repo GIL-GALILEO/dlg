@@ -31,7 +31,7 @@
       <% end %>
     </div>
   </div>
-  <% if @collection.sponsor_note %>
+  <% if @collection.sponsor_note.present? %>
   <div class="row">
     <div class="col-md-12">
       <%= render 'collection_sponsor_panel' %>
