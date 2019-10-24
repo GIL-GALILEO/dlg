@@ -1,7 +1,7 @@
 <section id="record-results">
   <div class="container">
     <% if collection_limited_results? %>
-      <h3><%= @collection.display_title %></h3>
+      <h3 class="text-center"><%= @collection.display_title %></h3>
       <%= render 'institution_icons', institutions: @collection.institutions %>
     <% end %>
     <div id="sidebar" class="<%= sidebar_classes %>">

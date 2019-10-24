@@ -1,7 +1,7 @@
 <section id="holding_institution">
   <div class="container">
     <div class="text-center">
-      <h2><%= institution_name %></h2>
+      <h3><%= institution_name %></h3>
       <% if @institution&.image['url'] %>
         <img src="<%= cache_server_image_link @institution.image['url'] %>" alt="Logo for <%= @institution.authorized_name %>" class="img-responsive">
       <% end %>
