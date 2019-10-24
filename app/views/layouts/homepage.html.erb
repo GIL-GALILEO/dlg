@@ -25,7 +25,6 @@
   <%= content_for :head %>
 </head>
 <body class="<%= render_body_class %>" <% if Rails.application.secrets.ga_tracking_id %>data-analytics-id="<%= Rails.application.secrets.ga_tracking_id %>"<% end %>>
-  <%= render partial: 'shared/survey_banner' %>
   <%= render partial: 'shared/header_navbar' %>
   <%= content_for :header %>
   <%= yield %>
