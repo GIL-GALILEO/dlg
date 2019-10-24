@@ -96,8 +96,8 @@ en:
       placeholder:
         default: 'for...'
         collections: 'in Collections'
-        collection: 'items in %{collection}'
-        institution: 'items in %{institution}'
+        collection: 'in %{collection}'
+        institution: 'in %{institution}'
     index:
       truncated_field: '..(more)'
       collection_label: 'Collection'
