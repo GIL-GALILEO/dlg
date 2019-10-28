@@ -1,5 +1,5 @@
 <div id="item" class="tab-pane fade" role="tabpanel" aria-labelledby="item-tab">
-  <div class="controls" style="margin-bottom: 10px;">
+  <div id="osd-toolbar" style="margin-bottom: 10px;">
     <div class="btn-toolbar" role="toolbar" aria-label="Image viewer Controls">
       <div class="btn-group btn-group-sm" role="group" aria-label="Pagination controls">
         <button class="btn btn-primary" type="button" id="osd-previous-page">
@@ -40,6 +40,7 @@
           iiif_manifest_urls,
           { data: { openseadragon: {
               sequenceMode: true,
+              toolbar: 'osd-toolbar',
               zoomInButton: 'osd-zoom-in',
               zoomOutButton: 'osd-zoom-out',
               homeButton: 'osd-reset',
