@@ -31,6 +31,12 @@
           <%= render 'text_tab', document: @document if @document.fulltext %>
           <%= render 'item_tab', document: @document if @document.iiif_ids %>
         </div>
+        <% else %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= render 'metadata_tab', document: @document %>
+            </div>
+          </div>
         <% end %>
       </div>
       <div id="sidebar" class="<%= show_sidebar_classes %>">
