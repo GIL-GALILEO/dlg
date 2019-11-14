@@ -38,7 +38,7 @@ setup_web_and_test:
   stage: setup_web_and_test
   script:
   - /deploy/scripts/start_dlg_test.sh
-  - docker run -d --name web_${CI_COMMIT_SHORT_SHA} -v `pwd`:/code -w /code --network dlg_testing_${CI_COMMIT_SHORT_SHA} --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web${CI_COMMIT_SHORT_SHA}
+  - docker run -d --name web_${CI_COMMIT_SHORT_SHA} -v `pwd`:/code -w /code --network dlg_testing_${CI_COMMIT_SHORT_SHA} --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web_${CI_COMMIT_SHORT_SHA}
   - /deploy/scripts/finish_dlg_test.sh
   tags:
     - shell
