@@ -26,9 +26,9 @@ bundler_audit:
 setup_db_solr:
   stage: setup_db_solr
   script:
-  - docker network create dlg_testing
-  - docker run -d --name solr --expose 8983 -v `pwd`:/data -w /data --network dlg_testing --network-alias=solr --entrypoint "/bin/bash" solr:6 /data/provision/solr-entrypoint.sh
-  - docker run --name db --expose 5432 --network dlg_testing --network-alias=db -d postgres
+  - docker network create dlg_testing${CI_COMMIT_SHORT_SHA}
+  - docker run -d --name solr${CI_COMMIT_SHORT_SHA} --expose 8983 -v `pwd`:/data -w /data --network dlg_testing${CI_COMMIT_SHORT_SHA} --network-alias=solr --entrypoint "/bin/bash" solr:6 /data/provision/solr-entrypoint.sh
+  - docker run --name db${CI_COMMIT_SHORT_SHA} --expose 5432 --network dlg_testing${CI_COMMIT_SHORT_SHA} --network-alias=db -d postgres${CI_COMMIT_SHORT_SHA}
   - docker ps
   tags: 
     - shell
@@ -38,7 +38,7 @@ setup_web_and_test:
   stage: setup_web_and_test
   script:
   - /deploy/scripts/start_dlg_test.sh
-  - docker run -d --name web -v `pwd`:/code -w /code --network dlg_testing --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web
+  - docker run -d --name web${CI_COMMIT_SHORT_SHA} -v `pwd`:/code -w /code --network dlg_testing${CI_COMMIT_SHORT_SHA} --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web${CI_COMMIT_SHORT_SHA}
   - /deploy/scripts/finish_dlg_test.sh
   tags:
     - shell
@@ -47,8 +47,8 @@ setup_web_and_test:
 deconstruct:
   stage: deconstruct
   script:
-  - docker rm -f solr db web
-  - docker network rm dlg_testing
+  - docker rm -f solr${CI_COMMIT_SHORT_SHA} db${CI_COMMIT_SHORT_SHA} web${CI_COMMIT_SHORT_SHA}
+  - docker network rm dlg_testing${CI_COMMIT_SHORT_SHA}
   when: always
   tags:
    - shell
