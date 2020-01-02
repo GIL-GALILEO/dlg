@@ -101,6 +101,7 @@ en:
     index:
       truncated_field: '..(more)'
       collection_label: 'Collection'
+      has_fulltext: 'Full Text'
     facets:
       provenance: 'Holding Institution'
       publisher: 'Publisher'
