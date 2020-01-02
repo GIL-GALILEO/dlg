@@ -1,3 +1,3 @@
 <% if @document.fulltext %>
-  <%= link_to 'Download Text', solr_document_fulltext_path(@document.id, format: :text) %>
+  <%= link_to t('show.tools.download_text'), solr_document_fulltext_path(@document.id, format: :text) %>
 <% end %>

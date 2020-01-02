@@ -238,6 +238,7 @@ en:
     external_link: 'View at Partner Site'
     tools:
       reuse: 'Reuse Information'
+      download_text: 'Download Text'
       citation:
         title: 'Citations'
         field_value_unavailable: 'Not Available'
