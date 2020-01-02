@@ -197,6 +197,15 @@ class RecordsController < CatalogController
   end
 
   add_show_tools_partial :reuse, partial: 'reuse'
+  add_show_tools_partial :fulltext_download, partial: 'fulltext_download'
+
+  def fulltext
+    _, @document = fetch params[:solr_document_id]
+    respond_to do |format|
+      format.text
+      format.json { render json: { fulltext: @document.fulltext } }
+    end
+  end
 
   def collection?(_, doc)
     doc['class_name_ss'] == 'Collection'

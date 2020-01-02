@@ -15,13 +15,25 @@ describe RecordsController do
         )
       )
     end
-    # it 'routes to #index with an institution slug' do
-    #   expect(get: '/institution/test_institution').to(
-    #     route_to(
-    #       'records#index',
-    #       institution_slug: 'test_institution'
-    #     )
-    #   )
-    # end
+    context 'fulltext' do
+      it 'routes to text rendering of fulltext content' do
+        expect(get: '/record/test_id/fulltext.text').to(
+          route_to(
+            'records#fulltext',
+            solr_document_id: 'test_id',
+            format: 'text'
+          )
+        )
+      end
+      it 'routes to JSON rendering of fulltext content' do
+        expect(get: '/record/test_id/fulltext.json').to(
+          route_to(
+            'records#fulltext',
+            solr_document_id: 'test_id',
+            format: 'json'
+          )
+        )
+      end
+    end
   end
 end
