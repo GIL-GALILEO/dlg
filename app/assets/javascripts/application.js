@@ -23,6 +23,11 @@
 
 Blacklight.onLoad(function() {
 
+    // enable all tooltips
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
     // Remove thumbnail img if thumbnail fails to load
     $('img.thumbnail').on('error', function(){
         this.remove();

@@ -273,6 +273,10 @@ en:
       provenance: 'The name of the institution that holds the physical item'
       time_period: 'Records from time periods relevant to Georgia history'
       topic: 'Records about popular topics in Georgia history'
+  feedback:
+    feature_feedback_button:
+      label: 'Comments?'
+      popup_text: "You're seeing some of our latest new features. Please let us know if you have comments or feedback to help us refine these new features."
 
 
 

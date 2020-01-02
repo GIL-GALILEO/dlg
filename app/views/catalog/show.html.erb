@@ -1,4 +1,4 @@
-<% @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name).html_safe %>
+<% @page_title = t('blacklight.search.show.title', document_title: document_show_html_title, application_name: application_name).html_safe %>
 <% content_for(:head) { render_link_rel_alternates } %>
 
 <section id="record-show">
@@ -7,6 +7,13 @@
     <%= render_document_heading(@document, tag: :h1) %>
       <div id="content" class="<%= show_content_classes %>">
         <% if show_tabs? %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="pull-right">
+              <%= link_to t('feedback.feature_feedback_button.label'), t('external_links.contact'), class: 'btn btn-default', target: '_blank', title: t('feedback.feature_feedback_button.popup_text'), data: { toggle: 'tooltip', placement: 'top' } %>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-12">
             <ul class="nav nav-tabs nav-justified" role="tablist">
