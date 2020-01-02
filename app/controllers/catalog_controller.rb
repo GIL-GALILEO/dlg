@@ -81,7 +81,7 @@ class CatalogController < ApplicationController
              dcterms_spatial_text
              dcterms_is_part_of_text
              dcterms_identifier_text
-             collection_titles_text',
+             collection_titles_text'.squish,
         pf: 'fulltext_texts^150
              title_unstem_search^100
              creator_unstem_search^100
@@ -107,7 +107,7 @@ class CatalogController < ApplicationController
              dcterms_spatial_text
              dcterms_is_part_of_text
              dcterms_identifier_text
-             collection_titles_text'
+             collection_titles_text'.squish
       }
     end
 
