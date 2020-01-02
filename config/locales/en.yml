@@ -255,7 +255,7 @@ en:
     map: 'Map Search Tips'
     search_bar:
       modal_help_title: 'Searching Help'
-      both: 'Select "Records and Full text" to search both the metadata and text.'
+      both: 'Select "Records and Full text" to search both the metadata and available full text.'
       records: 'Select "Records" to search only metadata for items. (All items have metadata.)'
       full_text: 'Select "Full text" to search only the scanned or transcribed text for items. (Not all items have full text)'
     facets:
