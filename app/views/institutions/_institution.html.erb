@@ -3,10 +3,14 @@
   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= num %>" aria-expanded="true" aria-controls="collapse<%= num %>">
     <div class="panel-heading" role="tab" id="heading<%= num %>">
       <h3 class="panel-title"><%= inst.authorized_name %></h3> <span class="badge"><%= number_with_delimiter(inst['item_count']) %> Items</span>
-      <p class="text-left"><%= inst.short_description %></p>
     </div>
   </a>
-  <div id="collapse<%= num %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= num %>">
+  <div id="collapse<%= num %>" class="panel-body panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= num %>">
+    <div class="row">
+      <div class="col-md-12 mb-10">
+        <%= inst.short_description %>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-12 text-center">
         <a class="btn btn-primary text-center" href="<%= institution_results_link(inst.authorized_name) %>">Show All Items</a>
