@@ -10,7 +10,7 @@
           <div class="input-group-btn search-panel">
             <% if search_fields.length > 1 %>
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span id="search-type">Search Records</span>
+                <span id="search-type"><%= search_fields.last[0] %></span>
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
@@ -26,7 +26,7 @@
                 <% end %>
               </ul>
             <% end %>
-            <input type="hidden" name="search_field" value="all_fields">
+            <input type="hidden" name="search_field" value="<%= params['search_field'] || 'both' %>">
           </div>
           <input name="q" type="text" id="q" class="form-control" placeholder="<%= search_bar_placeholder %>" aria-label="Input to <%= search_bar_placeholder %>">
           <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
@@ -48,12 +48,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Searching Help</h4>
+        <h4 class="modal-title"><%= t('help.search_bar.modal_help_title') %></h4>
       </div>
       <div class="modal-body">
-        <p>Select "Records" to search only metadata for items. (All items have metadata.)</p>
-        <p>Select "Full text" to search only the scanned or transcribed text for items. (Not all items have full text)</p>
-        <p>Select "Both" to search both the metadata and text.</p>
+        <p><%= t('help.search_bar.both') %></p>
+        <p><%= t('help.search_bar.records') %></p>
+        <p><%= t('help.search_bar.full_text') %></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -8,5 +8,6 @@ en:
       form:
         search:
           sr_label: 'Search Box'
+          prefix: 'Search'
     tools:
       sms: 'Text'

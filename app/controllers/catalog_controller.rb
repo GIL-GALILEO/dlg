@@ -34,7 +34,7 @@ class CatalogController < ApplicationController
     # config.index.thumbnail_field = :thumbnail_url
     # config.index.thumbnail_method = :record_thumbnail
 
-    config.add_search_field('all_fields') do |field|
+    config.add_search_field('metadata') do |field|
       field.label = I18n.t('search.labels.metadata')
       field.include_in_simple_select = true
       field.include_in_advanced_search = true

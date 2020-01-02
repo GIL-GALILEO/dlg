@@ -130,7 +130,7 @@ en:
         count: 'Sort by Count'
     labels:
       record_id: 'Record ID'
-      both: 'Both'
+      both: 'Records and Full text'
       metadata: 'Records'
       fulltext: 'Full Text'
       collection: 'Collection'
@@ -253,6 +253,11 @@ en:
     refine_items: 'Refine Info'
     refine_collections: 'Refine Info'
     map: 'Map Search Tips'
+    search_bar:
+      modal_help_title: 'Searching Help'
+      both: 'Select "Records and Full text" to search both the metadata and text.'
+      records: 'Select "Records" to search only metadata for items. (All items have metadata.)'
+      full_text: 'Select "Full text" to search only the scanned or transcribed text for items. (Not all items have full text)'
     facets:
       creator: 'Creator of the physical object'
       subject: 'The topics a record is about in Library of Congress Subject Heading form'
