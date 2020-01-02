@@ -64,7 +64,8 @@ class SolrDocument
       dlg_local_right: self['dlg_local_right_display'],
       dcterms_medium: self['dcterms_medium_display'],
       dcterms_extent: self['dcterms_extent_display'],
-      dlg_subject_personal: self['dlg_subject_personal_display']
+      dlg_subject_personal: self['dlg_subject_personal_display'],
+      fulltext: fulltext
     }
   end
 
