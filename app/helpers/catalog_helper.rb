@@ -18,6 +18,14 @@ module CatalogHelper
     end
   end
 
+  # find current search type in fields array and return display label
+  def search_type_label
+    type = search_fields.find do |f|
+      (f[1] == params['search_field']) || (f[1] == 'both')
+    end
+    I18n.t('blacklight.search.form.search.prefix') + ' ' + type[0]
+  end
+
   # show search bar options only on homepage and record search
   def show_search_bar_options
     zone = controller.class.name.downcase

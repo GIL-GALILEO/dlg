@@ -50,22 +50,13 @@ Blacklight.onLoad(function() {
     $('select.nomination-select').chosen();
 
     // Handle switching search types
-    var $searchOptions = $('.search-panel .dropdown-menu');
-    var $searchTypeButton = $('#search-type');
-    var $searchField = $('input[name="search_field"]');
     var searchPrefix = 'Search ';
-
-    $searchOptions.find('a').click(function(e) {
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
         e.preventDefault();
         var $this = $(this);
-        $searchTypeButton.text(searchPrefix + $this.text());
-        $searchField.val($this.data('search-field'))
+        $('#search-type').text(searchPrefix + $this.text());
+        $('input[name="search_field"]').val($this.data('search-field'))
     });
-
-    // Handle setting search button label from search_field on page load
-    $searchTypeButton.text(searchPrefix +
-        $searchOptions.find('a[data-search-field="' + $searchField.val() + '"]').text()
-    );
 
     // support deeplinking to tab content
     var url = window.location.href;
