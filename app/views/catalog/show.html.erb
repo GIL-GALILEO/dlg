@@ -7,40 +7,43 @@
     <%= render_document_heading(@document, tag: :h1) %>
     <div class="row">
       <div id="content" class="<%= show_content_classes %>">
-        <% if show_tabs? %>
-          <div class="row">
-            <div class="col-md-12">
-              <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li role="presentation" class="active">
-                  <a class="nav-link active" href="#metadata" id="metadata-tab" data-toggle="tab" aria-controls="metadata" aria-selected="true" role="tab">Metadata</a>
+      <% if show_tabs? %>
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a class="nav-link active" href="#metadata" id="metadata-tab" data-toggle="tab" aria-controls="metadata" aria-selected="true" role="tab">Metadata</a>
+              </li>
+              <% if @document.fulltext %>
+                <li role="presentation">
+                  <a class="nav-link" href="#text" id="text-tab" data-toggle="tab" aria-controls="text" aria-selected="true" role="tab">Text</a>
                 </li>
-                <% if @document.fulltext %>
-                  <li role="presentation">
-                    <a class="nav-link" href="#text" id="text-tab" data-toggle="tab" aria-controls="text" aria-selected="true" role="tab">Text</a>
-                  </li>
-                <% end %>
-                <% if @document.iiif_ids %>
-                  <li role="presentation">
-                    <a class="nav-link" href="#item" id="item-tab" data-toggle="tab" aria-controls="item" aria-selected="true" role="tab">Item</a>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
+              <% end %>
+              <% if @document.iiif_ids %>
+                <li role="presentation">
+                  <a class="nav-link" href="#item" id="item-tab" data-toggle="tab" aria-controls="item" aria-selected="true" role="tab">Item</a>
+                </li>
+              <% end %>
+            </ul>
           </div>
-          <div class="tab-content">
+        </div>
+        <div class="tab-content">
+          <%= render 'metadata_tab', document: @document %>
+          <%= render 'text_tab', document: @document if @document.fulltext %>
+          <%= render 'item_tab', document: @document if @document.iiif_ids %>
+        </div>
+      <% else %>
+        <div class="row">
+          <div class="col-md-12">
             <%= render 'metadata_tab', document: @document %>
-            <%= render 'text_tab', document: @document if @document.fulltext %>
-            <%= render 'item_tab', document: @document if @document.iiif_ids %>
           </div>
-        <% else %>
-          <div class="row">
-            <div class="col-md-12">
-              <%= render 'metadata_tab', document: @document %>
-            </div>
-          </div>
-        <% end %>
+        </div>
+      <% end %>
       </div>
       <div id="sidebar" class="<%= show_sidebar_classes %>">
+        <div class="thumbnail">
+          <%= show_item_thumb @document %>
+        </div>
         <%= render_document_sidebar_partial %>
         <%= render 'shared/feedback' if show_tabs? %>
       </div>

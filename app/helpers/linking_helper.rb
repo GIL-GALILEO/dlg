@@ -65,7 +65,7 @@ module LinkingHelper
       link_to(
         I18n.t('show.external_link'),
         document.md_url,
-        class: 'btn btn-primary', target: '_blank'
+        class: 'btn btn-primary center-block mt-5', target: '_blank'
       )
     else
       ''
