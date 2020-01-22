@@ -5,6 +5,7 @@ en:
     search:
       start_over: 'Clear All'
       new_search: 'New Search'
+      new_search_in: 'New Search in this Collection'
   support:
     array:
       words_connector: "<br> "
