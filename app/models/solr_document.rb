@@ -90,7 +90,7 @@ class SolrDocument
   end
 
   def fulltext
-    self[:fulltext_texts]&.reject(&:blank?) ? self[:fulltext_texts].first : nil
+    self[:fulltext_texts]&.reject(&:blank?) ? self[:fulltext_texts].reject(&:blank?).first : nil
   end
 
   def iiif_ids
