@@ -12,22 +12,33 @@ Rails.application.routes.draw do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
     concerns :range_searchable
-
   end
+
+  get '/collection/:collection_record_id',
+      to: 'records#index', as: 'collection_home'
+
   resource :collections, only: [:index] do
     get 'map', to: 'map', as: 'map'
     concerns :searchable
     concerns :range_searchable
-
+    member do
+      get(
+        '/:collection_record_id/:collection_resource_slug',
+        to: 'collection_resources#show',
+        as: 'resource_page'
+      )
+    end
   end
 
-  get '/search', to: 'advanced#index', as: 'search'
-  get '/collection/:collection_record_id', to: 'records#index', as: 'collection_home'
-  get '/counties', to: 'counties#index', as: 'counties'
-  get '/institutions', to: 'provenances#index', as: 'institutions'
+  resources :institutions, only: %i[index show]
 
-  resources :solr_document, only: [:show], path: '/record', controller: 'records' do
+  get '/search', to: 'advanced#index', as: 'search'
+  get '/counties', to: 'counties#index', as: 'counties'
+
+  resources :solr_document, only: [:show], path: '/record',
+                            controller: 'records' do
     concerns :exportable
+    get 'fulltext', to: 'records#fulltext'
   end
 
   resources :bookmarks do

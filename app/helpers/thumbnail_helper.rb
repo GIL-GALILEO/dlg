@@ -4,17 +4,18 @@
 module ThumbnailHelper
 
   # Return img tag for thumbnail with link
-  def thumbnail_image_tag(document)
+  def thumbnail_image_tag(document, options = {})
+    options[:css] ||= 'thumbnail'
     case document.klass
     when 'Item'
-      image_tag(item_thumb_url(document), class: 'thumbnail')
+      image_tag(item_thumb_url(document), class: options[:css])
     when 'Collection'
-      image_tag(collection_thumb_url(document), class: 'thumbnail collection-image')
+      image_tag(collection_thumb_url(document), class: "#{options[:css]} collection-image")
     else
-      image_tag(no_thumb_url, class: 'thumbnail')
+      image_tag(no_thumb_url, class: options[:css])
     end
   rescue StandardError => e # TODO: ?
-    image_tag(no_thumb_url, class: 'thumbnail')
+    image_tag(no_thumb_url, class: options[:css])
   end
 
   # Generate URL for Item or use standard Audio file icon
@@ -30,11 +31,11 @@ module ThumbnailHelper
   def show_item_thumb(document)
     if document.do_url
       link_to(
-        thumbnail_image_tag(document),
+        thumbnail_image_tag(document, css: ''),
         document.do_url
       )
     else
-      thumbnail_image_tag(document) + visit_partner_button(document)
+      thumbnail_image_tag(document, css: '') + visit_partner_button(document)
     end
   end
 
@@ -63,12 +64,7 @@ module ThumbnailHelper
     end
   end
 
-  def vang_image
-    '/uploads/repository/71/image/feature_image.png'
-  end
-
   # Used in view to render index page thumbnail for Collections
-  # # TODO: avoid this awful hack to display special image for vang
   def index_collection_thumb(document)
     image = collection_image_tag document
     link_to(

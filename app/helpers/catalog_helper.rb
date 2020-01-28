@@ -9,11 +9,27 @@ module CatalogHelper
   def search_bar_placeholder
     if @collection
       I18n.t 'search.bar.placeholder.collection', collection: @collection.display_title
+    elsif @institution
+      I18n.t 'search.bar.placeholder.institution', institution: @institution.authorized_name
     elsif controller.class.name.downcase =~ /collections/
       I18n.t 'search.bar.placeholder.collections'
     else
       I18n.t('search.bar.placeholder.default')
     end
+  end
+
+  # find current search type in fields array and return display label
+  def search_type_label
+    type = search_fields.find do |f|
+      (f[1] == params['search_field']) || (f[1] == 'both')
+    end
+    I18n.t('blacklight.search.form.search.prefix') + ' ' + type[0]
+  end
+
+  # show search bar options only on homepage and record search
+  def show_search_bar_options
+    zone = controller.class.name.downcase
+    zone =~ /homepage/ || zone =~ /records/
   end
 
   def strip_html(options = {})
@@ -47,5 +63,17 @@ module CatalogHelper
       return r[1][:label] if r[1][:uri] == uri
     end
     uri
+  end
+
+  # related to show page tabs
+  def show_tabs?(document = @document)
+    document.fulltext || document.iiif_ids
+  end
+
+  def iiif_manifest_urls(document = @document)
+    iiif_prefix = Rails.application.secrets.iiif_prefix
+    @document.iiif_ids&.map do |id|
+      iiif_prefix + id
+    end
   end
 end

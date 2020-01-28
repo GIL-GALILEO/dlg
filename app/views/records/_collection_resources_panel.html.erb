@@ -1,0 +1,24 @@
+<div class="col-sm-12 col-md-6">
+  <div class="panel panel-default resources-panel">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed" aria-expanded="false">
+          Additional Resources <span class="caret"></span></a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
+      <div class="panel-body text-left">
+        <ul>
+          <% @collection.collection_resources.each do |resource| %>
+            <li>
+              <%= link_to resource['title'], resource_page_collections_path(
+                  @collection.record_id,
+                  resource['slug']
+              ) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

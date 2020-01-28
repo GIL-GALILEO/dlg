@@ -1,0 +1,76 @@
+<section id="holding_institution">
+  <div class="container">
+    <div class="text-center">
+      <h3><%= institution_name %></h3>
+      <% if @institution&.image['url'] %>
+        <img src="<%= cache_server_image_link @institution.image['url'] %>" alt="Logo for <%= @institution.authorized_name %>" class="img-responsive">
+      <% end %>
+    </div>
+    <div class="text-center institution-description">
+      <%= institution_description %>
+    </div>
+    <br>
+    <div class="text-center">
+      <%= link_to t('institution.url'), @institution.homepage_url, class: 'btn btn-primary' if @institution.homepage_url.present? %>
+      <%= link_to t('institution.all_items'), institution_results_link(@institution.authorized_name), class: 'btn btn-primary' %>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-6">
+        <dl class="dl-horizontal dl-invert">
+          <% if @institution.strengths.present? %>
+            <dt>Strengths:</dt>
+            <dd><%= strip_tags @institution.strengths %></dd>
+          <% end %>
+          <% if @institution.parent_institution.present? %>
+            <dt>Parent Institution:</dt>
+            <dd><%= @institution.parent_institution %></dd>
+          <% end %>
+          <% if @institution.public_contact_address.present? %>
+            <dt>Location:</dt>
+            <dd><%= @institution.public_contact_address %></dd>
+          <% end %>
+          <% if @institution.public_contact_email.present? %>
+            <dt>Email:</dt>
+            <dd><%= mail_to @institution.public_contact_email %></dd>
+          <% end %>
+          <% if @institution.public_contact_phone.present? %>
+            <dt>Phone:</dt>
+            <dd><%= @institution.public_contact_phone %></dd>
+          <% end %>
+        </dl>
+      </div>
+      <div class="col-sm-6">
+        <% if @institution.coordinates.present? %>
+          <div id="location-map"></div>
+        <% end %>
+      </div>
+    </div>
+    <% if @institution.public_collections.any? %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'institution_collection' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
+<script type="text/javascript">
+    map = L.map('location-map', {
+        scrollWheelZoom: false,
+        center: [<%= @institution.coordinates %>],
+        zoom: 11
+    });
+    tiles = L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+        {
+            id: 'osm.default',
+            attribution: '©OpenStreetMap, ©CartoDB'
+        }
+    ).addTo(map);
+    L.marker([<%= @institution.coordinates %>])
+        .addTo(map)
+        .bindPopup('<%= link_to(institution_name, institution_google_map_url) %>')
+        .openPopup();
+</script>
+<% set_institution_page_title %>

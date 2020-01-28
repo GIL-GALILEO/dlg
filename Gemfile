@@ -11,7 +11,7 @@ gem 'active_hash'
 gem 'blacklight', '~> 6.10'
 gem 'blacklight-gallery', '~> 0.9.0'
 gem 'blacklight-maps', '~> 0.5.0'
-gem 'blacklight_advanced_search', '~> 6.3'
+gem 'blacklight_advanced_search', '~> 6.4'
 gem 'blacklight_range_limit', '~> 6.3'
 gem 'bootstrap-sass', '>= 3.4.1'
 gem 'chosen-rails', '~> 1.5.2'
@@ -37,6 +37,7 @@ group :development, :test do
   gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'rspec-rails', '~> 3.5'
+  gem 'webmock'
 end
 
 group :development do

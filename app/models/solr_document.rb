@@ -64,7 +64,8 @@ class SolrDocument
       dlg_local_right: self['dlg_local_right_display'],
       dcterms_medium: self['dcterms_medium_display'],
       dcterms_extent: self['dcterms_extent_display'],
-      dlg_subject_personal: self['dlg_subject_personal_display']
+      dlg_subject_personal: self['dlg_subject_personal_display'],
+      fulltext: fulltext
     }
   end
 
@@ -86,6 +87,14 @@ class SolrDocument
 
   def thumbnail
     self[:thumbnail_ss]
+  end
+
+  def fulltext
+    self[:fulltext_texts]&.reject(&:blank?) ? self[:fulltext_texts].reject(&:blank?).first : nil
+  end
+
+  def iiif_ids
+    self[:iiif_ids_sms]
   end
 
   def types

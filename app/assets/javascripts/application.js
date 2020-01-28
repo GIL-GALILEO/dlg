@@ -23,6 +23,11 @@
 
 Blacklight.onLoad(function() {
 
+    // enable all tooltips
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
     // Remove thumbnail img if thumbnail fails to load
     $('img.thumbnail').on('error', function(){
         this.remove();
@@ -43,5 +48,27 @@ Blacklight.onLoad(function() {
 
     // chosenify nomination form selects
     $('select.nomination-select').chosen();
+
+    // Handle switching search types
+    var searchPrefix = 'Search ';
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        $('#search-type').text(searchPrefix + $this.text());
+        $('input[name="search_field"]').val($this.data('search-field'))
+    });
+
+    // support deeplinking to tab content
+    var url = window.location.href;
+    if (url.indexOf("#") > 0){
+        var activeTab = url.substring(url.indexOf("#") + 1);
+        $('.nav[role="tablist"] a[href="#' + activeTab + '"]').tab('show');
+    }
+
+    $('a[role="tab"]').click(function(e) {
+        var hash = $(this).attr("href");
+        var newUrl = url.split("#")[0] + hash;
+        history.replaceState(null, null, newUrl);
+    });
 
 });

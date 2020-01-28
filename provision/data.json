@@ -32,7 +32,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["32.165622, -82.900075"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-82.900075, 32.165622]},\"properties\":{\"placename\":\"United States, Georgia\"}}"],
-    "placename":["United States, Georgia"]
+    "placename":["United States, Georgia"],
+    "institution_slug_sms":["ugamap"]
   },
   {
     "id":"dlg_ugahistory",
@@ -104,7 +105,10 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["32.165622, -82.900075"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-82.900075, 32.165622]},\"properties\":{\"placename\":\"United States, Georgia\"}}"],
-    "placename":["United States, Georgia"]
+    "placename":["United States, Georgia"],
+    "dcterms_provenance_text":["Georgia Archives"],
+    "dcterms_provenance_display":["Georgia Archives"],
+    "institution_slug_sms":["gaarchives"]
   },
   {
     "id":"dlg_children",
@@ -135,7 +139,8 @@
     "created_at_dts":"2018-01-04T21:42:19Z",
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["31.066399, -80.394617"],
-    "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-80.394617, 31.066399]},\"properties\":{\"placename\":\"\"}}"]
+    "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-80.394617, 31.066399]},\"properties\":{\"placename\":\"\"}}"],
+    "institution_slug_sms":["dlga"]
   },
   {
     "id":"dlg_vsbg",
@@ -188,7 +193,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["31.1499528, -81.4914894"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-81.4914894, 31.1499528]},\"properties\":{\"placename\":\"United States, Georgia, Glynn County, Brunswick\"}}"],
-    "placename":["United States, Georgia, Glynn County, Brunswick"]
+    "placename":["United States, Georgia, Glynn County, Brunswick"],
+    "institution_slug_sms":["dlga"]
   },
   {
     "id":"gaarchives_cmf_24",
@@ -198,12 +204,13 @@
     "slug_ss":"24",
     "record_id_ss":"gaarchives_cmf_24",
     "collection_record_id_ss":"gaarchives_cmf",
-    "collection_record_id_sms":["gaarchives_cmf"],
+    "collection_record_id_sms":["gaarchives_cmf","dlg_vsbg"],
     "collection_slug_ss":"cmf",
-    "collection_titles_sms":["County Maps"],
-    "collection_titles_text":["County Maps"],
+    "collection_titles_sms":["County Maps","Ships for victory: J. A. Jones Construction Company and Liberty ships in Brunswick, Georgia"],
+    "collection_titles_text":["County Maps","Ships for victory: J. A. Jones Construction Company and Liberty ships in Brunswick, Georgia"],
     "portals_sms":["georgia"],
     "display_b":true,
+    "dcterms_provenance_text":["Georgia Archives"],
     "dcterms_provenance_display":["Georgia Archives"],
     "dcterms_title_text":["'Map of Dade County.'"],
     "dcterms_title_display":["'Map of Dade County.'"],
@@ -232,7 +239,8 @@
     "coordinates":["34.8545207, -85.5045272"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-85.5045272, 34.8545207]},\"properties\":{\"placename\":\"United States, Georgia, Dade County\"}}"],
     "placename":["United States, Georgia, Dade County"],
-    "counties_facet":["Fannin","Fayette","Floyd","Forsyth","Fulton","Gilmer","Bacon","Baker","Banks","Barrow","Bartow","Ben Hill","Bibb","Bleckley","Brantley","Towns","Stephens","McDuffie","Taliaferro","Newton","Spalding","Lamar","Meriwether","Talbot","Taylor","Macon","Telfair","Toombs","Tattnall","Stewart","Lee","Irwin"]
+    "counties_facet":["Fannin","Fayette","Floyd","Forsyth","Fulton","Gilmer","Bacon","Baker","Banks","Barrow","Bartow","Ben Hill","Bibb","Bleckley","Brantley","Towns","Stephens","McDuffie","Taliaferro","Newton","Spalding","Lamar","Meriwether","Talbot","Taylor","Macon","Telfair","Toombs","Tattnall","Stewart","Lee","Irwin"],
+    "institution_slug_sms":["gaarchives"]
   },
   {
     "id":"gaarchives_cmf_51",
@@ -250,6 +258,7 @@
     "collection_titles_text":["County Maps"],
     "portals_sms":["georgia"],
     "display_b":true,
+    "dcterms_provenance_text":["Georgia Archives"],
     "dcterms_provenance_display":["Georgia Archives"],
     "dcterms_title_text":["'Map of Bibb County.'"],
     "dcterms_title_display":["'Map of Bibb County.'"],
@@ -278,7 +287,8 @@
     "coordinates":["32.8064982, -83.69742"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-83.69742, 32.8064982]},\"properties\":{\"placename\":\"United States, Georgia, Bibb County\"}}"],
     "placename":["United States, Georgia, Bibb County"],
-    "counties_facet":["Brooks","Bryan","Bulloch","Burke","Calhoun","Camden","Carroll","Charlton","Chatham","Chattahoochee","Cherokee","Clay","Clayton","Clinch","Cobb","Gordon","Greene","Thomas","Jefferson"]
+    "counties_facet":["Brooks","Bryan","Bulloch","Burke","Calhoun","Camden","Carroll","Charlton","Chatham","Chattahoochee","Cherokee","Clay","Clayton","Clinch","Cobb","Gordon","Greene","Thomas","Jefferson"],
+    "institution_slug_sms":["gaarchives"]
   },
   {
     "id":"gaarchives_cmf_70",
@@ -325,7 +335,30 @@
     "coordinates":["30.8783441, -84.5790702"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-84.5790702, 30.8783441]},\"properties\":{\"placename\":\"United States, Georgia, Decatur County\"}}"],
     "placename":["United States, Georgia, Decatur County"],
-    "counties_facet":["Gwinnett","Habersham","Hall","Hancock","Harris","Hart","Henry","Houston","Jackson","Jasper","Jeff Davis","Jenkins","Johnson","Jones","Lanier"]
+    "counties_facet":["Gwinnett","Habersham","Hall","Hancock","Harris","Hart","Henry","Houston","Jackson","Jasper","Jeff Davis","Jenkins","Johnson","Jones","Lanier"],
+    "institution_slug_sms":["gaarchives"],
+    "fulltext_texts": "different key making a strong contrast with the rumbling sounds rolling through the distant hills Though we are not sure that those cries are of distress or bidding defiance to our efforts 12 oclock oclock before one sound dies away another breaks forth keeping up a continual roar the clouds above us thickning thickening too and now and the rain drops pattering around us as we sit upon the ground with shivering limbs and be deleted text num numbed fingers with my aching feet braced against this old cotton oak to keepdeleted text ing from sliding off to the river at our mountains base now the rain begins to fall thicker and the cannons thunder roars dull and heavy with my constant careful watch I feel dull sleepy three o clock oclock though the balls continued to fly back forth and the thunder howled amid all I have forgotten a few added text painful moments in sleep Now we are doomed to stay here through the night I will crawl to yonder log spread my blanket and wrap myself from the chilling Page 64 View Image rain Night 11 oclock oclock I had scarcely rolled myself gun in my blanket when the news came to double quick down the mountain That fifteen hundred yankees had crossed and cut us off from our camps We now made short work of a long trip by tumbling falling rolling with first head then heels up with odds the difference we soon reached the road below then forming a line we made our way back one mile where the yankees were said to have been but there were none now to be seen Then ordered to double quick across a corn field in to into the wood and up a mountain as rough as the first described the rain still falling without cessation and we now drenshed drenched in water after gaining the top formed a line of battle on the crooked ridge we then ordered to quicktime quick time down the opposite side from that we came up in line of battle to the valley where it was believed the enemy were I now more fully expected a fight than ever before I did not feel the least excitement even about nerves I now craved to meet the vandals that I might rieke wreak my Page 65 View Image vengiance vengeance upon them without even a thought of the consequences or circumstances that might perhapse perhaps befall myself in the contest I now feel willing to acknowledge my supprise surprise at such feelings which I had never before felt on such occasions but can attribute them to no particular cause except it be the recklessness of fatigue exposure As I blundered along looking in every forward direction I often fell to the ground and by looking along our line I could see a dozen or more continually falling regaining their feet but we made no stop untill until we added text reached the narrow valley when disappointment could be read in the look and countinance countenance of all for the yankees if ever here had disappeared we now made our way to the turnpike and reached it at dark without a single star to light our pathway we now groped our way back to camp with no cecession cessation of the rain which now poured in torrents with a road afloat with water and as slick as glass I was",
+    "iiif_ids_sms":["dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00001.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00002.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00003.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00004.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00005.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00006.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00007.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00008.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00009.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00010.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00011.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00012.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00013.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00014.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00015.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00016.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00017.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00018.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00019.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00020.jp2",
+      "dlg%2Fdlg%2Fsanb%2Fdlg_sanb_albany-1905%2Fdlg_sanb_albany-1905-00021.jp2"]
   },
   {
     "id":"dlg_ugahistory_vandiveradd",
@@ -375,7 +408,8 @@
     "coordinates":["33.960948, -83.3779358"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-83.3779358, 33.960948]},\"properties\":{\"placename\":\"United States, Georgia, Clarke County, Athens\"}}"],
     "placename":["United States, Georgia, Clarke County, Athens"],
-    "counties_facet":["Laurens","Liberty","Lincoln","Long","Lowndes","Lumpkin","McIntosh","Macon","Madison","Marion","Miller","Mitchell","Monroe","Montgomery"]
+    "counties_facet":["Laurens","Liberty","Lincoln","Long","Lowndes","Lumpkin","McIntosh","Macon","Madison","Marion","Miller","Mitchell","Monroe","Montgomery"],
+    "institution_slug_sms":["gaarchives"]
   },
   {
     "id":"dlg_ugahistory_1877con",
@@ -419,7 +453,8 @@
     "updated_at_dts":"2018-01-04T21:42:19Z",
     "coordinates":["32.165622, -82.900075"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-82.900075, 32.165622]},\"properties\":{\"placename\":\"United States, Georgia\"}}"],
-    "placename":["United States, Georgia"]
+    "placename":["United States, Georgia"],
+    "institution_slug_sms":["gaarchives"]
   },
   {
     "id":"dlg_ugahistory_1983con",
@@ -464,7 +499,8 @@
     "coordinates":["32.165622, -82.900075"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-82.900075, 32.165622]},\"properties\":{\"placename\":\"United States, Georgia\"}}"],
     "placename":["United States, Georgia"],
-    "counties_facet":["Treutlen","Turner","Twiggs","Union","Upson","Walton","Ware","Warren","Washington","Wayne","Wheeler","Whitfield","Wilkes","Wilkinson","Worth"]
+    "counties_facet":["Treutlen","Turner","Twiggs","Union","Upson","Walton","Ware","Warren","Washington","Wayne","Wheeler","Whitfield","Wilkes","Wilkinson","Worth"],
+    "institution_slug_sms":["gaarchives"]
   },
   {
     "id":"dlg_children_acl2048",
@@ -523,7 +559,10 @@
     "coordinates":["33.960948, -83.3779358"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-83.3779358, 33.960948]},\"properties\":{\"placename\":\"United States, Georgia, Clarke County, Athens\"}}"],
     "placename":["United States, Georgia, Clarke County, Athens"],
-    "counties_facet":["Treutlen","Turner","Twiggs","Union","Upson","Walton","Ware","Warren","Washington","Wayne","Wheeler","Whitfield","Wilkes","Wilkinson","Worth"]
+    "counties_facet":["Treutlen","Turner","Twiggs","Union","Upson","Walton","Ware","Warren","Washington","Wayne","Wheeler","Whitfield","Wilkes","Wilkinson","Worth"],
+    "institution_slug_sms":["acclib"],
+    "fulltext_texts": "different key making a strong contrast with the rumbling sounds rolling through the distant hills Though we are not sure that those cries are of distress or bidding defiance to our efforts 12 oclock oclock before one sound dies away another breaks forth keeping up a continual roar the clouds above us thickning thickening too and now and the rain drops pattering around us as we sit upon the ground with shivering limbs and be deleted text num numbed fingers with my aching feet braced against this old cotton oak to keepdeleted text ing from sliding off to the river at our mountains base now the rain begins to fall thicker and the cannons thunder roars dull and heavy with my constant careful watch I feel dull sleepy three o clock oclock though the balls continued to fly back forth and the thunder howled amid all I have forgotten a few added text painful moments in sleep Now we are doomed to stay here through the night I will crawl to yonder log spread my blanket and wrap myself from the chilling Page 64 View Image rain Night 11 oclock oclock I had scarcely rolled myself gun in my blanket when the news came to double quick down the mountain That fifteen hundred yankees had crossed and cut us off from our camps We now made short work of a long trip by tumbling falling rolling with first head then heels up with odds the difference we soon reached the road below then forming a line we made our way back one mile where the yankees were said to have been but there were none now to be seen Then ordered to double quick across a corn field in to into the wood and up a mountain as rough as the first described the rain still falling without cessation and we now drenshed drenched in water after gaining the top formed a line of battle on the crooked ridge we then ordered to quicktime quick time down the opposite side from that we came up in line of battle to the valley where it was believed the enemy were I now more fully expected a fight than ever before I did not feel the least excitement even about nerves I now craved to meet the vandals that I might rieke wreak my Page 65 View Image vengiance vengeance upon them without even a thought of the consequences or circumstances that might perhapse perhaps befall myself in the contest I now feel willing to acknowledge my supprise surprise at such feelings which I had never before felt on such occasions but can attribute them to no particular cause except it be the recklessness of fatigue exposure As I blundered along looking in every forward direction I often fell to the ground and by looking along our line I could see a dozen or more continually falling regaining their feet but we made no stop untill until we added text reached the narrow valley when disappointment could be read in the look and countinance countenance of all for the yankees if ever here had disappeared we now made our way to the turnpike and reached it at dark without a single star to light our pathway we now groped our way back to camp with no cecession cessation of the rain which now poured in torrents with a road afloat with water and as slick as glass I was"
+
   },
   {
     "id":"dlg_children_acl051",
@@ -574,7 +613,8 @@
     "coordinates":["33.960948, -83.3779358"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-83.3779358, 33.960948]},\"properties\":{\"placename\":\"United States, Georgia, Clarke County, Athens\"}}"],
     "placename":["United States, Georgia, Clarke County, Athens"],
-    "counties_facet":["Paulding","Pickens","Polk","Randolph","Schley","Sumter","Terrell","Tift"]
+    "counties_facet":["Paulding","Pickens","Polk","Randolph","Schley","Sumter","Terrell","Tift"],
+    "institution_slug_sms":["acclib"]
   },
   {
     "id":"dlg_children_bhtc5313",
@@ -628,7 +668,8 @@
     "coordinates":["32.8598538, -84.6199251"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-84.6199251, 32.8598538]},\"properties\":{\"placename\":\"United States, Georgia, Meriwether County, Manchester\"}}"],
     "placename":["United States, Georgia, Meriwether County, Manchester"],
-    "counties_facet":["Decatur","DeKalb","Dodge","Dougherty","Douglas","Early","Effingham","Elbert","Emanuel"]
+    "counties_facet":["Decatur","DeKalb","Dodge","Dougherty","Douglas","Early","Effingham","Elbert","Emanuel"],
+    "institution_slug_sms":["pinemtn"]
   },
   {
     "id":"dlg_vsbg_jaj053",
@@ -698,7 +739,8 @@
     "coordinates":["31.1499528, -81.4914894"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-81.4914894, 31.1499528]},\"properties\":{\"placename\":\"United States, Georgia, Glynn County, Brunswick\"}}"],
     "placename":["United States, Georgia, Glynn County, Brunswick"],
-    "counties_facet":["Morgan","Murray","Muscogee","Oconee","Oglethorpe","Peach","Pierce","Pike","Pulaski","Putnam","Quitman","Rabun","Richmond","Rockdale","Screven","Seminole"]
+    "counties_facet":["Morgan","Murray","Muscogee","Oconee","Oglethorpe","Peach","Pierce","Pike","Pulaski","Putnam","Quitman","Rabun","Richmond","Rockdale","Screven","Seminole"],
+    "institution_slug_sms":["brunswicklib"]
   },
   {
     "id":"dlg_vsbg_jaj111",
@@ -774,7 +816,8 @@
     "coordinates":["31.1499528, -81.4914894"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-81.4914894, 31.1499528]},\"properties\":{\"placename\":\"United States, Georgia, Glynn County, Brunswick\"}}"],
     "placename":["United States, Georgia, Glynn County, Brunswick"],
-    "counties_facet":["Atkinson","Coffee","Columbia","Coweta","Crawford","Dade","Dawson","Chattooga","Clarke","Colquitt","Cook","Crisp","Dooly","Echols"]
+    "counties_facet":["Atkinson","Coffee","Columbia","Coweta","Crawford","Dade","Dawson","Chattooga","Clarke","Colquitt","Cook","Crisp","Dooly","Echols"],
+    "institution_slug_sms":["brunswicklib"]
   },
   {
     "id":"dlg_vsbg_jaj022",
@@ -860,6 +903,7 @@
     "coordinates":["31.1499528, -81.4914894"],
     "geojson":["{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-81.4914894, 31.1499528]},\"properties\":{\"placename\":\"United States, Georgia, Glynn County, Brunswick\"}}"],
     "placename":["United States, Georgia, Glynn County, Brunswick"],
-    "counties_facet":["Evans","Franklin","Glascock","Glynn","Grady","Haralson","Heard","Baldwin","Berrien","Butts","Candler","Catoosa","Tift","Troup","Walker","Webster","White","Wilcox","Appling","Douglas","Elbert","Effingham","Dodge","Dougherty","Decatur","Early","Emanuel","DeKalb"]
+    "counties_facet":["Evans","Franklin","Glascock","Glynn","Grady","Haralson","Heard","Baldwin","Berrien","Butts","Candler","Catoosa","Tift","Troup","Walker","Webster","White","Wilcox","Appling","Douglas","Elbert","Effingham","Dodge","Dougherty","Decatur","Early","Emanuel","DeKalb"],
+    "institution_slug_sms":["brunswicklib"]
   }
 ]

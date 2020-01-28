@@ -8,7 +8,7 @@ class RecordsController < CatalogController
   include BlacklightRangeLimit::ControllerOverride
   helper BlacklightAdvancedSearch::RenderConstraintsOverride
 
-  rescue_from Blacklight::Exceptions::RecordNotFound do |e|
+  rescue_from Blacklight::Exceptions::RecordNotFound do |_|
     redirect_to '/404'
   end
 
@@ -79,9 +79,11 @@ class RecordsController < CatalogController
     # config.add_sort_field 'created_at_dts desc', label: I18n.t('search.sort.newest')
     config.add_sort_field 'class_name_ss asc, title_sort asc', label: I18n.t('search.sort.collections_first')
 
-    # define search fields
-    # title
+    ## define search fields
+
+    # id
     config.add_search_field('record_id') do |field|
+      field.include_in_simple_select = false
       field.label = I18n.t('search.labels.record_id')
       field.solr_local_parameters = {
         qf: 'record_id_ss^50000',
@@ -90,6 +92,7 @@ class RecordsController < CatalogController
     end
     # title
     config.add_search_field('title') do |field|
+      field.include_in_simple_select = false
       field.label = I18n.t('search.labels.dcterms_title')
       field.solr_local_parameters = {
         qf: 'title_unstem_search^1000 dcterms_title_text^50',
@@ -98,6 +101,7 @@ class RecordsController < CatalogController
     end
     # description
     config.add_search_field('description') do |field|
+      field.include_in_simple_select = false
       field.label = I18n.t('search.labels.dcterms_description')
       field.solr_local_parameters = {
         qf: 'description_unstem_search^1000 dcterms_description_text^50',
@@ -106,6 +110,7 @@ class RecordsController < CatalogController
     end
     # collection title
     config.add_search_field('collection_name') do |field|
+      field.include_in_simple_select = false
       field.label = I18n.t('search.labels.collection')
       field.solr_local_parameters = {
         qf: 'collection_titles_unstem_search^1000 collection_titles_text^50',
@@ -114,6 +119,7 @@ class RecordsController < CatalogController
     end
     # creator
     config.add_search_field('creator') do |field|
+      field.include_in_simple_select = false
       field.label = I18n.t('search.labels.dcterms_creator')
       field.solr_local_parameters = {
         qf: 'creator_unstem_search^1000 dcterms_creator_text^500',
@@ -122,6 +128,7 @@ class RecordsController < CatalogController
     end
     # subject
     config.add_search_field('subject') do |field|
+      field.include_in_simple_select = false
       field.label = I18n.t('search.labels.dcterms_subject')
       field.solr_local_parameters = {
         qf: 'subject_unstem_search^1000 subject_personal_unstem_search^1000 dcterms_subject_text^50 dlg_subject_personal_text^50',
@@ -130,6 +137,7 @@ class RecordsController < CatalogController
     end
     # provenance
     config.add_search_field('provenance') do |field|
+      field.include_in_simple_select = false
       field.label = I18n.t('search.labels.dcterms_provenance')
       field.solr_local_parameters = {
         qf: 'dcterms_provenance_unstem_search^1000 dcterms_provenance_text^50',
@@ -138,6 +146,7 @@ class RecordsController < CatalogController
     end
     # place
     config.add_search_field('spatial') do |field|
+      field.include_in_simple_select = false
       field.label = I18n.t('search.labels.dcterms_spatial')
       field.solr_local_parameters = {
         qf: 'spatial_unstem_search^1000 dcterms_spatial_text^50',
@@ -188,6 +197,15 @@ class RecordsController < CatalogController
   end
 
   add_show_tools_partial :reuse, partial: 'reuse'
+  add_show_tools_partial :fulltext_download, partial: 'fulltext_download'
+
+  def fulltext
+    _, @document = fetch params[:solr_document_id]
+    respond_to do |format|
+      format.text
+      format.json { render json: { fulltext: @document.fulltext } }
+    end
+  end
 
   def collection?(_, doc)
     doc['class_name_ss'] == 'Collection'

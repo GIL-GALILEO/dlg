@@ -8,12 +8,12 @@ feature 'Advanced Searching' do
       visit blacklight_advanced_search_engine.advanced_search_path
     end
     scenario 'clicking search performs a search' do
-      fill_in 'all_fields', with: ''
+      fill_in 'metadata', with: ''
       find('#advanced-search-submit').click
       expect(page).to have_css('.document')
     end
     scenario 'entering a query and clicking search returns results' do
-      fill_in 'all_fields', with: 'map'
+      fill_in 'metadata', with: 'map'
       find('#advanced-search-submit').click
       expect(page).to have_css('.document')
     end

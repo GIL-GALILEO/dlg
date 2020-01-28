@@ -3,7 +3,9 @@
 # Class to wrap Meta API V2
 class MetaApiV2
   include HTTParty
-  base_uri 'https://dlgadmin.galileo.usg.edu/api/v2'
+  base_uri Rails.application.secrets.meta_api_url
+
+  DEFAULT_QUERY_PARAMS = { portal: 'georgia' }.freeze
 
   def initialize
     @options = {
@@ -31,27 +33,37 @@ class MetaApiV2
     get "/collections/#{id}"
   end
 
+  def collection_resource(collection_id, resource_slug)
+    get "/collections/#{collection_id}/resource/#{resource_slug}"
+  end
+
   private
 
   def get(url, options = params)
-    OpenStruct.new self.class.get(url, options).parsed_response
-  rescue StandardError
-    nil
+    data = self.class.get(url, options).parsed_response
+    data.present? ? OpenStruct.new(data) : nil
+  rescue StandardError => e
+    # TODO: is this right? test this case
+    OpenStruct.new
   end
 
   def get_many(url, options = params)
-    response = self.class.get(url, options)
-    return [] unless response.code == 200
-    response.parsed_response.map do |entity|
-      OpenStruct.new entity
+    response = self.class.get(url, options).parsed_response
+    if response.present?
+      response.map do |entity|
+        OpenStruct.new entity
+      end
+    else
+      nil
     end
-  rescue StandardError
+  rescue StandardError => e
     []
   end
 
-  def params(query = nil)
+  def params(query = {})
     options = @options
-    options[:query] = query
+    options[:query] = query.merge(DEFAULT_QUERY_PARAMS)
+                           .reject { |_, v| v.blank? }
     options
   end
 end

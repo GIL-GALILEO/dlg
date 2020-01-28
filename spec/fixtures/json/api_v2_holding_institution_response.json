@@ -1,0 +1,22 @@
+{
+  "id":1,
+  "authorized_name":"Institution Name",
+  "short_description":"Institution Description",
+  "description":"Long Institution Description",
+  "image":{"url":"/uploads/holding_institution/1/image/record_image.gif"},
+  "homepage_url":"https://institution.com",
+  "coordinates":"31.000000, -80.000000",
+  "strengths":"Strengths",
+  "public_contact_address":"Public Address",
+  "institution_type":"Type",
+  "galileo_member":true,
+  "created_at":"2019-01-01T12:00:00.000-04:00",
+  "updated_at":"2019-01-01T12:00:00.000-04:00",
+  "parent_institution":"Parent Institution",
+  "display_name":"Display Institution Name",
+  "slug":"institution-slug",
+  "public":true,
+  "public_contact_email":"public_contact@institution.com",
+  "public_contact_phone":"(111) 123-4567",
+  "public_collections":[]
+}
