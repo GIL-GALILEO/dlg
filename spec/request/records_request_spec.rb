@@ -15,7 +15,7 @@ RSpec.describe 'JSON Endpoint', type: :request do
     end
     context 'included fields' do
       before :each do
-        get '/records.json?search_field=id&q=gaarchives_cmf_70'
+        get '/records.json?search_field=record_id&q=gaarchives_cmf_70'
         @body = JSON.parse(response.body)
       end
       it 'returns record edm_is_shown_* values' do
