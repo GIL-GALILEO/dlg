@@ -1,0 +1,29 @@
+<%# total_item_count = inst.public_collections.collect { |v| v['collection_institution_item_count'] }.inject(0, :+) %>
+<div class="panel panel-default institution-panel">
+  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= num %>" aria-expanded="true" aria-controls="collapse<%= num %>">
+    <div class="panel-heading" role="tab" id="heading<%= num %>">
+      <h3 class="panel-title"><%= inst.authorized_name %></h3> <span class="badge"><%= number_with_delimiter(inst['item_count']) %> Items</span>
+    </div>
+  </a>
+  <div id="collapse<%= num %>" class="panel-body panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= num %>">
+    <div class="row">
+      <div class="col-md-12 mb-10">
+        <%= inst.short_description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <a class="btn btn-primary text-center" href="<%= institution_results_link(inst.authorized_name) %>">Show All Items</a>
+        <a class="btn btn-primary text-center" href="<%= institution_path(inst.slug) %>">More About This Institution</a>
+        <% if inst.homepage_url %><a class="btn btn-primary text-center" href="<%= inst.homepage_url %>">Visit Partner Site</a><% end %>
+      </div>
+    </div>
+    <ul class="list-group">
+      <% inst.public_collections.each do |c| %>
+        <li class="list-group-item">
+          <a href="<%= collection_home_path(c['record_id']) %>"><%= c['display_title'] %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

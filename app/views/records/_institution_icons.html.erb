@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-12 text-center holding-institution-logos">
+  <% if @collection.holding_institutions&.any? %>
+    <% @collection.holding_institutions.each do |inst| %>
+      <img class="holding-institution-logo" src="<%= cache_server_image_link(inst['image']['url']) %>" alt="<% inst['display_name'] %>">
+    <% end %>
+  <% else %>
+      <img class="holding-institution-logo" src="<%= cache_server_image_link(@collection.holding_institution_image) %>" alt="<% @collection.dcterms_provenance.first %>">
+  <% end %>
+  </div>
+</div>
+

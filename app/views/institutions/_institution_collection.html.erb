@@ -1,0 +1,19 @@
+<div id="collections-list">
+  <h3><%= t('institution.collection_info') %></h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('institution.collections.name') %></th>
+      <th><%= t('institution.collections.description') %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @institution.public_collections.each do |collection| %>
+      <tr>
+        <td><%= link_to collection['display_title'], collection_home_path(collection['record_id']) %></td>
+        <td><%= strip_tags collection['short_description'] %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

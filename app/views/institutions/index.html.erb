@@ -1,0 +1,44 @@
+<% content_for(:page_title) { "#{t('titles.institutions')} - #{application_name}" } %>
+<main role="main">
+  <section id="institutions">
+    <div class="container">
+      <h2>Institutions</h2>
+      <div class="row">
+        <%= render 'letter_nav' %>
+        <div class="col-sm-12 sort-pagination">
+          <div class="row">
+            <div class="col-sm-6">
+              <%#= render 'sort_and_filter' %>
+            </div>
+            <div class="col-sm-6">
+              <%= render 'pagination' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <% if @institutions %>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+            <% @institutions.each_with_index do |inst, i| %>
+              <%= render 'institution', num: i, inst: inst %>
+            <% end %>
+            </div>
+          <% else %>
+            No Institutions to display
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 sort-pagination">
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6">
+              <%= render 'pagination' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

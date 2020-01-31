@@ -1,0 +1,10 @@
+<div class="bs-callout bs-callout-info sponsor-info">
+  <div class="col-md-3 col-sm-12">
+    <%= image_tag cache_server_image_link(@collection.sponsor_image['url']), class: 'img-responsive sponsor-image', alt: 'Sponsor Image' %>
+  </div>
+  <div class="col-md-9 col-sm-12">
+    <p>
+      <%= @collection.sponsor_note.html_safe %>
+    </p>
+  </div>
+</div>

@@ -5,6 +5,7 @@ en:
     search:
       start_over: 'Clear All'
       new_search: 'New Search'
+      new_search_in: 'New Search in this Collection'
   support:
     array:
       words_connector: "<br> "
@@ -94,12 +95,14 @@ en:
   search:
     bar:
       placeholder:
-        default: 'Search All Items'
-        collections: 'Search for Collections'
-        collection: 'Search Items in %{collection}'
+        default: 'for...'
+        collections: 'in Collections'
+        collection: 'in %{collection}'
+        institution: 'in %{institution}'
     index:
       truncated_field: '..(more)'
       collection_label: 'Collection'
+      has_fulltext: 'Full Text'
     facets:
       provenance: 'Holding Institution'
       publisher: 'Publisher'
@@ -128,6 +131,9 @@ en:
         count: 'Sort by Count'
     labels:
       record_id: 'Record ID'
+      both: 'Records and Full text'
+      metadata: 'Records'
+      fulltext: 'Full Text'
       collection: 'Collection'
       dcterms_provenance: 'Holding Institution'
       dcterms_title: 'Title'
@@ -205,6 +211,14 @@ en:
     institutions: 'Institutions'
     collections: 'All Collections - %{application_name}'
     map: "Map - %{application_name}"
+  institution:
+    url: 'Visit Partner Site'
+    collection_info: 'Collections'
+    all_items: 'Show All Items'
+    collections:
+      name: 'Name'
+      description: 'Description'
+      items: 'Number of Items'
   collection:
     header: 'Collections'
     info_box_title: 'Collection Information'
@@ -225,6 +239,7 @@ en:
     external_link: 'View at Partner Site'
     tools:
       reuse: 'Reuse Information'
+      download_text: 'Download Text'
       citation:
         title: 'Citations'
         field_value_unavailable: 'Not Available'
@@ -240,6 +255,11 @@ en:
     refine_items: 'Refine Info'
     refine_collections: 'Refine Info'
     map: 'Map Search Tips'
+    search_bar:
+      modal_help_title: 'Searching Help'
+      both: 'Select "Records and Full text" to search both the metadata and available full text.'
+      records: 'Select "Records" to search only metadata for items. (All items have metadata.)'
+      full_text: 'Select "Full text" to search only the scanned or transcribed text for items. (Not all items have full text)'
     facets:
       creator: 'Creator of the physical object'
       subject: 'The topics a record is about in Library of Congress Subject Heading form'
@@ -254,6 +274,10 @@ en:
       provenance: 'The name of the institution that holds the physical item'
       time_period: 'Records from time periods relevant to Georgia history'
       topic: 'Records about popular topics in Georgia history'
+  feedback:
+    feature_feedback_button:
+      label: 'Comments?'
+      popup_text: "You're seeing some of our latest new features. Please let us know if you have comments or feedback to help us refine these new features."
 
 
 

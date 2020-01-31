@@ -15,6 +15,24 @@
 @import 'blacklight_range_limit/blacklight_range_limit';
 @import "openseadragon/openseadragon";
 
+#location-map {
+  height: 300px;
+  width: 300px;
+}
+
+.nav-tabs-justified>.active>a, .nav-tabs.nav-justified>.active>a, .nav-tabs-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs-justified>.active>a:focus, .nav-tabs.nav-justified>.active>a:focus {
+  border: 1px solid $dlg-blue;
+  border-bottom: none;
+}
+
+.nav-tabs.nav-justified>li>a {
+  border: none;
+}
+
+.nav-tabs.nav-justified>li>a:hover {
+  border-color: transparent transparent $dlg-blue!important;
+}
+
 .top-banner {
   text-align: center;
   background: $dlg-blue;
@@ -24,6 +42,18 @@
   a {
     color: #fff;
   }
+}
+
+.fulltext-content {
+  color: #000 !important;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
 }
 
 .record-show-link {
@@ -308,7 +338,6 @@ ul.social-icons {
 }
 
 .nav-tabs {
-  min-width: 500px;
   border-width: 2px!important;
   a {
     color: #333;
@@ -377,6 +406,41 @@ section#counties {
   }
 }
 
+/* Callout styles */
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-top-width: 5px;
+  border-radius: 3px;
+  overflow: hidden;
+  font-size: 12px;
+  border-top-color: $dlg-blue; }
+
+.bs-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px; }
+
+.bs-callout p:last-child {
+  margin-bottom: 0; }
+
+.bs-callout + .bs-callout {
+  margin-top: -5px; }
+
+.holding-institution-logo {
+  width: 150px;
+  text-align: center;
+  margin-bottom: 20px; }
+
+section#holding_institution {
+  dl {
+    margin: 30px 0 20px 0; }
+  dl dd {
+    margin-bottom: 10px; }
+  img {
+    display: inline; }
+}
+
 section#institutions {
   .az_nav {
     background: $dlg-lightbrown;
@@ -418,7 +482,6 @@ section#institutions {
     }
   }
 
-
   #accordion {
     .panel-default {
       border-color: $dlg-mediumbrown;
@@ -454,7 +517,7 @@ section#institutions {
         break-inside: avoid-column;
         padding: 10px !important;
       }
-      li.list-group-item:nth-child(even) {
+      li.list-group-item:nth-child(odd) {
         background: #f3f3f3;
       }
     }
@@ -463,6 +526,11 @@ section#institutions {
       h3 {
         line-height: 1.2;
         margin-bottom: 5px;
+      }
+      p {
+        margin-bottom: 0;
+        margin-top: 5px;
+        color: #000;
       }
     }
   }
@@ -518,6 +586,11 @@ section#institutions {
   body {
     margin-bottom: $height-footer;
   }
+
+  .nav-tabs-justified>li>a, .nav-tabs.nav-justified>li>a {
+    border-bottom: 1px solid $dlg-blue;
+  }
+
   section#counties {
     ul.counties-list {
       -moz-column-count: 3;
@@ -638,7 +711,7 @@ section#institutions {
       float: right;
     }
   }
-  /* this is in the app itself.. adding for local development 
+  /* this is in the app itself.. adding for local development
    *
    */
   .facets-toggle {
@@ -742,3 +815,17 @@ section#institutions {
     }
   }
 }
+
+.searchbox {
+  position: relative;
+  padding-left: 40px; }
+.searchbox a {
+  color: #fff; }
+.searchbox .glyphicon {
+  position: absolute;
+  left: 10px;
+  top: 13px;
+  font-size: 1.5em; }
+
+.has-fulltext {
+  color: #0E8893; }

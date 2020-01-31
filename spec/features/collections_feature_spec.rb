@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 feature 'Collections' do
+  include ApiV2Helpers
+
   context 'collection search page' do
     before(:each) { visit search_collections_path }
     context 'search bar' do
@@ -39,15 +41,56 @@ feature 'Collections' do
     end
   end
   context 'collection home page' do
-    before(:each) { visit collection_home_path('dlg_ugahistory') }
+    before(:each) do
+      stub_collection_request
+      visit collection_home_path 'dlg_vsbg'
+    end
     context 'results list' do
-      scenario 'includes items based on other_collection values' do
-        expect(page).to have_text 'chapter of child health'
+      # check that items that are members of a collection via the
+      # 'other_collection' values in DLG Admin are included in search results
+      # that limit based on collection_titles_sms. see models/records_search
+      scenario 'includes items based on other_collection values', js: true do
+        expect(page).to have_text 'Map of Dade County'
+      end
+    end
+    context 'sponsor information' do
+      scenario 'shows sponsor message' do
+        within '.sponsor-info' do
+          expect(page).to have_text 'Sponsor Note'
+        end
+      end
+      scenario 'shows sponsor image', js: true do
+        within '.sponsor-info' do
+          image = find('.sponsor-image')
+          expect(image[:src]).to include '/uploads/collection/1/sponsor_image/record_image.jpg'
+        end
+      end
+    end
+    context 'more about panel' do
+      scenario 'shows field label only if value is set' do
+        within '.collection-metadata-panel' do
+          click_on 'More About This Collection'
+          expect(page).to have_text 'Long description'
+          expect(page).not_to have_text 'Original Collection'
+        end
+      end
+    end
+    context 'resources panel', js: true do
+      scenario 'lists links to provided resources' do
+        within '.resources-panel' do
+          click_on 'Additional Resources'
+          expect(page).to have_link('One', href: '/collections/dlg_vsbg/one')
+          expect(page).to have_link('Two', href: '/collections/dlg_vsbg/two')
+        end
       end
     end
     context 'search bar' do
-      scenario 'has a placeholder indicating it searches over the collection Collections' do
-        expect(page).to have_css("input[placeholder=\"#{I18n.t('search.bar.placeholder.collection', collection: "Documents from UGA's History")}\"]")
+      scenario 'has a placeholder indicating it searches over the collection' do
+        placeholder_text = I18n.t(
+          'search.bar.placeholder.collection',
+          collection: 'Liberty Ships'
+        )
+        expect(page).to have_css("input[placeholder='#{placeholder_text}']")
       end
     end
   end

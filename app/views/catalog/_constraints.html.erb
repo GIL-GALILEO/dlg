@@ -2,6 +2,9 @@
   <div id="appliedParams" class="clearfix constraints-container">
     <div class="pull-right">
       <div class="btn-group" role="group" aria-label="Search Options">
+        <% if @collection %>
+          <%= link_to t('blacklight.search.new_search_in'), collection_home_path(@collection.try(:record_id)), class: 'btn btn-text btn-sm' %>
+        <% end %>
         <%= link_to t('blacklight.search.new_search'), search_path, class: 'btn btn-text btn-sm' %>
         <%= link_to t('blacklight.search.start_over'), start_over_path, class: 'catalog_startOverLink btn btn-text btn-sm', id: 'startOverLink' %>
       </div>
