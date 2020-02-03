@@ -10,12 +10,12 @@ $(document).on('turbolinks:load', function() {
             // TODO: update URL and add page param
             // var newUrl = url.split("#")[0] + page;
             // history.replaceState(null, null, newUrl);
+    });
 
-            // support IIIF image download
-            $('#download-page').click(function(e) {
-                url = viewer.tileSources[viewer.currentPage()];
-                var dl_url = url + '/full/full/0/default.jpg';
-                window.open(dl_url);
-            });
+    // support IIIF image download
+    $('#download-page').click(function(e) {
+        url = viewer.tileSources[viewer.currentPage()];
+        var dl_url = url + '/full/full/0/default.jpg';
+        window.open(dl_url);
     });
 });

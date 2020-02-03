@@ -33,10 +33,9 @@
       </div>
       <% if @document.public_domain? %>
       <div class="btn-group btn-group-sm" role="group" aria-label="Image download controls">
-        <button class="btn btn-primary" type="button" id="download-page" data-iiif-id="<%= iiif_manifest_urls.first %>">
+        <button class="btn btn-primary" type="button" id="download-page">
           <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
           Download
-          <span class="sr-only">Download</span>
         </button>
       </div>
       <% end %>
