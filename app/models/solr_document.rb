@@ -124,6 +124,6 @@ class SolrDocument
   end
 
   def public_domain?
-    PUBLIC_DOMAIN_DC_RIGHTS.include? self['dc_right_display']
+    PUBLIC_DOMAIN_DC_RIGHTS.include? self['dc_right_display'][0]
   end
 end

@@ -322,7 +322,7 @@
     "dcterms_spatial_text":["United States, Georgia, Decatur County, 30.8783441, -84.5790702"],
     "dcterms_spatial_display":["United States, Georgia, Decatur County, 30.8783441, -84.5790702"],
     "dc_format_display":["image/jpeg"],
-    "dc_right_display":["http://rightsstatements.org/vocab/CNE/1.0/"],
+    "dc_right_display":["http://rightsstatements.org/vocab/NoC-US/1.0/"],
     "dc_relation_display":["County Maps"],
     "dcterms_type_display":["StillImage"],
     "dcterms_medium_display":["Maps"],
