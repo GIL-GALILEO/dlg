@@ -31,6 +31,15 @@
           <span class="sr-only">Reset View</span>
         </button>
       </div>
+      <% if @document.public_domain? %>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Image download controls">
+        <button class="btn btn-primary" type="button" id="download-page" data-iiif-id="<%= iiif_manifest_urls.first %>">
+          <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+          Download
+          <span class="sr-only">Download</span>
+        </button>
+      </div>
+      <% end %>
       <div class="osd-page-count text-right">
         Page <span id="osd-page-number" class="badge">1</span> of <span class="badge"><%= @document.iiif_ids.length %></span>
       </div>
@@ -46,7 +55,7 @@
               homeButton: 'osd-reset',
               fullPageButton: 'osd-full-screen',
               nextButton: 'osd-next-page',
-              previousButton: 'osd-previous-page'
+              previousButton: 'osd-previous-page',
           }}}
       )
   %>
