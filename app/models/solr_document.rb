@@ -15,6 +15,12 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
 
+  PUBLIC_DOMAIN_DC_RIGHTS = %w[
+    http://rightsstatements.org/vocab/NKC/1.0/
+    http://rightsstatements.org/vocab/NoC-US/1.0/
+    https://creativecommons.org/publicdomain/zero/1.0/
+  ].freeze
+
   field_semantics.merge!(
     contributor: 'dcterms_contributor_display',
     coverage: 'dcterms_spatial_display',
@@ -115,5 +121,9 @@ class SolrDocument
 
   def collection_id
     self[:collection_record_id_sms]&.first
+  end
+
+  def public_domain?
+    PUBLIC_DOMAIN_DC_RIGHTS.include? self['dc_right_display']
   end
 end
