@@ -26,6 +26,9 @@ bundler_audit:
 # Setup PG and Solr containers to support test runner
 setup_db_solr:
   stage: setup_db_solr
+  except:
+    - prod
+    - staging
   script:
     - docker network create dlg_testing_${CI_PIPELINE_ID}
     - docker run -d --name solr_${CI_PIPELINE_ID} --expose 8983 -v `pwd`:/data -w /data --network dlg_testing_${CI_PIPELINE_ID} --network-alias=solr --entrypoint "/bin/bash" solr:6 /data/provision/solr-entrypoint.sh
@@ -37,6 +40,9 @@ setup_db_solr:
 # Setup Web container to run RSpec tests
 setup_web_and_test:
   stage: setup_web_and_test
+  except:
+    - prod
+    - staging
   script:
     - /deploy/scripts/start_dlg_test.sh
     - docker run -d --name web_${CI_PIPELINE_ID} -v `pwd`:/code -w /code --network dlg_testing_${CI_PIPELINE_ID} --network-alias=web --entrypoint "/bin/bash" ruby:2.4.5 /code/provision/web-entrypoint.sh && docker attach web_${CI_PIPELINE_ID}
@@ -47,6 +53,9 @@ setup_web_and_test:
 # Teardown containers on shell runner
 deconstruct:
   stage: deconstruct
+  except:
+    - prod
+    - staging
   script:
     - docker rm -f solr_${CI_PIPELINE_ID} db_${CI_PIPELINE_ID} web_${CI_PIPELINE_ID}
     - docker network rm dlg_testing_${CI_PIPELINE_ID}
