@@ -5,12 +5,16 @@ stages:
   - deconstruct
   - deploy_staging
   - deploy_production
-  - manual_actions
+  - push
 
 # Dependency Scan
 # Run Bundler Audit on the gemfile for staging/master deployment
 bundler_audit:
   stage: dependency_scan
+    only:
+    - staging
+    - prod
+    - master
   script:
     - bundle audit check --update
   environment:
@@ -50,6 +54,22 @@ deconstruct:
   tags:
     - shell
 
+# Staging Push
+# Automatic job to push the last commit to master to staging
+push_to_staging:
+  stage: push
+  only:
+    - master
+  script:
+    - git clone -n https://gitlab.galileo.usg.edu/DLG/dlg.git /tmp/dlg_${CI_PIPELINE_ID}
+    - cd /tmp/dlg_${CI_PIPELINE_ID}
+    - git checkout ${CI_COMMIT_SHA} 
+    - sudo -H -u pushbot git push origin HEAD:staging 
+    - cd /tmp
+    - rm -rf /tmp/dlg_${CI_PIPELINE_ID}
+  tags:
+    - shell 
+
 # Deploy To Staging
 # This job copies app code and secrets to staging machine, installs gems,
 # runs any database migrations, deploys assets and restarts passenger.
@@ -69,13 +89,30 @@ deploy_to_staging:
   tags:
     - dlg-staging-shell
 
+# Production push
+# Manual job to push the staging server code to production
+push_to_prod:
+  stage: push
+  only:
+    - staging
+  when: manual
+  script:
+    - git clone -n https://gitlab.galileo.usg.edu/DLG/dlg.git /tmp/dlg_${CI_PIPELINE_ID}
+    - cd /tmp/dlg_${CI_PIPELINE_ID}
+    - git checkout ${CI_COMMIT_SHA} 
+    - sudo -H -u pushbot git push origin HEAD:prod 
+    - cd /tmp
+    - rm -rf /tmp/dlg_${CI_PIPELINE_ID}
+  tags:
+    - shell 
+
 # Deploy To Production
 # This job copies app code and secrets to PRODUCTION machine, installs gems,
 # runs any database migrations, deploys assets and restarts passenger.
 deploy_to_production:
   stage: deploy_production
   only:
-    - master
+    - prod
   script:
     - cd /deploy/DLG/dlg
     - git pull
@@ -87,30 +124,3 @@ deploy_to_production:
     name: production
   tags:
     - dlg-prod-shell
-
-# Restart Passenger on Staging
-restart_passenger_staging:
-  stage: manual_actions
-  only:
-    - staging
-  script:
-    - passenger-config restart-app /app/dlg
-  when: manual
-  environment:
-    name: staging
-  tags:
-    - dlg-staging-shell
-
-# Restart Passenger on Production
-restart_passenger_prod:
-  stage: manual_actions
-  only:
-    - master
-  script:
-    - passenger-config restart-app /app/dlg
-  when: manual
-  environment:
-    name: production
-  tags:
-    - dlg-prod-shell
-
