@@ -12,9 +12,9 @@ stages:
 bundler_audit:
   stage: dependency_scan
     only:
-    - staging
-    - prod
-    - master
+      - staging
+      - prod
+      - master
   script:
     - bundle audit check --update
   environment:
