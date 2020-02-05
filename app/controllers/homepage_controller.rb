@@ -15,14 +15,25 @@ class HomepageController < CatalogController
   private
 
   def set_features
-    @carousel_features = MetaApiV2.new.features type: 'carousel', count: 5
+    @carousel_features = Rails.cache.fetch(
+      'carousel_features',
+      expires_in: 5.minutes
+    ) do
+      MetaApiV2.new.features type: 'carousel', count: 5
+    end
     @tabs_features = sorted_tabs
+
   end
 
   def sorted_tabs
-    sorted = {}
-    sorted[:secondary] = []
-    MetaApiV2.new.features(type: 'tab', count: 4).each do |f|
+    sorted = { secondary: [] }
+    tabs_features = Rails.cache.fetch(
+      'tabs_features',
+      expires_in: 5.minutes
+    ) do
+      MetaApiV2.new.features(type: 'tab', count: 4)
+    end
+    tabs_features.each do |f|
       if f.primary
         sorted[:primary] = f
       else
