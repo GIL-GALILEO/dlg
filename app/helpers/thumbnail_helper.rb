@@ -101,6 +101,6 @@ module ThumbnailHelper
   def iiif_thumbnail_url(document)
     iiif_prefix = Rails.application.secrets.iiif_prefix
     id = document.iiif_ids.first
-    iiif_prefix + id + '/full/150,/0/default.jpg'
+    iiif_prefix + id + '/full/!200,200/0/default.jpg'
   end
 end

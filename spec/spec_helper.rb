@@ -21,7 +21,7 @@ RSpec.configure do |config|
 
   WebMock.disable_net_connect!(
     # allow solr calls in CI
-    allow: 'solr',
+    allow: %w[solr dlg.usg.edu],
     # allow localhost in dev/test
     allow_localhost: true
   )
