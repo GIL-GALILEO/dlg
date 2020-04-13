@@ -22,8 +22,6 @@ module ThumbnailHelper
   def item_thumb_url(document)
     if sound_type_item?(document)
       asset_path 'file-audio.png'
-    elsif document.iiif_ids&.any?
-      iiif_thumbnail_url(document)
     else
       "https://dlg.galileo.usg.edu/#{document['repository_slug_ss']}/#{document['collection_slug_ss']}/do-th:#{document['slug_ss']}"
     end
@@ -95,12 +93,5 @@ module ThumbnailHelper
   def sound_type_item?(document)
     document.types&.include?('Sound') &&
       document.item?
-  end
-
-  # use IIIF to generate a thumbnail image if IIIF IDs are provided
-  def iiif_thumbnail_url(document)
-    iiif_prefix = Rails.application.secrets.iiif_prefix
-    id = document.iiif_ids.first
-    iiif_prefix + id + '/full/!200,200/0/default.jpg'
   end
 end
