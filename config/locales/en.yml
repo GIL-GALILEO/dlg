@@ -153,6 +153,7 @@ en:
       dc_right: 'Rights'
       dcterms_rights_holder: 'Rights Holder'
       dcterms_bibliographic_citation: 'Bibliographic Citation (Cite As)'
+      dcterms_extent: 'Extent'
       dlg_local_right: 'Additional Rights Information'
       dcterms_type: 'Type'
       dcterms_medium: 'Medium'
